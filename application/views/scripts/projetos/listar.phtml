@@ -1,0 +1,63 @@
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Nome</td>
+        <td>Descrição</td>
+        <td>Data Início</td>
+        <td>Data Fim(Previsão)</td>
+        <td>Data Fim</td>
+        <td>Repositório</td>
+        <td>Gerente</td>
+    </tr>
+    <?php
+    foreach ($this->projetos as $projeto):
+    ?>
+    <tr>
+        <td><?= $projeto->idprojeto ?></td>
+        <td><?= $projeto->nomeprojeto ?></td>
+        <td><?= $projeto->descricao ?></td>
+        <td><?= $projeto->datainicioprojeto ?></td>
+        <td><?= $projeto->dataprevfim ?></td>
+        <td><?= $projeto->datafim ?></td>
+        <td>
+            <a href="<?= $projeto->findParentRepositorios()->endereco ?>">
+            <?= $projeto->findParentRepositorios()->endereco ?>
+            </a>
+        </td>
+        <td><?= $projeto->nomeusuario ?></td>
+                
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'editar', 
+                                  'id' => $projeto->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Editar">Editar
+        </a>
+        </td>
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'remover', 
+                                  'id' => $projeto->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Remover">Remover
+        </a>
+        </td>
+    </tr>
+    <?php
+    endforeach;
+    ?>
+</table>
+<a href="
+    <?php 
+    echo $this->url(array('controller' => 'projetos', 'action' => 'novo')); 
+    ?>" 
+    title="Novo projeto">Novo projeto
+</a>
