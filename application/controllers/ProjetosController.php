@@ -7,7 +7,11 @@ class ProjetosController extends Zend_Controller_Action
     private $repositorio;
     private $trabalhaEm;
     private $usuario;
+    private $tarefa = null;
+    private $realiza = null;
     private $vUsuarioProjeto;
+    private $vTarefaUsuario = null;
+    private $vRealiza = null;
     private $db;
 
     public function init()
@@ -16,7 +20,11 @@ class ProjetosController extends Zend_Controller_Action
         $this->repositorio = new Repositorios();
         $this->trabalhaEm = new TrabalhaEm();
         $this->usuario = new Usuarios();
+        $this->tarefa = new Tarefas();
+        $this->realiza = new Realiza();
         $this->vUsuarioProjeto = new VUsuarioProjeto();
+        $this->vTarefaUsuario = new VTarefaUsuario();
+        $this->vRealiza = new VRealiza();
         $this->db = Zend_Db_Table::getDefaultAdapter();
     }
 
@@ -133,6 +141,129 @@ class ProjetosController extends Zend_Controller_Action
         $this->_redirect('/usuarios/listar');
     }
 
+    public function listarTarefasAction()
+    {
+        $this->view->tarefas = $this->vTarefaUsuario
+                ->fetchAll(
+                        $this->vTarefaUsuario->select()->order('idtarefa')
+                        );
+    }      
+    public function novaTarefaAction()
+    {
+        if ( !$this->_request->isPost() ){
+            $this->view->usuarios = $this->usuario->fetchAll();
+            $this->view->projetos = $this->projeto->fetchAll();
+        } 
+        else
+        {   
+            $dadosTarefa = array(
+                'idprojeto' => $this->_request->getPost('nomeproj'),
+                'nome' => $this->_request->getPost('nome'),
+                'descricao'   => $this->_request->getPost('descricao'),
+                'datainicio'  => $this->_request->getPost('dataInicio'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim'),
+                'prioridade' => $this->_request->getPost('prioridade')
+            );
+            
+            $dadosRealiza = array(
+                'idprojeto'  => $this->_request->getPost('nomeproj'),
+                'idusuario'  => $this->_request->getPost('responsavel'),
+                'tempo'      => '00:00:00',
+            );
+                        
+            $this->tarefa->insert($dadosTarefa);
+            
+            $dadosRealiza['idtarefa'] = $this->db->lastInsertId('tarefas', 'idtarefa');
 
+            $this->realiza->insert($dadosRealiza);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+
+    public function editarTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $idProjeto = (int) $this->_getParam('idprojeto'); 
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
+        }
+        else
+        {
+            $dadosTarefas = array(
+                'nome'     => $this->_request->getPost('nome'),
+                'descricao'    => $this->_request->getPost('descricao'),
+                'datainicio'      => $this->_request->getPost('dataInicio'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim'),
+                'prioridade' => $this->_request->getPost('prioridade')
+            );
+            
+            $idTarefa = $this->_request->getPost('idtarefa');
+            
+            $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+            
+            $this->tarefa->update($dadosTarefas, $whereTarefa);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+
+    public function removerTarefaAction(){
+        $idTarefa = (int) $this->_getParam('idtarefa');
+        $idProjeto = (int) $this->_getParam('idprojeto'); 
+        $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+
+        $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+        $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+
+        $this->realiza->delete($whereRealiza);
+        $this->tarefa->delete($whereTarefa);
+        
+        $this->_redirect('/projetos/listar-tarefas');
+    }
+
+    public function fecharTarefaAction(){
+        $dados = array(
+            'datafim' => date("Y-m-d")
+        );
+
+        $idTarefa = $this->_request->getParam('idtarefa');
+        $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa));
+        foreach ( $usuariosTarefas as $usuarioTarefa ){
+            $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $usuarioTarefa->idtarefa);
+            $this->realiza->update($dados, $whereRealiza);
+        }
+        $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+        
+        $this->tarefa->update($dados, $whereTarefa);
+        $this->_redirect('/projetos/listar-tarefas');
+    }
+
+    public function alocarUsuarioTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $usuarioProjeto = $this->vUsuarioProjeto->find($idProjeto);
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->vUsuarioProjeto  = $usuarioProjeto;
+            $this->view->tarefa  = $tarefa;        
+        }
+        else
+        {
+            $dadosRealiza = array(
+                'idtarefa'     => $this->_request->getPost('idtarefa'),
+                'idprojeto'     => $this->_request->getPost('idprojeto'),
+                'idusuario'    => $this->_request->getPost('usuario'),
+                'datainicio'      => date("Y-m-d"),
+                'tempo' => '00:00:00'
+            );
+            
+            $this->realiza->insert($dadosRealiza);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
 }
 

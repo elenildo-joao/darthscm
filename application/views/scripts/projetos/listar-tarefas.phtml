@@ -1,0 +1,92 @@
+<table border="1">
+    <tr>
+        <td>IdU</td>
+        <td>nome Usuario</td>
+        <td>idT</td>
+        <td>Nome Tarefa</td>
+        <td>Prioridade</td>
+        <td>Data fim</td>
+        <td>IdS</td>
+        <td>nome Super</td>
+        <td>Id Projeto</td>
+        <td>Nome Projeto</td>
+    </tr>
+    <?php
+    foreach ($this->tarefas as $tarefa):
+    ?>
+    <tr>
+        <td><?= $tarefa->idusuario ?></td>
+        <td><?= $tarefa->nomeusuario ?></td>
+        <td><?= $tarefa->idtarefa ?></td>
+        <td><?= $tarefa->nometarefa ?></td>
+        <td><?= $tarefa->prioridadetarefa ?></td>
+        <td><?= $tarefa->datafimtarefa ?></td>
+        <td><?= $tarefa->idsupertarefa ?></td>
+        <td><?= $tarefa->nomesupertarefa ?></td>
+        <td><?= $tarefa->idprojeto ?></td>
+        <td><?= $tarefa->nomeprojeto ?></td>
+
+     
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'editar-tarefa', 
+                                  'idtarefa' => $tarefa->idtarefa,
+                                  'idprojeto' => $tarefa->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Editar">Editar
+        </a>
+        </td>
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'remover-tarefa', 
+                                  'idtarefa'   => $tarefa->idtarefa,
+                                  'idprojeto'  => $tarefa->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Remover">Remover
+        </a>
+        </td>
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'fechar-tarefa', 
+                                  'idtarefa'   => $tarefa->idtarefa,
+                                  'idprojeto'  => $tarefa->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Fechar">Fechar
+        </a>
+        </td>
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'alocar-usuario-tarefa', 
+                                  'idtarefa'   => $tarefa->idtarefa,
+                                  'idprojeto'  => $tarefa->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Alocar">Alocar
+        </a>
+        </td>
+    </tr>
+    <?php
+    endforeach;
+    ?>
+</table>
+<a href="
+    <?php 
+    echo $this->url(array('controller' => 'projetos', 'action' => 'nova-tarefa'));
+        ?>" 
+    title="Nova tarefa">Nova tarefa
+</a>
