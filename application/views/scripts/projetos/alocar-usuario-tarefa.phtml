@@ -1,0 +1,10 @@
+<form action="alocar-usuario-tarefa" method="post">
+    <label>Nome do Usuario: 
+        <select id="usuario" name="usuario">
+            <?php 
+            foreach($this->vUsuarioProjeto as $usuarioProjeto)
+                echo "<option value=\"$usuarioProjeto->idusuario\">$usuarioProjeto->nomeusuario</option>";
+            ?>
+        </select>     
+    <input type="submit" value="Cadastrar" />
+</form>
