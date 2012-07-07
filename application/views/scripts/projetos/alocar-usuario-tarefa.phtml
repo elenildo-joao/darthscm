@@ -1,4 +1,6 @@
 <form action="alocar-usuario-tarefa" method="post">
+    <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
+    <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome do Usuario: 
         <select id="usuario" name="usuario">
             <?php 

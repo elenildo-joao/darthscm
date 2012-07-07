@@ -253,5 +253,31 @@ class ProjetosController extends Zend_Controller_Action
         $this->tarefa->update($dados, $whereTarefa);
         $this->_redirect('/projetos/listar-tarefas');
     }
+
+    public function alocarUsuarioTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $usuarioProjeto = $this->vUsuarioProjeto->find($idProjeto);
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->vUsuarioProjeto  = $usuarioProjeto;
+            $this->view->tarefa  = $tarefa;        
+        }
+        else
+        {
+            $dadosRealiza = array(
+                'idtarefa'     => $this->_request->getPost('idtarefa'),
+                'idprojeto'     => $this->_request->getPost('idprojeto'),
+                'idusuario'    => $this->_request->getPost('usuario'),
+                'datainicio'      => date("Y-m-d"),
+                'tempo' => '00:00:00'
+            );
+            
+            $this->realiza->insert($dadosRealiza);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
 }
 
