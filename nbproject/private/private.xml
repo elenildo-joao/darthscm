@@ -6,4 +6,10 @@
             <line>16</line>
         </file>
     </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/var/www/darthscm/tests/application/controllers/UserControllerTest.php</file>
+        <file>file:/var/www/darthscm/tests/application/ControllerTestCase.php</file>
+        <file>file:/var/www/darthscm/application/controllers/IndexController.php</file>
+        <file>file:/var/www/darthscm/tests/application/bootstrap.php</file>
+    </open-files>
 </project-private>
