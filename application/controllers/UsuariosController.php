@@ -6,6 +6,7 @@ class UsuariosController extends Zend_Controller_Action
     private $endereco;
     private $login;
     private $db;
+    private $validator;
 
     public function init()
     {
@@ -13,6 +14,7 @@ class UsuariosController extends Zend_Controller_Action
         $this->endereco = new Enderecos();
         $this->login = new Login();
         $this->db = Zend_Db_Table::getDefaultAdapter();
+        $this->validator = new Zend_Validate_EmailAddress();
     }
 
     public function indexAction()
@@ -51,6 +53,42 @@ class UsuariosController extends Zend_Controller_Action
                 'login' => $this->_request->getPost('login'),
                 'senha' => sha1('123')
             );
+            
+            if ( empty($dadosUsuario['nome'])         ||
+                 empty($dadosUsuario['email'])        ||
+                 empty($dadosUsuario['cpf'])          ||
+                 empty($dadosUsuario['datanasc'])     ||
+                 empty($dadosUsuario['telefone'])     ||
+                 empty($dadosUsuario['sexo'])         ||
+                 empty($dadosEndereco['rua'])         ||
+                 empty($dadosEndereco['num'])         ||
+                 empty($dadosEndereco['bairro'])      ||
+                 empty($dadosEndereco['cidade'])      ||
+                 empty($dadosEndereco['estado'])      ||
+                 empty($dadosEndereco['complemento']) ||
+                 empty($dadosLogin['login']) )
+            {
+                $this->view->mensagemErro = "Preencha todos os campos do formulário.";
+                return false;
+            }
+                  
+            if ( !$this->validator->isValid($dadosUsuario['email']) )
+            {
+                $this->view->mensagemErro = "E-mail inválido.";
+                return false;
+            } 
+            
+            if ( $this->usuario->emailJaExiste($dadosUsuario['email']) )
+            {
+                $this->view->mensagemErro = "E-mail já cadastrado.";
+                return false;
+            }
+            
+            if ( $this->usuario->cpfJaExiste($dadosUsuario['cpf']) )
+            {
+                $this->view->mensagemErro = "CPF já cadastrado.";
+                return false;
+            }
             
             $this->endereco->insert($dadosEndereco);
 
@@ -101,6 +139,42 @@ class UsuariosController extends Zend_Controller_Action
             $dadosLogin = array(
                 'login' => $this->_request->getPost('login')
             );
+            
+            if ( empty($dadosUsuario['nome'])         ||
+                 empty($dadosUsuario['email'])        ||
+                 empty($dadosUsuario['cpf'])          ||
+                 empty($dadosUsuario['datanasc'])     ||
+                 empty($dadosUsuario['telefone'])     ||
+                 empty($dadosUsuario['sexo'])         ||
+                 empty($dadosEndereco['rua'])         ||
+                 empty($dadosEndereco['num'])         ||
+                 empty($dadosEndereco['bairro'])      ||
+                 empty($dadosEndereco['cidade'])      ||
+                 empty($dadosEndereco['estado'])      ||
+                 empty($dadosEndereco['complemento']) ||
+                 empty($dadosLogin['login']) )
+            {
+                $this->view->mensagemErro = "Preencha todos os campos do formulário.";
+                return false;
+            }                     
+            
+            if ( $this->validator->isValid($dadosUsuario['email']) )
+            {
+                $this->view->mensagemErro = "E-mail inválido.";
+                return false;
+            }                   
+            
+            if ( $this->usuario->emailJaExiste($dadosUsuario['email']) )
+            {
+                $this->view->mensagemErro = "E-mail já cadastrado.";
+                return false;
+            }
+            
+            if ( $this->usuario->cpfJaExiste($dadosUsuario['cpf']) )
+            {
+                $this->view->mensagemErro = "CPF já cadastrado.";
+                return false;
+            }
             
             $idUsuario = $this->_request->getPost('idUsuario');
             $idEndereco = $this->_request->getPost('idEndereco');
