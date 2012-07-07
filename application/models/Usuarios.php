@@ -19,5 +19,23 @@ class Usuarios extends Zend_Db_Table_Abstract
             'refColumns'    => 'idusuario'
         )
     );
+    
+    public function emailJaExiste($email) 
+    {
+        $select = $this->select()
+                ->from($this->_name, 'COUNT(*) AS num')
+                ->where('email = ?', $email);
+
+        return ($this->fetchRow($select)->num) ? true : false; 
+    }
+    
+    public function cpfJaExiste($cpf) 
+    {
+        $select = $this->select()
+                ->from($this->_name, 'COUNT(*) AS num')
+                ->where('cpf = ?', $cpf);
+
+        return ($this->fetchRow($select)->num) ? true : false; 
+    }
 
 }

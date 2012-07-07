@@ -1,3 +1,12 @@
+<?php
+if ($this->mensagemErro): 
+    echo $this->mensagemErro;
+    echo '<br /><a href=" ' 
+        . $this->url(array('controller' => 'usuarios', 'action' => 'listar')) 
+        . '" title="Voltar">Voltar</a>';
+else :
+?>
+
 <form action="editar" method="post">
     <input type="hidden" name="idUsuario" value="<?= $this->usuario->idusuario ?>" />
     <input type="hidden" name="idEndereco" value="<?= $this->usuario->endereco ?>" />
@@ -56,3 +65,7 @@
     <br /> 
     <input type="submit" value="Atualizar" />
 </form>
+
+<?php
+endif;
+?>

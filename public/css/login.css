@@ -1,0 +1,87 @@
+body {
+    margin:0;
+    padding:0;
+    text-align:center;
+    background-image: url('/imagens/background.jpg');
+}
+
+#container {
+    margin: 13% auto 0 10%;
+}
+
+#logo {
+    float: left;
+    margin-right: 10%;
+}
+
+#geral {
+    background: url('/imagens/login.png') no-repeat;
+    float: left;
+    width:407px;
+    height:318px;
+}
+
+form {
+    padding: 5px;
+    margin-top: 7%;
+    width: 100%;
+}
+
+input{
+    margin-top: 2%;
+    padding: 3%;
+    width: 80%;
+    margin-left: -11%;
+    border: 1.5px solid gray;
+}
+
+label {
+    font: bold 15px Arial;
+    color: black;
+    margin-left: -80%;
+}
+
+#senhaesq {
+    margin-left: -60%;
+    font: 12px arial; 
+    margin-top: 10px;
+}
+
+#botao {
+    background-color: #f60611;  
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9f0611;
+    width: 25%;
+    height: 14%;
+    margin-top: 2%;
+    margin-left: -65%;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: white;
+}
+
+#botao:hover{
+    background-color: #d4404b;  
+}
+
+#botao:active {
+    background-color: #c52e39;
+}
+
+#rodape {
+    border: 1px solid #C0C0C0 ;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    background:#E8E8E8;
+    height:10%;
+    position:absolute;
+    bottom:0;
+}
+
+#rodape img {
+  margin: 0.5% 1% 0% 93.2%;
+  height: 75%;
+  width: 6%;
+}
