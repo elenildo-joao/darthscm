@@ -93,41 +93,27 @@ class ProjetosController extends Zend_Controller_Action
         }
         else
         {
-            $dadosUsuario = array(
-                'nome'     => $this->_request->getPost('nome'),
-                'email'    => $this->_request->getPost('email'),
-                'cpf'      => $this->_request->getPost('cpf'),
-                'datanasc' => $this->_request->getPost('dataNasc'),
-                'telefone' => $this->_request->getPost('telefone'),
-                'sexo'     => $this->_request->getPost('sexo')                
+            $dadosProjetos = array(
+                'nome'        => $this->_request->getPost('nome'),
+                'descricao'   => $this->_request->getPost('descricao'),
+                'datainic'    => $this->_request->getPost('dataInic'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim')
+            );
+                        
+            $dadosRepositorio = array(
+                'endereco' => $this->_request->getPost('endereco')
             );
             
-            $dadosEndereco = array(
-                'rua'         => $this->_request->getPost('rua'),
-                'num'         => $this->_request->getPost('num'),
-                'bairro'      => $this->_request->getPost('bairro'),
-                'cidade'      => $this->_request->getPost('cidade'),
-                'estado'      => $this->_request->getPost('estado'),
-                'complemento' => $this->_request->getPost('complemento')
-            );
+            $idProjeto = $this->_request->getPost('idProjeto');
+            $idRepositorio = $this->_request->getPost('idRepositorio');
             
-            $dadosLogin = array(
-                'login' => $this->_request->getPost('login')
-            );
+            $whereProjeto = $this->projeto->getAdapter()->quoteInto('idprojeto = ?', (int) $idProjeto);
+            $whereRepositorio = $this->repositorio->getAdapter()->quoteInto('idrepositorio = ?', (int) $idRepositorio);
             
-            $idUsuario = $this->_request->getPost('idUsuario');
-            $idEndereco = $this->_request->getPost('idEndereco');
-            $idLogin = $this->_request->getPost('idLogin');
-            
-            $whereEndereco = $this->endereco->getAdapter()->quoteInto('idendereco = ?', (int) $idEndereco);
-            $whereUsuario = $this->usuario->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
-            $whereLogin = $this->login->getAdapter()->quoteInto('idlogin = ?', (int) $idLogin);
-            
-            $this->endereco->update($dadosEndereco, $whereEndereco);
-            $this->usuario->update($dadosUsuario, $whereUsuario); 
-            $this->login->update($dadosLogin, $whereLogin);
+            $this->projeto->update($dadosProjetos, $whereProjeto);
+            $this->repositorio->update($dadosRepositorio, $whereRepositorio); 
         
-            $this->_redirect('/usuarios/listar');
+            $this->_redirect('/projetos/listar');
         }
     }
     
