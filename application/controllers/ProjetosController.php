@@ -211,16 +211,27 @@ class ProjetosController extends Zend_Controller_Action
         }
     }
 
-    public function removerTarefaAction(){
-        $idTarefa = (int) $this->_getParam('idtarefa');
-        $idProjeto = (int) $this->_getParam('idprojeto'); 
+    public function removeTarefa($idTarefa, $idProjeto) {
         $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
 
         $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
         $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
 
         $this->realiza->delete($whereRealiza);
+
+        $subTarefas = $this->tarefa->fetchAll($this->tarefa->select()->where('idsupertarefa = ?', $idTarefa));
+        foreach ( $subTarefas as $subTarefa ){
+            $this->removeTarefa($subTarefa->idtarefa, $subTarefa->idprojeto);
+        }
+
         $this->tarefa->delete($whereTarefa);
+}
+
+    public function removerTarefaAction(){
+        $idTarefa = (int) $this->_getParam('idtarefa');
+        $idProjeto = (int) $this->_getParam('idprojeto'); 
+
+        $this->removeTarefa($idTarefa, $idProjeto);
         
         $this->_redirect('/projetos/listar-tarefas');
     }
