@@ -12,6 +12,7 @@ class ProjetosController extends Zend_Controller_Action
     private $vUsuarioProjeto;
     private $vTarefaUsuario = null;
     private $vRealiza = null;
+    private $vSubTarefa;
     private $db;
 
     public function init()
@@ -25,6 +26,7 @@ class ProjetosController extends Zend_Controller_Action
         $this->vUsuarioProjeto = new VUsuarioProjeto();
         $this->vTarefaUsuario = new VTarefaUsuario();
         $this->vRealiza = new VRealiza();
+        $this->vSubTarefa = new VSubTarefa();
         $this->db = Zend_Db_Table::getDefaultAdapter();
     }
 
@@ -224,22 +226,32 @@ class ProjetosController extends Zend_Controller_Action
     }
 
     public function fecharTarefaAction(){
+        $idTarefa = $this->_request->getParam('idtarefa');
+        $this->fechaTarefa($idTarefa);
+        $this->_redirect('/projetos/listar-tarefas');
+    }
+    
+    public function fechaTarefa($idTarefa){
         $dados = array(
             'datafim' => date("Y-m-d")
         );
 
-        $idTarefa = $this->_request->getParam('idtarefa');
         $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa));
+
         foreach ( $usuariosTarefas as $usuarioTarefa ){
             $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $usuarioTarefa->idtarefa);
             $this->realiza->update($dados, $whereRealiza);
         }
-        $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
-        
-        $this->tarefa->update($dados, $whereTarefa);
-        $this->_redirect('/projetos/listar-tarefas');
-    }
 
+        $subTarefas = $this->vSubTarefa->fetchAll($this->vSubTarefa->select()->where('idsupertarefa = ?', $idTarefa));
+        foreach ( $subTarefas as $subTarefa ){
+            $this->fechaTarefa($subTarefa->idtarefa);
+        }
+
+        $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+        $this->tarefa->update($dados, $whereTarefa);
+    }
+    
     public function alocarUsuarioTarefaAction(){
         if ( !$this->_request->isPost() )
         {
@@ -262,6 +274,35 @@ class ProjetosController extends Zend_Controller_Action
             
             $this->realiza->insert($dadosRealiza);
         
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+
+    public function desalocarUsuarioTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $usuariosTarefas = $this->vRealiza->find($idTarefa, $idProjeto);
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->vRealiza  = $usuariosTarefas;
+            $this->view->tarefa  = $tarefa; 
+        }
+        else
+        {
+            $dadosRealiza = array(
+                'datafim'      => date("Y-m-d")
+            );
+            $idProjeto = $this->_request->getPost('idprojeto');             
+            $idTarefa = $this->_request->getPost('idtarefa'); 
+            $idUsuario = $this->_request->getPost('usuario'); 
+            
+            $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa)->where ('idusuario = ?', $idUsuario));
+            foreach ( $usuariosTarefas as $usuarioTarefa ){
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioTarefa->idusuario, 'idtarefa = ?' => (int) $usuarioTarefa->idtarefa));
+                $this->realiza->update($dadosRealiza, $whereRealiza);
+            }
+
             $this->_redirect('/projetos/listar-tarefas');
         }
     }

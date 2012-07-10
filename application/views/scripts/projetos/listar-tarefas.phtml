@@ -79,6 +79,19 @@
             title="Alocar">Alocar
         </a>
         </td>
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'desalocar-usuario-tarefa', 
+                                  'idtarefa'   => $tarefa->idtarefa,
+                                  'idprojeto'  => $tarefa->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Desalocar">Desalocar
+        </a>
+        </td>
     </tr>
     <?php
     endforeach;
