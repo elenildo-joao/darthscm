@@ -145,9 +145,9 @@ class ProjetosController extends Zend_Controller_Action
 
     public function listarTarefasAction()
     {
-        $this->view->tarefas = $this->vTarefaUsuario
+        $this->view->tarefas = $this->tarefa
                 ->fetchAll(
-                        $this->vTarefaUsuario->select()->order('idtarefa')
+                        $this->tarefa->select()->order('nome')
                         );
     }      
     public function novaTarefaAction()
@@ -171,6 +171,7 @@ class ProjetosController extends Zend_Controller_Action
                 'idprojeto'  => $this->_request->getPost('nomeproj'),
                 'idusuario'  => $this->_request->getPost('responsavel'),
                 'tempo'      => '00:00:00',
+                'datainicio' => $this->_request->getPost('dataInicio')
             );
                         
             $this->tarefa->insert($dadosTarefa);
@@ -314,6 +315,47 @@ class ProjetosController extends Zend_Controller_Action
                 $this->realiza->update($dadosRealiza, $whereRealiza);
             }
 
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+    public function novaSubTarefaAction()
+    {
+        if ( !$this->_request->isPost() ){
+            $idProjeto = $this->_getParam('idprojeto');
+            $idTarefa = $this->_getParam('idtarefa'); 
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $usuarioProjeto = $this->vUsuarioProjeto->find($idProjeto);
+            $this->view->vUsuarioProjeto = $usuarioProjeto;
+            $this->view->tarefa = $tarefa;
+        } 
+        else
+        {
+            $idProjeto = $this->_request->getPost('idprojeto');             
+            $idTarefa = $this->_request->getPost('idtarefa'); 
+            $dadosTarefa = array(
+                'idprojeto' => $idProjeto,
+                'nome' => $this->_request->getPost('nome'),
+                'descricao'   => $this->_request->getPost('descricao'),
+                'datainicio'  => $this->_request->getPost('dataInicio'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim'),
+                'prioridade' => $this->_request->getPost('prioridade'),
+                'idsupertarefa' => $idTarefa,
+                'idprojetosupertarefa' => $idProjeto
+            );
+            
+            $dadosRealiza = array(
+                'idprojeto'  => $idProjeto,
+                'idusuario'  => $this->_request->getPost('responsavel'),
+                'tempo'      => '00:00:00',                        
+                'datainicio' => $this->_request->getPost('dataInicio')
+            );
+                        
+            $this->tarefa->insert($dadosTarefa);
+            
+            $dadosRealiza['idtarefa'] = $this->db->lastInsertId('tarefas', 'idtarefa');
+
+            $this->realiza->insert($dadosRealiza);
+        
             $this->_redirect('/projetos/listar-tarefas');
         }
     }
