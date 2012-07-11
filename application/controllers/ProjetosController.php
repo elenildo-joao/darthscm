@@ -270,22 +270,37 @@ class ProjetosController extends Zend_Controller_Action
             $idProjeto = (int) $this->_getParam('idprojeto');
             $idTarefa = (int) $this->_getParam('idtarefa'); 
             $usuarioProjeto = $this->vUsuarioProjeto->find($idProjeto);
-            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current(); 
+            $usuarioTarefa = $this->vRealiza->find($idTarefa, $idProjeto);
             $this->view->vUsuarioProjeto  = $usuarioProjeto;
-            $this->view->tarefa  = $tarefa;        
+            $this->view->vRealiza = $usuarioTarefa; 
+            $this->view->tarefa  = $tarefa;
         }
         else
         {
+            $idTarefa=$this->_request->getPost('idtarefa');
+            $idProjeto=$this->_request->getPost('idprojeto');
+            $idUsuario=$this->_request->getPost('usuario');
             $dadosRealiza = array(
-                'idtarefa'     => $this->_request->getPost('idtarefa'),
-                'idprojeto'     => $this->_request->getPost('idprojeto'),
-                'idusuario'    => $this->_request->getPost('usuario'),
+                'idtarefa'     => $idTarefa,
+                'idprojeto'     => $idProjeto,
+                'idusuario'    => $idUsuario,
                 'datainicio'      => date("Y-m-d"),
                 'tempo' => '00:00:00'
             );
+
+            $dadosAtualiza = array('datafim' => null);
             
-            $this->realiza->insert($dadosRealiza);
-        
+            $usuRealizaTar = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
+            
+            if($usuRealizaTar){
+                $whereAtualiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => (int) $idTarefa, 'idusuario = ?' => (int) $idUsuario));
+                $this->realiza->update($dadosAtualiza, $whereAtualiza);
+            }
+            else{
+                $this->realiza->insert($dadosRealiza);
+            }
+            
             $this->_redirect('/projetos/listar-tarefas');
         }
     }
