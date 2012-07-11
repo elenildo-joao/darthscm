@@ -1,0 +1,19 @@
+<form action="alocar-usuario-tarefa" method="post">
+    <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
+    <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
+    <label>Nome do Usuario: 
+        <select id="usuario" name="usuario">
+            <?php 
+            foreach($this->vUsuarioProjeto as $usuarioProjeto){
+                $flag=0;
+                foreach($this->vRealiza as $usuarioTarefa)
+                    if ($usuarioProjeto->idusuario == $usuarioTarefa->idusuario)
+                        $flag=1;
+                if ($flag==0)
+                    echo "<option value=\"$usuarioProjeto->idusuario\">$usuarioProjeto->nomeusuario</option>";
+                $flag=0;
+            }
+            ?>
+        </select>     
+    <input type="submit" value="Cadastrar" />
+</form>

@@ -1,0 +1,40 @@
+<?php
+if ($this->mensagemErro): 
+    echo $this->mensagemErro;
+    echo '<br /><a href=" ' 
+        . $this->url(array('controller' => 'projetos', 'action' => 'listar')) 
+        . '" title="Voltar">Voltar</a>';
+else :
+?>
+
+<form action="editar" method="post">
+    <input type="hidden" name="idUsuario" value="<?= $this->projeto->idprojeto ?>" />
+    <input type="hidden" name="idEndereco" value="<?= $this->repositorio->endereco ?>" />
+    
+    <label>Nome: 
+        <input type="text" id="nome" name="nome" value="<?= $this->projeto->nome ?>" />
+    </label>
+    <br />
+    <label>Descrição: 
+        <input type="text" id="descricao" name="descricao" value="<?= $this->projeto->descricao ?>" />
+    </label>
+    <br /> 
+    <label>Data Início: 
+        <input type="text" id="dataInicio" name="dataInicio" value="<?= $this->projeto->datainic ?>" />
+    </label>
+    <br />
+    <label>Data Fim(Previsão): 
+        <input type="text" id="dataPrevFim" name="dataPrevFim" value="<?= $this->projeto->dataprevfim ?>" />
+    </label>
+    <br /> 
+    <label>Repositório: 
+        <input type="text" id="repositorio" name="repositorio" value="<?= $this->repositorio->endereco ?>" />
+    </label>
+    <br />
+    
+    <input type="submit" value="Atualizar" />
+</form>
+
+<?php
+endif;
+?>

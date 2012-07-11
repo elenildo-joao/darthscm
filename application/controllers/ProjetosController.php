@@ -7,7 +7,12 @@ class ProjetosController extends Zend_Controller_Action
     private $repositorio;
     private $trabalhaEm;
     private $usuario;
+    private $tarefa = null;
+    private $realiza = null;
     private $vUsuarioProjeto;
+    private $vTarefaUsuario = null;
+    private $vRealiza = null;
+    private $vSubTarefa;
     private $db;
 
     public function init()
@@ -16,7 +21,12 @@ class ProjetosController extends Zend_Controller_Action
         $this->repositorio = new Repositorios();
         $this->trabalhaEm = new TrabalhaEm();
         $this->usuario = new Usuarios();
+        $this->tarefa = new Tarefas();
+        $this->realiza = new Realiza();
         $this->vUsuarioProjeto = new VUsuarioProjeto();
+        $this->vTarefaUsuario = new VTarefaUsuario();
+        $this->vRealiza = new VRealiza();
+        $this->vSubTarefa = new VSubTarefa();
         $this->db = Zend_Db_Table::getDefaultAdapter();
     }
 
@@ -93,41 +103,27 @@ class ProjetosController extends Zend_Controller_Action
         }
         else
         {
-            $dadosUsuario = array(
-                'nome'     => $this->_request->getPost('nome'),
-                'email'    => $this->_request->getPost('email'),
-                'cpf'      => $this->_request->getPost('cpf'),
-                'datanasc' => $this->_request->getPost('dataNasc'),
-                'telefone' => $this->_request->getPost('telefone'),
-                'sexo'     => $this->_request->getPost('sexo')                
+            $dadosProjetos = array(
+                'nome'        => $this->_request->getPost('nome'),
+                'descricao'   => $this->_request->getPost('descricao'),
+                'datainic'    => $this->_request->getPost('dataInic'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim')
+            );
+                        
+            $dadosRepositorio = array(
+                'endereco' => $this->_request->getPost('endereco')
             );
             
-            $dadosEndereco = array(
-                'rua'         => $this->_request->getPost('rua'),
-                'num'         => $this->_request->getPost('num'),
-                'bairro'      => $this->_request->getPost('bairro'),
-                'cidade'      => $this->_request->getPost('cidade'),
-                'estado'      => $this->_request->getPost('estado'),
-                'complemento' => $this->_request->getPost('complemento')
-            );
+            $idProjeto = $this->_request->getPost('idProjeto');
+            $idRepositorio = $this->_request->getPost('idRepositorio');
             
-            $dadosLogin = array(
-                'login' => $this->_request->getPost('login')
-            );
+            $whereProjeto = $this->projeto->getAdapter()->quoteInto('idprojeto = ?', (int) $idProjeto);
+            $whereRepositorio = $this->repositorio->getAdapter()->quoteInto('idrepositorio = ?', (int) $idRepositorio);
             
-            $idUsuario = $this->_request->getPost('idUsuario');
-            $idEndereco = $this->_request->getPost('idEndereco');
-            $idLogin = $this->_request->getPost('idLogin');
-            
-            $whereEndereco = $this->endereco->getAdapter()->quoteInto('idendereco = ?', (int) $idEndereco);
-            $whereUsuario = $this->usuario->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
-            $whereLogin = $this->login->getAdapter()->quoteInto('idlogin = ?', (int) $idLogin);
-            
-            $this->endereco->update($dadosEndereco, $whereEndereco);
-            $this->usuario->update($dadosUsuario, $whereUsuario); 
-            $this->login->update($dadosLogin, $whereLogin);
+            $this->projeto->update($dadosProjetos, $whereProjeto);
+            $this->repositorio->update($dadosRepositorio, $whereRepositorio); 
         
-            $this->_redirect('/usuarios/listar');
+            $this->_redirect('/projetos/listar');
         }
     }
     
@@ -147,6 +143,236 @@ class ProjetosController extends Zend_Controller_Action
         $this->_redirect('/usuarios/listar');
     }
 
+    public function listarTarefasAction()
+    {
+        $this->view->tarefas = $this->tarefa
+                ->fetchAll(
+                        $this->tarefa->select()->order('nome')
+                        );
+    }      
+    public function novaTarefaAction()
+    {
+        if ( !$this->_request->isPost() ){
+            $this->view->usuarios = $this->usuario->fetchAll();
+            $this->view->projetos = $this->projeto->fetchAll();
+        } 
+        else
+        {   
+            $dadosTarefa = array(
+                'idprojeto' => $this->_request->getPost('nomeproj'),
+                'nome' => $this->_request->getPost('nome'),
+                'descricao'   => $this->_request->getPost('descricao'),
+                'datainicio'  => $this->_request->getPost('dataInicio'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim'),
+                'prioridade' => $this->_request->getPost('prioridade')
+            );
+            
+            $dadosRealiza = array(
+                'idprojeto'  => $this->_request->getPost('nomeproj'),
+                'idusuario'  => $this->_request->getPost('responsavel'),
+                'tempo'      => '00:00:00',
+                'datainicio' => $this->_request->getPost('dataInicio')
+            );
+                        
+            $this->tarefa->insert($dadosTarefa);
+            
+            $dadosRealiza['idtarefa'] = $this->db->lastInsertId('tarefas', 'idtarefa');
 
+            $this->realiza->insert($dadosRealiza);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+
+    public function editarTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $idProjeto = (int) $this->_getParam('idprojeto'); 
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
+        }
+        else
+        {
+            $dadosTarefas = array(
+                'nome'     => $this->_request->getPost('nome'),
+                'descricao'    => $this->_request->getPost('descricao'),
+                'datainicio'      => $this->_request->getPost('dataInicio'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim'),
+                'prioridade' => $this->_request->getPost('prioridade')
+            );
+            
+            $idTarefa = $this->_request->getPost('idtarefa');
+            
+            $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+            
+            $this->tarefa->update($dadosTarefas, $whereTarefa);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+
+    public function removeTarefa($idTarefa, $idProjeto) {
+        $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+
+        $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+        $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+
+        $this->realiza->delete($whereRealiza);
+
+        $subTarefas = $this->tarefa->fetchAll($this->tarefa->select()->where('idsupertarefa = ?', $idTarefa));
+        foreach ( $subTarefas as $subTarefa ){
+            $this->removeTarefa($subTarefa->idtarefa, $subTarefa->idprojeto);
+        }
+
+        $this->tarefa->delete($whereTarefa);
+}
+
+    public function removerTarefaAction(){
+        $idTarefa = (int) $this->_getParam('idtarefa');
+        $idProjeto = (int) $this->_getParam('idprojeto'); 
+
+        $this->removeTarefa($idTarefa, $idProjeto);
+        
+        $this->_redirect('/projetos/listar-tarefas');
+    }
+
+    public function fecharTarefaAction(){
+        $idTarefa = $this->_request->getParam('idtarefa');
+        $this->fechaTarefa($idTarefa);
+        $this->_redirect('/projetos/listar-tarefas');
+    }
+    
+    public function fechaTarefa($idTarefa){
+        $dados = array(
+            'datafim' => date("Y-m-d")
+        );
+
+        $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa));
+
+        foreach ( $usuariosTarefas as $usuarioTarefa ){
+            $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $usuarioTarefa->idtarefa);
+            $this->realiza->update($dados, $whereRealiza);
+        }
+
+        $subTarefas = $this->vSubTarefa->fetchAll($this->vSubTarefa->select()->where('idsupertarefa = ?', $idTarefa));
+        foreach ( $subTarefas as $subTarefa ){
+            $this->fechaTarefa($subTarefa->idtarefa);
+        }
+
+        $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
+        $this->tarefa->update($dados, $whereTarefa);
+    }
+    
+    public function alocarUsuarioTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $usuarioProjeto = $this->vUsuarioProjeto->find($idProjeto);
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current(); 
+            $usuarioTarefa = $this->vRealiza->find($idTarefa, $idProjeto);
+            $this->view->vUsuarioProjeto  = $usuarioProjeto;
+            $this->view->vRealiza = $usuarioTarefa; 
+            $this->view->tarefa  = $tarefa;
+        }
+        else
+        {
+            $idTarefa=$this->_request->getPost('idtarefa');
+            $idProjeto=$this->_request->getPost('idprojeto');
+            $idUsuario=$this->_request->getPost('usuario');
+            $dadosRealiza = array(
+                'idtarefa'     => $idTarefa,
+                'idprojeto'     => $idProjeto,
+                'idusuario'    => $idUsuario,
+                'datainicio'      => date("Y-m-d"),
+                'tempo' => '00:00:00'
+            );
+
+            $dadosAtualiza = array('datafim' => null);
+            
+            $usuRealizaTar = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
+            
+            if($usuRealizaTar){
+                $whereAtualiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => (int) $idTarefa, 'idusuario = ?' => (int) $idUsuario));
+                $this->realiza->update($dadosAtualiza, $whereAtualiza);
+            }
+            else{
+                $this->realiza->insert($dadosRealiza);
+            }
+            
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+
+    public function desalocarUsuarioTarefaAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $usuariosTarefas = $this->vRealiza->find($idTarefa, $idProjeto);
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->vRealiza  = $usuariosTarefas;
+            $this->view->tarefa  = $tarefa; 
+        }
+        else
+        {
+            $dadosRealiza = array(
+                'datafim'      => date("Y-m-d")
+            );
+            $idProjeto = $this->_request->getPost('idprojeto');             
+            $idTarefa = $this->_request->getPost('idtarefa'); 
+            $idUsuario = $this->_request->getPost('usuario'); 
+            
+            $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa)->where ('idusuario = ?', $idUsuario));
+            foreach ( $usuariosTarefas as $usuarioTarefa ){
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioTarefa->idusuario, 'idtarefa = ?' => (int) $usuarioTarefa->idtarefa));
+                $this->realiza->update($dadosRealiza, $whereRealiza);
+            }
+
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
+    public function novaSubTarefaAction()
+    {
+        if ( !$this->_request->isPost() ){
+            $idProjeto = $this->_getParam('idprojeto');
+            $idTarefa = $this->_getParam('idtarefa'); 
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $usuarioProjeto = $this->vUsuarioProjeto->find($idProjeto);
+            $this->view->vUsuarioProjeto = $usuarioProjeto;
+            $this->view->tarefa = $tarefa;
+        } 
+        else
+        {
+            $idProjeto = $this->_request->getPost('idprojeto');             
+            $idTarefa = $this->_request->getPost('idtarefa'); 
+            $dadosTarefa = array(
+                'idprojeto' => $idProjeto,
+                'nome' => $this->_request->getPost('nome'),
+                'descricao'   => $this->_request->getPost('descricao'),
+                'datainicio'  => $this->_request->getPost('dataInicio'),
+                'dataprevfim' => $this->_request->getPost('dataPrevFim'),
+                'prioridade' => $this->_request->getPost('prioridade'),
+                'idsupertarefa' => $idTarefa,
+                'idprojetosupertarefa' => $idProjeto
+            );
+            
+            $dadosRealiza = array(
+                'idprojeto'  => $idProjeto,
+                'idusuario'  => $this->_request->getPost('responsavel'),
+                'tempo'      => '00:00:00',                        
+                'datainicio' => $this->_request->getPost('dataInicio')
+            );
+                        
+            $this->tarefa->insert($dadosTarefa);
+            
+            $dadosRealiza['idtarefa'] = $this->db->lastInsertId('tarefas', 'idtarefa');
+
+            $this->realiza->insert($dadosRealiza);
+        
+            $this->_redirect('/projetos/listar-tarefas');
+        }
+    }
 }
 

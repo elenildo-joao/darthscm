@@ -1,1 +1,68 @@
-<?php echo $this->layout()->content; ?>
+<html>
+  <head>
+    <title>Administrador</title>
+    <link rel="stylesheet" type="text/css" href="/css/geral.css"/>
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon" sizes="16x16" />
+  </head>
+
+    <body>
+        <div id="header">
+            <img src="../imagens/logo.png" width="145px" height="75px"/>
+            <div id="login">
+                    <a href="#">Rafaela Souza</a> |<a href="#">logout</a>
+                    <br><a href="#"><img src="../imagens/Brazil-icon.png"/></a>
+                    <a href="#"><img src="../imagens/France-icon.png"/></a>
+                    <a href="#"><img src="../imagens/United-States-of-Americ-icon.png"/></a>
+                    <a href="#"><img src="../imagens/Spain-icon.png"/></a>
+            </div>
+        </div>
+
+
+
+        <div id="menu">
+                <ul>
+                    <li><a href="telaAdm.html">Home</a></li>
+                    <li><a href="telaUsuarios.html">Usu&aacute;rios</a>
+                            <ul>
+                                    <li><a href="cadastroUsuario.html">Cadastrar</a></li>
+                                    <li><a href="cadastroUsuario.html">Alterar</a></li>
+                                    <li><a href="#">Excluir</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="telaProjetos.html">Projetos</a>
+                            <ul>
+                                    <li><a href="#nogo">Cadastrar</a></li>
+                                    <li><a href="#nogo">Alterar</a></li>
+                                    <li><a href="#nogo">Excluir</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="telaTarefas.html">Tarefas</a>
+                            <ul>
+                                    <li><a href="#nogo">Cadastrar</a></li>
+                                    <li><a href="#nogo">Alterar</a></li>
+                                    <li><a href="#nogo">Excluir</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="telaMensagens.html">Mensagens</a>
+                            <ul>
+                                    <li><a href="#nogo">Nova</a></li>
+                                    <li><a href="#nogo">Entrada</a></li>
+                            </ul>
+                    </li>
+                </ul>
+        </div>
+
+
+    <div id="conteudo">
+        <?php echo $this->layout()->content; ?>
+    </div>
+
+
+    <div class="clear"></div>
+
+    <div id="rodape">
+            <img src="../imagens/logo2.png">
+    </div>
+    
+    </body>
+</html>

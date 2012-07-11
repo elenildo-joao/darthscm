@@ -1,40 +1,36 @@
 <table border="1">
     <tr>
-        <td>Id</td>
         <td>Nome</td>
+        <td>Data Nascimento</td>
+        <td>Sexo</td>
+        <td>CPF</td>
+        <td>Telefone</td>
         <td>E-mail</td>
         <td>Login</td>
-        <td>CPF</td>
-        <td>Data Nascimento</td>
-        <td>Telefone</td>
-        <td>Sexo</td>
         <td>Rua</td>
         <td>Num</td>
         <td>Bairro</td>
+        <td>Complemento</td>
         <td>Cidade</td>
         <td>Estado</td>
-        <td>Complemento</td>
-        <td>Admin</td>
     </tr>
     <?php
     foreach ($this->usuarios as $usuario):
     ?>
     <tr>
-        <td><?= $usuario->idusuario ?></td>
         <td><?= $usuario->nome ?></td>
+        <td><?= $usuario->datanasc ?></td>
+        <td><?= $usuario->sexo ?></td>
+        <td><?= $usuario->cpf ?></td>
+        <td><?= $usuario->telefone ?></td>
         <td><?= $usuario->email ?></td>
         <td><?= $usuario->findParentLogin()->login ?></td>
-        <td><?= $usuario->cpf ?></td>
-        <td><?= $usuario->datanasc ?></td>
-        <td><?= $usuario->telefone ?></td>
-        <td><?= $usuario->sexo ?></td>
         <td><?= $usuario->findParentEnderecos()->rua ?></td>
         <td><?= $usuario->findParentEnderecos()->num ?></td>
         <td><?= $usuario->findParentEnderecos()->bairro ?></td>
+        <td><?= $usuario->findParentEnderecos()->complemento ?></td>
         <td><?= $usuario->findParentEnderecos()->cidade ?></td>
         <td><?= $usuario->findParentEnderecos()->estado ?></td>
-        <td><?= $usuario->findParentEnderecos()->complemento ?></td>
-        <td><?= $usuario->admin ?></td>
         
         <td>
         <a href="

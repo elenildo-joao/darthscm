@@ -1,0 +1,20 @@
+<form action="nova-sub-tarefa" method="post">
+    <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
+    <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
+    <label>Nome: <input type="text" id="nome" name="nome" /></label><br />
+    <label>Descrição: <input type="text" id="descricao" name="descricao" /></label><br /> 
+    <label>Data Início: <input type="text" id="dataInicio" name="dataInicio" /></label><br />     
+    <label>Data Fim(Previsão): <input type="text" id="dataPrevFim" name="dataPrevFim" /></label><br /> 
+    <label>Prioridade: <input type="text" id="prioridade" name="prioridade" /></label><br /> 
+    <label>Responsavel: 
+        <select id="responsavel" name="responsavel">
+            <?php 
+            foreach($this->vUsuarioProjeto as $usuario)
+                echo "<option value=\"$usuario->idusuario\">$usuario->nomeusuario</option>";
+            ?>
+        </select>
+    </label>
+    <br /> 
+     
+    <input type="submit" value="Cadastrar" />
+</form>
