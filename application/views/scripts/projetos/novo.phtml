@@ -1,9 +1,7 @@
 <form action="novo" method="post">
     <label>Nome: <input type="text" id="nome" name="nome" /></label><br />
-    <label>Descrição: <input type="text" id="descricao" name="descricao" /></label><br /> 
     <label>Data Início: <input type="text" id="dataInicio" name="dataInicio" /></label><br />
     <label>Data Fim(Previsão): <input type="text" id="dataPrevFim" name="dataPrevFim" /></label><br /> 
-    <label>Repositório: <input type="text" id="repositorio" name="repositorio" /></label><br /> 
     <label>Gerente: 
         <select id="gerente" name="gerente">
             <?php 
@@ -13,6 +11,8 @@
         </select>
     </label>
     <br /> 
+    <label>Descrição: <input type="text" id="descricao" name="descricao" /></label><br />  
+    <label>Repositório: <input type="text" id="repositorio" name="repositorio" /></label><br />
      
     <input type="submit" value="Cadastrar" />
 </form>

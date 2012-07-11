@@ -374,5 +374,50 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas');
         }
     }
+            
+    public function adicionarTempoAction(){        
+        if ( !$this->_request->isPost() )
+        {
+        }
+        else
+        {    
+            $int2=new DateInterval();
+            $int2->d=$this->_request->getPost('dias');
+            $int2->h=$this->_request->getPost('horas');
+            $int2->i=$this->_request->getPost('minutos');
+            
+            $int1=new DateInterval();
+            $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();             
+            
+            $int2=SomaInterval($int1, $int2);
+            if ($int2->d==0)
+                $dadosRealiza = array(
+                    'tempo'      => $int2->h.':'.$int2->i.':00'
+                );
+            else
+                $dadosRealiza = array(
+                    'tempo'      => $int2->d.' '.$int2->h.':'.$int2->i.':00'
+                );
+
+        } 
+    }
+       
+     public function SomaInterval($int1, $int2){
+        $min=$int2->i+$int1->i;
+        $hora=$int2->h+$int1->h;
+        $dia=$int2->d+$int1->d;
+        if ($min>59){
+            $min=$min-60;
+            $hora=$hora+1;
+        }
+        $int2->i=$min;        
+        if ($hora>23){
+            $hora=$hora-24;
+            $dia=$dia+1;
+        }
+        $int2->h=$hora;
+        $int2->d=$dia;
+        return $int2;
+     }
 }
 
