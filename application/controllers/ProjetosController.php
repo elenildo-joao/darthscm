@@ -43,7 +43,9 @@ class ProjetosController extends Zend_Controller_Action
     {
         $this->view->projetos = $this->vUsuarioProjeto
                 ->fetchAll(
-                        $this->vUsuarioProjeto->select()->where('papel= ? ', 'gerente')
+                        $this->vUsuarioProjeto->select()
+                        ->where('papel= ? ', 'gerente')
+                        ->orWhere('papel = ?', 'GERENTE')
                         ->order('datainicioprojeto DESC')
                         );
     }
@@ -97,7 +99,8 @@ class ProjetosController extends Zend_Controller_Action
             
             $selectGerente = $this->trabalhaEm->select()
                                        ->where('idprojeto = ?', $projeto->idprojeto)
-                                       ->where('papel = ?', 'GERENTE');
+                                       ->where('papel = ?', 'gerente')
+                                       ->orWhere('papel = ?', 'GERENTE');
             
             $idGerente = $this->trabalhaEm->fetchRow($selectGerente)->idusuario;
             
@@ -107,24 +110,26 @@ class ProjetosController extends Zend_Controller_Action
         }
         else
         {
-            $dadosProjetos = array(
+            $dadosProjeto = array(
                 'nome'        => $this->_request->getPost('nome'),
                 'descricao'   => $this->_request->getPost('descricao'),
-                'datainic'    => $this->_request->getPost('dataInic'),
+                'datainicio'    => $this->_request->getPost('dataInicio'),
                 'dataprevfim' => $this->_request->getPost('dataPrevFim')
             );
                         
             $dadosRepositorio = array(
-                'endereco' => $this->_request->getPost('endereco')
+                'endereco' => $this->_request->getPost('repositorio')
             );
             
             $idProjeto = $this->_request->getPost('idProjeto');
             $idRepositorio = $this->_request->getPost('idRepositorio');
             
-            $whereProjeto = $this->projeto->getAdapter()->quoteInto('idprojeto = ?', (int) $idProjeto);
-            $whereRepositorio = $this->repositorio->getAdapter()->quoteInto('idrepositorio = ?', (int) $idRepositorio);
+            $whereProjeto = $this->projeto->getAdapter()
+                    ->quoteInto('idprojeto = ?', (int) $idProjeto);
+            $whereRepositorio = $this->repositorio->getAdapter()
+                    ->quoteInto('idrepositorio = ?', (int) $idRepositorio);
             
-            $this->projeto->update($dadosProjetos, $whereProjeto);
+            $this->projeto->update($dadosProjeto, $whereProjeto);
             $this->repositorio->update($dadosRepositorio, $whereRepositorio); 
         
             $this->_redirect('/projetos/listar');
@@ -133,18 +138,49 @@ class ProjetosController extends Zend_Controller_Action
     
     public function removerAction()
     {
-        $idUsuario = (int) $this->_getParam('id'); 
-        $usuario = $this->usuario->find($idUsuario)->current();
+        $idProjeto = (int) $this->_getParam('id'); 
+        $projeto = $this->projeto->find($idProjeto)->current();
         
-        $whereEndereco = $this->endereco->getAdapter()->quoteInto('idendereco = ?', (int) $usuario->endereco);
-        $whereLogin = $this->login->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
-        $whereUsuario = $this->usuario->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
+        $whereProjeto = $this->projeto->getAdapter()
+                ->quoteInto('idprojeto = ?', (int) $idProjeto);
+        $whereRepositorio = $this->repositorio->getAdapter()
+                ->quoteInto('idrepositorio = ?', (int) $projeto->idrepositorio);
+        $whereTrabalhaEm = $this->trabalhaEm->getAdapter()
+                ->quoteInto('idprojeto = ?', (int) $idProjeto);
+        $whereRealiza = $this->realiza->getAdapter()
+                ->quoteInto('idprojeto = ?', (int) $idProjeto);
+        $whereTarefa = $this->tarefa->getAdapter()
+                ->quoteInto('idprojeto = ?', (int) $idProjeto);
         
-        $this->login->delete($whereLogin);
-        $this->usuario->delete($whereUsuario);
-        $this->endereco->delete($whereEndereco);
+        $this->trabalhaEm->delete($whereTrabalhaEm);
+        $this->realiza->delete($whereRealiza);
+        $this->tarefa->delete($whereTarefa);
+        $this->projeto->delete($whereProjeto);
+        $this->repositorio->delete($whereRepositorio);
         
-        $this->_redirect('/usuarios/listar');
+        $this->_redirect('/projetos/listar');
+    }
+    
+    public function fecharAction()
+    {
+        $idProjeto = (int) $this->_getParam('id'); 
+        
+        $dados = array(
+            'datafim' => date('Y-m-d')
+        );
+        
+        $whereProjeto = $this->projeto->getAdapter()
+                ->quoteInto('idprojeto = ?', $idProjeto);
+        $whereTrabalhaEm = $this->trabalhaEm->getAdapter()
+                ->quoteInto('idprojeto = ?', $idProjeto);
+        $whereTarefa = $this->tarefa->getAdapter()
+                ->quoteInto('idprojeto = ?', $idProjeto);
+        
+        $this->tarefa->update($dados, $whereTarefa);
+        $this->trabalhaEm->update($dados, $whereTrabalhaEm);
+        $this->projeto->update($dados, $whereProjeto);
+        
+        $this->_redirect('/projetos/listar');
     }
 
     public function listarTarefasAction()
@@ -164,6 +200,7 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vTarefaUsuario->select()->order('nomeusuario')
                         );
     }      
+    
     public function novaTarefaAction()
     {
         if ( !$this->_request->isPost() ){
@@ -240,7 +277,7 @@ class ProjetosController extends Zend_Controller_Action
         }
 
         $this->tarefa->delete($whereTarefa);
-}
+    }
 
     public function removerTarefaAction(){
         $idTarefa = (int) $this->_getParam('idtarefa');
@@ -347,6 +384,7 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas');
         }
     }
+    
     public function novaSubTarefaAction()
     {
         if ( !$this->_request->isPost() ){
@@ -414,37 +452,10 @@ class ProjetosController extends Zend_Controller_Action
             $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
             
             $tempo=$realiza->tempo;
-            
-            $x=0; 
-            $flagd=0; 
-            $d2="0";
-            while ($x<strlen($tempo)-1){
-                if ($tempo[$x]=='d'){
-                   for ($y=0; $y<$x-1; $y++)
-                       $d2=$d2.$tempo[$y];
-                   $flagd=1;
-                   break;
-                }
-                $x++;
-            }
-            if ($flagd==0)
-                $x=0;
-            while ($x<strlen($tempo)-1){
-                if ($tempo[$x]==' '){
-                    $h2=$tempo[++$x].$tempo[++$x];
-                    $x++;
-                    $m2=$tempo[++$x].$tempo[++$x];
-                    break;
-                }
-            $x++;
-            }
-                        
             $int2=new DateInterval('P0D');
-            $int2->d=$d2;
-            $int2->h=$h2;
-            $int2->i=$m2;
-            
-            $int2=$this->SomaInterval($int1, $int2);
+            $d2="";$h2="";$m2="";
+            projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2); 
+            $int2=projetos::SomaInterval($int1, $int2);
             
             if ($int2->d==0){
                 $dadosRealiza = array(
@@ -461,24 +472,6 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas');
         } 
     }
-       
-     public function SomaInterval($int1, $int2){
-        $min=$int2->i+$int1->i;
-        $hora=$int2->h+$int1->h;
-        $dia=$int2->d+$int1->d;
-        if ($min>59){
-            $hora=$hora+(int)$min/60;
-            $min=$min%60;
-        }
-        $int2->i=$min;        
-        if ($hora>23){
-            $dia=$dia+(int)$hora/24;
-            $hora=$hora%24;
-        }
-        $int2->h=$hora;
-        $int2->d=$dia;
-        return $int2;
-     }
 
      public function relatorioColaboradorAction (){
      
@@ -521,4 +514,3 @@ class ProjetosController extends Zend_Controller_Action
          
      }
 }
-
