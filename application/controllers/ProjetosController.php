@@ -13,6 +13,7 @@ class ProjetosController extends Zend_Controller_Action
     private $vTarefaUsuario = null;
     private $vRealiza = null;
     private $vSubTarefa;
+    private $vRelatorioCol;
     private $db;
 
     public function init()
@@ -27,6 +28,7 @@ class ProjetosController extends Zend_Controller_Action
         $this->vTarefaUsuario = new VTarefaUsuario();
         $this->vRealiza = new VRealiza();
         $this->vSubTarefa = new VSubTarefa();
+        $this->vRelatorioCol = new VRelatorioProdCol();
         $this->db = Zend_Db_Table::getDefaultAdapter();
     }
 
@@ -37,10 +39,10 @@ class ProjetosController extends Zend_Controller_Action
     
     public function listarAction()
     {
-        $this->view->projetos = $this->vUsuarioProjeto
+        $this->view->projetos = $this->projeto
                 ->fetchAll(
-                        $this->vUsuarioProjeto->select()->where('papel = ?', 'gerente')
-                        ->order('datainicioprojeto DESC')
+                        $this->projeto->select()
+                        ->order('datainicio DESC')
                         );
     }
     
@@ -51,7 +53,7 @@ class ProjetosController extends Zend_Controller_Action
         else
         {
             $dadosRepositorio = array(
-                'endereco' => $this->_request->getPost('endereco'),
+                'endereco' => $this->_request->getPost('repositorio'),
                 'nome'     => 'default',
                 'conta'    => 'default'
             );
@@ -71,7 +73,7 @@ class ProjetosController extends Zend_Controller_Action
             
             $this->repositorio->insert($dadosRepositorio);
             
-            $dadosProjeto['repositorio'] = $this->db->lastInsertId('repositorios', 'idrepositorio');
+            $dadosProjeto['idrepositorio'] = $this->db->lastInsertId('repositorios', 'idrepositorio');
             
             $this->projeto->insert($dadosProjeto);
             
@@ -464,6 +466,22 @@ class ProjetosController extends Zend_Controller_Action
         $int2->h=$hora;
         $int2->d=$dia;
         return $int2;
+     }
+
+     public function relatorioColaboradorAction (){
+     
+        $this->view->vRelatorioCol = $this->vRelatorioCol
+                ->fetchAll(
+                        $this->vRelatorioCol->select()->order('nomeprojeto')->order('nomeusuario')
+                        );
+     }
+     
+     public function graficoRelColaboradorAction (){
+     
+        $this->view->vRelatorioCol = $this->vRelatorioCol
+                ->fetchAll(
+                        $this->vRelatorioCol->select()->order('nomeprojeto')->order('nomeusuario')
+                        );
      }
 }
 
