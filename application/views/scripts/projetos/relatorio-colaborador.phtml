@@ -10,7 +10,15 @@
     <tr>
         <td><?= $relatorio->nomeusuario ?></td>
         <td><?= $relatorio->nomeprojeto ?></td>
-        <td><?= $relatorio->tempodedicado ?></td>     
+        <?php 
+        $tempo=$relatorio->tempodedicado;
+           $d2="";$h2="";$m2=""; 
+           $int1=new DateInterval('P0D');
+           $int2=new DateInterval('P0D');
+           projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2);        
+           $int2=projetos::SomaInterval($int1, $int2);       
+        ?>
+        <td><?= $int2->d." days ".$int2->format('%H').":".$int2->format('%I').":".$int2->format('%S')?></td>     
     </tr>
     <?php
     endforeach;

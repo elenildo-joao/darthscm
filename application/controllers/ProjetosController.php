@@ -404,37 +404,10 @@ class ProjetosController extends Zend_Controller_Action
             $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
             
             $tempo=$realiza->tempo;
-            
-            $x=0; 
-            $flagd=0; 
-            $d2="0";
-            while ($x<strlen($tempo)-1){
-                if ($tempo[$x]=='d'){
-                   for ($y=0; $y<$x-1; $y++)
-                       $d2=$d2.$tempo[$y];
-                   $flagd=1;
-                   break;
-                }
-                $x++;
-            }
-            if ($flagd==0)
-                $x=0;
-            while ($x<strlen($tempo)-1){
-                if ($tempo[$x]==' '){
-                    $h2=$tempo[++$x].$tempo[++$x];
-                    $x++;
-                    $m2=$tempo[++$x].$tempo[++$x];
-                    break;
-                }
-            $x++;
-            }
-                        
             $int2=new DateInterval('P0D');
-            $int2->d=$d2;
-            $int2->h=$h2;
-            $int2->i=$m2;
-            
-            $int2=$this->SomaInterval($int1, $int2);
+            $d2="";$h2="";$m2="";
+            projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2); 
+            $int2=projetos::SomaInterval($int1, $int2);
             
             if ($int2->d==0){
                 $dadosRealiza = array(
@@ -451,24 +424,6 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas');
         } 
     }
-       
-     public function SomaInterval($int1, $int2){
-        $min=$int2->i+$int1->i;
-        $hora=$int2->h+$int1->h;
-        $dia=$int2->d+$int1->d;
-        if ($min>59){
-            $hora=$hora+(int)$min/60;
-            $min=$min%60;
-        }
-        $int2->i=$min;        
-        if ($hora>23){
-            $dia=$dia+(int)$hora/24;
-            $hora=$hora%24;
-        }
-        $int2->h=$hora;
-        $int2->d=$dia;
-        return $int2;
-     }
 
      public function relatorioColaboradorAction (){
      
