@@ -93,7 +93,7 @@ class ProjetosController extends Zend_Controller_Action
     {     
         if ( !$this->_request->isPost() )
         {           
-            $idProjeto = (int) $this->_getParam('id'); 
+            $idProjeto = (int) $this->_getParam('idprojeto'); 
             
             $projeto = $this->projeto->find($idProjeto)->current();
             
@@ -138,7 +138,7 @@ class ProjetosController extends Zend_Controller_Action
     
     public function removerAction()
     {
-        $idProjeto = (int) $this->_getParam('id'); 
+        $idProjeto = (int) $this->_getParam('idprojeto'); 
         $projeto = $this->projeto->find($idProjeto)->current();
         
         $whereProjeto = $this->projeto->getAdapter()
@@ -163,7 +163,7 @@ class ProjetosController extends Zend_Controller_Action
     
     public function fecharAction()
     {
-        $idProjeto = (int) $this->_getParam('id'); 
+        $idProjeto = (int) $this->_getParam('idprojeto'); 
         
         $dados = array(
             'datafim' => date('Y-m-d')
@@ -489,7 +489,7 @@ class ProjetosController extends Zend_Controller_Action
                         );
      }
      
-     public function graficoRelColaboradorAction (){
+     public function graficoRelProjetoAction (){
           $this->view->vRelatorioProj = $this->vRelatorioProj
                 ->fetchAll(
                         $this->vRelatorioProj->select()->order('nomeprojeto')
@@ -506,7 +506,7 @@ class ProjetosController extends Zend_Controller_Action
      
      public function detalharProjetoAction () {
          
-         $idProjeto = (int) $this->_getParam('id');
+         $idProjeto = (int) $this->_getParam('idprojeto');
          $projeto = $this->projeto->find($idProjeto)->current();
          
          $this->view->tarefas = $this->tarefa

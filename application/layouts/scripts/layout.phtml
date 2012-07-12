@@ -23,79 +23,25 @@
         <div id="menu">
                 <ul>
                     <li><a href="/index">Home</a></li>
-                    <li><a href="
-                        <?php 
-                            echo $this->url(array('controller' => 'usuarios', 
-                                                'action'     => 'listar'
-                                    )
-                                    ); 
-                        ?>">Usu&aacute;rios</a>
+                    <li><a href="/usuarios/listar">Usu&aacute;rios</a>
                             <ul>
-                                 <li><a href="
-                                    <?php 
-                                        echo $this->url(array('controller' => 'usuarios', 
-                                                            'action'     => 'listar'
-                                                )
-                                                ); 
-                                    ?>">Listar</a>
+                                 <li><a href="/usuarios/listar">Listar</a>
                                  </li>
-                                 <li><a href="
-                                    <?php 
-                                        echo $this->url(array('controller' => 'usuarios', 
-                                                            'action'     => 'novo'
-                                                )
-                                                ); 
-                                    ?>">Cadastrar</a>
+                                 <li><a href="/usuarios/novo">Cadastrar</a>
                                  </li>
                             </ul>
                     </li>
                     
-                    <li><a href="
-                        <?php 
-                            echo $this->url(array('controller' => 'projetos', 
-                                                'action'     => 'listar'
-                                    )
-                                    ); 
-                        ?>">Projetos</a>
+                    <li><a href="/projetos/listar">Projetos</a>
                             <ul>
-                                    <li><a href="
-                                        <?php 
-                                        echo $this->url(array('controller' => 'projetos', 
-                                                            'action'     => 'listar'
-                                                )
-                                                ); 
-                                        ?>">Listar</a></li>
-                                    <li><a href="
-                                        <?php 
-                                        echo $this->url(array('controller' => 'projetos', 
-                                                            'action'     => 'novo'
-                                                )
-                                                ); 
-                                        ?>">Cadastrar</a></li>
+                                    <li><a href="/projetos/listar">Listar</a></li>
+                                    <li><a href="/projetos/novo">Cadastrar</a></li>
                             </ul>
                     </li>
-                    <li><a href="
-                        <?php 
-                            echo $this->url(array('controller' => 'projetos', 
-                                                'action'     => 'grafico-rel-colaborador'
-                                    )
-                                    ); 
-                        ?>">Relatórios</a>
+                    <li><a href="/projetos/grafico-rel-projeto">Relatórios</a>
                             <ul>
-                                    <li><a href="
-                                        <?php 
-                                        echo $this->url(array('controller' => 'projetos', 
-                                                            'action'     => 'relatorio-projeto'
-                                                )
-                                                ); 
-                                        ?>">Projeto</a></li>
-                                    <li><a href="
-                                        <?php 
-                                        echo $this->url(array('controller' => 'projetos', 
-                                                            'action'     => 'relatorio-colaborador'
-                                                )
-                                                ); 
-                                        ?>">Pessoal</a></li>
+                                    <li><a href="/projetos/relatorio-projeto">Projeto</a></li>
+                                    <li><a href="/projetos/relatorio-colaborador">Pessoal</a></li>
                             </ul>
                     </li>
                     <li><a href="telaMensagens.html">Mensagens</a>
