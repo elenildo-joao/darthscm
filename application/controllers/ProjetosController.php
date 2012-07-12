@@ -14,6 +14,7 @@ class ProjetosController extends Zend_Controller_Action
     private $vRealiza = null;
     private $vSubTarefa;
     private $vRelatorioCol;
+    private $vRelatorioProj;
     private $db;
 
     public function init()
@@ -29,6 +30,7 @@ class ProjetosController extends Zend_Controller_Action
         $this->vRealiza = new VRealiza();
         $this->vSubTarefa = new VSubTarefa();
         $this->vRelatorioCol = new VRelatorioProdCol();
+        $this->vRelatorioProj = new VRelatorioProdProj();
         $this->db = Zend_Db_Table::getDefaultAdapter();
     }
 
@@ -39,10 +41,10 @@ class ProjetosController extends Zend_Controller_Action
     
     public function listarAction()
     {
-        $this->view->projetos = $this->projeto
+        $this->view->projetos = $this->vUsuarioProjeto
                 ->fetchAll(
-                        $this->projeto->select()
-                        ->order('datainicio DESC')
+                        $this->vUsuarioProjeto->select()->where('papel= ? ', 'gerente')
+                        ->order('datainicioprojeto DESC')
                         );
     }
     
@@ -476,9 +478,21 @@ class ProjetosController extends Zend_Controller_Action
                         );
      }
      
+     public function relatorioProjetoAction (){
+     
+     $this->view->vRelatorioProj = $this->vRelatorioProj
+                ->fetchAll(
+                        $this->vRelatorioProj->select()->order('nomeprojeto')
+                        );
+     }
+     
      public function graficoRelColaboradorAction (){
      
         $this->view->vRelatorioCol = $this->vRelatorioCol
+                ->fetchAll(
+                        $this->vRelatorioCol->select()->order('nomeusuario')
+                        );
+        $this->view->visao1 = $this->vRelatorioCol
                 ->fetchAll(
                         $this->vRelatorioCol->select()->order('nomeprojeto')->order('nomeusuario')
                         );
