@@ -28,15 +28,15 @@
         <th id="remover">Excluir</th>
         </tr>
     <?php
-    foreach ($this->usuarios as $usuario):
+    foreach ($this->paginator as $usuario):
     ?>
     <tr>
         <td><?= $usuario->nome ?></td>
         <td><?= $usuario->email ?></td>
         <td><?= $usuario->findParentLogin()->login ?></td>
-        <td><?= $usuario->cpf ?></td>
-        <td><?= $usuario->datanasc ?></td>
-        <td><?= $usuario->telefone ?></td>
+        <td><?= $this->formataCPF($usuario->cpf) ?></td>
+        <td><?= $this->formataData($usuario->datanasc) ?></td>
+        <td><?= $this->formataTelefone($usuario->telefone) ?></td>
         <td><?= $usuario->sexo ?></td>
         <td><?= $usuario->findParentEnderecos()->rua ?></td>
         <td><?= $usuario->findParentEnderecos()->num ?></td>
@@ -75,3 +75,6 @@
     endforeach;
     ?>
 </table>
+<div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>
