@@ -378,27 +378,73 @@ class ProjetosController extends Zend_Controller_Action
     public function adicionarTempoAction(){        
         if ( !$this->_request->isPost() )
         {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $idTarefa = (int) $this->_getParam('idtarefa'); 
+            $tarefaUsuario = $this->vTarefaUsuario->find($idTarefa, $idProjeto);
+            $this->view->vTarefaUsuario  = $tarefaUsuario;
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
         }
         else
         {    
-            $int2=new DateInterval();
-            $int2->d=$this->_request->getPost('dias');
-            $int2->h=$this->_request->getPost('horas');
-            $int2->i=$this->_request->getPost('minutos');
+            $int1=new DateInterval('P0D');
             
-            $int1=new DateInterval();
-            $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();             
+            $idTarefa=$this->_request->getPost('idtarefa');
+            $idProjeto=$this->_request->getPost('idprojeto');                        
+            $idUsuario=$this->_request->getPost('usuario');
             
-            $int2=SomaInterval($int1, $int2);
-            if ($int2->d==0)
+            $int1->d=$this->_request->getPost('dias');
+            $int1->h=$this->_request->getPost('horas');
+            $int1->i=$this->_request->getPost('minutos');
+            
+            $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
+            
+            $tempo=$realiza->tempo;
+            
+            $x=0; 
+            $flagd=0; 
+            $d2="0";
+            while ($x<strlen($tempo)-1){
+                if ($tempo[$x]=='d'){
+                   for ($y=0; $y<$x-1; $y++)
+                       $d2=$d2.$tempo[$y];
+                   $flagd=1;
+                   break;
+                }
+                $x++;
+            }
+            if ($flagd==0)
+                $x=0;
+            while ($x<strlen($tempo)-1){
+                if ($tempo[$x]==' '){
+                    $h2=$tempo[++$x].$tempo[++$x];
+                    $x++;
+                    $m2=$tempo[++$x].$tempo[++$x];
+                    break;
+                }
+            $x++;
+            }
+                        
+            $int2=new DateInterval('P0D');
+            $int2->d=$d2;
+            $int2->h=$h2;
+            $int2->i=$m2;
+            
+            $int2=$this->SomaInterval($int1, $int2);
+            
+            if ($int2->d==0){
                 $dadosRealiza = array(
                     'tempo'      => $int2->h.':'.$int2->i.':00'
                 );
-            else
+            }
+            else {
                 $dadosRealiza = array(
                     'tempo'      => $int2->d.' '.$int2->h.':'.$int2->i.':00'
                 );
-
+            }  
+            $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idtarefa = ?' => (int) $idTarefa));
+            $this->realiza->update($dadosRealiza, $whereRealiza);
+            $this->_redirect('/projetos/listar-tarefas');
         } 
     }
        
