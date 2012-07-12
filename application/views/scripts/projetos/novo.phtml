@@ -1,18 +1,34 @@
+<?php echo $this->headLink()->appendStylesheet('/css/cadastroProjeto.css');?>
+
 <form action="novo" method="post">
-    <label>Nome: <input type="text" id="nome" name="nome" /></label><br />
-    <label>Data Início: <input type="text" id="dataInicio" name="dataInicio" /></label><br />
-    <label>Data Fim(Previsão): <input type="text" id="dataPrevFim" name="dataPrevFim" /></label><br /> 
-    <label>Gerente: 
-        <select id="gerente" name="gerente">
-            <?php 
-            foreach($this->usuarios as $usuario)
-                echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
-            ?>
-        </select>
-    </label>
+    <fieldset id="pessoal">
+        <legend>Informa&ccedil;&otilde;es Gerais</legend>
+            
+            <label>Nome do Projeto: <br/><input type="text" id="nome" name="nome"size="60px" /><br/></label><br />
+            
+            <label>Data Inicio: 
+            <label id="dataFim">Data Final (Previs&atilde;o): <br/>
+                <input type="text" id="dataInicio" name="dataInicio" size="14px" /></label>
+                <input type="text" id="dataPrevFim" name="dataPrevFim" size="14px" /></label><br /> <br/>
+            
+            <label> Descri&ccedil;&atilde;o:<br><textarea id="descricao" rows="5" cols="60"></textarea><br></br>            
+            
+            <label>Repositório: 
+            <label id="ger">Gerente: <br/>
+                <input type="text" id="repositorio" name="repositorio" /></label> 
+                <select id="gerente" name="gerente">
+                    <?php 
+                    foreach($this->usuarios as $usuario)
+                        echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
+                    ?>
+                </select><br/>
+            </label>
     <br /> 
-    <label>Descrição: <input type="text" id="descricao" name="descricao" /></label><br />  
-    <label>Repositório: <input type="text" id="repositorio" name="repositorio" /></label><br />
      
-    <input type="submit" value="Cadastrar" />
+            <input id="cancelar" type="submit" value="Cancelar"/>
+            <input id="salvar" type="submit" value="Salvar"/>
 </form>
+
+
+
+       
