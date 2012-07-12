@@ -210,7 +210,7 @@ class ProjetosController extends Zend_Controller_Action
         else
         {   
             $dadosTarefa = array(
-                'idprojeto' => $this->_request->getPost('nomeproj'),
+                'idprojeto' => $this->_getParam('idprojeto'),
                 'nome' => $this->_request->getPost('nome'),
                 'descricao'   => $this->_request->getPost('descricao'),
                 'datainicio'  => $this->_request->getPost('dataInicio'),
