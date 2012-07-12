@@ -187,7 +187,7 @@ class ProjetosController extends Zend_Controller_Action
     {
         $this->view->tarefas = $this->tarefa
                 ->fetchAll(
-                        $this->tarefa->select()->order('nome')
+                        $this->tarefa->select()->order('datafim DESC')
                         );
         
         $this->view->vRealiza = $this->vRealiza

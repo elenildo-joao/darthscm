@@ -60,90 +60,91 @@
                   </ul>
 
 
-    
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'editar-tarefa', 
-                                  'idtarefa' => $tarefa->idtarefa,
-                                  'idprojeto' => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-           title="Editar"><img src="/imagens/edit.png"/>
-        </a>
-    
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'remover-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Remover"><img src="/imagens/edit.png"/>
-        </a>
-            
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'fechar-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Fechar"><img src="/imagens/edit.png"/>
-        </a>
-            
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'alocar-usuario-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Alocar"><img src="/imagens/edit.png"/>
-        </a>
-            
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'desalocar-usuario-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Desalocar"><img src="/imagens/edit.png"/>
-        </a>
-            
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'adicionar-tempo', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Adiconar"><img src="/imagens/edit.png"/>
-        </a>
-            
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'nova-sub-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="NovaSubTarefa"><img src="/imagens/edit.png"/>
-        </a>
+        <ul id="icones">          
+                <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'editar-tarefa', 
+                                        'idtarefa' => $tarefa->idtarefa,
+                                        'idprojeto' => $tarefa->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                title="Editar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'remover-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Remover"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'fechar-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Fechar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'alocar-usuario-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Alocar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'desalocar-usuario-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Desalocar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'adicionar-tempo', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Adiconar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'nova-sub-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="NovaSubTarefa"><img src="/imagens/edit.png"/>
+            </a></li>
+       </ul>
        </fieldset>
     </div>
     <?php

@@ -1,3 +1,13 @@
+#icones{
+    float: right;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+
+#icones li {
+    display: inline;
+}
+
 #tarefas ul {
 	font: 15px Arial;
 	color: #797e7e;
@@ -5,19 +15,27 @@
 
 #tarefas li {
 	list-style: none;
-	margin-bottom: 20%;
-        display: inline;
 }
 
-a {
+#tarefas {
+    width: 40%;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+#tarefas a {
     text-decoration: none;
+    
 }
 
+#tarefas p {
+    margin-bottom: -15px;
+}
 
 #tarefas li fieldset {
 	height: 10%;
 	border: 2px solid #e8e8e8;
-	width: 35%;
+        margin-bottom: 20px;
 }
 
 legend {
@@ -31,19 +49,6 @@ legend {
 	margin-top: 5%;
 	margin-left: 72%;
         float: right;
-}
-
-#tarefas li ul li {
-	box-shadow: none;
-	background: none;
-	border: none;
-	display: inline;
-	margin-right: -4%;
-}
-
-#tarefas li ul li img {
-	width: 20px;
-	height: 20px;
 }
 
 #botaoCad {
