@@ -153,6 +153,16 @@ class ProjetosController extends Zend_Controller_Action
                 ->fetchAll(
                         $this->tarefa->select()->order('nome')
                         );
+        
+        $this->view->vRealiza = $this->vRealiza
+                ->fetchAll(
+                        $this->vRealiza->select()->order('nome')
+                        );
+        
+        $this->view->VTarefaUsuario = $this->vTarefaUsuario
+                ->fetchAll(
+                        $this->vTarefaUsuario->select()->order('nomeusuario')
+                        );
     }      
     public function novaTarefaAction()
     {
@@ -496,6 +506,19 @@ class ProjetosController extends Zend_Controller_Action
                 ->fetchAll(
                         $this->vRelatorioCol->select()->order('nomeprojeto')->order('nomeusuario')
                         );
+     }
+     
+     public function detalharProjetoAction () {
+         
+         $idProjeto = (int) $this->_getParam('id');
+         $projeto = $this->projeto->find($idProjeto)->current();
+         
+         $this->view->tarefas = $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->order('nome')
+                        );
+         $this->view->projeto = $projeto;
+         
      }
 }
 

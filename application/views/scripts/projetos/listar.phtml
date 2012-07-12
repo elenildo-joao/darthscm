@@ -11,6 +11,7 @@
 <?php
     foreach ($this->projetos as $projeto):
 ?>
+
 <div id="projetos">
 <fieldset>
     <legend><?= $projeto->nomeprojeto ?> </legend>
@@ -19,8 +20,18 @@
     <p>Data de Fim (Previs&atilde;o): <?= $projeto->dataprevfim ?></p>
     <p>Data Final: <?= $projeto->datafim ?></p>
     
-   
-   <a href="
+           <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'detalhar-projeto', 
+                                  'id' => $projeto->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Detalhar"><img src="/imagens/delete-icon.png"/>
+        </a>
+    
+        <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'editar', 
@@ -30,16 +41,7 @@
             ?>" 
             title="Editar"><img src="/imagens/edit.png"/>
         </a>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'remover', 
-                                  'id' => $projeto->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Remover"><img src="/imagens/delete-icon.png"/>
-        </a>
+    
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 

@@ -1,15 +1,66 @@
-<table border="1">
-    <tr>
-        <td>Nome Tarefa</td>
-        <td>Descrição</td>
-    </tr>
-    <?php
+<?php echo $this->headLink()->appendStylesheet('/css/telaTarefas.css');?>
+
+<div type="button" id="botaoCad">
+        <a href="    
+            <?php 
+                echo $this->url(array('controller' => 'projetos', 'action' => 'nova-tarefa'));
+            ?>" 
+        title="Novo projeto">Cadastrar</a>
+</div>
+
+<?php
     foreach ($this->tarefas as $tarefa):
-    ?>
-    <tr>
-        <td><?= $tarefa->nome ?></td>
-        <td><?= $tarefa->descricao ?></td>     
-        <td>
+?>
+<div id="tarefas">
+<fieldset>
+    <legend><?= $tarefa->nome ?> </legend>
+    <p>Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
+    <p>Estado: <? if ($tarefa->datafim != null AND $tarefa->datafim<date('Y-m-d')) echo ('FECHADA'); else echo ('ABERTA'); ?></p>
+    <p>Colaboradores:</p>
+           <ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->VTarefaUsuario as $realiza):
+                        if($realiza->idtarefa==$tarefa->idtarefa){
+                            $colaboradores=$colaboradores.$realiza->nomeusuario.", ";
+                        }
+                ?>
+               <li>
+                <?php
+                endforeach; 
+                 for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                     echo ($colaboradores[$x]);
+                 }
+                 if ($x!=0)
+                     echo ('.');
+                 ?>
+                </li>
+                
+                  </ul>
+    <p>Colaboradores atuais: </p> 
+           <ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->vRealiza as $realiza):
+                        if($realiza->idtarefa==$tarefa->idtarefa){
+                            $colaboradores=$colaboradores.$realiza->nome.", ";
+                        }
+                ?>
+               <li>
+                <?php
+                endforeach; 
+                 for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                     echo ($colaboradores[$x]);
+                 }
+                 if ($x!=0)
+                     echo ('.');
+                 ?>
+                </li>
+                
+                  </ul>
+
+
+    
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -19,10 +70,9 @@
                     )
                     ); 
             ?>" 
-            title="Editar">Editar
+           title="Editar"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-        <td>
+    
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -32,10 +82,9 @@
                     )
                     ); 
             ?>" 
-            title="Remover">Remover
+            title="Remover"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-        <td>
+            
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -45,10 +94,9 @@
                     )
                     ); 
             ?>" 
-            title="Fechar">Fechar
+            title="Fechar"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-        <td>
+            
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -58,10 +106,9 @@
                     )
                     ); 
             ?>" 
-            title="Alocar">Alocar
+            title="Alocar"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-        <td>
+            
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -71,10 +118,9 @@
                     )
                     ); 
             ?>" 
-            title="Desalocar">Desalocar
+            title="Desalocar"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-        <td>
+            
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -84,10 +130,9 @@
                     )
                     ); 
             ?>" 
-            title="Adiconar">Adiconar Tempo
+            title="Adiconar"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-        <td>
+            
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -97,17 +142,10 @@
                     )
                     ); 
             ?>" 
-            title="NovaSubTarefa">Nova SubTarefa
+            title="NovaSubTarefa"><img src="/imagens/edit.png"/>
         </a>
-        </td>
-    </tr>
+       </fieldset>
+    </div>
     <?php
     endforeach;
     ?>
-</table>
-<a href="
-    <?php 
-    echo $this->url(array('controller' => 'projetos', 'action' => 'nova-tarefa'));
-        ?>" 
-    title="Nova tarefa">Nova tarefa
-</a>
