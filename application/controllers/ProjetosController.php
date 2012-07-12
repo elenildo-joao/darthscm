@@ -490,7 +490,10 @@ class ProjetosController extends Zend_Controller_Action
      }
      
      public function graficoRelColaboradorAction (){
-     
+          $this->view->vRelatorioProj = $this->vRelatorioProj
+                ->fetchAll(
+                        $this->vRelatorioProj->select()->order('nomeprojeto')
+                        );
         $this->view->vRelatorioCol = $this->vRelatorioCol
                 ->fetchAll(
                         $this->vRelatorioCol->select()->order('nomeusuario')

@@ -1,51 +1,101 @@
 <html>
-<head>
+  <head>
     <title>Administrador</title>
     <link rel="stylesheet" type="text/css" href="/css/geral.css"/>
-    <link rel="icon" href="/imagens/favicon.ico" type="image/x-icon" sizes="16x16" />
-</head>
-<body>
-    <div id="header">
-        <img src="/imagens/logo.png" width="145px" height="75px"/>
-        <div id="login">
-            <a href="#">Rafaela Souza</a> |<a href="/login/logout">logout</a>
-            <br><a href="#"><img src="/imagens/Brazil-icon.png"/></a>
-            <a href="#"><img src="/imagens/France-icon.png"/></a>
-            <a href="#"><img src="/imagens/United-States-of-Americ-icon.png"/></a>
-            <a href="#"><img src="/imagens/Spain-icon.png"/></a>
-        </div>
-    </div>
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon" sizes="16x16" />
+  </head>
 
-    <div id="menu">
-        <ul>
-            <li><a href="/index">Home</a></li>
-            <li><a href="/usuarios">Usu&aacute;rios</a>
+    <body>
+        <div id="header">
+            <img src="../imagens/logo.png" width="145px" height="75px"/>
+            <div id="login">
+                    <a href="#">Rafaela Souza</a> |<a href="#">logout</a>
+                    <br><a href="#"><img src="../imagens/Brazil-icon.png"/></a>
+                    <a href="#"><img src="../imagens/France-icon.png"/></a>
+                    <a href="#"><img src="../imagens/United-States-of-Americ-icon.png"/></a>
+                    <a href="#"><img src="../imagens/Spain-icon.png"/></a>
+            </div>
+        </div>
+
+
+
+        <div id="menu">
                 <ul>
-                    <li><a href="/usuarios/listar">Listar</a></li>
-                    <li><a href="/usuarios/novo">Cadastrar</a></li>
+                    <li><a href="telaAdm.html">Home</a></li>
+                    <li><a href="
+                        <?php 
+                            echo $this->url(array('controller' => 'usuarios', 
+                                                'action'     => 'listar'
+                                    )
+                                    ); 
+                        ?>">Usu&aacute;rios</a>
+                            <ul>
+                                <li><a href="
+                                    <?php 
+                                        echo $this->url(array('controller' => 'usuarios', 
+                                                            'action'     => 'novo'
+                                                )
+                                                ); 
+                                    ?>">Cadastrar</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="
+                        <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                                'action'     => 'listar'
+                                    )
+                                    ); 
+                        ?>">Projetos</a>
+                            <ul>
+                                    <li><a href="
+                                        <?php 
+                                        echo $this->url(array('controller' => 'projetos', 
+                                                            'action'     => 'novo'
+                                                )
+                                                ); 
+                                        ?>">Cadastrar</a></li>
+                                    <li><a href="
+                                        <?php 
+                                        echo $this->url(array('controller' => 'projetos', 
+                                                            'action'     => 'listar-tarefas'
+                                                )
+                                                ); 
+                                        ?>">Tarefas</a></li>
+                                    <li><a href="#nogo">Bugs</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="
+                        <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                                'action'     => 'grafico-rel-colaborador'
+                                    )
+                                    ); 
+                        ?>">Relatórios</a>
+                            <ul>
+                                    <li><a href="
+                                        <?php 
+                                        echo $this->url(array('controller' => 'projetos', 
+                                                            'action'     => 'relatorio-projeto'
+                                                )
+                                                ); 
+                                        ?>">Relatório Pessoal</a></li>
+                                    <li><a href="
+                                        <?php 
+                                        echo $this->url(array('controller' => 'projetos', 
+                                                            'action'     => 'relatorio-colaborador'
+                                                )
+                                                ); 
+                                        ?>">Relatório Pessoal</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="telaMensagens.html">Mensagens</a>
+                            <ul>
+                                    <li><a href="#nogo">Nova</a></li>
+                                    <li><a href="#nogo">Entrada</a></li>
+                            </ul>
+                    </li>
                 </ul>
-            </li>
-            <li><a href="/projetos">Projetos</a>
-                <ul>
-                    <li><a href="/projetos/listar">Listar</a></li>
-                    <li><a href="/projetos/novo">Cadastrar</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Tarefas</a>
-                <ul>
-                    <li><a href="#">Cadastrar</a></li>
-                    <li><a href="#">Alterar</a></li>
-                    <li><a href="#">Excluir</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Mensagens</a>
-                <ul>
-                    <li><a href="#">Nova</a></li>
-                    <li><a href="#">Entrada</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+        </div>
 
 
     <div id="conteudo">
@@ -56,7 +106,8 @@
     <div class="clear"></div>
 
     <div id="rodape">
-        <img src="/imagens/logo2.png">
+            <img src="../imagens/logo2.png">
     </div>
-</body>
+    
+    </body>
 </html>
