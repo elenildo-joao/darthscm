@@ -18,9 +18,8 @@
         <a href="
         <?php 
         echo $this->url(array('controller' => 'projetos', 
-                                'action'     => 'listar-tarefas', 
-                                'idtarefa' => $tarefa->idtarefa,
-                                'idprojeto' => $tarefa->idprojeto
+                                'action'     => 'listar-tarefas',
+                                'idprojeto' => $this->projeto->idprojeto
                 )
                 ); 
         ?>" 

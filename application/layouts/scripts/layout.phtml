@@ -31,15 +31,25 @@
                                     ); 
                         ?>">Usu&aacute;rios</a>
                             <ul>
-                                <li><a href="
+                                 <li><a href="
+                                    <?php 
+                                        echo $this->url(array('controller' => 'usuarios', 
+                                                            'action'     => 'listar'
+                                                )
+                                                ); 
+                                    ?>">Listar</a>
+                                 </li>
+                                 <li><a href="
                                     <?php 
                                         echo $this->url(array('controller' => 'usuarios', 
                                                             'action'     => 'novo'
                                                 )
                                                 ); 
-                                    ?>">Cadastrar</a></li>
+                                    ?>">Cadastrar</a>
+                                 </li>
                             </ul>
                     </li>
+                    
                     <li><a href="
                         <?php 
                             echo $this->url(array('controller' => 'projetos', 
@@ -51,18 +61,17 @@
                                     <li><a href="
                                         <?php 
                                         echo $this->url(array('controller' => 'projetos', 
+                                                            'action'     => 'listar'
+                                                )
+                                                ); 
+                                        ?>">Listar</a></li>
+                                    <li><a href="
+                                        <?php 
+                                        echo $this->url(array('controller' => 'projetos', 
                                                             'action'     => 'novo'
                                                 )
                                                 ); 
                                         ?>">Cadastrar</a></li>
-                                    <li><a href="
-                                        <?php 
-                                        echo $this->url(array('controller' => 'projetos', 
-                                                            'action'     => 'listar-tarefas'
-                                                )
-                                                ); 
-                                        ?>">Tarefas</a></li>
-                                    <li><a href="#nogo">Bugs</a></li>
                             </ul>
                     </li>
                     <li><a href="
@@ -79,14 +88,14 @@
                                                             'action'     => 'relatorio-projeto'
                                                 )
                                                 ); 
-                                        ?>">Relatório Pessoal</a></li>
+                                        ?>">Projeto</a></li>
                                     <li><a href="
                                         <?php 
                                         echo $this->url(array('controller' => 'projetos', 
                                                             'action'     => 'relatorio-colaborador'
                                                 )
                                                 ); 
-                                        ?>">Relatório Pessoal</a></li>
+                                        ?>">Pessoal</a></li>
                             </ul>
                     </li>
                     <li><a href="telaMensagens.html">Mensagens</a>
