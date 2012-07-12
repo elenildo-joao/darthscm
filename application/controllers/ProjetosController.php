@@ -453,13 +453,13 @@ class ProjetosController extends Zend_Controller_Action
         $hora=$int2->h+$int1->h;
         $dia=$int2->d+$int1->d;
         if ($min>59){
-            $min=$min-60;
-            $hora=$hora+1;
+            $hora=$hora+(int)$min/60;
+            $min=$min%60;
         }
         $int2->i=$min;        
         if ($hora>23){
-            $hora=$hora-24;
-            $dia=$dia+1;
+            $dia=$dia+(int)$hora/24;
+            $hora=$hora%24;
         }
         $int2->h=$hora;
         $int2->d=$dia;
