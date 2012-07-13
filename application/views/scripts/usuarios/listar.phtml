@@ -24,6 +24,7 @@
         <th id="estado">Estado</th>
         <th id="complemento">Complemento</th>
         <th>Admin</th>
+        <th id="visualizar">Visualizar</th>
         <th id="editar">Editar</th>
         <th id="remover">Excluir</th>
         </tr>
@@ -46,6 +47,18 @@
         <td><?= $usuario->findParentEnderecos()->complemento ?></td>
         <td><?= $usuario->admin ?></td>
         
+        <td>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'usuarios', 
+                                  'action'     => 'visualizar',
+                                  'id' => $usuario->idusuario
+                    )
+                    ); 
+            ?>" 
+            title="Editar"><img src="/imagens/31.png"/>
+        </a>
+        </td>
         <td>
         <a href="
             <?php 

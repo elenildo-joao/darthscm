@@ -213,5 +213,14 @@ class UsuariosController extends Zend_Controller_Action
         
         $this->_redirect('/usuarios/listar');
     }
-    
+
+    public function visualizarAction()
+    {
+    $idUsuario = (int) $this->_getParam('id');
+    $this->view->usuarios = $this->usuario
+            ->fetchAll(
+                    $this->usuario->select()
+                    ->where('idusuario= ? ', $idUsuario)
+                    );
+    }
 }

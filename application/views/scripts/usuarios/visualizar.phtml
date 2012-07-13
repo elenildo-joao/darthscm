@@ -1,0 +1,30 @@
+ <input type="hidden" name="idUsuario" value="<?= $this->usuarios->idusuario ?>" />
+<fieldset>
+    <?php
+    foreach ($this->usuarios as $usuario):
+    ?>
+    <legend><?= $usuario->nome ?></legend>
+        <p> Email: <?= $usuario->email ?></p>
+        <p>Login: <?= $usuario->findParentLogin()->login ?></p>
+        <p>CPF: <?= $this->formataCPF($usuario->cpf) ?></p>
+        <p>Data de Nascimento: <?= $this->formataData($usuario->datanasc) ?></p>
+        <p>Telefone: <?= $this->formataTelefone($usuario->telefone) ?></p>
+        <p>Sexo: <? if ($usuario->sexo=='F') echo ('Feminino'); else echo ('Masculino'); ?></p>
+        <p>Rua: <?= $usuario->findParentEnderecos()->rua ?></p>
+        <p>Número: <?= $usuario->findParentEnderecos()->num ?></p>
+        <p>Bairro: <?= $usuario->findParentEnderecos()->bairro ?></p>
+        <p>Cidade: <?= $usuario->findParentEnderecos()->cidade ?></p>
+        <p>Estado: <?= $usuario->findParentEnderecos()->estado ?></p>
+        <p>Complemento: <?= $usuario->findParentEnderecos()->complemento ?></p>
+        <p>Administrador: <? if ($usuario->admin=='1') echo ('Sim'); else echo('Não'); ?></p> 
+    <?php
+    endforeach;
+    ?>
+</fieldset>
+
+<a href="<?php 
+            echo $this->url(array('controller' => 'usuarios', 
+                                  'action'     => 'listar'
+                    )
+                    ); 
+            ?>" >Voltar</a>
