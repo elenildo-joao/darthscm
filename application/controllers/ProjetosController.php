@@ -205,7 +205,7 @@ class ProjetosController extends Zend_Controller_Action
                 ->fetchAll(
                         $this->tarefa->select()->order('datafim DESC')
                         );
-        $this->view->subtarefas = $this->subtarefa
+        $this->view->SubTarefas = $this->subtarefa
                 ->fetchAll(
                         $this->subtarefa->select()
                         );
