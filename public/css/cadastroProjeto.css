@@ -9,11 +9,10 @@ form {
     margin-left: 25%;
     padding: 2%;
     border: 2px solid #D8D8D8;
-    width: 100%;
 }
 
 #dataFim {
-    margin-left: 18%;
+    float: right;
 }
 
 #dataPrevFim {
@@ -85,11 +84,6 @@ textarea {
   cursor:pointer;
   width: 90px;
   height: 40px;
-}
-
-
-#cancelar {
-  margin-left: 58%;
 }
 
 #salvar:hover{
