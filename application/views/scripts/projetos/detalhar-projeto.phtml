@@ -2,11 +2,95 @@
 
 <div id="projetos">
     <h1><?= $this->projeto->nome ?> </h1>
-    <?= $this->projeto->idprojeto ?>
+    <p> Número do projeto: <?= $this->projeto->idprojeto ?> </p>
     <p>Descri&ccedil;&atilde;o: <?= $this->projeto->descricao ?></p>
+    <? if ($this->projeto->datafim != null AND $this->projeto->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA'; ?>
+    <p>Estado: <?= $estado ?></p>    
     <p>Data de Inicio: <?= $this->projeto->datainicio ?></p>
     <p>Data de Fim (Previs&atilde;o): <?= $this->projeto->dataprevfim ?></p>
     <p>Data Final: <?= $this->projeto->datafim ?></p>
+    <p>Todos os Gerentes:</p>
+        <ul>
+            <?php
+                $gerentes="";
+                foreach ($this->vUsuarioProjeto as $vgerente):
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente'){
+                        $gerentes=$gerentes.$vgerente->nomeusuario.", ";
+                    }
+                endforeach; ?>
+             <li> 
+                <?php
+                     for ($x=0; $x<strlen($gerentes)-2; $x++){
+                         echo ($gerentes[$x]);
+                     }
+                     if ($x!=0)
+                         echo ('.');
+                 ?>
+             </li>
+        </ul>
+    <?php if ($estado=='ABERTA'){?>
+    <p>Gerentes Atuais:</p>
+       <ul>
+        <?php
+            $gerentes="";
+            foreach ($this->vUsuarioProjeto as $vgerente):
+                if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                    $gerentes=$gerentes.$vgerente->nomeusuario.", ";
+                }
+                endforeach; ?> 
+            <li> 
+            <?php
+                for ($x=0; $x<strlen($gerentes)-2; $x++){
+                    echo ($gerentes[$x]);
+                }
+                if ($x!=0)
+                    echo ('.');
+             ?>
+            </li>                
+        </ul>
+    <?php 
+        }?>
+    <p>Todos os Colaboradores:</p>
+        <ul>
+            <?php
+                $colaboradores="";
+                foreach ($this->vUsuarioProjeto as $vgerente):
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador'){
+                        $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
+                    }
+                endforeach; ?>
+             <li> 
+                <?php
+                     for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                         echo ($colaboradores[$x]);
+                     }
+                     if ($x!=0)
+                         echo ('.');
+                 ?>
+             </li>
+        </ul>
+    <?php if ($estado=='ABERTA'){?>
+    <p>Colaboradores Atuais:</p>
+       <ul>
+        <?php
+            $colaboradores="";
+            foreach ($this->vUsuarioProjeto as $vgerente):
+                if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                    $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
+                }
+                endforeach; ?> 
+            <li> 
+            <?php
+                for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                    echo ($colaboradores[$x]);
+                }
+                if ($x!=0)
+                    echo ('.');
+             ?>
+            </li>                
+        </ul>
+    <?php 
+        }?>
 </div>
 
     
