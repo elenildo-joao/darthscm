@@ -1,36 +1,50 @@
-<table border="1">
-    <tr>
-        <td>Nome</td>
-        <td>Data Nascimento</td>
-        <td>Sexo</td>
-        <td>CPF</td>
-        <td>Telefone</td>
-        <td>E-mail</td>
-        <td>Login</td>
-        <td>Rua</td>
-        <td>Num</td>
-        <td>Bairro</td>
-        <td>Complemento</td>
-        <td>Cidade</td>
-        <td>Estado</td>
-    </tr>
+<?php echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');?>
+
+<div id="botaoCad">
+    <a href="
+    <?php 
+    echo $this->url(array('controller' => 'usuarios', 'action' => 'novo')); 
+    ?>" 
+    title="Novo usuário">Cadastrar</a>
+</div>
+
+<table id="tabelaUsuarios" border="1">
+        <tr>
+        <th id="nome">Nome</th>
+        <th id="email">Email</th>
+        <th id="login1">Login</th>
+        <th id="cpf">CPF</th>
+        <th id="data">Data de Nasc.</th>
+        <th id="telefone">Telefone</th>
+        <th id="sexo">Sexo</th>
+        <th id="rua">Rua</th>
+        <th id="num">Num</th>
+        <th id="bairro">Bairro</th>
+        <th id="cidade">Cidade</th>
+        <th id="estado">Estado</th>
+        <th id="complemento">Complemento</th>
+        <th>Admin</th>
+        <th id="editar">Editar</th>
+        <th id="remover">Excluir</th>
+        </tr>
     <?php
-    foreach ($this->usuarios as $usuario):
+    foreach ($this->paginator as $usuario):
     ?>
     <tr>
         <td><?= $usuario->nome ?></td>
-        <td><?= $usuario->datanasc ?></td>
-        <td><?= $usuario->sexo ?></td>
-        <td><?= $usuario->cpf ?></td>
-        <td><?= $usuario->telefone ?></td>
         <td><?= $usuario->email ?></td>
         <td><?= $usuario->findParentLogin()->login ?></td>
+        <td><?= $this->formataCPF($usuario->cpf) ?></td>
+        <td><?= $this->formataData($usuario->datanasc) ?></td>
+        <td><?= $this->formataTelefone($usuario->telefone) ?></td>
+        <td><?= $usuario->sexo ?></td>
         <td><?= $usuario->findParentEnderecos()->rua ?></td>
         <td><?= $usuario->findParentEnderecos()->num ?></td>
         <td><?= $usuario->findParentEnderecos()->bairro ?></td>
-        <td><?= $usuario->findParentEnderecos()->complemento ?></td>
         <td><?= $usuario->findParentEnderecos()->cidade ?></td>
         <td><?= $usuario->findParentEnderecos()->estado ?></td>
+        <td><?= $usuario->findParentEnderecos()->complemento ?></td>
+        <td><?= $usuario->admin ?></td>
         
         <td>
         <a href="
@@ -41,7 +55,7 @@
                     )
                     ); 
             ?>" 
-            title="Editar">Editar
+            title="Editar"><img src="/imagens/31.png"/>
         </a>
         </td>
         <td>
@@ -53,7 +67,7 @@
                     )
                     ); 
             ?>" 
-            title="Remover">Remover
+            title="Remover"><img src="/imagens/118.png"/>
         </a>
         </td>
     </tr>
@@ -61,9 +75,6 @@
     endforeach;
     ?>
 </table>
-<a href="
-    <?php 
-    echo $this->url(array('controller' => 'usuarios', 'action' => 'novo')); 
-    ?>" 
-    title="Novo usuário">Novo usuário
-</a>
+<div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>

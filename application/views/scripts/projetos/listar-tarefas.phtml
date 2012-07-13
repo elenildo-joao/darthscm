@@ -1,113 +1,152 @@
-<table border="1">
-    <tr>
-        <td>Nome Tarefa</td>
-        <td>Descrição</td>
-    </tr>
-    <?php
+<?php echo $this->headLink()->appendStylesheet('/css/telaTarefas.css');?>
+
+<div type="button" id="botaoCad">
+        <a href="    
+            <?php 
+                echo $this->url(array('controller' => 'projetos', 'action' => 'nova-tarefa'));
+            ?>" 
+        title="Novo projeto">Cadastrar</a>
+</div>
+
+<?php
     foreach ($this->tarefas as $tarefa):
-    ?>
-    <tr>
-        <td><?= $tarefa->nome ?></td>
-        <td><?= $tarefa->descricao ?></td>     
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'editar-tarefa', 
-                                  'idtarefa' => $tarefa->idtarefa,
-                                  'idprojeto' => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Editar">Editar
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'remover-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Remover">Remover
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'fechar-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Fechar">Fechar
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'alocar-usuario-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Alocar">Alocar
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'desalocar-usuario-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Desalocar">Desalocar
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'adicionar-tempo', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Adiconar">Adiconar Tempo
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'nova-sub-tarefa', 
-                                  'idtarefa'   => $tarefa->idtarefa,
-                                  'idprojeto'  => $tarefa->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="NovaSubTarefa">Nova SubTarefa
-        </a>
-        </td>
-    </tr>
+?>
+<div id="tarefas">
+<fieldset>
+    <legend><?= $tarefa->nome ?> </legend>
+    <p>Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
+    <p>Estado: <? if ($tarefa->datafim != null AND $tarefa->datafim<date('Y-m-d')) echo ('FECHADA'); else echo ('ABERTA'); ?></p>
+    <p>Colaboradores:</p>
+           <ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->VTarefaUsuario as $realiza):
+                        if($realiza->idtarefa==$tarefa->idtarefa){
+                            $colaboradores=$colaboradores.$realiza->nomeusuario.", ";
+                        }
+                ?>
+               <li>
+                <?php
+                endforeach; 
+                 for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                     echo ($colaboradores[$x]);
+                 }
+                 if ($x!=0)
+                     echo ('.');
+                 ?>
+                </li>
+                
+                  </ul>
+    <p>Colaboradores atuais: </p> 
+           <ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->vRealiza as $realiza):
+                        if($realiza->idtarefa==$tarefa->idtarefa){
+                            $colaboradores=$colaboradores.$realiza->nome.", ";
+                        }
+                ?>
+               <li>
+                <?php
+                endforeach; 
+                 for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                     echo ($colaboradores[$x]);
+                 }
+                 if ($x!=0)
+                     echo ('.');
+                 ?>
+                </li>
+                
+                  </ul>
+
+
+        <ul id="icones">          
+                <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'editar-tarefa', 
+                                        'idtarefa' => $tarefa->idtarefa,
+                                        'idprojeto' => $tarefa->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                title="Editar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'remover-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Remover"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'fechar-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Fechar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'alocar-usuario-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Alocar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'desalocar-usuario-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Desalocar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'adicionar-tempo', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Adiconar"><img src="/imagens/edit.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'nova-sub-tarefa', 
+                                    'idtarefa'   => $tarefa->idtarefa,
+                                    'idprojeto'  => $tarefa->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="NovaSubTarefa"><img src="/imagens/edit.png"/>
+            </a></li>
+       </ul>
+       </fieldset>
+    </div>
     <?php
     endforeach;
     ?>
-</table>
-<a href="
-    <?php 
-    echo $this->url(array('controller' => 'projetos', 'action' => 'nova-tarefa'));
-        ?>" 
-    title="Nova tarefa">Nova tarefa
-</a>

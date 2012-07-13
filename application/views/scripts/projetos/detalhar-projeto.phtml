@@ -1,0 +1,41 @@
+<?php echo $this->headLink()->appendStylesheet('/css/detalharProjeto.css');?>
+
+<div id="projetos">
+    <h1><?= $this->projeto->nome ?> </h1>
+    <?= $this->projeto->idprojeto ?>
+    <p>Descri&ccedil;&atilde;o: <?= $this->projeto->descricao ?></p>
+    <p>Data de Inicio: <?= $this->projeto->datainicio ?></p>
+    <p>Data de Fim (Previs&atilde;o): <?= $this->projeto->dataprevfim ?></p>
+    <p>Data Final: <?= $this->projeto->datafim ?></p>
+</div>
+
+    
+<div id="listaTarefas">
+    <fieldset>
+        <legend>Tarefas</legend>
+        
+    <div id="botaoCad">
+        <a href="
+        <?php 
+        echo $this->url(array('controller' => 'projetos', 
+                                'action'     => 'listar-tarefas',
+                                'idprojeto' => $this->projeto->idprojeto
+                )
+                ); 
+        ?>" 
+        title="Editar">Detalhar Todas</a>
+    </div>
+
+<?php
+    foreach ($this->tarefas as $tarefa):
+?>
+    <p class="lista"><?= $tarefa->nome ?><p>
+    <p class="lista">Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
+
+    <?php
+    endforeach;
+    ?>
+
+</fieldset>
+
+ </div>

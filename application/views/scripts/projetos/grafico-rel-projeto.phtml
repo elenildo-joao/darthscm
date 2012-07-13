@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Projetos', 'Tempo de produtividade (dias)']
+            <?php
+            foreach ($this->vRelatorioProj as $relatorio):
+                
+                $tempo=$relatorio->tempodedicado; 
+                $d2="";$h2="";$m2=""; 
+                $int1=new DateInterval('P0D');
+                $int2=new DateInterval('P0D');
+                projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2);
+                $int2=projetos::SomaInterval($int1, $int2);
+            ?>            
+          <?=",['".$relatorio->nomeprojeto."', ".$int2->d."]"?>
+      <?php
+    endforeach;
+    ?>  
+        ]);
+
+        var options = {
+          title: 'Tempo (em dias) de dedicação efetiva para cada projeto'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <table border="1">
+    <tr>
+        <td>Nome Projeto</td>
+        <td>Produtividade (tempo)</td>
+    </tr>
+    <?php
+    foreach ($this->vRelatorioProj as $relatorio):
+        $tempo=$relatorio->tempodedicado;
+        $int1=new DateInterval('P0D');
+            $int2=new DateInterval('P0D');
+            $d2="";$h2="";$m2="";
+            projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2);
+            projetos::SomaInterval ($int1, $int2);
+       ?>
+    <tr>
+        <td><?= $relatorio->nomeprojeto ?></td>
+        <td><?= $int2->d." days ".$int2->format('%H').":".$int2->format('%I').":".$int2->format('%S')?></td>     
+    </tr>
+    <?php
+    endforeach;
+    ?>
+</table>
+  </body>
+</html>

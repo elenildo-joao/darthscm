@@ -1,42 +1,76 @@
+<?php echo $this->headLink()->appendStylesheet('/css/telaProjetos.css');?>
+
+<div type="button" id="botaoCad">
+        <a href="    
+            <?php 
+                echo $this->url(array('controller' => 'projetos', 'action' => 'novo')); 
+            ?>" 
+        title="Novo projeto">Cadastrar</a>
+</div>
+    
 <?php
     foreach ($this->projetos as $projeto):
 ?>
+
+<div id="projetos">
 <fieldset>
-    <legend><?= $projeto->nome ?> </legend>
-    <p>Descrição: <?= $projeto->descricao ?></p>
-    <p>Data de Inicio: <?= $projeto->datainicio ?></p>
-    <p>Data de Fim (Previsão): <?= $projeto->dataprevfim ?></p>
+    <legend><?= $projeto->nomeprojeto ?> </legend>
+    <p>Descri&ccedil;&atilde;o: <?= $projeto->descricao ?></p>
+    <p>Data de Inicio: <?= $projeto->datainicioprojeto ?></p>
+    <p>Data de Fim (Previs&atilde;o): <?= $projeto->dataprevfim ?></p>
     <p>Data Final: <?= $projeto->datafim ?></p>
-</fieldset>
+    
+           <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'detalhar-projeto', 
+                                  'idprojeto' => $projeto->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Detalhar"><img src="/imagens/delete-icon.png"/>
+        </a>
+    
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'editar', 
-                                  'id' => $projeto->idprojeto
+                                  'idprojeto' => $projeto->idprojeto
                     )
                     ); 
             ?>" 
-            title="Editar">Editar
-        </a><br />
+            title="Editar"><img src="/imagens/edit.png"/>
+        </a>
+    
         <a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'remover', 
-                                  'id' => $projeto->idprojeto
+                                  'action'     => 'alocar', 
+                                  'idprojeto' => $projeto->idprojeto
                     )
                     ); 
             ?>" 
-            title="Remover">Remover
-        </a><br />
+            title="Remover"><img src="/imagens/alocar.png"/>
+        </a>
+        <a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'desalocar', 
+                                  'idprojeto' => $projeto->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Remover"><img src="/imagens/edit.png"/>
+        </a>
+        </div>
+        <br />
     <?php
     endforeach;
     ?>
-<a href="
-    <?php 
-    echo $this->url(array('controller' => 'projetos', 'action' => 'novo')); 
-    ?>" 
-    title="Novo projeto">Novo projeto
-</a><br />
+
+</fieldset>
+
+<br />
 <!--        <td>
             <a href=" <?//= $projeto->findParentRepositorios()->endereco ?>">
             <?//= $projeto->findParentRepositorios()->endereco ?>

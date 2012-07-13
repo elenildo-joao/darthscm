@@ -8,11 +8,15 @@ else :
 ?>
 
 <form action="editar" method="post">
-    <input type="hidden" name="idUsuario" value="<?= $this->projeto->idprojeto ?>" />
-    <input type="hidden" name="idEndereco" value="<?= $this->repositorio->endereco ?>" />
+    <input type="hidden" name="idProjeto" value="<?= $this->projeto->idprojeto ?>" />
+    <input type="hidden" name="idRepositorio" value="<?= $this->repositorio->idrepositorio ?>" />
     
     <label>Nome: 
         <input type="text" id="nome" name="nome" value="<?= $this->projeto->nome ?>" />
+    </label>
+    <br />
+    <label>Descrição: 
+        <input type="text" id="descricao" name="descricao" value="<?= $this->projeto->descricao ?>" />
     </label>
     <br /> 
     <label>Data Início: 
@@ -21,10 +25,6 @@ else :
     <br />
     <label>Data Fim(Previsão): 
         <input type="text" id="dataPrevFim" name="dataPrevFim" value="<?= $this->projeto->dataprevfim ?>" />
-    </label>
-    <br />
-    <label>Descrição: 
-        <input type="text" id="descricao" name="descricao" value="<?= $this->projeto->descricao ?>" />
     </label>
     <br /> 
     <label>Repositório: 

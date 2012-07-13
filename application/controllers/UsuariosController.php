@@ -24,7 +24,13 @@ class UsuariosController extends Zend_Controller_Action
     
     public function listarAction()
     {
-        $this->view->usuarios = $this->usuario->fetchAll();
+        //$this->view->usuarios = $this->usuario->fetchAll();
+        
+        $paginator = Zend_Paginator::factory(
+                $this->usuario->fetchAll($this->usuario->select()->order('nome')));
+        $paginator->setItemCountPerPage(10);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
     }
     
     public function novoAction()

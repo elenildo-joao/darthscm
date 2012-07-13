@@ -1,0 +1,81 @@
+#icones{
+    float: right;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+
+#icones li {
+    display: inline;
+}
+
+#tarefas ul {
+	font: 15px Arial;
+	color: #797e7e;
+}
+
+#tarefas li {
+	list-style: none;
+}
+
+#tarefas {
+    width: 40%;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+#tarefas a {
+    text-decoration: none;
+    
+}
+
+#tarefas p {
+    margin-bottom: -15px;
+}
+
+#tarefas li fieldset {
+	height: 10%;
+	border: 2px solid #e8e8e8;
+        margin-bottom: 20px;
+}
+
+legend {
+	background: #e8e8e8;
+	font: bold 12px Arial;
+	color: black;
+	padding: 2%;
+}
+
+#tarefas ul li ul {
+	margin-top: 5%;
+	margin-left: 72%;
+        float: right;
+}
+
+#botaoCad {
+  margin-top: 20px;
+  margin-left: 87%;
+  font:bold 15px Arial;
+  color:#838383;
+  background:#d3d4e8;
+  border:4px solid #ffffff;
+  text-shadow:0px 0px 0px #2e2d2e;
+  box-shadow:0px 0px 1px #828282;
+  cursor:pointer;
+  padding: 0.6%;
+  width: 90px;
+}
+
+#botaoCad:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ebeded), to(#c4dddd));
+  cursor: pointer;
+}
+
+#botaoCad a {
+	text-decoration: none;
+	margin-left: 10%;
+	color: gray;
+}
+
+#botaoCad a:active {
+	text-decoration: none;
+}
