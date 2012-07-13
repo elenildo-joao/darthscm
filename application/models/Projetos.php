@@ -13,8 +13,7 @@ class Projetos extends Zend_Db_Table_Abstract
             'refTableClass' => 'Repositorios',
             'refColumns'    => 'idrepositorio'
         )
-    ); 
-    
+    );    
     public function trataInterval ($tempo, $int1, $int2, $d2, $h2, $m2){ 
             $x=0;  
             $flagd=0; 
