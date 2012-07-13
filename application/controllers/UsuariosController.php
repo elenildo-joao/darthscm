@@ -10,6 +10,7 @@ class UsuariosController extends Zend_Controller_Action
     private $usuarioLogado;
     private $realiza;
     private $trabalhaEm;
+    private $logLogin;
 
     public function init()
     {
@@ -27,6 +28,7 @@ class UsuariosController extends Zend_Controller_Action
         $this->login = new Login();
         $this->realiza = new Realiza();
         $this->trabalhaEm = new TrabalhaEm();
+        $this->logLogin = new LogsLogin();
         $this->db = Zend_Db_Table::getDefaultAdapter();
         $this->validator = new Zend_Validate_EmailAddress();
         
@@ -214,7 +216,9 @@ class UsuariosController extends Zend_Controller_Action
         $whereUsuario = $this->usuario->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         $whereRealiza = $this->realiza->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         $whereTrabalhaEm = $this->trabalhaEm->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
+        $whereLogsLogin = $this->logLogin->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         
+        $this->logLogin->delete($whereLogsLogin);
         $this->login->delete($whereLogin);
         $this->realiza->delete($whereRealiza);
         $this->trabalhaEm->delete($whereTrabalhaEm);
