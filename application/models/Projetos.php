@@ -14,7 +14,8 @@ class Projetos extends Zend_Db_Table_Abstract
             'refColumns'    => 'idrepositorio'
         )
     ); 
-            public function trataInterval ($tempo, $int1, $int2, $d2, $h2, $m2){ 
+    
+    public function trataInterval ($tempo, $int1, $int2, $d2, $h2, $m2){ 
             $x=0;  
             $flagd=0; 
 
@@ -46,6 +47,7 @@ class Projetos extends Zend_Db_Table_Abstract
             $int2->h=$h2;
             $int2->i=$m2; 
             } 
+            
      public function SomaInterval($int1, $int2){
         $min=$int2->i+$int1->i;
         $hora=$int2->h+$int1->h;
