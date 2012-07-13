@@ -1,18 +1,45 @@
+<?php echo $this->headLink()->appendStylesheet('/css/cadastroTarefas.css');?>
+
+<div type="button" id="botaoCad">
+        <a href="cadastroTarefa.html">Cadastrar</a>
+</div>
+
 <form action="nova-tarefa" method="post">
-    <input type="hidden" name="idprojeto" value="<?= $this->projeto->idprojeto ?>" />
-    <label>Nome: <input type="text" id="nome" name="nome" /></label><br />
-    <label>Data Início: <input type="text" id="dataInicio" name="dataInicio" /></label><br />
-    <label>Data Fim(Previsão): <input type="text" id="dataPrevFim" name="dataPrevFim" /></label><br />     
-    <label>Prioridade: <input type="text" id="prioridade" name="prioridade" /></label><br /> 
-    <label>Descrição: <input type="text" id="descricao" name="descricao" /></label><br />      <label>Responsavel: 
-        <select id="responsavel" name="responsavel">
-            <?php 
-            foreach($this->usuarios as $usuario)
-                echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
-            ?>
-        </select>
-    </label>
-    <br /> 
-     
-    <input type="submit" value="Cadastrar" />
+    <fieldset id="tarefa">
+        <legend>Informações Gerais</legend>
+            <input type="hidden" name="idprojeto" value="<?= $this->projeto->idprojeto ?>" />
+            <label>Nome: <br/>
+                <input type="text" id="nome" name="nome" /></label><br /><br/>
+
+            <label>Data Início: 
+                <label style="margin-left: 28.7%">Data Fim(Previsão): <br/>
+                    
+                <input type="text" id="dataInicio" name="dataInicio" /></label>
+                <input type="text" id="dataPrevFim" name="dataPrevFim" /></label><br /> <br/>  
+
+            <label>Prioridade: 
+            <label style="margin-left: 10%">Responsavel: <br/>
+                <select type="text" id="prioridade" name="prioridade" />
+                    <option>Maxima</option>
+                    <option>Alta</option>
+                    <option>Normal</option>
+                    <option>Baixa</option>
+                    <option>Minima</option>
+                </select>
+            </label>
+
+            <select id="responsavel" name="responsavel">
+                <?php 
+                foreach($this->usuarios as $usuario)
+                    echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
+                ?>
+            </select>
+            
+            </label><br/><br/>
+
+            <label>Descrição: <br>
+                <textarea type="text" id="descricao" name="descricao" /><br /><br /> 
+
+            <input type="submit" value="Cadastrar" />
+    </fieldset>
 </form>
