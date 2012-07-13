@@ -44,6 +44,32 @@ class UserControllerTest extends ControllerTestCase{
         $this->assertAction("listar");
         
     }
+    
+    public function testQtForm(){
+                
+        $data = array(
+                'nome'     => 'Ueslei Lima',
+                'email'    => 'email',
+                'cpf'      => '00800800808',
+                'datanasc' => '1990-01-02',
+                'telefone' => '7399010007',
+                'sexo'     => 'M',
+                'rua'      => 'rua',
+                'num'      => '1',
+                'bairro'   => 'bairro',
+                'cidade'   => 'cidade',
+                'estado'   => 'BA',
+                'complemento' => 'complemento',
+                'login' => 'login'
+         );
+        // $request = $this->getRequest();
+         $this->_request->setMethod('POST')->setPost($data);
+         $this->dispatch("/usuarios/novo");
+        // $this->assertRedirect();
+         //$this->assertRedirectTo('/usuarios/listar');
+          //$this->assertAction('listar');
+         
+    }
 }
 
 ?>
