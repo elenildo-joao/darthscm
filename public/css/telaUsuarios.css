@@ -1,10 +1,15 @@
 #tabelaUsuarios {
     border-collapse:collapse;
     margin-top: 2%;
+    background: #FFE9E8;
 }
 
 #tabelaUsuarios, td, th {
     border:1px solid #C1CDC1;
+}
+
+.odd {
+    background: #FFFFFF;
 }
 
 tr th {
@@ -15,6 +20,8 @@ tr th {
     text-align: center;
     height: 30px;
 }
+
+
 
 td {
     text-align: center;
