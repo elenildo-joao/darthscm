@@ -4,7 +4,6 @@ body {
 }
 
 #geral {
-	padding:0;
 	text-align:left;
         position: relative;
 }
@@ -47,7 +46,7 @@ html, body { height:100%; }
 	background: #C7C7C3;
 	width:100%;
 	height:7%;
-        position: relative;
+        position: absolute;
         bottom: 0;
         clear: both;
 }
@@ -58,7 +57,9 @@ html, body { height:100%; }
 	width: 4%;
 }
 
-#conteudo { margin-bottom: 30px; }
+#conteudo { 
+    clear: both;
+    margin-bottom: 30px; }
 
 #menu{
 	padding:0;
@@ -138,9 +139,6 @@ html, body { height:100%; }
 	visibility:visible;
 }
 
-.clear {
-	clear: both;
-}
 
 
 

@@ -5,7 +5,7 @@
             <?php 
                 echo $this->url(array('controller' => 'projetos', 'action' => 'novo')); 
             ?>" 
-        title="Novo projeto">Cadastrar</a>
+        title="Novo projeto">Cadastrar Projeto</a>
 </div>
     
 <?php
@@ -20,7 +20,8 @@
     <p>Data de Fim (Previs&atilde;o): <?= $projeto->dataprevfim ?></p>
     <p>Data Final: <?= $projeto->datafim ?></p>
     
-           <a href="
+    <ul id="icones">
+           <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'detalhar-projeto', 
@@ -29,9 +30,9 @@
                     ); 
             ?>" 
             title="Detalhar"><img src="/imagens/delete-icon.png"/>
-        </a>
+            </a></li>
     
-        <a href="
+            <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'editar', 
@@ -40,19 +41,31 @@
                     ); 
             ?>" 
             title="Editar"><img src="/imagens/edit.png"/>
-        </a>
+            </a><li>
     
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'alocar', 
-                                  'idprojeto' => $projeto->idprojeto
-                    )
-                    ); 
-            ?>" 
-            title="Remover"><img src="/imagens/alocar.png"/>
-        </a>
-        <a href="
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'alocar', 
+                                    'idprojeto' => $projeto->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Remover"><img src="/imagens/alocar.png"/>
+            </a></li>
+            
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'desalocar', 
+                                    'idprojeto' => $projeto->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Remover"><img src="/imagens/edit.png"/>
+            </a></li>
+            
+            <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'desalocar', 
@@ -61,7 +74,8 @@
                     ); 
             ?>" 
             title="Remover"><img src="/imagens/edit.png"/>
-        </a>
+            </a></li>
+            
         </div>
         <br />
     <?php

@@ -1,5 +1,5 @@
 <?php echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');
-echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
+      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
       echo $this->headScript()->appendFile('/js/layoutTabela.js');
 ?>
 
@@ -8,7 +8,7 @@ echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
     <?php 
     echo $this->url(array('controller' => 'usuarios', 'action' => 'novo')); 
     ?>" 
-    title="Novo usuário">Cadastrar</a>
+    title="Cadastrar">Cadastrar Usuário</a>
 </div>
 
 <table id="tabelaUsuarios" border="1">
@@ -16,17 +16,7 @@ echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
         <th id="nome">Nome</th>
         <th id="email">Email</th>
         <th id="login1">Login</th>
-        <th id="cpf">CPF</th>
-        <th id="data">Data de Nasc.</th>
         <th id="telefone">Telefone</th>
-        <th id="sexo">Sexo</th>
-        <th id="rua">Rua</th>
-        <th id="num">Num</th>
-        <th id="bairro">Bairro</th>
-        <th id="cidade">Cidade</th>
-        <th id="estado">Estado</th>
-        <th id="complemento">Complemento</th>
-        <th>Admin</th>
         <th id="visualizar">Visualizar</th>
         <th id="editar">Editar</th>
         <th id="remover">Excluir</th>
@@ -38,17 +28,7 @@ echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
         <td><?= $usuario->nome ?></td>
         <td><?= $usuario->email ?></td>
         <td><?= $usuario->findParentLogin()->login ?></td>
-        <td><?= $this->formataCPF($usuario->cpf) ?></td>
-        <td><?= $this->formataData($usuario->datanasc) ?></td>
         <td><?= $this->formataTelefone($usuario->telefone) ?></td>
-        <td><?= $usuario->sexo ?></td>
-        <td><?= $usuario->findParentEnderecos()->rua ?></td>
-        <td><?= $usuario->findParentEnderecos()->num ?></td>
-        <td><?= $usuario->findParentEnderecos()->bairro ?></td>
-        <td><?= $usuario->findParentEnderecos()->cidade ?></td>
-        <td><?= $usuario->findParentEnderecos()->estado ?></td>
-        <td><?= $usuario->findParentEnderecos()->complemento ?></td>
-        <td><?= $usuario->admin ?></td>
         
         <td>
         <a href="
@@ -59,7 +39,7 @@ echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
                     )
                     ); 
             ?>" 
-            title="Editar"><img src="/imagens/31.png"/>
+            title="Visualizar"><img src="/imagens/Zoom-icon.png"/>
         </a>
         </td>
         <td>
