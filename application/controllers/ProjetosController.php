@@ -16,9 +16,19 @@ class ProjetosController extends Zend_Controller_Action
     private $vRelatorioCol;
     private $vRelatorioProj;
     private $db;
+    private $usuarioLogado;
 
     public function init()
     {
+        if ( !Zend_Auth::getInstance()->hasIdentity() ) 
+        {
+            return $this->_helper->redirector->goToRoute( 
+                    array('controller' => 'login') 
+                    );
+        }
+        
+        $this->usuarioLogado = Zend_Auth::getInstance()->getIdentity();
+        
         $this->projeto = new Projetos();
         $this->repositorio = new Repositorios();
         $this->trabalhaEm = new TrabalhaEm();
@@ -32,6 +42,10 @@ class ProjetosController extends Zend_Controller_Action
         $this->vRelatorioCol = new VRelatorioProdCol();
         $this->vRelatorioProj = new VRelatorioProdProj();
         $this->db = Zend_Db_Table::getDefaultAdapter();
+        
+        $this->view->usuarioLogado = $this->usuario->find(
+                $this->usuarioLogado->idusuario
+                )->current();
     }
 
     public function indexAction()

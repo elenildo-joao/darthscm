@@ -7,14 +7,28 @@ class UsuariosController extends Zend_Controller_Action
     private $login;
     private $db;
     private $validator;
+    private $usuarioLogado;
 
     public function init()
     {
+        if ( !Zend_Auth::getInstance()->hasIdentity() ) 
+        {
+            return $this->_helper->redirector->goToRoute( 
+                    array('controller' => 'login') 
+                    );
+        }
+        
+        $this->usuarioLogado = Zend_Auth::getInstance()->getIdentity();
+        
         $this->usuario = new Usuarios();
         $this->endereco = new Enderecos();
         $this->login = new Login();
         $this->db = Zend_Db_Table::getDefaultAdapter();
         $this->validator = new Zend_Validate_EmailAddress();
+        
+        $this->view->usuarioLogado = $this->usuario->find(
+                $this->usuarioLogado->idusuario
+                )->current();
     }
 
     public function indexAction()
