@@ -65,7 +65,7 @@
     <?php 
         }
         $subtarefas="";
-        foreach ($this->subtarefas as $subTar):
+        foreach ($this->SubTarefas as $subTar):
             if($subTar->idsupertarefa==$tarefa->idtarefa){
                 $subtarefas=$subtarefas.$subTar->nome.", ";
             }
