@@ -108,7 +108,7 @@ class ProjetosController extends Zend_Controller_Action
             $dadosProjetos = array(
                 'nome'        => $this->_request->getPost('nome'),
                 'descricao'   => $this->_request->getPost('descricao'),
-                'datainic'    => $this->_request->getPost('dataInic'),
+                'datainicio'    => $this->_request->getPost('dataInicio'),
                 'dataprevfim' => $this->_request->getPost('dataPrevFim')
             );
                         
