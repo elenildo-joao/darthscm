@@ -8,6 +8,8 @@ class UsuariosController extends Zend_Controller_Action
     private $db;
     private $validator;
     private $usuarioLogado;
+    private $realiza;
+    private $trabalhaEm;
 
     public function init()
     {
@@ -23,6 +25,8 @@ class UsuariosController extends Zend_Controller_Action
         $this->usuario = new Usuarios();
         $this->endereco = new Enderecos();
         $this->login = new Login();
+        $this->realiza = new Realiza();
+        $this->trabalhaEm = new TrabalhaEm();
         $this->db = Zend_Db_Table::getDefaultAdapter();
         $this->validator = new Zend_Validate_EmailAddress();
         
@@ -48,20 +52,22 @@ class UsuariosController extends Zend_Controller_Action
     }
     
     public function novoAction()
-    {
-        if ( $this->_request->isPost() )
+    {   
+        if ( !$this->_request->isPost() )
         {
-            if($this->_request->getPost('sexo')=='Masculino')
-                $sexo='M'; 
-            else 
-                $sexo='F';
+            $this->view->estados = array("AC", "AL", "AM", "AP", "BA", "CE", "DF", 
+            "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", 
+            "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO");
+        }
+        else   
+        {
             $dadosUsuario = array(
                 'nome'     => $this->_request->getPost('nome'),
                 'email'    => $this->_request->getPost('email'),
                 'cpf'      => $this->_request->getPost('cpf'),
                 'datanasc' => $this->_request->getPost('dataNasc'),
                 'telefone' => $this->_request->getPost('telefone'),
-                'sexo'     => $sexo 
+                'sexo'     => $this->_request->getPost('sexo') 
             );
             
             $dadosEndereco = array(
@@ -74,7 +80,7 @@ class UsuariosController extends Zend_Controller_Action
             );
             
             $dadosLogin = array(
-                'login' => $this->_request->getPost('login1'),
+                'login' => $this->_request->getPost('login'),
                 'senha' => sha1('123')
             );
             
@@ -161,7 +167,7 @@ class UsuariosController extends Zend_Controller_Action
             );
             
             $dadosLogin = array(
-                'login' => $this->_request->getPost('login1')
+                'login' => $this->_request->getPost('login')
             );
             
             if ( empty($dadosUsuario['nome'])         ||
@@ -180,25 +186,7 @@ class UsuariosController extends Zend_Controller_Action
             {
                 $this->view->mensagemErro = "Preencha todos os campos do formulário.";
                 return false;
-            }                     
-            
-            if ( $this->validator->isValid($dadosUsuario['email']) )
-            {
-                $this->view->mensagemErro = "E-mail inválido.";
-                return false;
-            }                   
-            
-            if ( $this->usuario->emailJaExiste($dadosUsuario['email']) )
-            {
-                $this->view->mensagemErro = "E-mail já cadastrado.";
-                return false;
-            }
-            
-            if ( $this->usuario->cpfJaExiste($dadosUsuario['cpf']) )
-            {
-                $this->view->mensagemErro = "CPF já cadastrado.";
-                return false;
-            }
+            }                                    
             
             $idUsuario = $this->_request->getPost('idUsuario');
             $idEndereco = $this->_request->getPost('idEndereco');
@@ -224,8 +212,12 @@ class UsuariosController extends Zend_Controller_Action
         $whereEndereco = $this->endereco->getAdapter()->quoteInto('idendereco = ?', (int) $usuario->endereco);
         $whereLogin = $this->login->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         $whereUsuario = $this->usuario->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
+        $whereRealiza = $this->realiza->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
+        $whereTrabalhaEm = $this->trabalhaEm->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         
         $this->login->delete($whereLogin);
+        $this->realiza->delete($whereRealiza);
+        $this->trabalhaEm->delete($whereTrabalhaEm);
         $this->usuario->delete($whereUsuario);
         $this->endereco->delete($whereEndereco);
         
