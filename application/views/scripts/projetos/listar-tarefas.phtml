@@ -16,7 +16,10 @@
 <fieldset>
     <legend><?= $tarefa->nome ?> </legend>
     <p>Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
-    <p>Estado: <? if ($tarefa->datafim != null AND $tarefa->datafim<=date('Y-m-d')) echo ('FECHADA'); else echo ('ABERTA'); ?></p>
+    <? if ($tarefa->datafim != null AND $tarefa->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA'; ?>
+    <p>Estado: <?= $estado ?></p>
+    <p>Data Início: <?= $tarefa->datainicio ?> Data Fim (Previsão): <?= $tarefa->dataprevfim ?></p>
+    <p>Data Fim: <?= $tarefa->datafim ?>
     <p>Colaboradores:</p>
            <ul>
                 <?php
@@ -38,6 +41,7 @@
                 </li>
                 
                   </ul>
+    <?php if ($estado=='ABERTA'){?>
     <p>Colaboradores atuais: </p> 
            <ul>
                 <?php
@@ -49,17 +53,35 @@
                 ?>
                <li>
                 <?php
-                endforeach; 
-                 for ($x=0; $x<strlen($colaboradores)-2; $x++){
-                     echo ($colaboradores[$x]);
-                 }
-                 if ($x!=0)
-                     echo ('.');
+                    endforeach; 
+                    for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                        echo ($colaboradores[$x]);
+                    }
+                    if ($x!=0)
+                        echo ('.');
                  ?>
-                </li>
-                
-                  </ul>
-
+                </li>                
+           </ul>
+    <?php 
+        }
+        $subtarefas="";
+        foreach ($this->SubTarefas as $subTar):
+            if($subTar->idsupertarefa==$tarefa->idtarefa){
+                $subtarefas=$subtarefas.$subTar->nome.", ";
+            }
+        endforeach; if ($subtarefas!=""){?>
+    <p> Subtarefas: </p> 
+    <ul>
+        <li>
+        <?php 
+             for ($x=0; $x<strlen($subtarefas)-2; $x++){
+                 echo ($subtarefas[$x]);
+             }
+             if ($x!=0)
+                 echo ('.'); }
+             ?>
+        </li>
+    </ul>
 
         <ul id="icones">          
                 <li><a href="

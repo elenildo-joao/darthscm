@@ -1,0 +1,145 @@
+/*Projetos*/
+#projetos fieldset {
+        position: absolute;
+        margin-left: 4%;
+        margin-top: 30px;
+        float: left;
+	width: 40%;
+	border: 2px solid #e8e8e8;
+}
+
+#projetos legend {
+	font: bold 12px Arial;
+	color: black;
+	background: #e8e8e8;
+	padding: 2%;
+}
+
+
+#projetos ul li p {
+	font: bold 12px Arial;
+	margin-left: 1%;
+	margin-bottom: -1%;
+}
+
+#projetos ul {
+	font: 15px Arial;
+	color: #797e7e;
+	margin-left: 0%;
+}
+
+#projetos li {
+	list-style: none;
+	margin-bottom: 3%;
+	width: 100%;
+	height: 10.5%;
+	border: 1px solid #e8e8e8;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+#projetos ul li a{
+	margin-top: 6%;
+	margin-left: 86%;
+	font: bold 12px Arial;
+	color:#9fc3c3;
+	text-decoration: none;
+	background: none;
+	border: none;
+}
+
+#projetos ul li a:hover {
+	color: #5B75DE;
+}
+
+/*Tarefas*/
+#tarefas fieldset {
+        position: absolute;
+        margin-top: 30px;
+        float: right;
+        margin-left: 13%;
+	width: 40%;
+	border: 2px solid #e8e8e8;
+}
+
+#tarefas legend {
+	font: bold 12px Arial;
+	color: black;
+	background: #e8e8e8;
+	padding: 1.8%;
+}
+
+#tarefas ul li p {
+	font: bold 12px Arial;
+	margin-left: 1%;
+	margin-bottom: -1%;
+}
+
+#tarefas ul {
+	font: 15px Arial;
+	color: #797e7e;
+	margin-left: 35%;
+}
+
+#tarefas li {
+	list-style: none;
+	margin-bottom: 3%;
+	width: 100%;
+	height: 10.5%;
+	border: 1px solid #e8e8e8;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+#tarefas ul li a{
+	margin-top: 6%;
+	margin-left: 86%;
+	font: bold 12px Arial;
+	color:#9fc3c3;
+	text-decoration: none;
+	background: none;
+	border: none;
+}
+
+#tarefas ul li a:hover {
+	color: #5B75DE;
+}
+
+/*Mensagens*/
+#mensagens fieldset {
+        margin-top: 190px;
+	margin-left: 7%;
+        float: left;
+	width: 20%;
+	border: 2px solid #e8e8e8;
+        position: absolute;
+}
+
+#mensagens legend {
+	font: bold 12px Arial;
+	color: black;
+	background: #e8e8e8;
+	padding: 3%;
+}
+
+#mensagens p {
+	font: bold 12px Arial;
+	margin-left: 1%;
+	margin-bottom: -1%;
+}
+
+#mensagens a{
+	margin-top: 6%;
+	margin-left: 86%;
+	font: bold 12px Arial;
+	color: #9fc3c3;
+	text-decoration: none;
+	background: none;
+	border: none;
+}
+
+#mensagens #image {
+    float: right;
+}

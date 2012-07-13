@@ -76,7 +76,7 @@
             </div>
           </td>
           <td class="coverPerLo">0.00%</td>
-          <td class="coverNumLo">0 / 33</td>
+          <td class="coverNumLo">0 / 35</td>
         </tr>
 
         <tr>
@@ -102,7 +102,7 @@
             </div>
           </td>
           <td class="coverPerLo">0.00%</td>
-          <td class="coverNumLo">0 / 33</td>
+          <td class="coverNumLo">0 / 35</td>
         </tr>
 
         <tr>
@@ -159,7 +159,7 @@
               </div>
           </td>
           <td class="coverPerLo">0.00%</td>
-          <td class="coverNumLo">0 / 2</td>
+          <td class="coverNumLo">0 / 4</td>
         </tr>
 
 
@@ -241,10 +241,12 @@
 <span class="lineNum" id="container64"><a name="64"></a><a href="#64" id="line64">      64</a> </span>                : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">logoutAction</span><span class="keyword">(</span><span class="keyword">)</span>                                                               
 <span class="lineNum" id="container65"><a name="65"></a><a href="#65" id="line65">      65</a> </span>                : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span>                                                                                            
 <span class="lineNum" id="container66"><a name="66"></a><a href="#66" id="line66">      66</a> </span><span class="lineNoCov">              0 : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">Zend_Auth</span><span class="default">::</span><span class="default">getInstance</span><span class="keyword">(</span><span class="keyword">)</span><span class="default">-&gt;</span><span class="default">clearIdentity</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span>                                               </span>
-<span class="lineNum" id="container67"><a name="67"></a><a href="#67" id="line67">      67</a> </span><span class="lineNoCov">              0 : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">_helper</span><span class="default">-&gt;</span><span class="default">redirector</span><span class="keyword">(</span><span class="default">'login'</span><span class="keyword">)</span><span class="keyword">;</span>                                              </span>
-<span class="lineNum" id="container68"><a name="68"></a><a href="#68" id="line68">      68</a> </span>                : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span>                                                                                            
-<span class="lineNum" id="container69"><a name="69"></a><a href="#69" id="line69">      69</a> </span>                : <span class="keyword">}</span>                                                                                                
-<span class="lineNum" id="container70"><a name="70"></a><a href="#70" id="line70">      70</a> </span>                :                                                                                                  
+<span class="lineNum" id="container67"><a name="67"></a><a href="#67" id="line67">      67</a> </span><span class="lineNoCov">              0 : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">_helper</span><span class="default">-&gt;</span><span class="default">redirector</span><span class="default">-&gt;</span><span class="default">goToRoute</span><span class="keyword">(</span><span class="default">&nbsp;</span>                                            </span>
+<span class="lineNum" id="container68"><a name="68"></a><a href="#68" id="line68">      68</a> </span><span class="lineNoCov">              0 : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">array</span><span class="keyword">(</span><span class="default">'controller'</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">'login'</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">'action'</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">'index'</span><span class="keyword">)</span><span class="default">&nbsp;</span>                          </span>
+<span class="lineNum" id="container69"><a name="69"></a><a href="#69" id="line69">      69</a> </span><span class="lineNoCov">              0 : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">)</span><span class="keyword">;</span>                                                                           </span>
+<span class="lineNum" id="container70"><a name="70"></a><a href="#70" id="line70">      70</a> </span>                : <span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span>                                                                                            
+<span class="lineNum" id="container71"><a name="71"></a><a href="#71" id="line71">      71</a> </span>                : <span class="keyword">}</span>                                                                                                
+<span class="lineNum" id="container72"><a name="72"></a><a href="#72" id="line72">      72</a> </span>                :                                                                                                  
 
 </pre>
         </td>
@@ -253,7 +255,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.1.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6-13ubuntu3.8</a> and PHPUnit 3.6.11 at Thu Jul 12 3:07:31 BRT 2012.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.1.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6-13ubuntu3.8</a> and PHPUnit 3.6.11 at Fri Jul 13 14:44:33 BRT 2012.</td></tr>
     </table>
 
     <br />

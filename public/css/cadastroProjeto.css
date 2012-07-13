@@ -9,7 +9,6 @@ form {
     margin-left: 25%;
     padding: 2%;
     border: 2px solid #D8D8D8;
-    width: 100%;
 }
 
 #dataFim {
@@ -21,7 +20,7 @@ form {
 }
 
 #ger {
-    margin-left: 25%;
+    margin-left: 27%;
 }
 
 #gerente {
@@ -75,6 +74,7 @@ textarea {
 }
 
 #cancelar, #salvar {
+  float: right;
   font:bold 15px Arial;
   color:#838383;
   background:#d3d4e8;
@@ -87,18 +87,19 @@ textarea {
   height: 40px;
 }
 
-
-#cancelar {
-  margin-left: 58%;
+#salvar {
+    margin-right: 15px;
 }
 
-#salvar:hover{
-  background: -webkit-gradient(linear, left top, left bottom, from(#ebeded), to(#c4dddd));
-  cursor: pointer;
-}
-
-#cancelar:hover{
-  background: -webkit-gradient(linear, left top, left bottom, from(#ebeded), to(#c4dddd));
-  cursor: pointer;
+#cancelar:hover, #salvar:hover{
+    background: #deefff; /* Old browsers */
+	background: -moz-linear-gradient(top, #deefff 0%, #98bede 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #deefff 0%,#98bede 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #deefff 0%,#98bede 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #deefff 0%,#98bede 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #deefff 0%,#98bede 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 ); /* IE6-9 */
+	cursor: pointer;
 }
 

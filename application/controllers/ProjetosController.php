@@ -9,6 +9,7 @@ class ProjetosController extends Zend_Controller_Action
     private $usuario;
     private $tarefa = null;
     private $realiza = null;
+    private $subtarefa = null;
     private $vUsuarioProjeto;
     private $vTarefaUsuario = null;
     private $vRealiza = null;
@@ -35,6 +36,7 @@ class ProjetosController extends Zend_Controller_Action
         $this->usuario = new Usuarios();
         $this->tarefa = new Tarefas();
         $this->realiza = new Realiza();
+        $this->subtarefa = new SubTarefas();
         $this->vUsuarioProjeto = new VUsuarioProjeto();
         $this->vTarefaUsuario = new VTarefaUsuario();
         $this->vRealiza = new VRealiza();
@@ -203,7 +205,10 @@ class ProjetosController extends Zend_Controller_Action
                 ->fetchAll(
                         $this->tarefa->select()->order('datafim DESC')
                         );
-        
+        $this->view->SubTarefas = $this->subtarefa
+                ->fetchAll(
+                        $this->subtarefa->select()
+                        );
         $this->view->vRealiza = $this->vRealiza
                 ->fetchAll(
                         $this->vRealiza->select()->order('nome')
@@ -471,7 +476,7 @@ class ProjetosController extends Zend_Controller_Action
             $tempo=$realiza->tempo;
             $int2=new DateInterval('P0D');
             $d2="";$h2="";$m2="";
-            projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2); 
+            projetos::trataInterval (&$tempo, &$int2); 
             $int2=projetos::SomaInterval($int1, $int2);
             
             if ($int2->d==0){

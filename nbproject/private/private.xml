@@ -5,10 +5,6 @@
             <url>application/controllers/IndexController.php</url>
             <line>16</line>
         </file>
-        <file>
-            <url>application/views/scripts/usuarios/listar.phtml</url>
-            <line>1</line>
-        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
         <file>file:/var/www/darthscm/tests/application/controllers/UserControllerTest.php</file>

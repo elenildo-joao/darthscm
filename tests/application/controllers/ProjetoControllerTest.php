@@ -13,11 +13,18 @@
 class ProjetoControllerTest extends ControllerTestCase {
     
     
+    function setUp(){
+        parent::setUp();
+        $front = Zend_Controller_Front::getInstance();
+        $front->setParam('noErrorHandler', true);
+    }
+
+
     function testCanGoToProjetosPage(){
         
         $this->dispatch("/projetos");
         $this->assertController("projetos");
-        $this->assertAction("listar");
+        $this->assertAction("index");
     }
     
     function testCanGoToProjetosNovosPage(){
@@ -42,7 +49,7 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->assertAction("listar-tarefas");  
     }
     
-   /* public function testNovoProjeto(){
+   public function testNovoProjeto(){
         $front = Zend_Controller_Front::getInstance();
         $front->setParam('noErrorHandler', true);
         
@@ -58,9 +65,16 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->_request->setMethod('POST')->setPost($data);
         $this->dispatch("/projetos/novo");
         //$this->assertRedirectTo('/projetos/listar');
-    }*/
+    }
     
-    function testNovaTarefa(){
+ function testEditarProjetos(){
+     $this->dispatch('/projetos/editar');
+     $this->assertController("projetos");
+     $this->assertAction("editar");
+ }
+
+
+ /*function testNovaTarefa(){
         
         //$front = Zend_Controller_Front::getInstance();
         //$front->setParam('noErrorHandler', true);
@@ -81,50 +95,22 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->_request->setMethod("POST")->setPost($data);
         $this->dispatch('projetos/nova-tarefa');
         
-    }
+        
+    }*/
     
-    function testRemoverTarefa(){
+    /*function testRemoverTarefa(){
         
         $data = array(
-            'idtarefa' => '36',
+            'idtarefa' => '38',
             'idProjeto' => '2'
         );
         
         $this->_request->setQuery($data);
         $this->dispatch('projetos/remover-tarefa');
         
-    }
+    }*/
     
-    function testSomaInterval(){
-        
-        $proj = new ProjetosController (new Zend_Controller_Request_Http(), 
-                                        new Zend_Controller_Response_Http()
-                                        );
-        $date_inicial = new DateInterval('P0D');
-        $date_adicionada = new DateInterval('PT1H');
-        $result_esperado = new DateInterval('P0DT1H');
-        $result = $proj->SomaInterval($date_inicial, $date_adicionada);
-        $this->assertEquals($result, $result_esperado);
-        
-        $date_inicial = new DateInterval('P0DT23H59M');
-        $date_adicionada = new DateInterval('PT1M');
-        $result_esperado = new DateInterval('P1DT0H0M');
-        $result = $proj->SomaInterval($date_inicial, $date_adicionada);
-        $this->assertEquals($result, $result_esperado);
-        
-        $date_inicial = new DateInterval('P0DT23H59M');
-        $date_adicionada = new DateInterval('P0DT23H59M');
-        $result_esperado = new DateInterval('P1DT23H58M');
-        $result = $proj->SomaInterval($date_inicial, $date_adicionada);
-        $this->assertEquals($result, $result_esperado);
-        
-        $date_inicial = new DateInterval('P1DT1H1M');
-        $date_adicionada = new DateInterval('P0DT0H0M');
-        $result_esperado = new DateInterval('P1DT1H1M');
-        $result = $proj->SomaInterval($date_inicial, $date_adicionada);
-        $this->assertEquals($result, $result_esperado);
-        
-    }
+    
     
     
 }
