@@ -1,24 +1,21 @@
 <?php echo $this->headLink()->appendStylesheet('/css/cadastroTarefas.css');?>
 
-<div type="button" id="botaoCad">
-        <a href="cadastroTarefa.html">Cadastrar</a>
-</div>
 
 <form action="nova-tarefa" method="post">
     <fieldset id="tarefa">
         <legend>Informações Gerais</legend>
             <input type="hidden" name="idprojeto" value="<?= $this->projeto->idprojeto ?>" />
             <label>Nome: <br/>
-                <input type="text" id="nome" name="nome" /></label><br /><br/>
+                <input type="text" id="nome" name="nome" size="60px" /></label><br /><br/>
 
             <label>Data Início: 
-                <label style="margin-left: 28.7%">Data Fim(Previsão): <br/>
+                <label style="margin-left: 19%">Data Fim(Previsão): <br/>
                     
-                <input type="text" id="dataInicio" name="dataInicio" /></label>
-                <input type="text" id="dataPrevFim" name="dataPrevFim" /></label><br /> <br/>  
+                <input type="text" id="dataInicio" name="dataInicio" size="14px"/></label>
+                <input type="text" id="dataPrevFim" name="dataPrevFim" size="14px"/></label><br /> <br/>  
 
             <label>Prioridade: 
-            <label style="margin-left: 10%">Responsavel: <br/>
+            <label style="margin-left: 7%">Responsável: <br/>
                 <select type="text" id="prioridade" name="prioridade" />
                     <option>Maxima</option>
                     <option>Alta</option>
@@ -38,8 +35,10 @@
             </label><br/><br/>
 
             <label>Descrição: <br>
-                <textarea type="text" id="descricao" name="descricao" /><br /><br /> 
+                <textarea type="text" id="descricao" name="descricao"  rows="5" cols="60"></textarea><br /><br /> 
 
-            <input type="submit" value="Cadastrar" />
+           <input id="cancelar" type="reset" value="Cancelar"/>
+            <input id="salvar" type="submit" value="Salvar"/>
+             
     </fieldset>
 </form>
