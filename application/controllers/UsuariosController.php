@@ -37,13 +37,17 @@ class UsuariosController extends Zend_Controller_Action
     {
         if ( $this->_request->isPost() )
         {
+            if($this->_request->getPost('sexo')=='Masculino')
+                $sexo='M'; 
+            else 
+                $sexo='F';
             $dadosUsuario = array(
                 'nome'     => $this->_request->getPost('nome'),
                 'email'    => $this->_request->getPost('email'),
                 'cpf'      => $this->_request->getPost('cpf'),
                 'datanasc' => $this->_request->getPost('dataNasc'),
                 'telefone' => $this->_request->getPost('telefone'),
-                'sexo'     => $this->_request->getPost('sexo')
+                'sexo'     => $sexo 
             );
             
             $dadosEndereco = array(
@@ -56,7 +60,7 @@ class UsuariosController extends Zend_Controller_Action
             );
             
             $dadosLogin = array(
-                'login' => $this->_request->getPost('login'),
+                'login' => $this->_request->getPost('login1'),
                 'senha' => sha1('123')
             );
             
@@ -143,7 +147,7 @@ class UsuariosController extends Zend_Controller_Action
             );
             
             $dadosLogin = array(
-                'login' => $this->_request->getPost('login')
+                'login' => $this->_request->getPost('login1')
             );
             
             if ( empty($dadosUsuario['nome'])         ||
