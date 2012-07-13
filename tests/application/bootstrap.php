@@ -18,7 +18,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
 
 
 require_once 'Zend/Application.php';
-//require_once 'Zend/Loader/Autoloader.php';
+require_once 'Zend/Loader/Autoloader.php';
 
 require_once 'ControllerTestCase.php';
 
