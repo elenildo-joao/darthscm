@@ -3,13 +3,6 @@
       echo $this->headScript()->appendFile('/js/layoutTabela.js');
 ?>
 
-<div id="botaoCad">
-    <a href="
-    <?php 
-    echo $this->url(array('controller' => 'usuarios', 'action' => 'novo')); 
-    ?>" 
-    title="Cadastrar">Cadastrar Usuário</a>
-</div>
 
 <table id="tabelaUsuarios" border="1">
         <tr>
@@ -71,6 +64,15 @@
     endforeach;
     ?>
 </table>
+
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>
+
+<div id="botaoCad">
+    <a href="
+    <?php 
+    echo $this->url(array('controller' => 'usuarios', 'action' => 'novo')); 
+    ?>" 
+    title="Cadastrar">Cadastrar Usuário</a>
 </div>
