@@ -476,7 +476,7 @@ class ProjetosController extends Zend_Controller_Action
             $tempo=$realiza->tempo;
             $int2=new DateInterval('P0D');
             $d2="";$h2="";$m2="";
-            projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2); 
+            projetos::trataInterval (&$tempo, &$int2); 
             $int2=projetos::SomaInterval($int1, $int2);
             
             if ($int2->d==0){

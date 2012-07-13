@@ -14,7 +14,7 @@
                 $d2="";$h2="";$m2=""; 
                 $int1=new DateInterval('P0D');
                 $int2=new DateInterval('P0D');
-                projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2);
+                projetos::trataInterval (&$tempo, &$int2);
                 $int2=projetos::SomaInterval($int1, $int2);
             ?>            
           <?=",['".$relatorio->nomeprojeto."', ".$int2->d."]"?>
@@ -45,7 +45,7 @@
         $int1=new DateInterval('P0D');
             $int2=new DateInterval('P0D');
             $d2="";$h2="";$m2="";
-            projetos::trataInterval (&$tempo, &$int1, &$int2, &$d2, &$h2, &$m2);
+            projetos::trataInterval (&$tempo, &$int2);
             projetos::SomaInterval ($int1, $int2);
        ?>
     <tr>
