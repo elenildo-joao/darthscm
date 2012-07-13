@@ -14,7 +14,7 @@ class Projetos extends Zend_Db_Table_Abstract
             'refColumns'    => 'idrepositorio'
         )
     ); 
-    public function trataInterval ($tempo, $int1, $int2, $d2, $h2, $m2){ 
+    public function trataInterval ($tempo, $int1, $int2, $d2, $h2, $m2){
     $x=0;  
     $flagd=0;
 
@@ -28,33 +28,42 @@ class Projetos extends Zend_Db_Table_Abstract
         $x++;
     }
     
-    if ($flagd==0)
-        $x=0;
-    
-    $flagd=0;
-    
-    while ($x<strlen($tempo)-1){
-        if ($tempo[$x]==' '){
-            $x++;
-            $flagd=1;
-            while ($tempo[$x]!=':')
-                $h2=$h2.$tempo[$x++];
-            $x++;
-            while ($tempo[$x]!=':')
-                $m2=$m2.$tempo[$x++];
-        }
-        $x++;
-    }
-    if ($flagd==0){
-        $x=0;
+    if ($flagd==1){
+        $flagsd=0;
         while ($x<strlen($tempo)-1){
-            while ($tempo[$x]!=':')
-                $h2=$h2.$tempo[$x++];
+            if ($tempo[$x]==' '){
+                $x++;
+                $flagsd=1;
+                while ($tempo[$x]!=':')
+                    $h2=$h2.$tempo[$x++];
+                $x++;
+                while ($tempo[$x]!=':')
+                    $m2=$m2.$tempo[$x++];
+            } 
             $x++;
-            while ($tempo[$x]!=':')
-                $m2=$m2.$tempo[$x++];
+        }
+        if ($flagsd==0){
+            $x=0; $h2="0"; 
+            $m2="0";
+            while ($x<strlen($tempo)-1){
+                    while ($tempo[$x]!='d')
+                    $d2=$d2.$tempo[$x++];
+            }
+        } 
+    } 
+    else
+    { 
+        $x=0; $d2=0;
+        
+        while ($x<strlen($tempo)-1){
+                
+                while ($tempo[$x]!=':')
+                    $h2=$h2.$tempo[$x++];
+                //$x++;
+                while ($tempo[$x]!=':')
+                    $m2=$m2.$tempo[$x++];
             $x++;
-        }            
+        }
     }
     $int2->d=$d2;
     $int2->h=$h2;
