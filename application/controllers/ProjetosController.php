@@ -531,11 +531,17 @@ class ProjetosController extends Zend_Controller_Action
          $idProjeto = (int) $this->_getParam('idprojeto');
          $projeto = $this->projeto->find($idProjeto)->current();
          
+         $this->view->projeto = $projeto;         
+         
          $this->view->tarefas = $this->tarefa
                    ->fetchAll(
                         $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->order('nome')
                         );
-         $this->view->projeto = $projeto;
+
+         $this->view->vUsuarioProjeto = $this->vUsuarioProjeto
+                   ->fetchAll(
+                        $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('nomeusuario')
+                        );
          
      }
 }
