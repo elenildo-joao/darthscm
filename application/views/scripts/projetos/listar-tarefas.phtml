@@ -15,7 +15,7 @@
 <fieldset>
     <legend><?= $tarefa->nome ?> </legend>
     <p>Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
-    <p>Estado: <? if ($tarefa->datafim != null AND $tarefa->datafim<date('Y-m-d')) echo ('FECHADA'); else echo ('ABERTA'); ?></p>
+    <p>Estado: <? if ($tarefa->datafim != null AND $tarefa->datafim<=date('Y-m-d')) echo ('FECHADA'); else echo ('ABERTA'); ?></p>
     <p>Colaboradores:</p>
            <ul>
                 <?php

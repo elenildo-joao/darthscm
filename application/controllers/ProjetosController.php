@@ -219,12 +219,15 @@ class ProjetosController extends Zend_Controller_Action
     {
         if ( !$this->_request->isPost() ){
             $this->view->usuarios = $this->usuario->fetchAll();
-            $this->view->projetos = $this->projeto->fetchAll();
+            $idProjeto = (int) $this->_getParam('idprojeto'); 
+            $projeto = $this->projeto->find($idProjeto)->current();
+            $this->view->projeto  = $projeto;
+//            $this->view->projetos = $this->projeto->fetchAll();
         } 
         else
         {   
             $dadosTarefa = array(
-                'idprojeto' => $this->_getParam('idprojeto'),
+                'idprojeto' => (int) $this->_request->getPost('idprojeto'),
                 'nome' => $this->_request->getPost('nome'),
                 'descricao'   => $this->_request->getPost('descricao'),
                 'datainicio'  => $this->_request->getPost('dataInicio'),
@@ -233,7 +236,7 @@ class ProjetosController extends Zend_Controller_Action
             );
             
             $dadosRealiza = array(
-                'idprojeto'  => $this->_request->getPost('nomeproj'),
+                'idprojeto'  => (int) $this->_request->getPost('idprojeto'),
                 'idusuario'  => $this->_request->getPost('responsavel'),
                 'tempo'      => '00:00:00',
                 'datainicio' => $this->_request->getPost('dataInicio')
@@ -246,7 +249,7 @@ class ProjetosController extends Zend_Controller_Action
             $this->realiza->insert($dadosRealiza);
         
             $this->_redirect('/projetos/listar-tarefas');
-        }
+            }
     }
 
     public function editarTarefaAction(){
