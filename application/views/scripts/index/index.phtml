@@ -3,10 +3,16 @@
 <div id="projetos">
         <ul><fieldset>
                 <legend>Últimos Projetos</legend>
-                <li><p>Nome da Projeto </p>
-                        <p>Descrição da Projeto:</p>
+                <?php 
+                foreach ($this->paginator as $usuarioProjeto):
+                ?>
+                <li><p><?=$usuarioProjeto->nomeprojeto ?></p>
+                        <p>Descrição da Projeto: <?=$usuarioProjeto->descricao ?></p>
                         <a href="#">+ detalhes</a>
-                </li>
+                </li> 
+                <?php 
+                    endforeach;
+                ?>
         </fieldset></ul>
 </div>
 
@@ -14,10 +20,16 @@
 <div id="tarefas">
         <ul><fieldset>
                 <legend>Últimas Tarefas</legend>
-                <li><p>Nome da Tarefa </p>
-                        <p>Descrição da Tarefa:</p>
+                <?php 
+                foreach ($this->paginator2 as $usuarioTarefa):
+                ?> 
+                <li><p><?= $usuarioTarefa->nometarefa?> </p>
+                        <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p>
                         <a href="#">+ detalhes</a>
-                </li>
+                </li> 
+                <?php 
+                endforeach;
+                ?> 
         </fieldset>
         </ul>
 </div>
