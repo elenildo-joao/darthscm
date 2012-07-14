@@ -1,7 +1,14 @@
 <?php echo $this->headLink()->appendStylesheet('/css/cadastroTarefas.css');?>
+<?php
+if ($this->mensagemErro) { 
+?>
+<p><?=$this->mensagemErro?></p>
+<a href='/projetos/listar-tarefas/idprojeto/<?= $this->projeto->idprojeto ?>' title="Voltar">Voltar</a>
+<?php
+} else { 
+?>
 
-
-<form action="nova-tarefa" method="post">
+<form action="nova-tarefa/idprojeto/<?= $this->projeto->idprojeto ?>/" method="post">
     <fieldset id="tarefa">
         <legend>Informações Gerais</legend>
             <input type="hidden" name="idprojeto" value="<?= $this->projeto->idprojeto ?>" />
@@ -42,3 +49,6 @@
              
     </fieldset>
 </form>
+<?php
+} 
+?>

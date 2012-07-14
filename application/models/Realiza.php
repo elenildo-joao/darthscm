@@ -3,7 +3,7 @@ class Realiza extends Zend_Db_Table_Abstract
 {
 
     protected $_name = 'usuariorealizatarefa';
-    
+    protected $_primary = array('idtarefa', 'idprojeto', 'idusuario');
     protected $_referenceMap = array(
         'usuarios' => array(
             'columns'       => 'idusuario',

@@ -1,4 +1,13 @@
-<form action="adicionar-tempo" method="post">
+<?php echo $this->headLink()->appendStylesheet('/css/cadastroTarefas.css');?>
+<?php
+if ($this->mensagemErro) { 
+?>
+<p><?=$this->mensagemErro?></p>
+<a href='/projetos/listar-tarefas/idprojeto/<?= $this->tarefa->idprojeto ?>' title="Voltar">Voltar</a>
+<?php
+} else { 
+?>
+<form action='/projetos/adicionar-tempo/idprojeto/<?= $this->tarefa->idprojeto ?>' method="post">
     <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome do Usuario: 
@@ -14,4 +23,4 @@
     <label>Horas: <input type="text" id="horas" name="horas" value="0" /></label><br />
     <label>Minutos: <input type="text" id="minutos" name="minutos" value="0" /></label><br />     
     <input type="submit" value="Adicionar" />
-</form>
+</form> <?php } ?>
