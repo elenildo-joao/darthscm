@@ -5,7 +5,7 @@
             <?php 
             foreach($this->vUsuarioProjeto as $usuarioProjeto)
                 if ($usuarioProjeto->datafimusuario==null || $usuarioProjeto->datafimusuario>date('Y-m-d'))
-                echo "<option value=\"$usuarioProjeto->idusuario\">$usuarioProjeto->nome</option>";
+                echo "<option value=\"$usuarioProjeto->idusuario\">$usuarioProjeto->nomeusuario</option>";
             ?>
         </select>     
     <input type="submit" value="Desalocar" />

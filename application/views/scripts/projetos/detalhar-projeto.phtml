@@ -34,7 +34,7 @@
             <?php
                 $gerentes="";
                 foreach ($this->vUsuarioProjeto as $vgerente):
-                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>time('Y-m-d'))){
                         $gerentes=$gerentes.$vgerente->nomeusuario.", ";
                     }
                     endforeach; ?> 
@@ -75,7 +75,7 @@
             <?php
                 $colaboradores="";
                 foreach ($this->vUsuarioProjeto as $vgerente):
-                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null || $vgerente->datafimusuario>time('Y-m-d'))){
                         $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
                     }
                     endforeach; ?> 

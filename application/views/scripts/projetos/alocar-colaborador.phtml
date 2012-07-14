@@ -12,7 +12,13 @@ else:
 <form action="alocar-colaborador" method="post">
     <label>Usuarios: 
         <select name="idusuario">
-            <?php foreach ($this->usuarios as $usuario): ?>
+            <?php foreach ($this->vUsuarioProjeto as $usuarioProjeto):
+                if ($usuarioProjeto->datafimusuario!=null && $usuarioProjeto->datafimusuario<=time('Y-m-d')){
+            ?>
+            <option value="<?= $usuarioProjeto->idusuario ?>"><?= $usuarioProjeto->nomeusuario ?></option>
+            <?php } endforeach; ?>
+            <?php foreach ($this->usuarios as $usuario):
+            ?>
             <option value="<?= $usuario->idusuario ?>"><?= $usuario->nome ?></option>
             <?php endforeach; ?>
         </select>

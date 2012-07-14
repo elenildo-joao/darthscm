@@ -215,6 +215,12 @@ class ProjetosController extends Zend_Controller_Action
         {
             $idProjeto = (int) $this->_getParam('idprojeto');
             $this->view->idProjeto = $idProjeto;
+            $usuariosProjeto = $this->vUsuarioProjeto->fetchAll(
+                    $this->vUsuarioProjeto->select()
+                        ->where('idprojeto = ?', $idProjeto)
+                    );
+            $this->view->vUsuarioProjeto  = $usuariosProjeto;
+        $this->view->idProjeto = $idProjeto;
             
             $usuariosNaoAlocados = $this->trabalhaEm->fetchAll(
                     $this->trabalhaEm->select()
@@ -231,6 +237,7 @@ class ProjetosController extends Zend_Controller_Action
 
             $select = $this->usuario->select()->where('idusuario not in (?)', $idsUsuarios);
             $this->view->usuarios = $this->usuario->fetchAll($select);
+        
         }
         else
         {
@@ -267,16 +274,13 @@ class ProjetosController extends Zend_Controller_Action
             );
             $idProjeto = $this->_request->getPost('idprojeto');
             $idUsuario = $this->_request->getPost('usuario');
-            $tarefa = $this->projeto->find($idProjeto)->current();
+            $projeto = $this->projeto->find($idProjeto)->current();
             $this->view->projeto  = $projeto;
-            $usuariosProjeto = $this->vUsuarioProjeto->fetchAll($this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where ('idusuario = ?', $idUsuario));
             
-            foreach ( $usuariosProjeto as $usuarioProjeto ){
-                $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioProjeto->idusuario, 'idprojeto = ?' => (int) $usuarioProjeto->idprojeto));
-                $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
-            }
+            $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
+            $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
 
-            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
+            $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
         }
     }
     
