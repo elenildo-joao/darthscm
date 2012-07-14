@@ -4,14 +4,13 @@
 -- Visao que permite visualizar todas as tarefas e subtarefas quem são 
 -- os responsáveis pelo desenvolvimento da tarefa
 -- ------------------------------------------------------------------------
-CREATE OR REPLACE VIEW vTarefaUsuario (idusuario, nomeusuario, idtarefa, nometarefa, prioridadetarefa, datafimTarefa, idSupertarefa, nomesupertarefa, datafimsuper, idprojeto, nomeprojeto) AS
-SELECT DISTINCT u.idUsuario, u.nome, t.idTarefa, t.nome, t.prioridade, t.dataFim, s.idTarefa, s.nome, s.dataFim, t.idProjeto, p.nome
-FROM (Usuarios AS u JOIN UsuarioRealizaTarefa AS ur ON u.idUsuario=ur.idUsuario 
+ CREATE OR REPLACE VIEW vTarefaUsuario (idusuario, nomeusuario, datainiciousuario, datafimusuario, idtarefa, nometarefa, descricao, prioridadetarefa, datafimTarefa, idSupertarefa, nomesupertarefa, datafimsuper, idprojeto, nomeprojeto) AS
+ SELECT DISTINCT u.idUsuario, u.nome, ur.datainicio, ur.datafim, t.idTarefa, t.nome, t.descricao, t.prioridade, t.dataFim, s.idTarefa, s.nome, s.dataFim, t.idProjeto, p.nome
+ FROM (Usuarios AS u JOIN UsuarioRealizaTarefa AS ur ON u.idUsuario=ur.idUsuario 
 	JOIN Tarefas AS t ON ur.idTarefa=t.idTarefa AND ur.idProjeto=t.idProjeto 
 		JOIN Projetos AS p ON t.idProjeto=p.idProjeto) 
 			LEFT OUTER JOIN Tarefas AS s ON t.idSuperTarefa=s.idTarefa AND t.idProjetoSuperTarefa=s.idProjeto
-ORDER BY t.idProjeto , s.idTarefa DESC;
-
+ ORDER BY t.idProjeto , s.idTarefa DESC;
 
 -- ------------------------------------------------------------------------
 -- Visao que permite visualizar as tarefas abertas e quem são responsaveis 

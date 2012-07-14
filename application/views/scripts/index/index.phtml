@@ -1,27 +1,56 @@
 <?php echo $this->headLink()->appendStylesheet('/css/telaAdm.css');?>
 
 <div id="projetos">
-        <ul><fieldset>
+        <ul>
+            <fieldset>
                 <legend>Últimos Projetos</legend>
-                <li><p>Nome da Projeto </p>
-                        <p>Descrição da Projeto:</p>
-                        <a href="#">+ detalhes</a>
+                <?php foreach($this->projetos as $projeto): ?>
+                <li>
+                    <p>Nome: <?= $projeto->nomeprojeto ?> </p>
+                    <p>Descrição: <?= $projeto->descricao ?></p>
+                    <a href="
+                        <?=
+                        $this->url(array(
+                            'controller' => 'projetos', 
+                            'action'     => 'detalhar-projeto',
+                            'idprojeto' => $projeto->idprojeto
+                            )
+                        ); 
+                        ?>">+ detalhes
+                    </a>
                 </li>
-        </fieldset></ul>
+                <?php endforeach; ?>
+                <a href="/projetos/listar">Ver todos
+                    </a>
+            </fieldset>
+        </ul>
 </div>
 
 
 <div id="tarefas">
         <ul><fieldset>
                 <legend>Últimas Tarefas</legend>
-                <li><p>Nome da Tarefa </p>
-                        <p>Descrição da Tarefa:</p>
-                        <a href="#">+ detalhes</a>
+                <?php foreach ($this->tarefas as $tarefa): ?>
+                <li>
+                    <p>Tarefa: <?= $tarefa->nometarefa ?></p>
+                    <p>Descrição: </p>
+                    <p>Projeto: <?= $tarefa->nomeprojeto ?></p>
+                    <a href="
+                        <?=
+                        $this->url(array(
+                            'controller' => 'projetos', 
+                            'action'     => 'listar-tarefas',
+                            'idprojeto' => $projeto->idprojeto
+                            )
+                        ); 
+                        ?>">+ detalhes
+                    </a>
                 </li>
+                <?php endforeach; ?>
         </fieldset>
         </ul>
 </div>
-
+<!--
 <div id="mensagens">
     <fieldset>
         <legend>Mensagens</legend>
@@ -29,3 +58,4 @@
             <a href="#" id="image"><img src="/imagens/email-icon.png"/></a>
     </fieldset>
 </div>
+-->

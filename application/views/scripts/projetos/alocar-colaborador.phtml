@@ -1,0 +1,25 @@
+<?php
+if ($this->mensagem): 
+?>
+<p><?=$this->mensagem?></p>
+<a href='/projetos/alocar-colaborador/idprojeto/<?= $this->idProjeto ?>' title="Alocar outro colaborador">Alocar outro colaborador</a>
+<br />
+<a href='/projetos/listar' title="Voltar">Voltar</a>
+<?php
+else: 
+?>
+
+<form action="alocar-colaborador" method="post">
+    <label>Usuarios: 
+        <select name="idusuario">
+            <?php foreach ($this->usuarios as $usuario): ?>
+            <option value="<?= $usuario->idusuario ?>"><?= $usuario->nome ?></option>
+            <?php endforeach; ?>
+        </select>
+    </label>
+    <input type="hidden" value="<?= $this->idProjeto ?>" name="idprojeto" />
+    <input type="submit" value="Alocar" />
+</form>
+<?php
+endif;
+?>
