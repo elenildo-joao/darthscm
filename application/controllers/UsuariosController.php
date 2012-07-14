@@ -16,6 +16,7 @@ class UsuariosController extends Zend_Controller_Action
     {
         if ( !Zend_Auth::getInstance()->hasIdentity() ) 
         {
+            $this->_helper->layout->setLayout('informacao');
             return $this->_helper->redirector->goToRoute( 
                     array('controller' => 'login') 
                     );
@@ -131,8 +132,8 @@ class UsuariosController extends Zend_Controller_Action
             $dadosLogin['idusuario'] = $this->db->lastInsertId('usuarios', 'idusuario');
             
             $this->login->insert($dadosLogin);
-        
-            $this->_redirect('/usuarios/listar');
+            $this->view->mensagemErro='Usuário Cadastrado com Sucesso!';
+//            $this->_redirect('/usuarios/listar');
         }
     }
     
@@ -201,8 +202,8 @@ class UsuariosController extends Zend_Controller_Action
             $this->endereco->update($dadosEndereco, $whereEndereco);
             $this->usuario->update($dadosUsuario, $whereUsuario); 
             $this->login->update($dadosLogin, $whereLogin);
-        
-            $this->_redirect('/usuarios/listar');
+            $this->view->mensagemErro='Usuário Atualizado com Sucesso!';
+ //           $this->_redirect('/usuarios/listar');
         }
     }
     
@@ -224,8 +225,8 @@ class UsuariosController extends Zend_Controller_Action
         $this->trabalhaEm->delete($whereTrabalhaEm);
         $this->usuario->delete($whereUsuario);
         $this->endereco->delete($whereEndereco);
-        
-        $this->_redirect('/usuarios/listar');
+        $this->view->mensagemErro='Usuário Removido com Sucesso!';
+//        $this->_redirect('/usuarios/listar');
     }
 
     public function visualizarAction()
