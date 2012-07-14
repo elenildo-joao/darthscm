@@ -9,11 +9,9 @@
 </div>
 
 <?php
-    foreach ($this->tarefas as $tarefa):
+    foreach ($this->paginator as $tarefa):
 ?>
-
-<div id="tarefas">
-<fieldset>
+<fieldset id="tarefas">
     <legend><?= $tarefa->nome ?> </legend>
     <p>Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
     <? if ($tarefa->datafim != null AND $tarefa->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA'; ?>
@@ -169,7 +167,12 @@
             </a></li>
        </ul>
        </fieldset>
-    </div>
+    
     <?php
     endforeach;
     ?>
+
+    
+ <div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>

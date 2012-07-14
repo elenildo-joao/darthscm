@@ -58,7 +58,7 @@ class ProjetosController extends Zend_Controller_Action
     public function listarAction()
     {
         $paginator = Zend_Paginator::factory(
-            $this->view->projetos = $this->vUsuarioProjeto
+           $this->vUsuarioProjeto
                     ->fetchAll(
                             $this->vUsuarioProjeto->select()
                             ->where('papel= ? ', 'gerente')
@@ -208,10 +208,17 @@ class ProjetosController extends Zend_Controller_Action
 
     public function listarTarefasAction()
     {
-        $this->view->tarefas = $this->tarefa
+        $paginator = Zend_Paginator::factory(
+                         $this->tarefa
                 ->fetchAll(
                         $this->tarefa->select()->where('idprojeto = ?', $this->_getParam('idprojeto'))->order('datafim DESC')
-                        );
+                        ));
+
+        $paginator->setItemCountPerPage(2);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
+        
+
         $this->view->SubTarefas = $this->subtarefa
                 ->fetchAll(
                         $this->subtarefa->select()->where('idprojeto = ?', $this->_getParam('idprojeto'))

@@ -8,16 +8,10 @@
         title="Novo projeto">Cadastrar Projeto</a>
 </div>
 
-
-
-
-
     
 <?php
-    foreach ($this->projetos as $projeto):
-?>
-    <?php
-    foreach ($this->paginator as $proj):
+    //foreach ($this->projetos as $projeto):
+    foreach ($this->paginator as $projeto):
 ?>
 
 <fieldset id="projetos">
@@ -82,19 +76,13 @@
             ?>" 
             title="Remover"><img src="/imagens/edit.png"/>
             </a></li>
-            
-        
         <br />
-
-       
 </fieldset>
    
         <?php
-    endforeach;
-    ?>
-        <?php
-    endforeach;
-    ?>
+           // endforeach;
+            endforeach;
+        ?>
     
  <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
