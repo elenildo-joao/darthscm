@@ -440,10 +440,9 @@ class ProjetosController extends Zend_Controller_Action
             }
             else{
                 $this->realiza->insert($dadosRealiza);
-                $this->view->mensagemErro='Usuario Alocado com Sucesso!';
             }
             
-//            $this->_redirect('/projetos/listar-tarefas');
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         }
     }
 
@@ -470,12 +469,11 @@ class ProjetosController extends Zend_Controller_Action
             $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa)->where ('idusuario = ?', $idUsuario));
             
             foreach ( $usuariosTarefas as $usuarioTarefa ){
-//                echo ("".$usuarioTarefa->idprojeto.$usuarioTarefa->idtarefa.$usuarioTarefa->idusuario);
                 $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioTarefa->idusuario, 'idtarefa = ?' => (int) $usuarioTarefa->idtarefa, 'idprojeto = ?' => (int) $usuarioTarefa->idprojeto));
                 $this->realiza->update($dadosRealiza, $whereRealiza);
             }
-              $this->view->mensagemErro='Usuario Desalocado com Sucesso!';
-//            $this->_redirect('/projetos/listar-tarefas');
+
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         }
     }
     
@@ -568,8 +566,8 @@ class ProjetosController extends Zend_Controller_Action
             $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
             $this->view->tarefa  = $tarefa;
 
-            $this->view->mensagemErro='Tempo Adicionado com Sucesso!';        
-//            $this->_redirect('/projetos/listar-tarefas');
+//            $this->view->mensagemErro='Tempo Adicionado com Sucesso!';
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         } 
     }
 
