@@ -2,21 +2,21 @@
 -- povoamento da tabela Endereco
 -- (id, rua, num, bairro, cidade, estado, complemento)
 -- --------------------------------------------------------
-INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Amélia Amado', 1, 'Centro', 'Itabuna', 'BA', 'Rua do canal');
-INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Princesa Isabel', 1, 'São Caetano', 'Itabuna', 'BA', NULL);
-INSERT INTO Enderecos VALUES (DEFAULT, 'Rua São João', 1, 'Fátima', 'Itabuna', 'BA', 'próximo à lotérica');
-INSERT INTO Enderecos VALUES (DEFAULT, 'Rua União Operária', 1, 'Pontalzinho', 'Itabuna', 'BA', NULL);
-INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Juracy Magalhães', 1, 'Centro', 'Itabuna', 'BA', NULL);
-INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Local G', 1, 'Nelson Costa', 'Ilhéus', 'BA', NULL);
-INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Itália', 1, 'Pontal', 'Ilhéus', 'BA', NULL);
-INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Macário dos Reis', 1, 'Santo Antônio', 'Itabuna', 'BA', 'próximo ao hospital');
+INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Amï¿½lia Amado', 1, 'Centro', 'Itabuna', 'BA', 'Rua do canal');
+INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Princesa Isabel', 1, 'Sï¿½o Caetano', 'Itabuna', 'BA', NULL);
+INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Sï¿½o Joï¿½o', 1, 'Fï¿½tima', 'Itabuna', 'BA', 'prï¿½ximo ï¿½ lotï¿½rica');
+INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Uniï¿½o Operï¿½ria', 1, 'Pontalzinho', 'Itabuna', 'BA', NULL);
+INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Juracy Magalhï¿½es', 1, 'Centro', 'Itabuna', 'BA', NULL);
+INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Local G', 1, 'Nelson Costa', 'Ilhï¿½us', 'BA', NULL);
+INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Itï¿½lia', 1, 'Pontal', 'Ilhï¿½us', 'BA', NULL);
+INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Macï¿½rio dos Reis', 1, 'Santo Antï¿½nio', 'Itabuna', 'BA', 'prï¿½ximo ao hospital');
 
 -- --------------------------------------------------------
 -- povoamento da tabela Usuarios
 -- (id, nome, email, cpf, datanasc, telefone, endereco, sexo)
 -- --------------------------------------------------------
 INSERT INTO Usuarios VALUES (DEFAULT, 'Jacqueline Midlej', 'jacquelinemidlej@gmail.com', '00000000000', '1990/11/14', '7399010000', 1, FALSE, 'F');
-INSERT INTO Usuarios VALUES (DEFAULT, 'Clícia Santos', 'clicia@gmail.com', '00100100101', '1990/01/01', '7399010001', 2, FALSE, 'F');
+INSERT INTO Usuarios VALUES (DEFAULT, 'Clï¿½cia Santos', 'clicia@gmail.com', '00100100101', '1990/01/01', '7399010001', 2, FALSE, 'F');
 INSERT INTO Usuarios VALUES (DEFAULT, 'Elenildo Joao', 'elenildojoao@gmail.com', '00200200202', '1990/01/02', '7399010002', 3, TRUE, 'M');
 INSERT INTO Usuarios VALUES (DEFAULT, 'Rafaela Souza', 'rafaelasouza@gmail.com', '00300300303', '1990/01/03', '7399010003', 4, FALSE, 'F');
 INSERT INTO Usuarios VALUES (DEFAULT, 'Silas Ferreira', 'silasferreira@gmail.com', '00400400404', '1990/01/04', '7399010004', 5, FALSE, 'M');
@@ -43,7 +43,7 @@ INSERT INTO Repositorios VALUES (DEFAULT, 'http://www.meurepositorio.com', 'repo
 -- povoamento da tabela Projetos
 -- (id, nome, descricao, datainicio, dataprevfim, datafim, repositorio)
 -- --------------------------------------------------------
-INSERT INTO Projetos VALUES (DEFAULT, 'darthscm', 'Projeto de Engenharia de Software 2012.1 - Desenvolvimento de um Gerenciador de Configuração de Software', '2012/03/20', '2012/07/17', NULL, 1);
+INSERT INTO Projetos VALUES (DEFAULT, 'darthscm', 'Projeto de Engenharia de Software 2012.1 - Desenvolvimento de um Gerenciador de Configuraï¿½ï¿½o de Software', '2012/03/20', '2012/07/17', NULL, 1);
 INSERT INTO Projetos VALUES (DEFAULT, 'projetoparalelo','', '2012/04/20', '2012/06/20', NULL, 2);
 
 -- --------------------------------------------------------
@@ -69,12 +69,12 @@ INSERT INTO UsuarioTrabalhaEmProjeto VALUES (3, 2, 'colaborador', '2012/03/20', 
 INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Bem-vindos', 'Bem-vindos', '2012/03/20 08:00:00', false, false);
 INSERT INTO Mensagens VALUES (DEFAULT, 2, 'Problema na tarefa', 'Estou tendo problemas com minha tarefa', '2012/03/30 10:46:52', false, false);
 INSERT INTO Mensagens VALUES (DEFAULT, 2, 'Problema reslvido', 'Problema resolvido, Obrigada', '2012/03/30 12:00:00', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 3, 'Problema na tarefa (RE)', 'Trás na minha sala', '2012/03/30 11:00:24', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Notícias', 'Como estão as atividades?', '2012/04/04 08:00:00', false, true);
-INSERT INTO Mensagens VALUES (DEFAULT, 5, 'Notícias (RE)', 'Tudo bem. Estou desenvolvendo os requisitos do sistema', '2012/04/04 09:00:32', false, true);
-INSERT INTO Mensagens VALUES (DEFAULT, 8, 'Sugestão', 'Eu acho que deveria haver a tabela de depreciações na estimativa de custo', '2012/03/30 15:04:08', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Documento de visões', 'O documento de visões ficou ótimo!', '2012/04/02 14:06:54', false, true);
-INSERT INTO Mensagens VALUES (DEFAULT, 4, 'Ajuda', 'Tenho pouca experiência com plano de qualidade, alguém pode me ajudar com algum material?', '2012/03/28 10:10:10', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 3, 'Problema na tarefa (RE)', 'Trï¿½s na minha sala', '2012/03/30 11:00:24', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Notï¿½cias', 'Como estï¿½o as atividades?', '2012/04/04 08:00:00', false, true);
+INSERT INTO Mensagens VALUES (DEFAULT, 5, 'Notï¿½cias (RE)', 'Tudo bem. Estou desenvolvendo os requisitos do sistema', '2012/04/04 09:00:32', false, true);
+INSERT INTO Mensagens VALUES (DEFAULT, 8, 'Sugestï¿½o', 'Eu acho que deveria haver a tabela de depreciaï¿½ï¿½es na estimativa de custo', '2012/03/30 15:04:08', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Documento de visï¿½es', 'O documento de visï¿½es ficou ï¿½timo!', '2012/04/02 14:06:54', false, true);
+INSERT INTO Mensagens VALUES (DEFAULT, 4, 'Ajuda', 'Tenho pouca experiï¿½ncia com plano de qualidade, alguï¿½m pode me ajudar com algum material?', '2012/03/28 10:10:10', false, false);
 INSERT INTO Mensagens VALUES (DEFAULT, 7, 'Ajuda (RE)', 'Ja ja encaminho!', '2012/03/28 10:20:40', false, true);
 
 -- --------------------------------------------------------
@@ -134,36 +134,36 @@ INSERT INTO ContaGitHub VALUES (DEFAULT, 8, 'anderson_git', '123');
 -- povoamento da tabela Tarefas
 -- (id, idprojeto, nome, descricao, dataini, dataprevfim, datarealfim, prioridade, idsupertarefa, idsuperprojeto)
 -- --------------------------------------------------------
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Proposta detalhada e orçamento ao cliente', NULL, '2012/04/13', '2012/04/23', '2012/04/23',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Estudo de viabilidade', NULL, '2012/04/03', '2012/04/17', '2012/04/17',  'baixa', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Documento de visão', NULL, '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Análise de risco', NULL, '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Análise de custo', NULL, '2012/03/28', '2012/04/17', '2012/04/17',  'alta', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Estimativa de tempo e custo', 'Total do produto', '2012/03/28', '2012/04/17', '2012/04/17',  'alta', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Cronograma de atividades', NULL, '2012/04/14', '2012/04/24', '2012/04/24',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Metas de qualidade e qualidade so software', NULL, '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Papéis da equipe de desenvolvimento', NULL, '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Revisao da documentação', NULL, '2012/04/17', '2012/04/23', '2012/04/23',  'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Compilação dos documentos', NULL, '2012/06/08', '2012/06/11', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Proposta detalhada e orÃ§amento ao cliente', 'Fazer a proposta para o cliente seguindo o modelo darthscm_proposta.', '2012/04/13', '2012/04/23', '2012/04/23',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Estudo de viabilidade', 'AnÃ¡lise detalhada pretendendo determinar a possibilidade de se implementar o software.', '2012/04/03', '2012/04/17', '2012/04/17',  'baixa', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Documento de visÃ£o', 'Coletar as necessidade do sistema.', '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'AnÃ¡lise de risco', 'Permite antecipar e minimizar o efeito de eventos que possa causar impactos negativos no projeto.', '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'AnÃ¡lise de custo', 'AnÃ¡lise detalha que oferece gestÃ£o da organizaÃ§Ã£o das informaÃ§Ãµes relaticas ao custo da empresa com o projeto.', '2012/03/28', '2012/04/17', '2012/04/17',  'alta', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Estimativa de tempo e custo', 'Mensurar o custo e tempo total do projeto.', '2012/03/28', '2012/04/17', '2012/04/17',  'alta', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Cronograma de atividades', 'Prazos determinados para as diversas tarefas do projeto.', '2012/04/14', '2012/04/24', '2012/04/24',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Metas de qualidade e qualidade so software', 'Definir o processo de garantia de qualidade de software.', '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'PapÃ©is da equipe de desenvolvimento', 'Definir os papÃ©is de cada membro da equipe em cada fase.', '2012/03/28', '2012/04/17', '2012/04/17',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Revisao da documentaÃ§Ã£o', 'CorreÃ§Ã£o e sugestÃµes a respeito da documentaÃ§Ã£o gerada na primeira fase.', '2012/04/17', '2012/04/23', '2012/04/23',  'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'CompilaÃ§Ã£o dos documentos', 'JunÃ§Ã£o de todas as partes e formataÃ§Ã£o da documentaÃ§Ã£o.', '2012/06/08', '2012/06/11', NULL, 'normal', NULL, NULL);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Banco de dados', NULL, '2012/04/30', '2012/06/03', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Modelagem banco', NULL, '2012/04/30', '2012/05/10', '2012/05/10', 'normal', 12, 1);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Modelo lógico', NULL, '2012/05/10', '2012/05/17', '2012/05/17', 'normal', 12, 1);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'visões e povoamento', NULL, '2012/05/17', '2012/05/29', '2012/05/29', 'normal', 12, 1);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'gatilhos, funções e permissões', NULL, '2012/05/29', '2012/06/08', NULL, 'normal', 12, 1);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'diagrama de comportamento', NULL, '2012/05/29', '2012/06/03', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'diagrama de sequencia', NULL, '2012/05/29', '2012/06/03', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'protótipo horizontal e vertical', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'plano de teste', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'gestão de projetos', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'arquitetura de software', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'gerencia de configuração de software', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'diagrama de classes', NULL, '2012/03/29', '2012/05/18', '2012/05/23', 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 2, 'documentação dos requisitos', NULL, '2012/03/29', '2012/05/18', '2012/05/23', 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 2, 'proposta ao cliente', NULL, '2012/03/29', '2012/05/08', '2012/05/08', 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 2, 'revisao documentação', NULL, '2012/05/08', '2012/05/28', '2012/05/28', 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'correção do bug no documento de requisitos', NULL, '2012/05/08', '2012/05/28', '2012/05/28', 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'correção do bug no documento de visao', NULL, '2012/05/08', '2012/05/28', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 2, 'correção do bug na proposta ao cliente', 'orçamento errado', '2012/05/30', '2012/06/10', '2012/06/03', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Modelagem banco', 'Modelo relacional no MySql workbench', '2012/04/30', '2012/05/10', '2012/05/10', 'normal', 12, 1);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Modelo lÃ³gico', 'ImplementaÃ§Ã£o do modelo relacional', '2012/05/10', '2012/05/17', '2012/05/17', 'normal', 12, 1);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'VisÃµes e povoamento', NULL, '2012/05/17', '2012/05/29', '2012/05/29', 'normal', 12, 1);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Gatilhos, funÃ§Ãµes e permissÃµes', NULL, '2012/05/29', '2012/06/08', NULL, 'normal', 12, 1);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Diagrama de comportamento', NULL, '2012/05/29', '2012/06/03', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Diagrama de sequencia', NULL, '2012/05/29', '2012/06/03', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'ProtÃ³tipo horizontal e vertical', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Plano de teste', 'Plano a respeitos dos testes que serÃ£o executados para o projeto.', '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'GestÃ£o de projetos', 'Plano para gerÃªncia do desenvolvimento de projetos.', '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Arquitetura de software', 'Mostrar detalhadamente a arquitetura em vÃ¡rias visÃµes.', '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'GerÃªncia de configuraÃ§Ã£o de software', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Diagrama de classes', NULL, '2012/03/29', '2012/05/18', '2012/05/23', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 2, 'DocumentaÃ§Ã£o dos requisitos', NULL, '2012/03/29', '2012/05/18', '2012/05/23', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Proposta ao cliente', 'Fazer a proposta para o cliente seguindo o modelo proj_doc.', '2012/03/29', '2012/05/08', '2012/05/08', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Revisao documentaÃ§Ã£o', 'CorreÃ§Ã£o de erros no documento.', '2012/05/08', '2012/05/28', '2012/05/28', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'CorreÃ§Ã£o do bug no documento de requisitos', NULL, '2012/05/08', '2012/05/28', '2012/05/28', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'CorreÃ§Ã£o do bug no documento de visao', NULL, '2012/05/08', '2012/05/28', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 2, 'CorreÃ§Ã£o do bug na proposta ao cliente', 'orÃ§amento errado', '2012/05/30', '2012/06/10', '2012/06/03', 'normal', NULL, NULL);
 
 -- --------------------------------------------------------
 -- povoamento da tabela UsuarioRealizaTarefa
@@ -208,13 +208,13 @@ INSERT INTO UsuarioRealizaTarefa VALUES (30, 2, 3, '00:00:00', '2012/05/30', '20
 
 -- --------------------------------------------------------
 -- povoamento da tabela Bugs
--- (id, idtarefas, idprojeto, descrição, datadetecção, datasolucao, gravidade, usuariodetecta, usuariosoluciona, tree, sha1, idrepositorio)
+-- (id, idtarefas, idprojeto, descriï¿½ï¿½o, datadetecï¿½ï¿½o, datasolucao, gravidade, usuariodetecta, usuariosoluciona, tree, sha1, idrepositorio)
 -- ---------------------------------------------------------
-INSERT INTO Bugs VALUES (DEFAULT, 28, 1, 'O documento de requisitos requer mudança na numeração do documento', '2012/05/02', '2012/05/28', 'normal', 1, 6, 'requisitos_do_software', 'chave_crip', 1);
-INSERT INTO Bugs VALUES (DEFAULT, 29, 1, 'O documento de visão tem tabelas incompletas', '2012/05/02', NULL, 'normal', 1, NULL, 'documento_de_visão', 'chave_crip', 1);
-INSERT INTO Bugs VALUES (DEFAULT, NULL, NULL, 'O banco de dados nao detecta quais tarefas estão fechadas', '2012/05/29', NULL, 'alta', 8, NULL, 'modelagem_banco_de_dados', 'chave_crip', 1);
-INSERT INTO Bugs VALUES (DEFAULT, 30, 2, 'Bug na proposta ao cliente, o orçamento informado nao vale mais para a data presente', '2012/05/29', '2012/06/03', 'alta', 2, 3, 'proposta_ao_cliente', 'chave_crip', 2);
-INSERT INTO Bugs VALUES (DEFAULT, NULL, NULL, 'Erro no banco de dados, a tabela usuario tem um atributo para endereço. Deveria ser uma tabela.', '2012/05/30', NULL, 'maxima', 2, NULL, 'modelagem_banco_de_dados', 'chave_crip', 1);
+INSERT INTO Bugs VALUES (DEFAULT, 28, 1, 'O documento de requisitos requer mudanï¿½a na numeraï¿½ï¿½o do documento', '2012/05/02', '2012/05/28', 'normal', 1, 6, 'requisitos_do_software', 'chave_crip', 1);
+INSERT INTO Bugs VALUES (DEFAULT, 29, 1, 'O documento de visï¿½o tem tabelas incompletas', '2012/05/02', NULL, 'normal', 1, NULL, 'documento_de_visï¿½o', 'chave_crip', 1);
+INSERT INTO Bugs VALUES (DEFAULT, NULL, NULL, 'O banco de dados nao detecta quais tarefas estï¿½o fechadas', '2012/05/29', NULL, 'alta', 8, NULL, 'modelagem_banco_de_dados', 'chave_crip', 1);
+INSERT INTO Bugs VALUES (DEFAULT, 30, 2, 'Bug na proposta ao cliente, o orï¿½amento informado nao vale mais para a data presente', '2012/05/29', '2012/06/03', 'alta', 2, 3, 'proposta_ao_cliente', 'chave_crip', 2);
+INSERT INTO Bugs VALUES (DEFAULT, NULL, NULL, 'Erro no banco de dados, a tabela usuario tem um atributo para endereï¿½o. Deveria ser uma tabela.', '2012/05/30', NULL, 'maxima', 2, NULL, 'modelagem_banco_de_dados', 'chave_crip', 1);
 
 
 -- --------------------------------------------------------
@@ -273,13 +273,13 @@ INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar os requisitos_do_s
 INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar os requisitos_do_software pois esta uma merda', '2012/06/11', 'recusado', 5, 1, 8, 1, 2);
 INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar os requisitos_do_software pois esta uma merda', '2012/06/11', 'solicitado', 2, 2, NULL, NULL, 3);
 INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar os requisitos_do_software pois esta uma merda', '2012/06/04', 'recusado', 3, 2, 1, 2, 3);
-INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar a proposta do cliente, pois se faz necessário acrescentar o tópico contatos da empresa', '2012/05/04', 'aprovado', 2, 1, 8, 1, 6);
+INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar a proposta do cliente, pois se faz necessï¿½rio acrescentar o tï¿½pico contatos da empresa', '2012/05/04', 'aprovado', 2, 1, 8, 1, 6);
 INSERT INTO SolicitacoesMudanca VALUES (DEFAULT, 'Quero mudar o documento metas de qualidade pois falta inserir a revisao tecnica formal', '2012/05/04', 'aprovado', 3, 1, 8, 1, 8);
 
 
 -- --------------------------------------------------------
 -- povoamento da tabela mudancas
--- (id, tree, sha1, datahora, solicitacaoMudança, idrepositorio)
+-- (id, tree, sha1, datahora, solicitacaoMudanï¿½a, idrepositorio)
 -- ---------------------------------------------------------
 INSERT INTO Mudancas VALUES (DEFAULT, 'requisitos_do_software_v.2', 'chave_crip', '2012/06/11 08:00:00', 1, 1);
 INSERT INTO Mudancas VALUES (DEFAULT, 'proposta_ao_cliente_v.2', 'chave_crip', '2012/05/05 08:00:00', 5, 1);
@@ -288,7 +288,7 @@ INSERT INTO Mudancas VALUES (DEFAULT, 'metas_de_qualiade_v.2', 'chave_crip', '20
 
 -- --------------------------------------------------------
 -- povoamento da tabela auditoriasMudancas
--- (id, idmudança, idauditor, estado, datahora)
+-- (id, idmudanï¿½a, idauditor, estado, datahora)
 -- ---------------------------------------------------------
 INSERT INTO AuditoriasMudancas VALUES (DEFAULT, 1, 8, 'aprovado', '2012/06/11 14:05:34');
 INSERT INTO AuditoriasMudancas VALUES (DEFAULT, 2, 8, 'aprovado', '2012/05/05 14:34:20');

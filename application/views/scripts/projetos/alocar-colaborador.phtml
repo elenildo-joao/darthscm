@@ -2,7 +2,7 @@
 if ($this->mensagem): 
 ?>
 <p><?=$this->mensagem?></p>
-<a href='/projetos/alocar-colaborador/idprojeto/<?= $this->idProjeto ?>' title="Alocar outro colaborador">Alocar outro colaborador</a>
+<a href='/projetos/alocar-colaborador/idprojeto/<?= $this->idProjeto ?>' title="Alocar outro colaborador">Alocar outro usuário</a>
 <br />
 <a href='/projetos/listar' title="Voltar">Voltar</a>
 <?php
@@ -15,6 +15,12 @@ else:
             <?php foreach ($this->usuarios as $usuario): ?>
             <option value="<?= $usuario->idusuario ?>"><?= $usuario->nome ?></option>
             <?php endforeach; ?>
+        </select>
+    </label>
+   <label>Papel: 
+        <select name="papel">
+            <option value="colaborador">Colaborador</option>
+            <option value="gerente">Gerente</option>
         </select>
     </label>
     <input type="hidden" value="<?= $this->idProjeto ?>" name="idprojeto" />

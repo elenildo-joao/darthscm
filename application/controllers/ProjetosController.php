@@ -95,7 +95,7 @@ class ProjetosController extends Zend_Controller_Action
             
             $dadosTrabalhaEm = array(
                 'idusuario'  => $this->_request->getPost('gerente'),
-                'papel'      => 'GERENTE',
+                'papel'      => 'gerente',
                 'datainicio' => $dadosProjeto['datainicio']
             );
             
@@ -218,7 +218,7 @@ class ProjetosController extends Zend_Controller_Action
             
             $usuariosNaoAlocados = $this->trabalhaEm->fetchAll(
                     $this->trabalhaEm->select()
-                        ->from($this->trabalhaEm, 'idusuario')
+//                        ->from($this->trabalhaEm, 'idusuario')
                         ->where('idprojeto = ?', $idProjeto)
                     );
 
@@ -230,14 +230,14 @@ class ProjetosController extends Zend_Controller_Action
             }
 
             $select = $this->usuario->select()->where('idusuario not in (?)', $idsUsuarios);
-            $this->view->usuarios = $this->usuario->fetchAll($select);            
+            $this->view->usuarios = $this->usuario->fetchAll($select);
         }
         else
         {
             $dados = array(
                 'idprojeto'  => $this->_request->getPost('idprojeto'),
                 'idusuario'  => $this->_request->getPost('idusuario'),
-                'papel'      => 'COLABORADOR',
+                'papel'      => $this->_request->getPost('papel'),
                 'datainicio' => date('Y-m-d H:i:s')
             );
             

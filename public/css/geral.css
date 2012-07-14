@@ -42,6 +42,12 @@ html, body { height:100%; }
 	text-decoration: none;
 }
 
+#acess {
+    float: right;
+    clear: both;
+    margin-right: 37px;
+}
+
 #rodape {
 	background: #C7C7C3;
 	width:100%;
