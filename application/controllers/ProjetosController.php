@@ -215,6 +215,12 @@ class ProjetosController extends Zend_Controller_Action
         {
             $idProjeto = (int) $this->_getParam('idprojeto');
             $this->view->idProjeto = $idProjeto;
+            $usuariosProjeto = $this->vUsuarioProjeto->fetchAll(
+                    $this->vUsuarioProjeto->select()
+                        ->where('idprojeto = ?', $idProjeto)
+                    );
+            $this->view->vUsuarioProjeto  = $usuariosProjeto;
+        $this->view->idProjeto = $idProjeto;
             
             $usuariosNaoAlocados = $this->trabalhaEm->fetchAll(
                     $this->trabalhaEm->select()
@@ -231,6 +237,7 @@ class ProjetosController extends Zend_Controller_Action
 
             $select = $this->usuario->select()->where('idusuario not in (?)', $idsUsuarios);
             $this->view->usuarios = $this->usuario->fetchAll($select);
+        
         }
         else
         {
@@ -247,7 +254,36 @@ class ProjetosController extends Zend_Controller_Action
             $this->view->idProjeto = $dados['idprojeto'];
         }
     }
+    
+    public function desalocarColaboradorAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $this->view->projeto = $this->projeto->find($idProjeto)->current();
+            $usuariosProjeto = $this->vUsuarioProjeto->fetchAll(
+                    $this->vUsuarioProjeto->select()
+//                        ->from($this->trabalhaEm, 'idusuario')
+                        ->where('idprojeto = ?', $idProjeto)
+                    );
+            $this->view->vUsuarioProjeto  = $usuariosProjeto;
+        }
+        else
+        {
+            $dadosTrabalha = array(
+                'datafim'      => date("Y-m-d")
+            );
+            $idProjeto = $this->_request->getPost('idprojeto');
+            $idUsuario = $this->_request->getPost('usuario');
+            $projeto = $this->projeto->find($idProjeto)->current();
+            $this->view->projeto  = $projeto;
+            
+            $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
+            $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
 
+            $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
+        }
+    }
+    
     public function listarTarefasAction()
     {
         $paginator = Zend_Paginator::factory(
