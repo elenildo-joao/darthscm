@@ -1,20 +1,22 @@
 #icones{
-    float: right;
+    margin-left: 340px;
     margin-top: -20px;
     margin-bottom: -10px;
 }
 
 #icones li {
+    margin-right: 1px;
     display: inline;
 }
 
 #tarefas ul {
-	font: 15px Arial;
-	color: #797e7e;
+    font: 15px Arial;
+    color: #797e7e;
 }
 
 #tarefas li {
-	list-style: none;
+
+    list-style: none;
 }
 
 #tarefas {
@@ -32,8 +34,8 @@
     margin-bottom: -15px;
 }
 
-#tarefas li fieldset {
-	height: 10%;
+#tarefas fieldset {
+        width: 88%;
 	border: 2px solid #e8e8e8;
         margin-bottom: 20px;
 }
