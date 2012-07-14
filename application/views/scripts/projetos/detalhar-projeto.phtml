@@ -92,16 +92,75 @@
     <?php 
         }
     ?>
-<a id="icone" href="
-    <?php 
-        echo $this->url(array('controller' => 'projetos', 
-            'action'     => 'relatorio-participacao', 
-            'idprojeto' => $this->projeto->idprojeto
-        )
-        ); 
-    ?>" 
-    title="Relatorio"><img src="/imagens/report.png"/>
-</a> 
+            <ul id="icones">         
+                <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'editar', 
+                                        'idprojeto' => $projeto->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                    title="Editar"><img src="/imagens/pencil_edit.png"/>
+                    </a></li>
+
+                    <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'remover', 
+                                        'idprojeto' => $projeto->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                    title="Remover"><img src="/imagens/delete_2.png"/>
+                    </a><li>
+
+                    <li><a href="
+                        <?php 
+                        echo $this->url(array('controller' => 'projetos', 
+                                            'action'     => 'fechar', 
+                                            'idprojeto' => $projeto->idprojeto
+                                )
+                                ); 
+                        ?>" 
+                        title="Alocar"><img src="/imagens/check-64.png"/>
+                    </a></li>
+
+                    <li><a href="
+                        <?php 
+                        echo $this->url(array('controller' => 'projetos', 
+                                            'action'     => 'alocar-colaborador', 
+                                            'idprojeto' => $projeto->idprojeto
+                                )
+                                ); 
+                        ?>" 
+                        title="Desalocar"><img src="/imagens/alocar.png"/>
+                    </a></li>
+
+                    <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'desalocar-colaborador', 
+                                        'idprojeto' => $projeto->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                    title="Remover"><img src="/imagens/desalocar.png"/>
+                    </a></li>
+
+                    <li><a id="icone" href="
+                        <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                'action'     => 'relatorio-participacao', 
+                                'idprojeto' => $this->projeto->idprojeto
+                            )
+                            ); 
+                        ?>" 
+                        title="Relatorio"><img src="/imagens/report.png"/>
+                    </a> </li>
+            </ul>
+            
+            
 
 </fieldset>
 
