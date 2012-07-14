@@ -58,7 +58,18 @@ h1 {
     font: bold 12px Arial;
 }
 
+#icones{
+    margin-left: 340px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+
 #icones li {
-    list-style: none;
+    margin-right: 1px;
     display: inline;
+}
+
+#paginacao {
+    float: left;
+    margin-left: 615px;
 }

@@ -10,7 +10,6 @@
 
     
 <?php
-    //foreach ($this->projetos as $projeto):
     foreach ($this->paginator as $projeto):
 ?>
 
@@ -22,7 +21,7 @@
     <p>Data Final: <?= $projeto->datafim ?></p>
     
     <ul id="icones">
-           <li><a href="
+            <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'detalhar-projeto', 
@@ -30,10 +29,9 @@
                     )
                     ); 
             ?>" 
-            title="Detalhar"><img src="/imagens/delete-icon.png"/>
+            title="Remover"><img src="/imagens/desalocar.png"/>
             </a></li>
-    
-            <li><a href="
+           <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
                                   'action'     => 'editar', 
@@ -41,9 +39,31 @@
                     )
                     ); 
             ?>" 
-            title="Editar"><img src="/imagens/edit.png"/>
+            title="Detalhar"><img src="/imagens/edit.png"/>
+            </a></li>
+    
+            <li><a href="
+            <?php 
+            echo $this->url(array('controller' => 'projetos', 
+                                  'action'     => 'remover', 
+                                  'idprojeto' => $projeto->idprojeto
+                    )
+                    ); 
+            ?>" 
+            title="Editar"><img src="/imagens/delete-icon.png"/>
             </a><li>
     
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'fechar', 
+                                    'idprojeto' => $projeto->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Alocar"><img src="/imagens/fechar.png"/>
+            </a></li>
+            
             <li><a href="
                 <?php 
                 echo $this->url(array('controller' => 'projetos', 
@@ -52,18 +72,7 @@
                         )
                         ); 
                 ?>" 
-                title="Alocar"><img src="/imagens/alocar.png"/>
-            </a></li>
-            
-            <li><a href="
-                <?php 
-                echo $this->url(array('controller' => 'projetos', 
-                                    'action'     => 'desalocar', 
-                                    'idprojeto' => $projeto->idprojeto
-                        )
-                        ); 
-                ?>" 
-                title="Desalocar"><img src="/imagens/edit.png"/>
+                title="Desalocar"><img src="/imagens/alocar.png"/>
             </a></li>
             
             <li><a href="
@@ -74,8 +83,9 @@
                     )
                     ); 
             ?>" 
-            title="Remover"><img src="/imagens/edit.png"/>
+            title="Remover"><img src="/imagens/desalocar.png"/>
             </a></li>
+            
         <br />
 </fieldset>
    

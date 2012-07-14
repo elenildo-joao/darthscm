@@ -1,7 +1,8 @@
 #icones{
-    margin-left: 340px;
+    margin-left: 400px;
     margin-top: -20px;
     margin-bottom: -10px;
+    position: absolute;
 }
 
 #icones li {
@@ -15,14 +16,13 @@
 }
 
 #tarefas li {
-
     list-style: none;
 }
 
 #tarefas {
+    margin: 0 auto 10px auto;
     width: 50%;
     clear: both;
-    margin-bottom: 10px;
 }
 
 #tarefas a {
@@ -34,7 +34,7 @@
     margin-bottom: -15px;
 }
 
-#tarefas fieldset {
+fieldset {
         width: 88%;
 	border: 2px solid #e8e8e8;
         margin-bottom: 20px;
@@ -80,4 +80,9 @@ legend {
 
 #botaoCad a:active {
 	text-decoration: none;
+}
+
+#paginacao {
+    float: left;
+    margin-left: 615px;
 }

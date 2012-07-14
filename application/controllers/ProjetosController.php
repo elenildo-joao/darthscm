@@ -107,6 +107,7 @@ class ProjetosController extends Zend_Controller_Action
             $dadosTrabalhaEm['idprojeto'] = $this->db->lastInsertId('projetos', 'idprojeto');
             
             $this->trabalhaEm->insert($dadosTrabalhaEm);
+            
         
             $this->_redirect('/projetos/listar');
         }
