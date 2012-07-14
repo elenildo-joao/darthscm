@@ -1,7 +1,13 @@
+<?php echo $this->headLink()->appendStylesheet('/css/cadastroTarefas.css');?>
+
 <form action='editar-tarefa/idprojeto/<?=$this->tarefa->idprojeto?>/idtarefa/<?=$this->tarefa->idtarefa?>/' method="post">
+ <fieldset id="pessoal">
+        <legend>Informa&ccedil;&otilde;es Gerais</legend>
+    
 <?php
-if ($this->mensagemErro) { 
+    if ($this->mensagemErro) { 
 ?>
+
 <p><?=$this->mensagemErro?></p>
 <a href='/projetos/listar-tarefas/idprojeto/<?= $this->tarefa->idprojeto ?>' title="Voltar">Voltar</a>
 <?php
@@ -13,29 +19,34 @@ if ($this->mensagemErro) {
     <label>Nome: 
         <input type="text" id="nome" name="nome" size="60px" value="<?= $this->tarefa->nome ?>" />
     </label>
-    <br />
+    <br /><br/>
     
-    <label>Descricao: 
-        <input type="text" id="descricao" name="descricao" value="<?= $this->tarefa->descricao ?>" />
+     <label>Data Início: 
+                <label style="margin-left: 19%">Data Fim(Previsão): <br/>
+                    
+                <input type="text" id="dataInicio" name="dataInicio" size="14px" value="<?= $this->tarefa->datainicio ?>"/></label>
+                <input type="text" id="dataPrevFim" name="dataPrevFim" size="14px" value="<?= $this->tarefa->dataprevfim ?>"/></label><br /> <br/>  
+    
+    
+    <label>Prioridade: <br/>
+       <select type="text" id="prioridade" name="prioridade" />
+            <option value="<?= $this->tarefa->prioridade ?>"><?= $this->tarefa->prioridade ?></option>
+            <option>Maxima</option>
+            <option>Alta</option>
+            <option>Normal</option>
+            <option>Baixa</option>
+            <option>Minima</option>
+        </select>
+     
     </label>
-    <br /> 
+    <br /> <br/>
     
-    <label>Data Inicio:
-        <input type="text" id="dataInicio" name="dataInicio" value="<?= $this->tarefa->datainicio ?>" />
+    <label>Descricao: <br/>
+         <textarea type="text" id="descricao" name="descricao" value="<?= $this->tarefa->descricao ?>" rows="5" cols="60"></textarea><br /><br /> 
     </label>
-    <br /> 
+    <br /> <br/>
     
-    <label>Data Fim Previsao: 
-        <input type="text" id="dataPrevFim" name="dataPrevFim" value="<?= $this->tarefa->dataprevfim ?>" />
-    </label>
-    <br /> 
-    
-    <label>Prioridade:
-        <input type="text" id="prioridade" name="prioridade" value="<?= $this->tarefa->prioridade ?>" />
-    </label>
-    <br /> 
-    
-    <input type="submit" value="Atualizar" />
+    <input id="salvar" type="submit" value="Atualizar" />
 </form>
 <?php
 }

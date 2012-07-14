@@ -71,6 +71,7 @@ label {
 
 textarea {
   border: 1px solid #D8D8D8 ;
+  resize: vertical;
 }
 
 #cancelar, #salvar {
