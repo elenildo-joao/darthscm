@@ -543,16 +543,23 @@ class ProjetosController extends Zend_Controller_Action
      
      public function detalharProjetoAction () {
          
-         $idProjeto = (int) $this->_getParam('idprojeto');
+                 $idProjeto = (int) $this->_getParam('idprojeto');
+
+         $paginator = Zend_Paginator::factory(
+            $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->order('nome')
+                        ));
+        
+        $paginator->setItemCountPerPage(4);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
+         
          $projeto = $this->projeto->find($idProjeto)->current();
          
          $this->view->projeto = $projeto;         
          
-         $this->view->tarefas = $this->tarefa
-                   ->fetchAll(
-                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->order('nome')
-                        );
-
+        
          $this->view->vUsuarioProjeto = $this->vUsuarioProjeto
                    ->fetchAll(
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('nomeusuario')

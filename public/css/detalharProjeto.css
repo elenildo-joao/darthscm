@@ -1,33 +1,69 @@
-#projeto legend {
+legend {
 	background: #e8e8e8;
 	font: bold 12px Arial;
 	padding: 1%;
 }
 
-#projeto fieldset {
+#projetos {
 	position: absolute;
 	margin-top: 8%;
 	margin-left: 2%;
 	width: 60%;
+        height: auto;
 	border: 2px solid #e8e8e8;
 }
 
-#projeto p {
-	font: bold 12px Arial;
+span {
+    font: bold 13px Arial;
+    color:  #000000;
+    margin-bottom: 5px;
 }
 
-#listaTarefas legend {
-	background: #e8e8e8;
-	font: bold 12px Arial;
-	padding: 2%;
+b {
+    font: bold 12px Arial;
+    color:  #797e7e;
+    margin-top: 1px;
 }
 
-#listaTarefas fieldset {
+#listaTarefas {
+        float: right;
 	position: absolute;
 	width: 30%;
 	margin-left: 880px;
-	margin-top: 8%;
-	min-height: 60%;
+	margin-top: 8.5%;
+        height: auto;
+        border: 2px solid #e8e8e8;
+        clear: both;
+}
+
+#listaTarefas ul {
+    margin-top: 10px;
+    margin-left: -35px;
+}
+
+#listaTarefas li{
+    	list-style: none;
+	margin-bottom: 2%;
+	width: 100%;
+	height: 10.5%;
+	border: 1px solid #e8e8e8;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+#listaTarefas li a{
+	margin-top: 6%;
+	margin-left: 85%;
+	font: bold 12px Arial;
+	color:#9fc3c3;
+	text-decoration: none;
+	background: none;
+	border: none;
+}
+
+#listaTarefas li a:hover {
+	color: #5B75DE;
 }
 
 
@@ -40,7 +76,7 @@
   box-shadow:0px 0px 1px #828282;
   cursor:pointer;
   padding: 0.6%;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   width: 90px;
   float: right;
   text-align: center;
@@ -60,6 +96,7 @@
 	text-decoration: none;
 }
 
-.lista {
-    clear: both;
+#icone {
+    float: right;
 }
+
