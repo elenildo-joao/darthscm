@@ -1,11 +1,4 @@
-<?php
-if ($this->mensagemErro) { 
-?>
-<p><?=$this->mensagemErro?></p>
-<a href='/projetos/listar-tarefas/idprojeto/<?= $this->tarefa->idprojeto ?>/idtarefa/<?= $this->tarefa->idtarefa ?>' title="Voltar">Voltar</a>
-<?php
-} else { ?>
-<form action="desalocar-usuario-tarefa/idprojeto/<?= $this->tarefa->idprojeto ?>/idtarefa/<?= $this->tarefa->idtarefa ?>" method="post">
+<form action="desalocar-usuario-tarefa" method="post">
     <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome do Usuario: 
@@ -17,6 +10,3 @@ if ($this->mensagemErro) {
         </select>     
     <input type="submit" value="Desalocar" />
 </form>
-<?php
-} 
-?>

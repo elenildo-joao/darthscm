@@ -1,12 +1,4 @@
-<?php
-if ($this->mensagemErro) { 
-?>
-<p><?=$this->mensagemErro?></p>
-<a href='/projetos/listar-tarefas/idprojeto/<?=$this->tarefa->idprojeto?>/' title="Voltar">Voltar</a>
-<?php
-} else {
-?>
-<form action="alocar-usuario-tarefa/idprojeto/<?=$this->tarefa->idprojeto?>/" method="post">
+<form action="alocar-usuario-tarefa" method="post">
     <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome do Usuario: 
@@ -25,6 +17,3 @@ if ($this->mensagemErro) {
         </select>     
     <input type="submit" value="Cadastrar" />
 </form>
-<?php
-}
-?>
