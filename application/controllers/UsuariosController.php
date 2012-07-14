@@ -31,7 +31,6 @@ class UsuariosController extends Zend_Controller_Action
         $this->logLogin = new LogsLogin();
         $this->db = Zend_Db_Table::getDefaultAdapter();
         $this->validator = new Zend_Validate_EmailAddress();
-        
         $this->view->usuarioLogado = $this->usuario->find(
                 $this->usuarioLogado->idusuario
                 )->current();
