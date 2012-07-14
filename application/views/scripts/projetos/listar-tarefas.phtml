@@ -13,13 +13,13 @@
 ?>
 <fieldset id="tarefas">
     <legend><?= $tarefa->nome ?> </legend>
-    <p>Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
+    <span>Descri&ccedil;&atilde;o: </span><b><?= $tarefa->descricao ?></b> <br/>
     <? if ($tarefa->datafim != null AND $tarefa->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA'; ?>
-    <p>Estado: <?= $estado ?></p>
-    <p>Data Início: <?= $tarefa->datainicio ?> Data Fim (Previsão): <?= $tarefa->dataprevfim ?></p>
-    <p>Data Fim: <?= $tarefa->datafim ?>
-    <p>Colaboradores:</p>
-           <ul>
+    <span>Estado: </span> <b><?= $estado ?></b> <br/>
+    <span>Data Início: </span> <b><?= $tarefa->datainicio ?></b> <span id="dataf">Data Fim (Previsão): </span> <b><?= $tarefa->dataprevfim ?></b> <br/>
+    <span>Data Fim: </span> <b><?= $tarefa->datafim ?></b> <br/>
+    <span>Colaboradores: </span>
+    <b><ul>
                 <?php
                     $colaboradores="";
                     foreach ($this->VTarefaUsuario as $realiza):
@@ -39,9 +39,9 @@
                 </li>
                 
                   </ul>
-    <?php if ($estado=='ABERTA'){?>
-    <p>Colaboradores atuais: </p> 
-           <ul>
+    <?php if ($estado=='ABERTA'){?></b> <br/>
+    <span>Colaboradores atuais: </span>  
+    <b><ul>
                 <?php
                     $colaboradores="";
                     foreach ($this->vRealiza as $realiza):
@@ -67,9 +67,10 @@
             if($subTar->idsupertarefa==$tarefa->idtarefa){
                 $subtarefas=$subtarefas.$subTar->nome.", ";
             }
-        endforeach; if ($subtarefas!=""){?>
-    <p> Subtarefas: </p> 
-    <ul>
+        endforeach; if ($subtarefas!=""){?></b> <br/>
+    
+    <span> Subtarefas: </span> 
+    <b><ul>
         <li>
         <?php 
              for ($x=0; $x<strlen($subtarefas)-2; $x++){
@@ -79,8 +80,8 @@
                  echo ('.'); }
              ?>
         </li>
-    </ul>
-    <br/>
+    </ul></b> <br/>
+  
 
         <ul id="icones">          
                 <li><a href="
@@ -92,7 +93,7 @@
                             )
                             ); 
                     ?>" 
-                title="Editar"><img src="/imagens/edit.png"/>
+                title="Editar"><img src="/imagens/pencil_edit.png"/>
             </a></li>
 
             <li><a href="
@@ -104,7 +105,7 @@
                         )
                         ); 
                 ?>" 
-                title="Remover"><img src="/imagens/delete-icon.png"/>
+                title="Remover"><img src="/imagens/delete_2.png"/>
             </a></li>
 
             <li><a href="
@@ -116,7 +117,7 @@
                         )
                         ); 
                 ?>" 
-                title="Fechar"><img src="/imagens/fechar.png"/>
+                title="Fechar"><img src="/imagens/check-64.png"/>
             </a></li>
 
             <li><a href="
@@ -152,7 +153,7 @@
                         )
                         ); 
                 ?>" 
-                title="Adiconar"><img src="/imagens/Apps-clock-icon.png"/>
+                title="Adiconar"><img src="/imagens/time_clock.png"/>
             </a></li>
 
             <li><a href="
@@ -164,7 +165,7 @@
                         )
                         ); 
                 ?>" 
-                title="NovaSubTarefa"><img src="/imagens/folder-add-icon.png"/>
+                title="NovaSubTarefa"><img src="/imagens/plus.png"/>
             </a></li>
        </ul>
        </fieldset>

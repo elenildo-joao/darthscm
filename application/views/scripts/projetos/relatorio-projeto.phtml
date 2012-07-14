@@ -13,13 +13,13 @@
         <th>Produtividade (tempo)</th>
     </tr>
     <?php
-    foreach ($this->vRelatorioProj as $relatorio):
-        $tempo=$relatorio->tempodedicado;
-        $int1=new DateInterval('P0D');
-            $int2=new DateInterval('P0D');
-            $d2="";$h2="";$m2="";
-            projetos::trataInterval (&$tempo, &$int2);
-            projetos::SomaInterval ($int1, $int2);
+        foreach ($this->vRelatorioProj as $relatorio):
+            $tempo=$relatorio->tempodedicado;
+            $int1=new DateInterval('P0D');
+                $int2=new DateInterval('P0D');
+                $d2="";$h2="";$m2="";
+                projetos::trataInterval (&$tempo, &$int2);
+                projetos::SomaInterval ($int1, $int2);
        ?>
     <tr>
         <td><?= $relatorio->nomeprojeto ?></td>
