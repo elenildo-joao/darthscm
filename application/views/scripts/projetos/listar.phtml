@@ -7,13 +7,20 @@
             ?>" 
         title="Novo projeto">Cadastrar Projeto</a>
 </div>
+
+
+
+
+
     
 <?php
     foreach ($this->projetos as $projeto):
 ?>
+    <?php
+    foreach ($this->paginator as $proj):
+?>
 
-<div id="projetos">
-<fieldset>
+<fieldset id="projetos">
     <legend><?= $projeto->nomeprojeto ?> </legend>
     <p>Descri&ccedil;&atilde;o: <?= $projeto->descricao ?></p>
     <p>Data de Inicio: <?= $projeto->datainicioprojeto ?></p>
@@ -76,13 +83,22 @@
             title="Remover"><img src="/imagens/edit.png"/>
             </a></li>
             
-        </div>
+        
         <br />
-    <?php
+
+       
+</fieldset>
+   
+        <?php
     endforeach;
     ?>
-
-</fieldset>
+        <?php
+    endforeach;
+    ?>
+    
+ <div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>
 
 <br />
 <!--        <td>

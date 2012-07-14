@@ -31,13 +31,13 @@
     margin-left: 40px;
 }
 
-#projetos legend {
+legend {
 	background: #e8e8e8;
 	font: bold 12px Arial;
 	padding: 1%;
 }
 
-#projetos fieldset {
+fieldset {
 	width: 60%;
         height: 160px;
 	border: 2px solid #e8e8e8;
@@ -56,4 +56,9 @@ p {
 
 h1 {
     font: bold 12px Arial;
+}
+
+#icones li {
+    list-style: none;
+    display: inline;
 }

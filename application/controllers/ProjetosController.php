@@ -57,13 +57,20 @@ class ProjetosController extends Zend_Controller_Action
     
     public function listarAction()
     {
-        $this->view->projetos = $this->vUsuarioProjeto
-                ->fetchAll(
-                        $this->vUsuarioProjeto->select()
-                        ->where('papel= ? ', 'gerente')
-                        ->orWhere('papel = ?', 'GERENTE')
-                        ->order('datainicioprojeto DESC')
-                        );
+        $paginator = Zend_Paginator::factory(
+            $this->view->projetos = $this->vUsuarioProjeto
+                    ->fetchAll(
+                            $this->vUsuarioProjeto->select()
+                            ->where('papel= ? ', 'gerente')
+                            ->orWhere('papel = ?', 'GERENTE')
+                            ->order('datainicioprojeto DESC')
+                            ));
+
+       
+   
+        $paginator->setItemCountPerPage(2);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
     }
     
     public function novoAction()
