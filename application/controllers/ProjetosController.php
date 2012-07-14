@@ -544,4 +544,14 @@ class ProjetosController extends Zend_Controller_Action
                         );
          
      }
+     public function relatorioParticipacaoAction () {
+         
+         $idProjeto = (int) $this->_getParam('idprojeto');
+         
+         $this->view->vUsuarioProjeto = $this->vUsuarioProjeto
+                   ->fetchAll(
+                        $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
+                        );
+         
+     }   
 }

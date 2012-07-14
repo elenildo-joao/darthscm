@@ -13,7 +13,7 @@
 class UserControllerTest extends ControllerTestCase{
     //put your code here
     
-    function testCanGoToUsuariosPage(){
+    /*function testCanGoToUsuariosPage(){
         
         $this->dispatch("/usuarios/listar");
         $this->assertController("usuarios");
@@ -43,7 +43,7 @@ class UserControllerTest extends ControllerTestCase{
         $this->assertController("usuarios");
         $this->assertAction("listar");
         
-    }
+    }*/
     
     public function testQtForm(){
                 

@@ -91,6 +91,17 @@
         </ul>
     <?php 
         }?>
+<a href="
+    <?php 
+        echo $this->url(array('controller' => 'projetos', 
+            'action'     => 'relatorio-participacao', 
+            'idprojeto' => $this->projeto->idprojeto
+        )
+        ); 
+    ?>" 
+    title="Relatorio"><img src="/imagens/edit.png"/>
+</a>
+
 </div>
 
     
