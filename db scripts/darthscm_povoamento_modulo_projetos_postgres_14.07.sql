@@ -9,7 +9,7 @@ INSERT INTO Enderecos VALUES (DEFAULT, 'Rua União Operária', 1, 'Pontalzinho',
 INSERT INTO Enderecos VALUES (DEFAULT, 'Av. Juracy Magalhães', 1, 'Centro', 'Itabuna', 'BA', NULL);
 INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Local G', 1, 'Nelson Costa', 'Ilhéus', 'BA', NULL);
 INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Itália', 1, 'Pontal', 'Ilhéus', 'BA', NULL);
-INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Macário dos Reis', 1, 'Santo Antônio', 'Itabuna', 'BA', 'pr�ximo ao hospital');
+INSERT INTO Enderecos VALUES (DEFAULT, 'Rua Macário dos Reis', 1, 'Santo Antônio', 'Itabuna', 'BA', 'próximo ao hospital');
 
 -- --------------------------------------------------------
 -- povoamento da tabela Usuarios
@@ -43,7 +43,7 @@ INSERT INTO Repositorios VALUES (DEFAULT, 'http://www.meurepositorio.com', 'repo
 -- povoamento da tabela Projetos
 -- (id, nome, descricao, datainicio, dataprevfim, datafim, repositorio)
 -- --------------------------------------------------------
-INSERT INTO Projetos VALUES (DEFAULT, 'darthscm', 'Projeto de Engenharia de Software 2012.1 - Desenvolvimento de um Gerenciador de Configura��o de Software', '2012/03/20', '2012/07/17', NULL, 1);
+INSERT INTO Projetos VALUES (DEFAULT, 'darthscm', 'Projeto de Engenharia de Software 2012.1 - Desenvolvimento de um Gerenciador de Configuração de Software', '2012/03/20', '2012/07/17', NULL, 1);
 INSERT INTO Projetos VALUES (DEFAULT, 'projetoparalelo','', '2012/04/20', '2012/06/20', NULL, 2);
 
 -- --------------------------------------------------------
