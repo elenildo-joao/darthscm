@@ -247,7 +247,39 @@ class ProjetosController extends Zend_Controller_Action
             $this->view->idProjeto = $dados['idprojeto'];
         }
     }
+    
+    public function desalocarColaboradorAction(){
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $this->view->projeto = $this->projeto->find($idProjeto)->current();
+            $usuariosProjeto = $this->vUsuarioProjeto->fetchAll(
+                    $this->vUsuarioProjeto->select()
+//                        ->from($this->trabalhaEm, 'idusuario')
+                        ->where('idprojeto = ?', $idProjeto)
+                    );
+            $this->view->vUsuarioProjeto  = $usuariosProjeto;
+        }
+        else
+        {
+            $dadosTrabalha = array(
+                'datafim'      => date("Y-m-d")
+            );
+            $idProjeto = $this->_request->getPost('idprojeto');
+            $idUsuario = $this->_request->getPost('usuario');
+            $tarefa = $this->projeto->find($idProjeto)->current();
+            $this->view->projeto  = $projeto;
+            $usuariosProjeto = $this->vUsuarioProjeto->fetchAll($this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where ('idusuario = ?', $idUsuario));
+            
+            foreach ( $usuariosProjeto as $usuarioProjeto ){
+                $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioProjeto->idusuario, 'idprojeto = ?' => (int) $usuarioProjeto->idprojeto));
+                $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
+            }
 
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
+        }
+    }
+    
     public function listarTarefasAction()
     {
         $paginator = Zend_Paginator::factory(
