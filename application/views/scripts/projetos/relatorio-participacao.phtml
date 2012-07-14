@@ -1,9 +1,18 @@
-<table border="1">
+<?php echo $this->headLink()->appendStylesheet('/css/telaGrafico.css');
+      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
+      echo $this->headScript()->appendFile('/js/layoutTabela.js');
+?>
+
+<div type="button" id="botaoCad">
+        <a href="#" title="Imprimir">Imprimir</a>
+</div>
+
+<table id="tabela">
     <tr>
-        <td>Nome Usuario: </td>
-        <td>Data Início: </td>
-        <td>Data Fim: </td>
-        <td>Papel: </td>
+        <th>Nome Usuario: </th>
+        <th>Data Início: </th>
+        <th>Data Fim: </th>
+        <th>Papel: </th>
     </tr>
     <?php
     foreach ($this->vUsuarioProjeto as $relatorio):

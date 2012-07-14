@@ -1,7 +1,16 @@
-<table border="1">
+<?php echo $this->headLink()->appendStylesheet('/css/telaGrafico.css');
+      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
+      echo $this->headScript()->appendFile('/js/layoutTabela.js');
+?>
+
+<div type="button" id="botaoCad">
+        <a href="#" title="Imprimir">Imprimir</a>
+</div>
+
+<table id="tabela">
     <tr>
-        <td>Nome Projeto</td>
-        <td>Produtividade (tempo)</td>
+        <th>Nome Projeto</th>
+        <th>Produtividade (tempo)</th>
     </tr>
     <?php
     foreach ($this->vRelatorioProj as $relatorio):
