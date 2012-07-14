@@ -1,0 +1,20 @@
+<table border="1">
+    <tr>
+        <td>Nome Usuario: </td>
+        <td>Data Início: </td>
+        <td>Data Fim: </td>
+        <td>Papel: </td>
+    </tr>
+    <?php
+    foreach ($this->vUsuarioProjeto as $relatorio):
+       ?>
+    <tr>
+        <td><?= $relatorio->nomeusuario ?></td>
+        <td><?= $relatorio->datainiciousuario ?></td>
+        <td><?= $relatorio->datafimusuario ?></td>
+        <td><?= $relatorio->papel ?></td>
+    </tr>
+    <?php
+    endforeach;
+    ?>
+</table>
