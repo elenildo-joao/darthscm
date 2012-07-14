@@ -1,5 +1,12 @@
 <?php echo $this->headLink()->appendStylesheet('/css/cadastroProjeto.css');?>
-
+<?php
+if ($this->mensagemErro) { 
+?>
+<p><?=$this->mensagemErro?></p>
+<a href='/projetos/listar' title="OK">OK</a>
+<?php
+} else { 
+?>
 <form action="novo" method="post">
     <fieldset id="pessoal">
         <legend>Informa&ccedil;&otilde;es Gerais</legend>
@@ -32,6 +39,6 @@
             <input id="salvar" type="submit" value="Salvar"/>
 </form>
 
-
+<?php } ?>
 
        

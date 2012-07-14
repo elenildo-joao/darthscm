@@ -23,7 +23,8 @@ class ProjetosController extends Zend_Controller_Action
     {
         if ( !Zend_Auth::getInstance()->hasIdentity() ) 
         {
-            return $this->_helper->redirector->goToRoute( 
+            $this->_helper->layout->setLayout('informacao');
+                return $this->_helper->redirector->goToRoute(
                     array('controller' => 'login') 
                     );
         }
@@ -108,8 +109,9 @@ class ProjetosController extends Zend_Controller_Action
             
             $this->trabalhaEm->insert($dadosTrabalhaEm);
             
-        
-            $this->_redirect('/projetos/listar');
+            $this->view->mensagemErro='Projeto Cadastrado com Sucesso!';
+
+//            $this->_redirect('/projetos/listar');
         }
     }
     
@@ -155,8 +157,8 @@ class ProjetosController extends Zend_Controller_Action
             
             $this->projeto->update($dadosProjeto, $whereProjeto);
             $this->repositorio->update($dadosRepositorio, $whereRepositorio); 
-        
-            $this->_redirect('/projetos/listar');
+            $this->view->mensagemErro='Projeto Alterado com Sucesso!';
+ //           $this->_redirect('/projetos/listar');
         }
     }
     
@@ -181,8 +183,8 @@ class ProjetosController extends Zend_Controller_Action
         $this->tarefa->delete($whereTarefa);
         $this->projeto->delete($whereProjeto);
         $this->repositorio->delete($whereRepositorio);
-        
-        $this->_redirect('/projetos/listar');
+        $this->view->mensagemErro='Projeto Removido com Sucesso!';       
+//        $this->_redirect('/projetos/listar');
     }
     
     public function fecharAction()
