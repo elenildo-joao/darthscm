@@ -208,6 +208,45 @@ class ProjetosController extends Zend_Controller_Action
         $this->view->mensagemErro='Projeto Fechado com Sucesso!';               
  //       $this->_redirect('/projetos/listar');
     }
+    
+    public function alocarColaboradorAction()
+    {        
+        if ( !$this->_request->isPost() )
+        {
+            $idProjeto = (int) $this->_getParam('idprojeto');
+            $this->view->idProjeto = $idProjeto;
+            
+            $usuariosNaoAlocados = $this->trabalhaEm->fetchAll(
+                    $this->trabalhaEm->select()
+                        ->from($this->trabalhaEm, 'idusuario')
+                        ->where('idprojeto = ?', $idProjeto)
+                    );
+
+            $idsUsuarios = array();
+
+            foreach($usuariosNaoAlocados as $idUsuario)
+            {
+                $idsUsuarios[] = $idUsuario->idusuario;
+            }
+
+            $select = $this->usuario->select()->where('idusuario not in (?)', $idsUsuarios);
+            $this->view->usuarios = $this->usuario->fetchAll($select);            
+        }
+        else
+        {
+            $dados = array(
+                'idprojeto'  => $this->_request->getPost('idprojeto'),
+                'idusuario'  => $this->_request->getPost('idusuario'),
+                'papel'      => 'COLABORADOR',
+                'datainicio' => date('Y-m-d H:i:s')
+            );
+            
+            $this->trabalhaEm->insert($dados);
+            
+            $this->view->mensagem = 'Usuário alocado com sucesso.';
+            $this->view->idProjeto = $dados['idprojeto'];
+        }
+    }
 
     public function listarTarefasAction()
     {
@@ -588,6 +627,7 @@ class ProjetosController extends Zend_Controller_Action
                         );
          
      }
+     
      public function relatorioParticipacaoAction () {
          
          $idProjeto = (int) $this->_getParam('idprojeto');
@@ -597,5 +637,6 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
                         );
          
-     }   
+     }
+     
 }

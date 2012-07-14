@@ -1,27 +1,83 @@
 <?php echo $this->headLink()->appendStylesheet('/css/telaAdm.css');?>
 
 <div id="projetos">
-        <ul><fieldset>
+        <ul>
+            <fieldset>
                 <legend>Últimos Projetos</legend>
-                <li><p>Nome da Projeto </p>
-                        <p>Descrição da Projeto:</p>
+<<<<<<< HEAD
+                <?php 
+                foreach ($this->paginator as $usuarioProjeto):
+                ?>
+                <li><p><?=$usuarioProjeto->nomeprojeto ?></p>
+                        <p>Descrição da Projeto: <?=$usuarioProjeto->descricao ?></p>
                         <a href="#">+ detalhes</a>
-                </li>
+                </li> 
+                <?php 
+                    endforeach;
+                ?>
         </fieldset></ul>
+=======
+                <?php foreach($this->projetos as $projeto): ?>
+                <li>
+                    <p>Nome: <?= $projeto->nomeprojeto ?> </p>
+                    <p>Descrição: <?= $projeto->descricao ?></p>
+                    <a href="
+                        <?=
+                        $this->url(array(
+                            'controller' => 'projetos', 
+                            'action'     => 'detalhar-projeto',
+                            'idprojeto' => $projeto->idprojeto
+                            )
+                        ); 
+                        ?>">+ detalhes
+                    </a>
+                </li>
+                <?php endforeach; ?>
+                <a href="/projetos/listar">Ver todos
+                    </a>
+            </fieldset>
+        </ul>
+>>>>>>> 9a867abc547e1b314cce20766350f6d9786e43e2
 </div>
 
 
 <div id="tarefas">
         <ul><fieldset>
                 <legend>Últimas Tarefas</legend>
-                <li><p>Nome da Tarefa </p>
-                        <p>Descrição da Tarefa:</p>
+<<<<<<< HEAD
+                <?php 
+                foreach ($this->paginator2 as $usuarioTarefa):
+                ?> 
+                <li><p><?= $usuarioTarefa->nometarefa?> </p>
+                        <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p>
                         <a href="#">+ detalhes</a>
+                </li> 
+                <?php 
+                endforeach;
+                ?> 
+=======
+                <?php foreach ($this->tarefas as $tarefa): ?>
+                <li>
+                    <p>Tarefa: <?= $tarefa->nometarefa ?></p>
+                    <p>Descrição: </p>
+                    <p>Projeto: <?= $tarefa->nomeprojeto ?></p>
+                    <a href="
+                        <?=
+                        $this->url(array(
+                            'controller' => 'projetos', 
+                            'action'     => 'listar-tarefas',
+                            'idprojeto' => $projeto->idprojeto
+                            )
+                        ); 
+                        ?>">+ detalhes
+                    </a>
                 </li>
+                <?php endforeach; ?>
+>>>>>>> 9a867abc547e1b314cce20766350f6d9786e43e2
         </fieldset>
         </ul>
 </div>
-
+<!--
 <div id="mensagens">
     <fieldset>
         <legend>Mensagens</legend>
@@ -29,3 +85,4 @@
             <a href="#" id="image"><img src="/imagens/email-icon.png"/></a>
     </fieldset>
 </div>
+-->
