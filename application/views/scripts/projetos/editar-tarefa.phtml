@@ -6,28 +6,35 @@ if ($this->mensagemErro) {
 <a href='/projetos/listar-tarefas/idprojeto/<?= $this->tarefa->idprojeto ?>' title="Voltar">Voltar</a>
 <?php
 } else { 
-?>   <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
+?>   
+    <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
+    
     <label>Nome: 
-        <input type="text" id="nome" name="nome" value="<?= $this->tarefa->nome ?>" />
+        <input type="text" id="nome" name="nome" size="60px" value="<?= $this->tarefa->nome ?>" />
     </label>
     <br />
+    
     <label>Descricao: 
         <input type="text" id="descricao" name="descricao" value="<?= $this->tarefa->descricao ?>" />
     </label>
     <br /> 
+    
     <label>Data Inicio:
         <input type="text" id="dataInicio" name="dataInicio" value="<?= $this->tarefa->datainicio ?>" />
     </label>
     <br /> 
+    
     <label>Data Fim Previsao: 
         <input type="text" id="dataPrevFim" name="dataPrevFim" value="<?= $this->tarefa->dataprevfim ?>" />
     </label>
     <br /> 
+    
     <label>Prioridade:
         <input type="text" id="prioridade" name="prioridade" value="<?= $this->tarefa->prioridade ?>" />
     </label>
     <br /> 
+    
     <input type="submit" value="Atualizar" />
 </form>
 <?php
