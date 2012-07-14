@@ -4,7 +4,18 @@
         <ul>
             <fieldset>
                 <legend>Últimos Projetos</legend>
-                <?php foreach($this->projetos as $projeto): ?>
+                <?php 
+                foreach ($this->paginator as $usuarioProjeto):
+                ?>
+                <li><p><?=$usuarioProjeto->nomeprojeto ?></p>
+                        <p>Descrição da Projeto: <?=$usuarioProjeto->descricao ?></p>
+                        <a href="#">+ detalhes</a>
+                </li> 
+                <?php 
+                    endforeach;
+                ?>
+        </fieldset></ul>
+<!--                <?php foreach($this->projetos as $projeto): ?>
                 <li>
                     <p>Nome: <?= $projeto->nomeprojeto ?> </p>
                     <p>Descrição: <?= $projeto->descricao ?></p>
@@ -23,14 +34,24 @@
                 <a href="/projetos/listar">Ver todos
                     </a>
             </fieldset>
-        </ul>
+        </ul> -->
 </div>
 
 
 <div id="tarefas">
         <ul><fieldset>
                 <legend>Últimas Tarefas</legend>
-                <?php foreach ($this->tarefas as $tarefa): ?>
+                <?php 
+                foreach ($this->paginator2 as $usuarioTarefa):
+                ?> 
+                <li><p><?= $usuarioTarefa->nometarefa?> </p>
+                        <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p>
+                        <a href="#">+ detalhes</a>
+                </li> 
+                <?php 
+                endforeach;
+                ?> 
+<!--                <?php foreach ($this->tarefas as $tarefa): ?>
                 <li>
                     <p>Tarefa: <?= $tarefa->nometarefa ?></p>
                     <p>Descrição: </p>
@@ -48,7 +69,7 @@
                 </li>
                 <?php endforeach; ?>
         </fieldset>
-        </ul>
+        </ul>-->
 </div>
 <!--
 <div id="mensagens">
