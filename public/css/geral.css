@@ -59,7 +59,9 @@ html, body { height:100%; }
 
 #conteudo { 
     clear: both;
-    margin-bottom: 30px; }
+    margin-bottom: 30px; 
+    z-index: 3;
+}
 
 #menu{
 	padding:0;
@@ -80,6 +82,7 @@ html, body { height:100%; }
 	float: right;
 	padding:0;
 	margin:0;
+        z-index: 5;
 }
 
 #menu li{
@@ -110,6 +113,7 @@ html, body { height:100%; }
 	background: -ms-linear-gradient(top, #d9eaf1 0%,#c5dde7 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #d9eaf1 0%,#c5dde7 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9eaf1', endColorstr='#c5dde7',GradientType=0 ); /* IE6-9 */
+
 }
 
 #menu li ul li a {
@@ -133,6 +137,7 @@ html, body { height:100%; }
 	position: absolute;
 	top: 30px;
 	visibility: hidden;
+
 }
 
 #menu ul li:hover ul{
