@@ -1,15 +1,15 @@
 <?php echo $this->headLink()->appendStylesheet('/css/detalharProjeto.css');?>
 
-<div id="projetos">
-    <h1><?= $this->projeto->nome ?> </h1>
-    <p> Número do projeto: <?= $this->projeto->idprojeto ?> </p>
-    <p>Descri&ccedil;&atilde;o: <?= $this->projeto->descricao ?></p>
+<fieldset id="projetos">
+    <legend><?= $this->projeto->nome ?> </legend>
+    <span> Número do projeto: </span> <b><?= $this->projeto->idprojeto ?> </b><br/>
+    <span> Descrição: </span> <b><?= $this->projeto->descricao ?></b><br/>
     <? if ($this->projeto->datafim != null AND $this->projeto->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA'; ?>
-    <p>Estado: <?= $estado ?></p>    
-    <p>Data de Inicio: <?= $this->projeto->datainicio ?></p>
-    <p>Data de Fim (Previs&atilde;o): <?= $this->projeto->dataprevfim ?></p>
-    <p>Data Final: <?= $this->projeto->datafim ?></p>
-    <p>Todos os Gerentes:</p>
+    <span> Estado: </span> <b><?= $estado ?></b><br/>
+    <span> Data de Inicio: </span> <b><?= $this->projeto->datainicio ?></b><br/>
+    <span> Data de Fim (Previsão): </span> <b> <?= $this->projeto->dataprevfim ?></b><br/>
+    <span> Data Final: </span> <b><?= $this->projeto->datafim ?></b><br/>
+    <span> Todos os Gerentes: </span> <b>
         <ul>
             <?php
                 $gerentes="";
@@ -27,71 +27,72 @@
                          echo ('.');
                  ?>
              </li>
-        </ul>
+        </ul></b> 
     <?php if ($estado=='ABERTA'){?>
-    <p>Gerentes Atuais:</p>
-       <ul>
-        <?php
-            $gerentes="";
-            foreach ($this->vUsuarioProjeto as $vgerente):
-                if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
-                    $gerentes=$gerentes.$vgerente->nomeusuario.", ";
-                }
-                endforeach; ?> 
-            <li> 
+    <span>Gerentes Atuais:</span>
+        <b><ul>
             <?php
-                for ($x=0; $x<strlen($gerentes)-2; $x++){
-                    echo ($gerentes[$x]);
-                }
-                if ($x!=0)
-                    echo ('.');
-             ?>
-            </li>                
-        </ul>
+                $gerentes="";
+                foreach ($this->vUsuarioProjeto as $vgerente):
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                        $gerentes=$gerentes.$vgerente->nomeusuario.", ";
+                    }
+                    endforeach; ?> 
+                <li> 
+                <?php
+                    for ($x=0; $x<strlen($gerentes)-2; $x++){
+                        echo ($gerentes[$x]);
+                    }
+                    if ($x!=0)
+                        echo ('.');
+                ?>
+                </li>                
+            </ul></b> 
     <?php 
         }?>
-    <p>Todos os Colaboradores:</p>
-        <ul>
+    <span> Todos os Colaboradores: </span>
+        <b><ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->vUsuarioProjeto as $vgerente):
+                        if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador'){
+                            $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
+                        }
+                    endforeach; ?>
+                <li> 
+                    <?php
+                        for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                            echo ($colaboradores[$x]);
+                        }
+                        if ($x!=0)
+                            echo ('.');
+                    ?>
+                </li>
+            </ul></b> 
+    <?php if ($estado=='ABERTA'){?>
+    <span> Colaboradores Atuais: </span>
+        <b><ul>
             <?php
                 $colaboradores="";
                 foreach ($this->vUsuarioProjeto as $vgerente):
-                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador'){
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
                         $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
                     }
-                endforeach; ?>
-             <li> 
+                    endforeach; ?> 
+                <li> 
                 <?php
-                     for ($x=0; $x<strlen($colaboradores)-2; $x++){
-                         echo ($colaboradores[$x]);
-                     }
-                     if ($x!=0)
-                         echo ('.');
-                 ?>
-             </li>
-        </ul>
-    <?php if ($estado=='ABERTA'){?>
-    <p>Colaboradores Atuais:</p>
-       <ul>
-        <?php
-            $colaboradores="";
-            foreach ($this->vUsuarioProjeto as $vgerente):
-                if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
-                    $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
-                }
-                endforeach; ?> 
-            <li> 
-            <?php
-                for ($x=0; $x<strlen($colaboradores)-2; $x++){
-                    echo ($colaboradores[$x]);
-                }
-                if ($x!=0)
-                    echo ('.');
-             ?>
-            </li>                
-        </ul>
+                    for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                        echo ($colaboradores[$x]);
+                    }
+                    if ($x!=0)
+                        echo ('.');
+                ?>
+                </li>                
+            </ul></b> <br/>
     <?php 
-        }?>
-<a href="
+        }
+    ?>
+<a id="icone" href="
     <?php 
         echo $this->url(array('controller' => 'projetos', 
             'action'     => 'relatorio-participacao', 
@@ -99,15 +100,15 @@
         )
         ); 
     ?>" 
-    title="Relatorio"><img src="/imagens/edit.png"/>
-</a>
+    title="Relatorio"><img src="/imagens/report.png"/>
+</a> 
 
-</div>
+</fieldset>
 
     
-<div id="listaTarefas">
-    <fieldset>
-        <legend>Tarefas</legend>
+
+<fieldset id="listaTarefas">
+     <legend>Lista de Tarefas</legend>
         
     <div id="botaoCad">
         <a href="
@@ -119,18 +120,25 @@
                 ); 
         ?>" 
         title="Editar">Detalhar Todas</a>
-    </div>
+    </div><br/>
 
 <?php
-    foreach ($this->tarefas as $tarefa):
+    foreach ($this->paginator as $tarefa):
 ?>
-    <p class="lista"><?= $tarefa->nome ?><p>
-    <p class="lista">Descri&ccedil;&atilde;o: <?= $tarefa->descricao ?></p>
-
+   <ul>  
+        <li><span>Nome da Tarefa:</span> <b><?= $tarefa->nome ?></b><br/>
+        <span>Descrição: </span> <b><?= $tarefa->descricao ?></b><br/>
+        <a href="#">+ detalhes</a>
+        </li>
+   </ul>
     <?php
     endforeach;
     ?>
+    
+    <div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>
 
 </fieldset>
 
- </div>
+
