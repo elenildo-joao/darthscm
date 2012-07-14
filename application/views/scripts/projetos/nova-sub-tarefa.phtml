@@ -1,4 +1,12 @@
-<form action="nova-sub-tarefa" method="post">
+<?php
+if ($this->mensagemErro) { 
+?>
+<p><?=$this->mensagemErro?></p>
+<a href='/projetos/listar-tarefas/idprojeto/<?= $this->tarefa->idprojeto ?>' title="Voltar">Voltar</a>
+<?php
+} else { 
+?> 
+<form action="nova-sub-tarefa/idprojeto/<?= $this->tarefa->idprojeto ?>/"  method="post">
     <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome: <input type="text" id="nome" name="nome" /></label><br />
@@ -17,4 +25,7 @@
     <br /> 
      
     <input type="submit" value="Cadastrar" />
-</form>
+</form> 
+<?php  
+} 
+?>

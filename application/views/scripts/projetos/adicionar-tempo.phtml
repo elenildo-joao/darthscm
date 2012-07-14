@@ -1,4 +1,6 @@
-<form action="adicionar-tempo" method="post">
+<?php echo $this->headLink()->appendStylesheet('/css/cadastroTarefas.css');?>
+
+<form action='adicionar-tempo' method="post">
     <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome do Usuario: 

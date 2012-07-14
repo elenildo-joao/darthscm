@@ -205,8 +205,8 @@ class ProjetosController extends Zend_Controller_Action
         $this->tarefa->update($dados, $whereTarefa);
         $this->trabalhaEm->update($dados, $whereTrabalhaEm);
         $this->projeto->update($dados, $whereProjeto);
-        
-        $this->_redirect('/projetos/listar');
+        $this->view->mensagemErro='Projeto Fechado com Sucesso!';               
+ //       $this->_redirect('/projetos/listar');
     }
 
     public function listarTarefasAction()
@@ -269,8 +269,11 @@ class ProjetosController extends Zend_Controller_Action
             $dadosRealiza['idtarefa'] = $this->db->lastInsertId('tarefas', 'idtarefa');
 
             $this->realiza->insert($dadosRealiza);
-        
-            $this->_redirect('/projetos/listar-tarefas');
+            
+            $projeto = $this->projeto->find($this->_request->getPost('idprojeto'))->current();
+            $this->view->projeto  = $projeto;
+            $this->view->mensagemErro='Tarefa Cadastrada com Sucesso!';
+//            $this->_redirect('/projetos/listar-tarefas');
             }
     }
 
@@ -284,6 +287,7 @@ class ProjetosController extends Zend_Controller_Action
         }
         else
         {
+         
             $dadosTarefas = array(
                 'nome'     => $this->_request->getPost('nome'),
                 'descricao'    => $this->_request->getPost('descricao'),
@@ -293,12 +297,15 @@ class ProjetosController extends Zend_Controller_Action
             );
             
             $idTarefa = $this->_request->getPost('idtarefa');
-            
+            $idProjeto = $this->_request->getPost('idprojeto');
             $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
             
-            $this->tarefa->update($dadosTarefas, $whereTarefa);
-        
-            $this->_redirect('/projetos/listar-tarefas');
+            $this->tarefa->update($dadosTarefas, $whereTarefa);            
+            
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
+            $this->view->mensagemErro='Tarefa Alterada com Sucesso!';
+//            $this->_redirect('/projetos/editar-tarefa/idprojeto/'.$idProjeto.'/idtarefa'.$idTarefa);
         }
     }
 
@@ -314,23 +321,26 @@ class ProjetosController extends Zend_Controller_Action
         foreach ( $subTarefas as $subTarefa ){
             $this->removeTarefa($subTarefa->idtarefa, $subTarefa->idprojeto);
         }
-
-        $this->tarefa->delete($whereTarefa);
+        $this->tarefa->delete($whereTarefa);     
     }
 
     public function removerTarefaAction(){
         $idTarefa = (int) $this->_getParam('idtarefa');
         $idProjeto = (int) $this->_getParam('idprojeto'); 
-
+        $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+        $this->view->tarefa  = $tarefa;
         $this->removeTarefa($idTarefa, $idProjeto);
-        
-        $this->_redirect('/projetos/listar-tarefas');
+        $this->view->mensagemErro='Tarefa Removida com Sucesso!';        
+//        $this->_redirect('/projetos/listar-tarefas/');
     }
 
     public function fecharTarefaAction(){
         $idTarefa = $this->_request->getParam('idtarefa');
+        $idProjeto = $this->_request->getParam('idprojeto');        $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+        $this->view->tarefa  = $tarefa;
         $this->fechaTarefa($idTarefa);
-        $this->_redirect('/projetos/listar-tarefas');
+        $this->view->mensagemErro='Tarefa Fechada com Sucesso!';
+//        $this->_redirect('/projetos/listar-tarefas');
     }
     
     public function fechaTarefa($idTarefa){
@@ -371,6 +381,8 @@ class ProjetosController extends Zend_Controller_Action
             $idTarefa=$this->_request->getPost('idtarefa');
             $idProjeto=$this->_request->getPost('idprojeto');
             $idUsuario=$this->_request->getPost('usuario');
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
             $dadosRealiza = array(
                 'idtarefa'     => $idTarefa,
                 'idprojeto'     => $idProjeto,
@@ -391,7 +403,7 @@ class ProjetosController extends Zend_Controller_Action
                 $this->realiza->insert($dadosRealiza);
             }
             
-            $this->_redirect('/projetos/listar-tarefas');
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         }
     }
 
@@ -413,14 +425,16 @@ class ProjetosController extends Zend_Controller_Action
             $idProjeto = $this->_request->getPost('idprojeto');             
             $idTarefa = $this->_request->getPost('idtarefa'); 
             $idUsuario = $this->_request->getPost('usuario'); 
-            
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
             $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa)->where ('idusuario = ?', $idUsuario));
+            
             foreach ( $usuariosTarefas as $usuarioTarefa ){
-                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioTarefa->idusuario, 'idtarefa = ?' => (int) $usuarioTarefa->idtarefa));
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioTarefa->idusuario, 'idtarefa = ?' => (int) $usuarioTarefa->idtarefa, 'idprojeto = ?' => (int) $usuarioTarefa->idprojeto));
                 $this->realiza->update($dadosRealiza, $whereRealiza);
             }
 
-            $this->_redirect('/projetos/listar-tarefas');
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         }
     }
     
@@ -461,8 +475,10 @@ class ProjetosController extends Zend_Controller_Action
             $dadosRealiza['idtarefa'] = $this->db->lastInsertId('tarefas', 'idtarefa');
 
             $this->realiza->insert($dadosRealiza);
-        
-            $this->_redirect('/projetos/listar-tarefas');
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa = $tarefa;
+            $this->view->mensagemErro='Nova Sub-Tarefa Cadastrada com Sucesso!';        
+ //           $this->_redirect('/projetos/listar-tarefas');
         }
     }
             
@@ -508,7 +524,11 @@ class ProjetosController extends Zend_Controller_Action
             }  
             $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idtarefa = ?' => (int) $idTarefa));
             $this->realiza->update($dadosRealiza, $whereRealiza);
-            $this->_redirect('/projetos/listar-tarefas');
+            $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+            $this->view->tarefa  = $tarefa;
+
+//            $this->view->mensagemErro='Tempo Adicionado com Sucesso!';
+            $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         } 
     }
 

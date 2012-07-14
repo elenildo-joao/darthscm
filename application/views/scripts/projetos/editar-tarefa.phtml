@@ -1,5 +1,12 @@
-<form action="editar-tarefa" method="post">
-    <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
+<form action='editar-tarefa/idprojeto/<?=$this->tarefa->idprojeto?>/idtarefa/<?=$this->tarefa->idtarefa?>/' method="post">
+<?php
+if ($this->mensagemErro) { 
+?>
+<p><?=$this->mensagemErro?></p>
+<a href='/projetos/listar-tarefas/idprojeto/<?= $this->tarefa->idprojeto ?>' title="Voltar">Voltar</a>
+<?php
+} else { 
+?>   <input type="hidden" name="idtarefa" value="<?= $this->tarefa->idtarefa ?>" />
     <input type="hidden" name="idprojeto" value="<?= $this->tarefa->idprojeto ?>" />
     <label>Nome: 
         <input type="text" id="nome" name="nome" value="<?= $this->tarefa->nome ?>" />
@@ -23,3 +30,6 @@
     <br /> 
     <input type="submit" value="Atualizar" />
 </form>
+<?php
+}
+?>

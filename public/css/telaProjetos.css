@@ -62,11 +62,13 @@ h1 {
     margin-left: 340px;
     margin-top: -20px;
     margin-bottom: -10px;
+    float: right;
 }
 
 #icones li {
     margin-right: 1px;
     display: inline;
+    float: left;
 }
 
 #paginacao {
