@@ -6,7 +6,6 @@
 }
 
 #icones li {
-    margin-right: 1px;
     display: inline;
 }
 
@@ -85,4 +84,16 @@ legend {
 #paginacao {
     float: left;
     margin-left: 615px;
+}
+
+span {
+    font: bold 13px Arial;
+    color:  #000000;
+    margin-bottom: 5px;
+}
+
+b {
+    font: bold 12px Arial;
+    color:  #797e7e;
+    margin-top: 1px;
 }

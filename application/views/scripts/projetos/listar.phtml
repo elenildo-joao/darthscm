@@ -21,6 +21,7 @@
     <p>Data Final: <?= $projeto->datafim ?></p>
     
     <ul id="icones">
+        
             <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -29,8 +30,9 @@
                     )
                     ); 
             ?>" 
-            title="Detalhar"><img src="/imagens/Actions-dialog-ok-apply-icon.png"/>
+            title="Detalhar"><img src="/imagens/search_lense.png"/>
             </a></li>
+            
            <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -39,7 +41,7 @@
                     )
                     ); 
             ?>" 
-            title="Editar"><img src="/imagens/edit.png"/>
+            title="Editar"><img src="/imagens/pencil_edit.png"/>
             </a></li>
     
             <li><a href="
@@ -50,7 +52,7 @@
                     )
                     ); 
             ?>" 
-            title="Remover"><img src="/imagens/delete-icon.png"/>
+            title="Remover"><img src="/imagens/delete_2.png"/>
             </a><li>
     
             <li><a href="
@@ -61,13 +63,13 @@
                         )
                         ); 
                 ?>" 
-                title="Alocar"><img src="/imagens/fechar.png"/>
+                title="Alocar"><img src="/imagens/check-64.png"/>
             </a></li>
             
             <li><a href="
                 <?php 
                 echo $this->url(array('controller' => 'projetos', 
-                                    'action'     => 'alocar', 
+                                    'action'     => 'alocar-colaborador', 
                                     'idprojeto' => $projeto->idprojeto
                         )
                         ); 
@@ -78,7 +80,7 @@
             <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
-                                  'action'     => 'desalocar', 
+                                  'action'     => 'desalocar-colaborador', 
                                   'idprojeto' => $projeto->idprojeto
                     )
                     ); 

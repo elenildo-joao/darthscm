@@ -144,6 +144,20 @@ html, body { height:100%; }
 	visibility:visible;
 }
 
+#paginacao {
+    float: left;
+    font:bold 12px Arial;
+}
+
+#paginacao a {
+     text-decoration: none;
+     color: #5B75DE;
+}
+
+#paginacao a:active {
+     text-decoration: none;
+}
+
 
 
 
