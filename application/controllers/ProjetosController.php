@@ -707,6 +707,15 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
                         );
          
+         $this->view->vTarefaUsuario = $this->vTarefaUsuario
+                   ->fetchAll(
+                        $this->vTarefaUsuario->select()->where('idprojeto = ?', $idProjeto)->order('nometarefa')
+                        );         
+                  
+         $this->view->tarefas = $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)
+                        );
      }
      
      public function detalharTarefaAction () {

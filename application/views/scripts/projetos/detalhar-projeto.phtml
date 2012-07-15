@@ -187,7 +187,15 @@
    <ul>  
         <li><span>Nome da Tarefa:</span> <b><?= $tarefa->nome ?></b><br/>
         <span>Descrição: </span> <b><?= $tarefa->descricao ?></b><br/>
-        <a href="#">+ detalhes</a>
+        <a href="
+            <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                    'action'     => 'detalhar-tarefa', 
+                    'idprojeto' => $tarefa->idprojeto, 
+                    'idtarefa' => $tarefa->idtarefa
+                )
+                ); 
+            ?>" >+ detalhes</a>
         </li>
    </ul>
     <?php
