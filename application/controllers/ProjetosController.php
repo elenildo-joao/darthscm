@@ -86,8 +86,8 @@ class ProjetosController extends Zend_Controller_Action
                 'conta'    => 'default'
             );
             
-           $dataInicio = explode('-', $this->_request->getPost('dataInicio'));
-           $dataPrevFim = explode('-', $this->_request->getPost('dataPrevFim'));
+           $dataInicio = explode('/', $this->_request->getPost('dataInicio'));
+           $dataPrevFim = explode('/', $this->_request->getPost('dataPrevFim'));
            
            $dataInicio = array($dataInicio[2], $dataInicio[1], $dataInicio[0]);
            $dataPrevFim = array($dataPrevFim[2], $dataPrevFim[1], $dataPrevFim[0]);
@@ -705,6 +705,31 @@ class ProjetosController extends Zend_Controller_Action
          $this->view->vUsuarioProjeto = $this->vUsuarioProjeto
                    ->fetchAll(
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
+                        );
+         
+     }
+     
+     public function detalharTarefaAction () {
+         
+                 $idProjeto = (int) $this->_getParam('idprojeto');
+                 $idTarefa = (int) $this->_getParam('idtarefa');
+                 
+         $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+         
+         $this->view->tarefas = $tarefa;         
+/*         $this->view->tarefas = $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->where('idtarefa = ?', $idTarefa)
+                        );*/
+         
+         $this->view->vRealiza = $this->vRealiza
+                ->fetchAll(
+                        $this->vRealiza->select()->where('idprojeto = ?', $this->_getParam('idprojeto'))->order('nome')
+                        );
+        
+        $this->view->vTarefaUsuario = $this->vTarefaUsuario
+                ->fetchAll(
+                        $this->vTarefaUsuario->select()->where('idtarefa = ?', $idTarefa)->order('nomeusuario')
                         );
          
      }

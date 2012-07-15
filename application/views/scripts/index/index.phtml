@@ -54,8 +54,19 @@
                 ?> 
                 <li><p><?= $usuarioTarefa->nometarefa?> </p>
                         <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p>
-                        <a href="#">+ detalhes</a>
-                </li> 
+                        <a href="
+                            <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                                'action'     => 'detalhar-tarefa', 
+                                                'idprojeto' => $usuarioTarefa->idprojeto,
+                                                'idtarefa' => $usuarioTarefa->idtarefa
+                                    )
+                                    ); 
+                            ?>" 
+                         title="Detalhar">+detalhes</a>
+
+                
+                </li>
                 <?php 
                 endforeach;
                 ?> 
