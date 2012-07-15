@@ -250,17 +250,30 @@ class ProjetosController extends Zend_Controller_Action
         }
         else
         {
+            $idUsuario=$this->_request->getPost('idusuario');            
+            $idProjeto=$this->_request->getPost('idprojeto');
             $dados = array(
-                'idprojeto'  => $this->_request->getPost('idprojeto'),
-                'idusuario'  => $this->_request->getPost('idusuario'),
+                'idprojeto'  => $idProjeto,
+                'idusuario'  => $idUsuario,
                 'papel'      => $this->_request->getPost('papel'),
                 'datainicio' => date('Y-m-d H:i:s')
             );
+            $dadosAtualizar = array(
+                'papel'      => $this->_request->getPost('papel'),
+                'datainicio' => date('Y-m-d H:i:s'),
+                'datafim' => null
+            );
+            $usuTrabalhaEm = $this->trabalhaEm->find($idUsuario, $idProjeto)->current();
             
+            if($usuTrabalhaEm){
+                $whereAtualiza = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
+                $this->trabalhaEm->update($dadosAtualizar, $whereAtualiza);
+            } else{
             $this->trabalhaEm->insert($dados);
-            
+            }
             $this->view->mensagem = 'Usuário alocado com sucesso.';
             $this->view->idProjeto = $dados['idprojeto'];
+            $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
         }
     }
     
@@ -290,7 +303,8 @@ class ProjetosController extends Zend_Controller_Action
             $tarefas = $this->vRealiza
                 ->fetchAll(
                         $this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where('idusuario = ?', $idUsuario)->where('idusuario = ?', $idUsuario)
-                        );$this->view->vRealiza  = $tarefas;
+                        );
+            $this->view->vRealiza  = $tarefas;
 
             foreach($this->vRealiza as $tarefa):
                 $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => $tarefa->idtarefa, 'idprojeto = ?' => $tarefa->idprojeto, 'idusuario = ?' => (int) $idUsuario));
