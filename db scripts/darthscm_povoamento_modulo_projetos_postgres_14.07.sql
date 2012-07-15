@@ -25,14 +25,6 @@ INSERT INTO Usuarios VALUES (DEFAULT, 'Caique Pires', 'caiquepires@gmail.com', '
 INSERT INTO Usuarios VALUES (DEFAULT, 'Anderson Carlos', 'andersoncarlos@gmail.com', '00700700707', '1990/01/07', '7399010007', 8, FALSE, 'M');
 
 -- --------------------------------------------------------
--- povoamento da tabela Redefinirsenha
--- (hash, idusuario)
--- --------------------------------------------------------
-INSERT INTO RedefinirSenha VALUES ('34fa345ac234fd3ec', 1, FALSE);
-INSERT INTO RedefinirSenha VALUES ('54723ff246d2134cc', 4, TRUE);
-INSERT INTO RedefinirSenha VALUES ('1d234dca23498abbb', 2, TRUE);
-
--- --------------------------------------------------------
 -- povoamento da tabela Repositorios
 -- (id, endereco, nome, conta)
 -- --------------------------------------------------------
@@ -63,47 +55,6 @@ INSERT INTO UsuarioTrabalhaEmProjeto VALUES (2, 2, 'colaborador', '2012/03/20', 
 INSERT INTO UsuarioTrabalhaEmProjeto VALUES (3, 2, 'colaborador', '2012/03/20', NULL);
 
 -- --------------------------------------------------------
--- povoamento da tabela Mensagens
--- (id, remetente, conteudo, datahora, lixeira, excluida)
--- --------------------------------------------------------
-INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Bem-vindos', 'Bem-vindos', '2012/03/20 08:00:00', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 2, 'Problema na tarefa', 'Estou tendo problemas com minha tarefa', '2012/03/30 10:46:52', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 2, 'Problema reslvido', 'Problema resolvido, Obrigada', '2012/03/30 12:00:00', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 3, 'Problema na tarefa (RE)', 'Trás na minha sala', '2012/03/30 11:00:24', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Notícias', 'Como estão as atividades?', '2012/04/04 08:00:00', false, true);
-INSERT INTO Mensagens VALUES (DEFAULT, 5, 'Notícias (RE)', 'Tudo bem. Estou desenvolvendo os requisitos do sistema', '2012/04/04 09:00:32', false, true);
-INSERT INTO Mensagens VALUES (DEFAULT, 8, 'Sugestão', 'Eu acho que deveria haver a tabela de depreciações na estimativa de custo', '2012/03/30 15:04:08', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Documento de visões', 'O documento de visões ficou ótimo!', '2012/04/02 14:06:54', false, true);
-INSERT INTO Mensagens VALUES (DEFAULT, 4, 'Ajuda', 'Tenho pouca experiência com plano de qualidade, alguém pode me ajudar com algum material?', '2012/03/28 10:10:10', false, false);
-INSERT INTO Mensagens VALUES (DEFAULT, 7, 'Ajuda (RE)', 'Ja ja encaminho!', '2012/03/28 10:20:40', false, true);
-
--- --------------------------------------------------------
--- povoamento da tabela Destinatarios
--- (idmsg, idremetente, iddestinatario, lida, lixeira, excluida)
--- --------------------------------------------------------
-INSERT INTO Destinatarios VALUES (1, 1, 2, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (1, 1, 3, TRUE, false, true);
-INSERT INTO Destinatarios VALUES (1, 1, 4, TRUE, true, false);
-INSERT INTO Destinatarios VALUES (1, 1, 5, TRUE, true, false);
-INSERT INTO Destinatarios VALUES (1, 1, 6, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (1, 1, 7, TRUE, false, true);
-INSERT INTO Destinatarios VALUES (1, 1, 8, TRUE, false, true);
-INSERT INTO Destinatarios VALUES (2, 2, 3, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (3, 2, 3, TRUE, true, false);
-INSERT INTO Destinatarios VALUES (4, 3, 2, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (5, 1, 5, TRUE, true, false);
-INSERT INTO Destinatarios VALUES (6, 5, 1, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (7, 8, 6, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (8, 1, 8, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (9, 4, 2, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (9, 4, 3, FALSE, false, false);
-INSERT INTO Destinatarios VALUES (9, 4, 5, FALSE, false, false);
-INSERT INTO Destinatarios VALUES (9, 4, 6, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (9, 4, 7, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (9, 4, 8, TRUE, false, false);
-INSERT INTO Destinatarios VALUES (10, 7, 4, TRUE, false, false);
-
--- --------------------------------------------------------
 -- povoamento da tabela login
 -- (id, usuario, login, senha)
 -- --------------------------------------------------------
@@ -115,20 +66,6 @@ INSERT INTO Login VALUES (DEFAULT, 5, 'silas', '40bd001563085fc35165329ea1ff5c5e
 INSERT INTO Login VALUES (DEFAULT, 6, 'marcelo', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
 INSERT INTO Login VALUES (DEFAULT, 7, 'caique', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
 INSERT INTO Login VALUES (DEFAULT, 8, 'anderson', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
-
--- --------------------------------------------------------
--- povoamento da tabela ContaGitHub
--- (id, usuario, username, senha)
--- --------------------------------------------------------
-INSERT INTO ContaGitHub VALUES (DEFAULT, 1, 'jack_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 2, 'clicia_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 3, 'elenildo_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 4, 'rafa_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 5, 'silas_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 6, 'marcelo_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 7, 'caique_git', '123');
-INSERT INTO ContaGitHub VALUES (DEFAULT, 8, 'anderson_git', '123');
-
 
 -- --------------------------------------------------------
 -- povoamento da tabela Tarefas

@@ -9,32 +9,20 @@
                 ?>
                 <li><p><?=$usuarioProjeto->nomeprojeto ?></p>
                         <p>Descrição da Projeto: <?=$usuarioProjeto->descricao ?></p>
-                        <a href="#">+ detalhes</a>
+                        <a href="
+                            <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                                'action'     => 'detalhar-projeto', 
+                                                'idprojeto' => $usuarioProjeto->idprojeto
+                                    )
+                                    ); 
+                            ?>">+ detalhes</a>
                 </li> 
                 <?php 
                     endforeach;
                 ?>
         </fieldset></ul>
-<!--                <?php foreach($this->projetos as $projeto): ?>
-                <li>
-                    <p>Nome: <?= $projeto->nomeprojeto ?> </p>
-                    <p>Descrição: <?= $projeto->descricao ?></p>
-                    <a href="
-                        <?=
-                        $this->url(array(
-                            'controller' => 'projetos', 
-                            'action'     => 'detalhar-projeto',
-                            'idprojeto' => $projeto->idprojeto
-                            )
-                        ); 
-                        ?>">+ detalhes
-                    </a>
-                </li>
-                <?php endforeach; ?>
-                <a href="/projetos/listar">Ver todos
-                    </a>
-            </fieldset>
-        </ul> -->
+
 </div>
 
 <div id="mensagens">
@@ -54,8 +42,19 @@
                 ?> 
                 <li><p><?= $usuarioTarefa->nometarefa?> </p>
                         <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p>
-                        <a href="#">+ detalhes</a>
-                </li> 
+                        <a href="
+                            <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                                'action'     => 'detalhar-tarefa', 
+                                                'idprojeto' => $usuarioTarefa->idprojeto,
+                                                'idtarefa' => $usuarioTarefa->idtarefa
+                                    )
+                                    ); 
+                            ?>" 
+                         title="Detalhar">+detalhes</a>
+
+                
+                </li>
                 <?php 
                 endforeach;
                 ?> 

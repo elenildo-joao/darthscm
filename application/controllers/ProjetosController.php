@@ -86,11 +86,20 @@ class ProjetosController extends Zend_Controller_Action
                 'conta'    => 'default'
             );
             
+           $dataInicio = explode('/', $this->_request->getPost('dataInicio'));
+           $dataPrevFim = explode('/', $this->_request->getPost('dataPrevFim'));
+           
+           $dataInicio = array($dataInicio[2], $dataInicio[1], $dataInicio[0]);
+           $dataPrevFim = array($dataPrevFim[2], $dataPrevFim[1], $dataPrevFim[0]);
+           
+           $dataInicio = implode('-', $dataInicio);
+           $dataPrevFim = implode('-', $dataPrevFim);
+            
             $dadosProjeto = array(
                 'nome'        => $this->_request->getPost('nome'),
                 'descricao'   => $this->_request->getPost('descricao'),
-                'datainicio'  => $this->_request->getPost('dataInicio'),
-                'dataprevfim' => $this->_request->getPost('dataPrevFim')
+                'datainicio'  => $dataInicio,
+                'dataprevfim' => $dataPrevFim
             );
             
             $dadosTrabalhaEm = array(
@@ -241,17 +250,30 @@ class ProjetosController extends Zend_Controller_Action
         }
         else
         {
+            $idUsuario=$this->_request->getPost('idusuario');            
+            $idProjeto=$this->_request->getPost('idprojeto');
             $dados = array(
-                'idprojeto'  => $this->_request->getPost('idprojeto'),
-                'idusuario'  => $this->_request->getPost('idusuario'),
+                'idprojeto'  => $idProjeto,
+                'idusuario'  => $idUsuario,
                 'papel'      => $this->_request->getPost('papel'),
                 'datainicio' => date('Y-m-d H:i:s')
             );
+            $dadosAtualizar = array(
+                'papel'      => $this->_request->getPost('papel'),
+                'datainicio' => date('Y-m-d H:i:s'),
+                'datafim' => null
+            );
+            $usuTrabalhaEm = $this->trabalhaEm->find($idUsuario, $idProjeto)->current();
             
+            if($usuTrabalhaEm){
+                $whereAtualiza = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
+                $this->trabalhaEm->update($dadosAtualizar, $whereAtualiza);
+            } else{
             $this->trabalhaEm->insert($dados);
-            
+            }
             $this->view->mensagem = 'Usuário alocado com sucesso.';
             $this->view->idProjeto = $dados['idprojeto'];
+            $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
         }
     }
     
@@ -275,15 +297,27 @@ class ProjetosController extends Zend_Controller_Action
             $idProjeto = $this->_request->getPost('idprojeto');
             $idUsuario = $this->_request->getPost('usuario');
             $projeto = $this->projeto->find($idProjeto)->current();
+
             $this->view->projeto  = $projeto;
-            
+
+            $tarefas = $this->vRealiza
+                ->fetchAll(
+                        $this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where('idusuario = ?', $idUsuario)->where('idusuario = ?', $idUsuario)
+                        );
+            $this->view->vRealiza  = $tarefas;
+
+            foreach($this->vRealiza as $tarefa):
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => $tarefa->idtarefa, 'idprojeto = ?' => $tarefa->idprojeto, 'idusuario = ?' => (int) $idUsuario));
+                $this->realiza->update($dadosRealiza, $whereRealiza);
+            endforeach;            
+
             $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
             $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
 
             $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
         }
-    }
-    
+    }    
+
     public function listarTarefasAction()
     {
         $paginator = Zend_Paginator::factory(
@@ -673,6 +707,40 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
                         );
          
+     }
+     
+     public function detalharTarefaAction () {
+         
+                 $idProjeto = (int) $this->_getParam('idprojeto');
+                 $idTarefa = (int) $this->_getParam('idtarefa');
+                 
+         $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+         
+         $this->view->tarefas = $tarefa;         
+/*         $this->view->tarefas = $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->where('idtarefa = ?', $idTarefa)
+                        );*/
+         
+         $this->view->vRealiza = $this->vRealiza
+                ->fetchAll(
+                        $this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where('idtarefa = ?', $idTarefa)->order('nome')
+                        );
+        
+        $this->view->vTarefaUsuario = $this->vTarefaUsuario
+                ->fetchAll(
+                        $this->vTarefaUsuario->select()->where('idtarefa = ?', $idTarefa)->order('nomeusuario')
+                        );
+
+        $paginator = Zend_Paginator::factory(
+        $this->subtarefa
+                ->fetchAll(
+                        $this->subtarefa->select()->where('idsupertarefa = ?', $idTarefa)->order('nome')
+                        ));         
+        
+        $paginator->setItemCountPerPage(4);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
      }
      
 }

@@ -1,13 +1,13 @@
 <?php
-if ($this->mensagem): 
-?>
-<p><?=$this->mensagem?></p>
-<a href='/projetos/alocar-colaborador/idprojeto/<?= $this->idProjeto ?>' title="Alocar outro colaborador">Alocar outro usuário</a>
+//if ($this->mensagem): 
+//?>
+<!--<p>//<?=$this->mensagem?></p>
+<a href='/projetos/alocar-colaborador/idprojeto///<?= $this->idProjeto ?>' title="Alocar outro colaborador">Alocar outro usuário</a>
 <br />
-<a href='/projetos/listar' title="Voltar">Voltar</a>
+<a href='/projetos/listar' title="Voltar">Voltar</a>-->
 <?php
-else: 
-?>
+//else: 
+//?>
 
 <form action="alocar-colaborador" method="post">
     <label>Usuarios: 
@@ -16,8 +16,10 @@ else:
                 if ($usuarioProjeto->datafimusuario!=null && $usuarioProjeto->datafimusuario<=time('Y-m-d')){
             ?>
             <option value="<?= $usuarioProjeto->idusuario ?>"><?= $usuarioProjeto->nomeusuario ?></option>
-            <?php } endforeach; ?>
-            <?php foreach ($this->usuarios as $usuario):
+            <?php 
+            } 
+            endforeach;
+            foreach ($this->usuarios as $usuario):
             ?>
             <option value="<?= $usuario->idusuario ?>"><?= $usuario->nome ?></option>
             <?php endforeach; ?>
@@ -33,5 +35,5 @@ else:
     <input type="submit" value="Alocar" />
 </form>
 <?php
-endif;
-?>
+//endif;
+//?>

@@ -1,0 +1,152 @@
+<?php echo $this->headLink()->appendStylesheet('/css/detalharTarefa.css');?>
+
+<fieldset id="tarefas">
+    <legend><?= $this->tarefas->nome ?> </legend>
+    <span> Número do Tarefa: </span> <b><?= $this->tarefas->idtarefa ?> </b><br/>
+    <span> Descrição: </span> <b><?= $this->tarefas->descricao ?></b><br/>
+    <? if ($this->tarefas->datafim != null AND $this->tarefas->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA'; ?>
+    <span> Estado: </span> <b><?= $estado ?></b><br/>
+    <span> Data de Inicio: </span> <b><?= $this->tarefas->datainicio ?></b><br/>
+    <span> Data de Fim (Previsão): </span> <b> <?= $this->tarefas->dataprevfim ?></b><br/>
+    <span> Data Final: </span> <b><?= $this->tarefas->datafim ?></b><br/>
+   
+    <span> Todos os Colaboradores: </span>
+        <b><ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->vTarefaUsuario as $vgerente):
+                        $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
+                        
+                    endforeach; ?>
+                <li> 
+                    <?php
+                        for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                            echo ($colaboradores[$x]);
+                        }
+                        if ($x!=0)
+                            echo ('.');
+                    ?>
+                </li>
+            </ul></b> 
+    <?php if ($estado=='ABERTA'){?>
+        <span>Colaboradores atuais: </span>  
+    <b><ul>
+                <?php
+                    $colaboradores="";
+                    foreach ($this->vRealiza as $realiza):
+                            $colaboradores=$colaboradores.$realiza->nome.", ";
+                ?>
+               <li>
+                <?php
+                    endforeach; 
+                    for ($x=0; $x<strlen($colaboradores)-2; $x++){
+                        echo ($colaboradores[$x]);
+                    }
+                    if ($x!=0)
+                        echo ('.');
+                 ?>
+                </li>                
+           </ul></b> <br/>
+    <?php 
+        }
+    ?>
+            <ul id="icones">         
+                <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'editar-tarefa', 
+                                        'idprojeto' => $this->tarefas->idprojeto,
+                                        'idtarefa' => $this->tarefas->idtarefa
+                            )
+                            ); 
+                    ?>" 
+                    title="Editar"><img src="/imagens/pencil_edit.png"/>
+                </a></li>
+
+                    <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'remover', 
+                                        'idprojeto' => $this->tarefas->idprojeto,
+                                        'idtarefa' => $this->tarefas->idtarefa
+                            )
+                            ); 
+                    ?>" 
+                    title="Remover"><img src="/imagens/delete_2.png"/>
+                    </a></li>
+
+                    <li><a href="
+                        <?php 
+                        echo $this->url(array('controller' => 'projetos', 
+                                            'action'     => 'fechar', 
+                                            'idprojeto' => $this->tarefas->idprojeto,
+                                            'idtarefa' => $this->tarefas->idtarefa
+                                )
+                                ); 
+                        ?>" 
+                        title="Alocar"><img src="/imagens/check-64.png"/>
+                    </a></li>
+
+                    <li><a href="
+                        <?php 
+                        echo $this->url(array('controller' => 'projetos', 
+                                            'action'     => 'alocar-colaborador', 
+                                            'idprojeto' => $this->tarefas->idprojeto,
+                                            'idtarefa' => $this->tarefas->idtarefa
+                                )
+                                ); 
+                        ?>" 
+                        title="Desalocar"><img src="/imagens/alocar.png"/>
+                    </a></li>
+
+                    <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'desalocar-colaborador', 
+                                        'idprojeto' => $this->tarefas->idprojeto,
+                                        'idtarefa' => $this->tarefas->idtarefa
+                            )
+                            ); 
+                    ?>" 
+                    title="Remover"><img src="/imagens/desalocar.png"/>
+                    </a></li>
+            </ul>
+</fieldset>
+
+<fieldset id="listaSubTarefas">
+     <legend>Lista de Sub-Tarefas</legend>
+        
+    <div id="botaoCad">
+        <a href="
+        <?php 
+        echo $this->url(array('controller' => 'projetos', 
+                                'action'     => 'listar-tarefas',
+                                'idprojeto' => $this->projeto->idprojeto
+                )
+                ); 
+        ?>" 
+        title="Editar">Detalhar Todas</a>
+    </div><br/>
+
+<?php
+    foreach ($this->paginator as $subtarefa):
+?>
+   <ul>  
+        <li><span>Nome da SubTarefa:</span> <b><?= $subtarefa->nome ?></b><br/>
+        <span>Descrição: </span> <b><?= $subtarefa->descricao ?></b><br/>
+        <a href="#">+ detalhes</a>
+        </li>
+   </ul>
+    <?php
+    endforeach;
+    ?>
+    
+    <div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>
+
+</fieldset>
+
+   
+
+
