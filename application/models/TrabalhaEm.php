@@ -4,7 +4,7 @@ class TrabalhaEm extends Zend_Db_Table_Abstract
 {
 
     protected $_name = 'usuariotrabalhaemprojeto';
-    
+    protected $_primary = array('idusuario', 'idprojeto');    
     protected $_referenceMap = array(
         'usuarios' => array(
             'columns'       => 'idusuario',

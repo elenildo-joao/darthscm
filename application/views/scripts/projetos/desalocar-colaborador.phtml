@@ -4,7 +4,7 @@
         <select id="usuario" name="usuario">
             <?php 
             foreach($this->vUsuarioProjeto as $usuarioProjeto)
-                if ($usuarioProjeto->datafimusuario==null || $usuarioProjeto->datafimusuario>date('Y-m-d'))
+                if ($usuarioProjeto->datafimusuario==null || $usuarioProjeto->datafimusuario>time('Y-m-d'))
                 echo "<option value=\"$usuarioProjeto->idusuario\">$usuarioProjeto->nomeusuario</option>";
             ?>
         </select>     
