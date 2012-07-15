@@ -1,13 +1,12 @@
-<?php
-    echo $this->layout()->scriptTags;
-?>
-
+<?php echo $this->doctype('XHTML1_TRANSITIONAL'); ?>
 <html>
   <head>
     <title>DarthSCM | </title>
     <link rel="stylesheet" type="text/css" href="/css/geral.css" />
     <link rel="icon" href="/imagens/favicon.ico" type="image/x-icon" sizes="16x16" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <?= $this->headLink(); ?>    
+    <?= $this->headScript();?>
   </head>
 
     <body>

@@ -1,44 +1,63 @@
-<?php echo $this->headLink()->appendStylesheet('/css/cadastroProjeto.css');?>
-<?php
-if ($this->mensagemErro) { 
+<?php 
+$this->headLink()->appendStylesheet('/css/cadastroProjeto.css')
+        ->appendStylesheet('/jquery-ui/css/custom-theme/jquery-ui-1.8.21.custom.css');
+$this->headScript()->appendFile('/jquery-ui/js/jquery-1.7.2.min.js')
+        ->appendFile('/jquery-ui/js/jquery-ui-1.8.21.custom.min.js')
+        ->appendFile('/js/datepicker.js');
+
+if ($this->mensagemErro): 
 ?>
-<p><?=$this->mensagemErro?></p>
-<a href='/projetos/listar' title="Voltar">Voltar</a>
+    <p><?=$this->mensagemErro?></p>
+    <a href='/projetos/listar' title="Voltar">Voltar</a>
 <?php
-} else { 
+else: 
 ?>
-<form action="novo" method="post">
-    <fieldset id="pessoal">
-        <legend>Informa&ccedil;&otilde;es Gerais</legend>
-            
+    <form action="novo" method="post">
+        <fieldset id="pessoal">
+            <legend>Informa&ccedil;&otilde;es Gerais</legend>
+
             <label>Nome do Projeto: 
-                <input type="text" id="nome" name="nome"size="60px" /><br/></label><br />
-            
-            <label>Data Inicio: 
-                <label id="dataFim">Data Final (Previs&atilde;o): <br/>
-                <input type="text" id="dataInicio" name="dataInicio" size="14px" /></label>
-     
-                <input type="text" id="dataPrevFim" name="dataPrevFim" size="14px" /></label><br /> <br/>
-                
-            <label> Descri&ccedil;&atilde;o: <br/>
-                <textarea id="descricao" rows="5" cols="60"></textarea></label><br></br>            
-            
-            <label>Repositório: 
-            <label id="ger">Gerente: <br/>
-                <input type="text" id="repositorio" name="repositorio" /></label> 
-                <select id="gerente" name="gerente">
-                    <?php 
-                    foreach($this->usuarios as $usuario)
-                        echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
-                    ?>
-                </select><br/>
+                <input type="text" id="nome" name="nome"size="60px" />
+                <br/>
             </label>
-    <br /> 
-     
-           <input id="cancelar" type="reset" value="Cancelar"/>
+            <br />
+
+            <label for="dataInicio">Data Inicio:</label>
+            <label for="dataPrevFim">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Data Final (Previs&atilde;o):
+            </label>
+            <br/>
+            <input type="text" id="dataInicio" name="dataInicio" size="14px" />
+            <input type="text" id="dataPrevFim" name="dataPrevFim" size="14px" />
+            <br />
+            <br />
+
+            <label>Descri&ccedil;&atilde;o: 
+                <br/>
+                <textarea id="descricao" rows="5" cols="60"></textarea>
+            </label>
+            <br />
+            <br />            
+
+            <label for="repositorio">Repositório:</label>
+            <label for="gerente">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Gerente:
+            </label> 
+            <br/>
+            <input type="text" id="repositorio" name="repositorio" /> 
+            <select id="gerente" name="gerente">
+                <?php 
+                foreach($this->usuarios as $usuario)
+                    echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
+                ?>
+            </select>
+            <br/>
+            <br /> 
+
+            <input id="cancelar" type="reset" value="Cancelar"/>
             <input id="salvar" type="submit" value="Salvar"/>
-</form>
-
-<?php } ?>
-
-       
+        </fieldset>
+    </form>
+<?php endif; ?>
