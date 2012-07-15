@@ -73,8 +73,12 @@ class LoginController extends Zend_Controller_Action
     }
     
     public function redefinirAction(){
-$this->_helper->layout->setLayout('login-red');
+        $this->_helper->layout->setLayout('login-red');
         
+    }
+    
+    public function novaSenhaAction(){
+        $this->_helper->layout->setLayout('login-red');
     }
 }
 

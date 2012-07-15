@@ -284,15 +284,26 @@ class ProjetosController extends Zend_Controller_Action
             $idProjeto = $this->_request->getPost('idprojeto');
             $idUsuario = $this->_request->getPost('usuario');
             $projeto = $this->projeto->find($idProjeto)->current();
+
             $this->view->projeto  = $projeto;
-            
+
+            $tarefas = $this->vRealiza
+                ->fetchAll(
+                        $this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where('idusuario = ?', $idUsuario)->where('idusuario = ?', $idUsuario)
+                        );$this->view->vRealiza  = $tarefas;
+
+            foreach($this->vRealiza as $tarefa):
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => $tarefa->idtarefa, 'idprojeto = ?' => $tarefa->idprojeto, 'idusuario = ?' => (int) $idUsuario));
+                $this->realiza->update($dadosRealiza, $whereRealiza);
+            endforeach;            
+
             $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
             $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
 
             $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
         }
-    }
-    
+    }    
+
     public function listarTarefasAction()
     {
         $paginator = Zend_Paginator::factory(
@@ -680,6 +691,31 @@ class ProjetosController extends Zend_Controller_Action
          $this->view->vUsuarioProjeto = $this->vUsuarioProjeto
                    ->fetchAll(
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
+                        );
+         
+     }
+     
+     public function detalharTarefaAction () {
+         
+                 $idProjeto = (int) $this->_getParam('idprojeto');
+                 $idTarefa = (int) $this->_getParam('idtarefa');
+                 
+         $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
+         
+         $this->view->tarefas = $tarefa;         
+/*         $this->view->tarefas = $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)->where('idtarefa = ?', $idTarefa)
+                        );*/
+         
+         $this->view->vRealiza = $this->vRealiza
+                ->fetchAll(
+                        $this->vRealiza->select()->where('idprojeto = ?', $this->_getParam('idprojeto'))->order('nome')
+                        );
+        
+        $this->view->vTarefaUsuario = $this->vTarefaUsuario
+                ->fetchAll(
+                        $this->vTarefaUsuario->select()->where('idtarefa = ?', $idTarefa)->order('nomeusuario')
                         );
          
      }

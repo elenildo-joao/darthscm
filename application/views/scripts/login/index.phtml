@@ -4,6 +4,7 @@ if ($this->mensagemErro)
 ?>
 
 <form action="login" method="post">
+    
     <label>Login:
         <br />
         <input type="text" name="login" size="40" placeholder="Digite seu login"/>
@@ -18,5 +19,6 @@ if ($this->mensagemErro)
     <br />
 
     <input id="botao" type="submit" value="Entrar"/><br><br>
-    <a id="senhaesq" href="#">Esqueceu sua senha?</a>
+    <a id="senhaesq" href="/login/redefinir">Esqueceu sua senha?</a>
+    
 </form>
