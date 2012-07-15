@@ -96,7 +96,7 @@ b {
 	text-decoration: none;
 }
 
-#icone {
+#icones {
     float: right;
 }
 
@@ -108,7 +108,7 @@ b {
 }
 
 #icones li {
-    margin-right: 1px;
+    margin-right: 2px;
     display: inline;
     float: left;
 }

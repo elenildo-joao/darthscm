@@ -1,4 +1,4 @@
-<?php echo $this->headLink()->appendStylesheet('/css/detalharTarefas.css');?>
+<?php echo $this->headLink()->appendStylesheet('/css/detalharTarefa.css');?>
 
 <fieldset id="tarefas">
     <legend><?= $this->tarefas->nome ?> </legend>
@@ -34,9 +34,7 @@
                 <?php
                     $colaboradores="";
                     foreach ($this->vRealiza as $realiza):
-                        if($realiza->idtarefa==$tarefa->idtarefa){
                             $colaboradores=$colaboradores.$realiza->nome.", ";
-                        }
                 ?>
                <li>
                 <?php
@@ -112,21 +110,40 @@
                     ?>" 
                     title="Remover"><img src="/imagens/desalocar.png"/>
                     </a></li>
-
-                    <li><a id="icone" href="
-                        <?php 
-                            echo $this->url(array('controller' => 'projetos', 
-                                'action'     => 'relatorio-participacao', 
-                                'idprojeto' => $this->tarefas->idprojeto,
-                                'idtarefa' => $this->tarefas->idtarefa
-                            )
-                            ); 
-                        ?>" 
-                        title="Relatorio"><img src="/imagens/report.png"/>
-                    </a> </li>
             </ul>
-            
-            
+</fieldset>
+
+<fieldset id="listaSubTarefas">
+     <legend>Lista de Sub-Tarefas</legend>
+        
+    <div id="botaoCad">
+        <a href="
+        <?php 
+        echo $this->url(array('controller' => 'projetos', 
+                                'action'     => 'listar-tarefas',
+                                'idprojeto' => $this->projeto->idprojeto
+                )
+                ); 
+        ?>" 
+        title="Editar">Detalhar Todas</a>
+    </div><br/>
+
+<?php
+    foreach ($this->paginator as $subtarefa):
+?>
+   <ul>  
+        <li><span>Nome da SubTarefa:</span> <b><?= $subtarefa->nome ?></b><br/>
+        <span>Descrição: </span> <b><?= $subtarefa->descricao ?></b><br/>
+        <a href="#">+ detalhes</a>
+        </li>
+   </ul>
+    <?php
+    endforeach;
+    ?>
+    
+    <div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+</div>
 
 </fieldset>
 

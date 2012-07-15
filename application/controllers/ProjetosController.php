@@ -710,14 +710,23 @@ class ProjetosController extends Zend_Controller_Action
          
          $this->view->vRealiza = $this->vRealiza
                 ->fetchAll(
-                        $this->vRealiza->select()->where('idprojeto = ?', $this->_getParam('idprojeto'))->order('nome')
+                        $this->vRealiza->select()->where('idprojeto = ?', $idProjeto)->where('idtarefa = ?', $idTarefa)->order('nome')
                         );
         
         $this->view->vTarefaUsuario = $this->vTarefaUsuario
                 ->fetchAll(
                         $this->vTarefaUsuario->select()->where('idtarefa = ?', $idTarefa)->order('nomeusuario')
                         );
-         
+
+        $paginator = Zend_Paginator::factory(
+        $this->subtarefa
+                ->fetchAll(
+                        $this->subtarefa->select()->where('idsupertarefa = ?', $idTarefa)->order('nome')
+                        ));         
+        
+        $paginator->setItemCountPerPage(4);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
      }
      
 }
