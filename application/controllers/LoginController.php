@@ -13,11 +13,13 @@ class LoginController extends Zend_Controller_Action
         $this->login = new Login();
         $this->db = Zend_Db_Table::getDefaultAdapter();
         
-        $this->_helper->layout->setLayout('login');
+        
     }
 
     public function indexAction()
     {
+        $this->_helper->layout->setLayout('login');
+        
         if ( $this->_request->isPost() )
         {
             $dadosLogin = array(
@@ -63,10 +65,16 @@ class LoginController extends Zend_Controller_Action
     
     public function logoutAction()
     {
+        $this->_helper->layout->setLayout('login');
         Zend_Auth::getInstance()->clearIdentity();
         return $this->_helper->redirector->goToRoute( 
                     array('controller' => 'login', 'action' => 'index') 
                     );
+    }
+    
+    public function redefinirAction(){
+$this->_helper->layout->setLayout('login-red');
+        
     }
 }
 

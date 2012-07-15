@@ -86,11 +86,20 @@ class ProjetosController extends Zend_Controller_Action
                 'conta'    => 'default'
             );
             
+           $dataInicio = explode('-', $this->_request->getPost('dataInicio'));
+           $dataPrevFim = explode('-', $this->_request->getPost('dataPrevFim'));
+           
+           $dataInicio = array($dataInicio[2], $dataInicio[1], $dataInicio[0]);
+           $dataPrevFim = array($dataPrevFim[2], $dataPrevFim[1], $dataPrevFim[0]);
+           
+           $dataInicio = implode('-', $dataInicio);
+           $dataPrevFim = implode('-', $dataPrevFim);
+            
             $dadosProjeto = array(
                 'nome'        => $this->_request->getPost('nome'),
                 'descricao'   => $this->_request->getPost('descricao'),
-                'datainicio'  => $this->_request->getPost('dataInicio'),
-                'dataprevfim' => $this->_request->getPost('dataPrevFim')
+                'datainicio'  => $dataInicio,
+                'dataprevfim' => $dataPrevFim
             );
             
             $dadosTrabalhaEm = array(
