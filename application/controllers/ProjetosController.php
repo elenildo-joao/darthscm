@@ -86,8 +86,8 @@ class ProjetosController extends Zend_Controller_Action
                 'conta'    => 'default'
             );
             
-           $dataInicio = explode('-', $this->_request->getPost('dataInicio'));
-           $dataPrevFim = explode('-', $this->_request->getPost('dataPrevFim'));
+           $dataInicio = explode('/', $this->_request->getPost('dataInicio'));
+           $dataPrevFim = explode('/', $this->_request->getPost('dataPrevFim'));
            
            $dataInicio = array($dataInicio[2], $dataInicio[1], $dataInicio[0]);
            $dataPrevFim = array($dataPrevFim[2], $dataPrevFim[1], $dataPrevFim[0]);

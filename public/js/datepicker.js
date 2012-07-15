@@ -26,9 +26,7 @@ $(function() {
     $( "#dataInicio" ).datepicker();
 });
 $(function() {
-    $( "#dataPrevFim" ).datepicker({
-        dateFormat: "dd-mm-yy"
-    });
+    $( "#dataPrevFim" ).datepicker();
 });
 
 
