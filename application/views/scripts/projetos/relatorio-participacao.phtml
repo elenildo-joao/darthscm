@@ -2,14 +2,53 @@
       echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
       echo $this->headScript()->appendFile('/js/layoutTabela.js');
 ?>
+            <?php
+            $quantap=0;
+            $quantaa=0;
+            $quantfp=0;
+            $quantfa=0;
+            foreach ($this->tarefas as $tarefa):
+                if ($tarefa->datafim != null AND $tarefa->datafim<=date('Y-m-d')) $estado='FECHADA'; else $estado='ABERTA';
+                if ($estado=='ABERTA' AND $tarefa->dataprevfim>=date('Y-m-d'))
+                    $quantap++;
+                else if ($estado=='ABERTA' AND $tarefa->dataprevfim<date('Y-m-d'))
+                    $quantaa++;
+                else if ($estado=='FECHADA' AND $tarefa->dataprevfim>=$tarefa->datafim)
+                    $quantfp++;
+                else
+                    $quantfa++;
+            endforeach;
+            ?>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Tarefas', 'Quantidade de tarefas']
+          <?=",['Tarefa aberta no prazo', ".$quantap."],['Tarefa aberta atrasada', ".$quantaa."],['Tarefa fechada no prazo', ".$quantfp."],['Tarefa fechada atrasada', ".$quantfa."]"?>
+     ]);
 
-<div type="button" id="botaoCad">
-        <a href="#" title="Imprimir">Imprimir</a>
-</div>
+        var options = {
+          title: 'Quantidade de tarefas que estão no prazo ou atrasadas'
+        };
 
-<table id="tabela">
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+<div type="button" id="botaoCad"> <a href="#" title="Imprimir">Imprimir</a> </div>
+<div id="chart_div" style="width: 650px; height: 200px;"></div>
+
+<div>
+<table>
+<CAPTION> Alocação de colaboradores no projeto </CAPTION>
     <tr>
-        <th>Nome Usuario: </th>
+        <th>Nome do Usuário: </th>
         <th>Data Início: </th>
         <th>Data Fim: </th>
         <th>Papel: </th>
@@ -26,4 +65,35 @@
     <?php
     endforeach;
     ?>
+</table> <br/>
+
+<table>
+<CAPTION> Tempo de dedicação as tarefas por usuário </CAPTION>
+    <tr>
+        <th>Número da Tarefa: </th>
+        <th>Tarefa: </th>
+        <th>Usuário: </th>
+        <th>Tempo: </th>
+    </tr>
+    <?php
+    foreach ($this->vTarefaUsuario as $realiza):
+       ?>
+    <tr>
+        <td><?= $realiza->idtarefa ?></td>
+        <td><?= $realiza->nometarefa ?></td>
+        <td><?= $realiza->nomeusuario ?></td>
+        <?php   $tempo=$realiza->tempo;
+                $int1=new DateInterval('P0D');
+                $int2=new DateInterval('P0D');
+                $d2="";$h2="";$m2=""; 
+                projetos::trataInterval (&$tempo, &$int2);       
+                projetos::SomaInterval ($int1, $int2);?>
+        <td><?= $int2->d." days ".$int2->format('%H').":".$int2->format('%I').":".$int2->format('%S')?></td>
+    </tr>
+    <?php
+    endforeach;
+    ?>
 </table>
+</div>    	
+</body>
+</html>

@@ -84,7 +84,7 @@
                                 )
                                 ); 
                         ?>" 
-                        title="Alocar"><img src="/imagens/check-64.png"/>
+                        title="Fechar"><img src="/imagens/check-64.png"/>
                     </a></li>
 
                     <li><a href="
@@ -96,7 +96,7 @@
                                 )
                                 ); 
                         ?>" 
-                        title="Desalocar"><img src="/imagens/alocar.png"/>
+                        title="Alocar"><img src="/imagens/alocar.png"/>
                     </a></li>
 
                     <li><a href="
@@ -108,33 +108,53 @@
                             )
                             ); 
                     ?>" 
-                    title="Remover"><img src="/imagens/desalocar.png"/>
-                    </a></li>
+                    title="Desalocar"><img src="/imagens/desalocar.png"/>
+                    </a></li>            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'adicionar-tempo', 
+                                    'idtarefa'   => $this->tarefas->idtarefa,
+                                    'idprojeto'  => $this->tarefas->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="Adicionar"><img src="/imagens/time_clock.png"/>
+            </a></li>
+
+            <li><a href="
+                <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'nova-sub-tarefa', 
+                                    'idtarefa'   => $this->tarefas->idtarefa,
+                                    'idprojeto'  => $this->tarefas->idprojeto
+                        )
+                        ); 
+                ?>" 
+                title="NovaSubTarefa"><img src="/imagens/plus.png"/>
+            </a></li>
             </ul>
 </fieldset>
 
 <fieldset id="listaSubTarefas">
      <legend>Lista de Sub-Tarefas</legend>
-        
     <div id="botaoCad">
-        <a href="
-        <?php 
-        echo $this->url(array('controller' => 'projetos', 
-                                'action'     => 'listar-tarefas',
-                                'idprojeto' => $this->projeto->idprojeto
-                )
-                ); 
-        ?>" 
-        title="Editar">Detalhar Todas</a>
-    </div><br/>
-
+        <a href="#" 
+        title="Detalhar">Detalhar Todas</a>
+    </div><br/>        
 <?php
     foreach ($this->paginator as $subtarefa):
 ?>
    <ul>  
         <li><span>Nome da SubTarefa:</span> <b><?= $subtarefa->nome ?></b><br/>
         <span>Descrição: </span> <b><?= $subtarefa->descricao ?></b><br/>
-        <a href="#">+ detalhes</a>
+        <a href="<?php 
+                echo $this->url(array('controller' => 'projetos', 
+                                    'action'     => 'detalhar-tarefa', 
+                                    'idtarefa'   => $subtarefa->idtarefa,
+                                    'idprojeto'  => $subtarefa->idprojeto
+                        )
+                        ); 
+                ?>">+ detalhes</a>
         </li>
    </ul>
     <?php

@@ -97,7 +97,7 @@
                     <?php 
                     echo $this->url(array('controller' => 'projetos', 
                                         'action'     => 'editar', 
-                                        'idprojeto' => $projeto->idprojeto
+                                        'idprojeto' => $this->projeto->idprojeto
                             )
                             ); 
                     ?>" 
@@ -108,7 +108,7 @@
                     <?php 
                     echo $this->url(array('controller' => 'projetos', 
                                         'action'     => 'remover', 
-                                        'idprojeto' => $projeto->idprojeto
+                                        'idprojeto' => $this->projeto->idprojeto
                             )
                             ); 
                     ?>" 
@@ -119,7 +119,7 @@
                         <?php 
                         echo $this->url(array('controller' => 'projetos', 
                                             'action'     => 'fechar', 
-                                            'idprojeto' => $projeto->idprojeto
+                                            'idprojeto' => $this->projeto->idprojeto
                                 )
                                 ); 
                         ?>" 
@@ -130,7 +130,7 @@
                         <?php 
                         echo $this->url(array('controller' => 'projetos', 
                                             'action'     => 'alocar-colaborador', 
-                                            'idprojeto' => $projeto->idprojeto
+                                            'idprojeto' => $this->projeto->idprojeto
                                 )
                                 ); 
                         ?>" 
@@ -141,7 +141,7 @@
                     <?php 
                     echo $this->url(array('controller' => 'projetos', 
                                         'action'     => 'desalocar-colaborador', 
-                                        'idprojeto' => $projeto->idprojeto
+                                        'idprojeto' => $this->projeto->idprojeto
                             )
                             ); 
                     ?>" 
@@ -187,7 +187,15 @@
    <ul>  
         <li><span>Nome da Tarefa:</span> <b><?= $tarefa->nome ?></b><br/>
         <span>Descrição: </span> <b><?= $tarefa->descricao ?></b><br/>
-        <a href="#">+ detalhes</a>
+        <a href="
+            <?php 
+                echo $this->url(array('controller' => 'projetos', 
+                    'action'     => 'detalhar-tarefa', 
+                    'idprojeto' => $tarefa->idprojeto, 
+                    'idtarefa' => $tarefa->idtarefa
+                )
+                ); 
+            ?>" >+ detalhes</a>
         </li>
    </ul>
     <?php
@@ -199,5 +207,3 @@
 </div>
 
 </fieldset>
-
-

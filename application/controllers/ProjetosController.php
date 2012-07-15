@@ -609,12 +609,12 @@ class ProjetosController extends Zend_Controller_Action
             $idProjeto=$this->_request->getPost('idprojeto');                        
             $idUsuario=$this->_request->getPost('usuario');
             
-            $int1->d=$this->_request->getPost('dias');
-            $int1->h=$this->_request->getPost('horas');
-            $int1->i=$this->_request->getPost('minutos');
-            
+//            $int1->d=$this->_request->getPost('dias');
+//            $int1->h=$this->_request->getPost('horas');
+//            $int1->i=$this->_request->getPost('minutos');
+            $tempo=$this->_request->getPost('tempo');
             $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
-            
+            projetos::trataInterval (&$tempo, &$int1);             
             $tempo=$realiza->tempo;
             $int2=new DateInterval('P0D');
             $d2="";$h2="";$m2="";
@@ -707,6 +707,15 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vUsuarioProjeto->select()->where('idprojeto = ?', $idProjeto)->order('datainiciousuario')->order('datafimusuario')
                         );
          
+         $this->view->vTarefaUsuario = $this->vTarefaUsuario
+                   ->fetchAll(
+                        $this->vTarefaUsuario->select()->where('idprojeto = ?', $idProjeto)->order('nometarefa')
+                        );         
+                  
+         $this->view->tarefas = $this->tarefa
+                   ->fetchAll(
+                        $this->tarefa->select()->where('idprojeto = ?', $idProjeto)
+                        );
      }
      
      public function detalharTarefaAction () {
