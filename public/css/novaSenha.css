@@ -1,0 +1,85 @@
+body {
+    margin:0;
+    padding:0;
+    text-align:center;
+     background-image: url('/imagens/background.jpg');
+}
+
+#geral1 {
+    background-image: url('/imagens/Background2.png');
+    margin: 100px auto;
+    width:417px;
+    height:300px;   
+}
+
+#logo {
+    margin-top: 50px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+#geral {
+    margin: -130px auto;
+    padding-top: 30px;
+    padding-left: 20px;
+    width: 100%;
+    z-index: 2;
+}
+
+input {
+    margin-top: 2%;
+    padding: 3%;
+    width: 80%;
+    margin-left: -11%;
+    border: 1.5px solid gray;
+}
+
+label {
+    font: bold 15px Arial;
+    color: black;
+    margin-left: -70%;
+}
+
+#botao {
+    background-color: #f60611;  
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9f0611;
+    width: 25%;
+    height: 45px;
+    margin-top: 2%;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: white;
+}
+
+#botao:hover{
+    background-color: #d4404b;  
+}
+
+#botao:active {
+    background-color: #c52e39;
+}
+
+#rodape {
+    border: 1px solid #C0C0C0 ;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    background:#E8E8E8;
+    height:10%;
+    position:absolute;
+    bottom:0;
+}
+
+#rodape img {
+  margin: 0.5% 1% 0% 93.2%;
+  height: 75%;
+  width: 6%;
+}
+
+span {
+    margin-left: 41px;
+}
