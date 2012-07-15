@@ -1,0 +1,45 @@
+<?php echo $this->headLink()->appendStylesheet('/css/cadastroMensagem.css'); ?>
+
+
+<?php
+if ($this->mensagemErro):
+    echo $this->mensagemErro;
+    echo '<br /><a href=" '
+    . $this->url(array('controller' => 'mensagens', 'action' => 'listar'))
+    . '" title="Voltar">Voltar</a>';
+else :
+    ?>
+
+    <div id="cadastro">
+        <form action="novo" method="post">
+            <fieldset id="pessoal">
+                <legend>Enviar Mensagens</legend>
+
+                <label>Assunto:<br>
+                    <input type="text" name="assunto">
+                </label><br><br>
+                
+                <label>Destinatarios: <br><br>
+                    <select multiple="multiple" id="gerente" name="destinatarios[]">
+                        <?php
+                        foreach ($this->usuarios as $usuario)
+                            echo "<option value=\"$usuario->idusuario\">$usuario->nome</option>";
+                        ?>
+                    </select>
+                </label><br><br>
+
+                <label>Mensagem:</label><br>
+                <textarea cols="70" rows="8" name="conteudo"></textarea><br><br>
+
+
+
+                <input id="cancelar" type="submit" value="Cancelar"/>
+                <input id="salvar" type="submit" value="Salvar"/>
+
+            </fieldset>
+        </form>
+    </div>
+
+<?php
+endif;
+?>
