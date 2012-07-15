@@ -19,12 +19,12 @@ html, body { height:100%; }
 	height: 78px;
 }
 
-#login {
+#loginX {
 	float: right;
 	bottom: -10px;
 }
 
-#login a {
+#loginX a {
     text-decoration: none;
     font: bold 12px Arial;
     color: gray;

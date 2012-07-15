@@ -34,7 +34,7 @@
             <?php
                 $gerentes="";
                 foreach ($this->vUsuarioProjeto as $vgerente):
-                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='gerente' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>time('Y-m-d'))){
                         $gerentes=$gerentes.$vgerente->nomeusuario.", ";
                     }
                     endforeach; ?> 
@@ -75,7 +75,7 @@
             <?php
                 $colaboradores="";
                 foreach ($this->vUsuarioProjeto as $vgerente):
-                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null OR $vgerente->datafimusuario>date('Y-m-d'))){
+                    if($vgerente->idprojeto==$this->projeto->idprojeto && $vgerente->papel=='colaborador' && ($vgerente->datafimusuario==null || $vgerente->datafimusuario>time('Y-m-d'))){
                         $colaboradores=$colaboradores.$vgerente->nomeusuario.", ";
                     }
                     endforeach; ?> 
@@ -92,16 +92,75 @@
     <?php 
         }
     ?>
-<a id="icone" href="
-    <?php 
-        echo $this->url(array('controller' => 'projetos', 
-            'action'     => 'relatorio-participacao', 
-            'idprojeto' => $this->projeto->idprojeto
-        )
-        ); 
-    ?>" 
-    title="Relatorio"><img src="/imagens/report.png"/>
-</a> 
+            <ul id="icones">         
+                <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'editar', 
+                                        'idprojeto' => $projeto->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                    title="Editar"><img src="/imagens/pencil_edit.png"/>
+                    </a></li>
+
+                    <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'remover', 
+                                        'idprojeto' => $projeto->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                    title="Remover"><img src="/imagens/delete_2.png"/>
+                    </a><li>
+
+                    <li><a href="
+                        <?php 
+                        echo $this->url(array('controller' => 'projetos', 
+                                            'action'     => 'fechar', 
+                                            'idprojeto' => $projeto->idprojeto
+                                )
+                                ); 
+                        ?>" 
+                        title="Alocar"><img src="/imagens/check-64.png"/>
+                    </a></li>
+
+                    <li><a href="
+                        <?php 
+                        echo $this->url(array('controller' => 'projetos', 
+                                            'action'     => 'alocar-colaborador', 
+                                            'idprojeto' => $projeto->idprojeto
+                                )
+                                ); 
+                        ?>" 
+                        title="Desalocar"><img src="/imagens/alocar.png"/>
+                    </a></li>
+
+                    <li><a href="
+                    <?php 
+                    echo $this->url(array('controller' => 'projetos', 
+                                        'action'     => 'desalocar-colaborador', 
+                                        'idprojeto' => $projeto->idprojeto
+                            )
+                            ); 
+                    ?>" 
+                    title="Remover"><img src="/imagens/desalocar.png"/>
+                    </a></li>
+
+                    <li><a id="icone" href="
+                        <?php 
+                            echo $this->url(array('controller' => 'projetos', 
+                                'action'     => 'relatorio-participacao', 
+                                'idprojeto' => $this->projeto->idprojeto
+                            )
+                            ); 
+                        ?>" 
+                        title="Relatorio"><img src="/imagens/report.png"/>
+                    </a> </li>
+            </ul>
+            
+            
 
 </fieldset>
 

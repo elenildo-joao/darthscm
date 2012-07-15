@@ -1,0 +1,12 @@
+<form action="desalocar-usuario-tarefa" method="post">
+    <input type="hidden" name="idprojeto" value="<?= $this->projeto->idprojeto ?>" />
+    <label>Nome do Usuario: 
+        <select id="usuario" name="usuario">
+            <?php 
+            foreach($this->vUsuarioProjeto as $usuarioProjeto)
+                if ($usuarioProjeto->datafimusuario==null || $usuarioProjeto->datafimusuario>date('Y-m-d'))
+                echo "<option value=\"$usuarioProjeto->idusuario\">$usuarioProjeto->nomeusuario</option>";
+            ?>
+        </select>     
+    <input type="submit" value="Desalocar" />
+</form>
