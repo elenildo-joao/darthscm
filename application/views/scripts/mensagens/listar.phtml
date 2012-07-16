@@ -1,97 +1,84 @@
-
-
-<?php 
-      echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');
+<?php echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');
       echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
       echo $this->headScript()->appendFile('/js/layoutTabela.js');
 ?>
 
-<div id="botaoCad">
-    <a href="
-    <?php 
-    echo $this->url(array('controller' => 'mensagens', 'action' => 'novo')); 
-    ?>" 
-    title="Enviar">Enviar Mensagem</a>
-</div>
+
 
 <table id="tabelaUsuarios" border="1">
-        <tr>
+    <tr>
         <th id="nome">Remetente</th>
-        <th id="email">Destinatario</th>
-        <th id="login1">Mensagem</th>
-        <th id="telefone">Data</th>
+        <th id="email">Data</th>
+        <th id="login1">Assunto</th>
+
         <th id="telefone">Lida?</th>
-        
+
         <th id="visualizar">Visualizar</th>
 
         <th id="remover">Excluir</th>
-        </tr>
-<!--        
-        $idUsuario = (int) $this->_getParam('id'); 
-        $usuario = $this->usuario->find($idUsuario)->current();
-        
- -->
-        
-        
-    <?php 
-//    $id = $this->usuarioLogado->idusuario;
-//    echo 'HATINA'.$id;
-    
-    
-    foreach ($this->paginator as $destinatario):
-     
-    ?>
-    <tr>
-        <td><?= $destinatario->remetente ?></td>
-        <td><?= $destinatario->destinatario ?></td>
-        <td><?= $destinatario->findParentMensagens()->conteudo ?></td>
-        <td><?= $destinatario->findParentMensagens()->datahora ?></td>
-        <td><? if ($destinatario->msglida=='t') echo ('Lida'); else echo ('Nao lida'); ?></td>
-        
-
-        
-        
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'usuarios', 
-                                  'action'     => 'visualizar',
-                                  'id' => $usuario->idusuario
-                    )
-                    ); 
-            ?>" 
-            title="Visualizar"><img src="/imagens/Zoom-icon.png"/>
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'usuarios', 
-                                  'action'     => 'editar', 
-                                  'id' => $usuario->idusuario
-                    )
-                    ); 
-            ?>" 
-            title="Editar"><img src="/imagens/31.png"/>
-        </a>
-        </td>
-        <td>
-        <a href="
-            <?php 
-            echo $this->url(array('controller' => 'usuarios', 
-                                  'action'     => 'remover', 
-                                  'id' => $usuario->idusuario
-                    )
-                    ); 
-            ?>" 
-            title="Remover"><img src="/imagens/118.png"/>
-        </a>
-        </td>
     </tr>
+
+
+
     <?php
+    foreach ($this->paginator as $destinatario):
+        foreach ($this->seimon as $mensagem):
+        if($destinatario->idmensagem == $mensagem->idmensagem){
+        
+            
+        
+?>
+        <tr>
+            <td><?= $destinatario->remetente ?></td>
+            <td><?= $mensagem->datahora ?></td>
+            <td><?= $mensagem->assunto ?></td>
+
+            <td><? if ($destinatario->msglida == 't') echo ('Lida'); else echo ('Nao lida'); ?></td>
+
+
+
+
+
+            <td>
+                <a href="
+                <?php
+                echo $this->url(array('controller' => 'mensagens',
+                    'action' => 'visualizar',
+                    'id' => $mensagem->idmensagem
+                        )
+                );
+                ?>" 
+                   title="Visualizar"><img src="/imagens/search_lense.png"/>
+                </a>
+            </td>
+
+            <td>
+                <a href="
+                <?php
+                echo $this->url(array('controller' => 'mensagens',
+                    'action' => 'remover',
+                    'id' => $mensagem->idmensagem
+                        )
+                );
+                ?>" 
+                   title="Remover"><img src="/imagens/delete_2.png"/>
+                </a>
+            </td>
+
+        </tr>
+        <?php
+        }
+        endforeach;
+        
     endforeach;
     ?>
 </table>
+
 <div id="paginacao">
-    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>
+</div>
+
+<div id="botaoCad">
+    <a href="<?php echo $this->url(array('controller' => 'mensagens', 'action' => 'novo')); ?>" 
+       title="Enviar">Enviar Mensagem</a>
 </div>

@@ -21,6 +21,7 @@ class Mensagens extends Zend_Db_Table_Abstract
             'refTableClass' => 'Mensagens',
             'refColumns'    => 'idmensagem'
         )
+        
     );
     
 //    public function emailJaExiste($email) 

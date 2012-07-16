@@ -23,7 +23,7 @@ class Destinatarios extends Zend_Db_Table_Abstract
             'columns'       => 'destinatario',
             'refTableClass' => 'Usuarios',
             'refColumns'    => 'idUsuario'
-        ),
+        )
     );
 
 
