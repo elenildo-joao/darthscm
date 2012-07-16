@@ -10,6 +10,8 @@ class IndexController extends Zend_Controller_Action
     
     private $vUsuarioProjeto;
     private $vTarefaUsuario;
+    private $mensagem;
+    private $destinatario;
 
     public function init()
     {
@@ -25,6 +27,8 @@ class IndexController extends Zend_Controller_Action
         $this->usuario = new Usuarios();
         $this->usuarioProjeto = new VUsuarioProjeto();
         $this->usuarioTarefa = new VTarefaUsuario();
+        $this->mensagem = new Mensagens();
+        $this->destinatario = new Destinatarios();
         
         $this->view->usuarioLogado = $this->usuario->find(
                 $this->usuarioLogado->idusuario
@@ -67,6 +71,11 @@ class IndexController extends Zend_Controller_Action
             $paginator2->setItemCountPerPage(4);
             $this->view->paginator2 = $paginator2;
             $paginator2->setCurrentPageNumber($this->_getParam('page2'));
+            
+            $this->view->destinatario=$this->destinatario
+               ->fetchAll(
+                    $this->destinatario->select()->where('destinatario = ?', $this->usuarioLogado->idusuario)->where('msglida = ?', 'f')
+                    );
         }
 }
 
