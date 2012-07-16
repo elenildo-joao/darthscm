@@ -28,8 +28,24 @@
 <div id="mensagens">
     <fieldset>
         <legend>Mensagens</legend>
-            <p>Mensagens não lidas</p>
-            <a href="#" id="image"><img src="/imagens/email-icon.png"/></a>
+            <?php 
+            $contMsg=0;
+            foreach($this->destinatario as $dest):
+               $contMsg++;
+            endforeach;
+            if ($contMsg==0){
+            ?>
+            <p>Nenhuma mensagem não lida</p>
+            <?php
+             } else if ($contMsg==1) { 
+            ?>
+            <p>1 mensagem não lida</p>
+            <?php
+             } else { 
+            ?>
+            <p><?=$contMsg?> mensagens não lidas</p>
+            <?php } ?>
+            <a href="mensagens/listar" id="image"><img src="/imagens/email-icon.png"/></a>
     </fieldset>
 </div>
 
