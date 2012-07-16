@@ -1,17 +1,8 @@
-<?php echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');
-      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
-      echo $this->headScript()->appendFile('/js/layoutTabela.js');
-?>
-
-
-
-<table id="tabelaUsuarios" border="1">
+<table border="1">
     <tr>
-        <th id="nome">Remetente</th>
-        <th id="email">Data</th>
-        <th id="login1">Assunto</th>
-
-        <th id="telefone">Lida?</th>
+        <th id="nome">Destinatarios</th>
+        <th id="data">Data</th>
+        <th id="assunto">Assunto</th>
 
         <th id="visualizar">Visualizar</th>
 
@@ -21,22 +12,34 @@
 
 
     <?php
-    foreach ($this->paginator as $destinatario):        
-?>
-        <tr>
-            <td><?= $destinatario->nomeremetente ?></td>
-            <td><?= $destinatario->datahora ?></td>
-            <td><?= $destinatario->assunto ?></td>
-
-            <td><? if ($destinatario->lida == 't') echo ('Lida'); else echo ('Nao lida'); ?></td>
-
+    foreach ($this->paginator as $saida):
+    ?>
+        <tr> 
+           <?php
+                $destinatarios="";
+                foreach ($this->vDestinatarios as $dest):
+                    if($dest->idmensagem==$saida->idmensagem){
+                        $destinatarios=$destinatarios.$dest->nomedestinatario.", ";
+                    }
+                endforeach; ?>
+            <td> 
+                <?php
+                     for ($x=0; $x<strlen($destinatarios)-2; $x++){
+                         echo ($destinatarios[$x]);
+                     }
+                     if ($x!=0)
+                         echo ('.');
+                 ?>
+            </td>
+            <td><?= $saida->datahora ?></td>
+            <td><?= $saida->assunto ?></td>
 
             <td>
                 <a href="
                 <?php
                 echo $this->url(array('controller' => 'mensagens',
                     'action' => 'visualizar',
-                    'id' => $destinatario->idmensagem
+                    'id' => $saida->idmensagem
                         )
                 );
                 ?>" 
@@ -49,7 +52,7 @@
                 <?php
                 echo $this->url(array('controller' => 'mensagens',
                     'action' => 'remover',
-                    'id' => $destinatario->idmensagem
+                    'id' => $saida->idmensagem
                         )
                 );
                 ?>" 
