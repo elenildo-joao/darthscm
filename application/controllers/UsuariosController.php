@@ -11,6 +11,8 @@ class UsuariosController extends Zend_Controller_Action
     private $realiza;
     private $trabalhaEm;
     private $logLogin;
+    private $mensagem;
+    private $destinatario;
 
     public function init()
     {
@@ -30,6 +32,8 @@ class UsuariosController extends Zend_Controller_Action
         $this->realiza = new Realiza();
         $this->trabalhaEm = new TrabalhaEm();
         $this->logLogin = new LogsLogin();
+        $this->destinatario = new Destinatarios();
+        $this->mensagem = new Mensagens();
         $this->db = Zend_Db_Table::getDefaultAdapter();
         $this->validator = new Zend_Validate_EmailAddress();
         
@@ -219,6 +223,14 @@ class UsuariosController extends Zend_Controller_Action
         $whereTrabalhaEm = $this->trabalhaEm->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         $whereLogsLogin = $this->logLogin->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario);
         
+        $whereDestinatario = $this->destinatario->getAdapter()->quoteInto('destinatario = ?', (int) $idUsuario);
+        $whereDestinatarioRem = $this->destinatario->getAdapter()->quoteInto('remetente = ?', (int) $idUsuario);        
+        $whereMensagem = $this->mensagem->getAdapter()->quoteInto('remetente = ?', (int) $idUsuario);
+
+        $this->destinatario->delete($whereDestinatario);
+        $this->destinatario->delete($whereDestinatarioRem);
+        $this->mensagem->delete($whereMensagem);
+
         $this->logLogin->delete($whereLogsLogin);
         $this->login->delete($whereLogin);
         $this->realiza->delete($whereRealiza);
