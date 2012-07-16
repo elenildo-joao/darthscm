@@ -1,6 +1,7 @@
-<?php echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');
-      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
-      echo $this->headScript()->appendFile('/js/layoutTabela.js');
+<?php 
+$this->headLink()->appendStylesheet('/css/telaUsuarios.css');
+$this->headScript()->appendFile('/js/jquery-1.7.2.js');
+$this->headScript()->appendFile('/js/layoutTabela.js');
 ?>
 
 
@@ -11,8 +12,10 @@
         <th id="login1">Login</th>
         <th id="telefone">Telefone</th>
         <th id="visualizar">Visualizar</th>
+        <?php if ($this->usuarioLogado->admin): ?>
         <th id="editar">Editar</th>
         <th id="remover">Excluir</th>
+        <?php endif; ?>
         </tr>
     <?php
     foreach ($this->paginator as $usuario):
@@ -35,6 +38,7 @@
             title="Visualizar"><img src="/imagens/search_lense.png"/>
         </a>
         </td>
+        <?php if ($this->usuarioLogado->admin): ?>
         <td>
         <a href="
             <?php 
@@ -59,6 +63,7 @@
             title="Remover"><img src="/imagens/delete_2.png"/>
         </a>
         </td>
+        <?php endif; ?>
     </tr>
     <?php
     endforeach;
@@ -69,6 +74,7 @@
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
 </div>
 
+<?php if ($this->usuarioLogado->admin): ?>
 <div id="botaoCad">
     <a href="
     <?php 
@@ -76,3 +82,4 @@
     ?>" 
     title="Cadastrar">Cadastrar Usuário</a>
 </div>
+<?php endif; ?>

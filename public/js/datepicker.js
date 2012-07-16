@@ -23,10 +23,7 @@ jQuery(function($){
 });
 
 $(function() {
-    $( "#dataInicio" ).datepicker();
+    $( ".datepicker" ).datepicker({
+        changeYear: true
+    });
 });
-$(function() {
-    $( "#dataPrevFim" ).datepicker();
-});
-
-

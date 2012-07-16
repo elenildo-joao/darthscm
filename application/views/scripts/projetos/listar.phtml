@@ -1,5 +1,6 @@
-<?php echo $this->headLink()->appendStylesheet('/css/telaProjetos.css');?>
+<?php $this->headLink()->appendStylesheet('/css/telaProjetos.css');?>
 
+<?php if ($this->usuarioLogado->admin): ?>
 <div type="button" id="botaoCad">
         <a href="    
             <?php 
@@ -7,6 +8,7 @@
             ?>" 
         title="Novo projeto">Cadastrar Projeto</a>
 </div>
+<?php endif; ?>
 
     
 <?php
@@ -44,6 +46,7 @@
             title="Editar"><img src="/imagens/pencil_edit.png"/>
             </a></li>
     
+            <?php if ($this->usuarioLogado->admin): ?>
             <li><a href="
             <?php 
             echo $this->url(array('controller' => 'projetos', 
@@ -53,7 +56,8 @@
                     ); 
             ?>" 
             title="Remover"><img src="/imagens/delete_2.png"/>
-            </a><li>
+            </a></li>
+            <?php endif; ?> 
     
             <li><a href="
                 <?php 
@@ -63,7 +67,7 @@
                         )
                         ); 
                 ?>" 
-                title="Alocar"><img src="/imagens/check-64.png"/>
+                title="Fechar"><img src="/imagens/check-64.png"/>
             </a></li>
             
             <li><a href="
@@ -74,7 +78,7 @@
                         )
                         ); 
                 ?>" 
-                title="Desalocar"><img src="/imagens/alocar.png"/>
+                title="Alocar"><img src="/imagens/alocar.png"/>
             </a></li>
             
             <li><a href="
@@ -85,7 +89,7 @@
                     )
                     ); 
             ?>" 
-            title="Remover"><img src="/imagens/desalocar.png"/>
+            title="Desalocar"><img src="/imagens/desalocar.png"/>
             </a></li>
     </ul>
         <br />
@@ -99,13 +103,3 @@
  <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml');?>
 </div>
-
-<br />
-<!--        <td>
-            <a href=" <?//= $projeto->findParentRepositorios()->endereco ?>">
-            <?//= $projeto->findParentRepositorios()->endereco ?>
-            </a>
-        </td>
-        <td><?//= $projeto->nomeusuario ?></td>
-                
-        <td>  -->
