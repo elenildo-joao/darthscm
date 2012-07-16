@@ -1,4 +1,9 @@
 <?php
+    echo $this->headLink()->appendStylesheet('/css/alocar.css');
+?>
+
+
+<?php
 //if ($this->mensagem): 
 //?>
 <!--<p>//<?=$this->mensagem?></p>
@@ -24,7 +29,7 @@
             <option value="<?= $usuario->idusuario ?>"><?= $usuario->nome ?></option>
             <?php endforeach; ?>
         </select>
-    </label>
+    </label><br/><br/>
    <label>Papel: 
         <select name="papel">
             <option value="colaborador">Colaborador</option>

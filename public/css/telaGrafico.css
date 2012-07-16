@@ -1,5 +1,4 @@
 #tabela {
-   
     position: absolute;
     border-collapse:collapse;
     background: #FFE9E8;
@@ -12,6 +11,15 @@
 #tabela, td, th {
     border:1px solid #C1CDC1;
     padding: 7px 20px 7px 20px;
+}
+
+#tabela1 {
+    clear: both;
+    float: left;
+}
+
+#tabela2 {
+    float: right;
 }
 
 .odd {
