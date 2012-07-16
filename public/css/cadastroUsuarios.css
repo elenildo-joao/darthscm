@@ -1,27 +1,20 @@
-form {
-  float: left;
-  width: auto;
-  height: auto;
-  font: 14px Arial;
-}
-
 #pessoal {
-	margin-top: 60px;
-	margin-left: 25%;
-	padding: 2%;
-	border: 2px solid #D8D8D8;
-	width: 100%;
+    width: 37.5%;
+    border: 2px solid #D8D8D8; 
+    font:15px Arial;
+    margin: 30px 0px 0px 120px;
+    position: absolute;
 }
 
 label {
-	margin-left: 0.7%;
+    margin-left: 0.7%;
 }
 
 legend {
-  padding: 2%;
-  background: #D8D8D8;
-  border-radius: 5px;
-  font: bold 12px Arial;
+    padding: 2%;
+    background: #D8D8D8;
+    border-radius: 5px;
+    font: bold 12px Arial;
 }
 
 #pessoal legend {
@@ -50,11 +43,11 @@ input, select {
 
 
 #endereco {
-	padding: 2%;
-	margin-top: -74%;
-	margin-left: 140%;
-	border: 2px solid #D8D8D8;
-	width: 100%;
+    position: absolute;
+    width: 37.5%;
+    border: 2px solid #D8D8D8; 
+    font:15px Arial;
+    margin: 30px 0px 0px 700px;
 }
 
 #cancelar, #salvar {

@@ -1,6 +1,5 @@
 <?php echo $this->headLink()->appendStylesheet('/css/cadastroMensagem.css'); ?>
 
-
 <?php
 if ($this->mensagemErro):
     echo $this->mensagemErro;
@@ -16,7 +15,7 @@ else :
                 <legend>Enviar Mensagens</legend>
 
                 <label>Assunto:<br>
-                    <input type="text" name="assunto">
+                    <input type="text" name="assunto" size="60">
                 </label><br><br>
                 
                 <label>Destinatarios: <br><br>
@@ -29,7 +28,7 @@ else :
                 </label><br><br>
 
                 <label>Mensagem:</label><br>
-                <textarea cols="70" rows="8" name="conteudo"></textarea><br><br>
+                <textarea rows="5" cols="60"name="conteudo"></textarea><br><br>
 
 
 
