@@ -1,27 +1,40 @@
 <?php
 
-class MensagensController extends Zend_Controller_Action {
+class MensagensController extends Zend_Controller_Action 
+{
 
     private $mensagem;
     private $usuario;
-    private $usuariologado;
+    private $usuarioLogado;
     private $destinatario;
-    private $usuarioDes;
     private $db;
+    private $msg;
 
     public function init() {
+        
+        if ( !Zend_Auth::getInstance()->hasIdentity() ) 
+        {
+            $this->_helper->layout->setLayout('informacao');
+            return $this->_helper->redirector->goToRoute( 
+                    array('controller' => 'login') 
+                    );
+        }
+        
         $this->mensagem = new Mensagens();
         $this->usuario = new Usuarios();
-        $this->usuarioRem = new Usuarios();
-        $this->usuariologado = new Usuarios();
+        $this->usuarioLogado = new Usuarios();
+        $this->msg = new Mensagens();
 
         $this->destinatario = new Destinatarios();
-        $this->usuarioDes = new Usuarios();
 
 
         $this->db = Zend_Db_Table::getDefaultAdapter();
 
-        $this->usuariologado = Zend_Auth::getInstance()->getIdentity();
+        $this->usuarioLogado = Zend_Auth::getInstance()->getIdentity();
+        
+        $this->view->usuarioLogado = $this->usuario->find(
+                $this->usuarioLogado->idusuario
+                )->current();
 //
     }
 
@@ -32,108 +45,70 @@ class MensagensController extends Zend_Controller_Action {
 
     //Caixa de Entrada
     public function listarAction() {
-
+        
         $paginator = Zend_Paginator::factory(
                         $this->destinatario
                                 ->fetchAll(
-                                        $this->destinatario->select()->where('destinatario = ?', $this->usuariologado->idusuario)
+                                        $this->destinatario->select()->where('destinatario = ?', $this->usuarioLogado->idusuario)
                                 ));
 
-        $paginator->setItemCountPerPage(4);
+
+        $paginator->setItemCountPerPage(10);
         $this->view->paginator = $paginator;
         $paginator->setCurrentPageNumber($this->_getParam('page'));
-
+        
+        $this->view->seimon = $this->mensagem
+                ->fetchAll(
+                        $this->mensagem->select()->order('idmensagem')
+                        );
+        
     }
 
     
     public function novoAction() {
-        if (!$this->_request->isPost())
-            $this->view->usuarios = $this->usuario->fetchAll();
+        if (!$this->_request->isPost()){
+            $this->view->usuarios = $this->usuario->fetchAll();}
         else {
-            $idsDestinatarios = $_request->getPost('destinatarios');
+            $idsDestinatarios = $this->_request->getPost('destinatarios');
 
-            foreach ($idsDestinatarios as $idsDestinatario) {
+            foreach ($idsDestinatarios as $idsDestinatario):
                 
-            }
+                $dadosMensagem = array(
+                    'remetente' => $this->usuarioLogado->idusuario,
+                    'assunto' => $this->_request->getPost('assunto'),
+                    'conteudo' => $this->_request->getPost('conteudo')
+                );
+                
+                $dadosDestinatario = array(
+                    'remetente' => $this->usuarioLogado->idusuario,
+                    'destinatario' => $idsDestinatario
+                );
+                           
+            
 
 
+            if ( empty($dadosMensagem['assunto'])         ||
+                 empty($dadosMensagem['conteudo'])        ||
+                 empty($dadosDestinatario['destinatario']))          
+                 
+            {
+                $this->view->mensagemErro = "Preencha todos os campos do formulário.";
+                return false;
+            }   
+            
+            $this->mensagem->insert($dadosMensagem);
 
+            $dadosDestinatario['idmensagem'] = $this->db->lastInsertId('mensagens', 'idmensagem');
+            
+            $this->destinatario->insert($dadosDestinatario);           
+            $this->view->mensagemErro='Mensagem Enviada com Sucesso!';
 
-
-            $dadosMensagem = array(
-                'assunto' => $this->_request->getPost('assunto'),
-                'email' => $this->_request->getPost('email'),
-                'cpf' => $this->_request->getPost('cpf'),
-                'datanasc' => $this->_request->getPost('dataNasc'),
-                'telefone' => $this->_request->getPost('telefone'),
-                'sexo' => $this->_request->getPost('sexo')
-            );
-
-
-//            $dadosEndereco = array(
-//                'rua'         => $this->_request->getPost('rua'),
-//                'num'         => $this->_request->getPost('num'),
-//                'bairro'      => $this->_request->getPost('bairro'),
-//                'cidade'      => $this->_request->getPost('cidade'),
-//                'estado'      => $this->_request->getPost('estado'),
-//                'complemento' => $this->_request->getPost('complemento')
-//            );
-//            
-//            $dadosLogin = array(
-//                'login' => $this->_request->getPost('login'),
-//                'senha' => sha1('123')
-//            );
-//            
-//            if ( empty($dadosUsuario['nome'])         ||
-//                 empty($dadosUsuario['email'])        ||
-//                 empty($dadosUsuario['cpf'])          ||
-//                 empty($dadosUsuario['datanasc'])     ||
-//                 empty($dadosUsuario['telefone'])     ||
-//                 empty($dadosUsuario['sexo'])         ||
-//                 empty($dadosEndereco['rua'])         ||
-//                 empty($dadosEndereco['num'])         ||
-//                 empty($dadosEndereco['bairro'])      ||
-//                 empty($dadosEndereco['cidade'])      ||
-//                 empty($dadosEndereco['estado'])      ||
-//                 empty($dadosEndereco['complemento']) ||
-//                 empty($dadosLogin['login']) )
-//            {
-//                $this->view->mensagemErro = "Preencha todos os campos do formulário.";
-//                return false;
-//            }
-//                  
-//            if ( !$this->validator->isValid($dadosUsuario['email']) )
-//            {
-//                $this->view->mensagemErro = "E-mail inválido.";
-//                return false;
-//            } 
-//            
-//            if ( $this->usuario->emailJaExiste($dadosUsuario['email']) )
-//            {
-//                $this->view->mensagemErro = "E-mail já cadastrado.";
-//                return false;
-//            }
-//            
-//            if ( $this->usuario->cpfJaExiste($dadosUsuario['cpf']) )
-//            {
-//                $this->view->mensagemErro = "CPF já cadastrado.";
-//                return false;
-//            }
-//            
-//            $this->endereco->insert($dadosEndereco);
-//
-//            $dadosUsuario['endereco'] = $this->db->lastInsertId('enderecos', 'idendereco');
-//            
-//            $this->usuario->insert($dadosUsuario);
-//            
-//            $dadosLogin['idusuario'] = $this->db->lastInsertId('usuarios', 'idusuario');
-//            
-//            $this->login->insert($dadosLogin);
-//        
-//            $this->_redirect('/usuarios/listar');
-        }
+        
+        endforeach;
+        }       
+    
     }
-
+    
     public function editarAction() {
         if (!$this->_request->isPost()) {
             $idUsuario = (int) $this->_getParam('id');
