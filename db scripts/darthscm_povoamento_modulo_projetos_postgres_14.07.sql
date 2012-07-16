@@ -172,3 +172,46 @@ INSERT INTO LogsLogin VALUES (DEFAULT, '2012/05/20 13:40:40', '2012/05/20 15:02:
 INSERT INTO LogsLogin VALUES (DEFAULT, '2012/03/30 13:42:40', '2012/03/30 16:23:56', 8, 8);
 INSERT INTO LogsLogin VALUES (DEFAULT, '2012/04/30 14:45:40', '2012/05/30 16:45:56', 8, 8);
 INSERT INTO LogsLogin VALUES (DEFAULT, '2012/05/30 08:50:40', '2012/05/30 10:25:56', 8, 8);
+
+-- --------------------------------------------------------
+-- povoamento da tabela Mensagens
+-- (id, remetente, conteudo, datahora, lixeira, excluida)
+-- --------------------------------------------------------
+INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Bem-vindos', 'Bem-vindos', '2012/03/20 08:00:00', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 2, 'Problema na tarefa', 'Estou tendo problemas com minha tarefa', '2012/03/30 10:46:52', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 2, 'Problema reslvido', 'Problema resolvido, Obrigada', '2012/03/30 12:00:00', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 3, 'Problema na tarefa (RE)', 'Trás na minha sala', '2012/03/30 11:00:24', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Notícias', 'Como estão as atividades?', '2012/04/04 08:00:00', false, true);
+INSERT INTO Mensagens VALUES (DEFAULT, 5, 'Notícias (RE)', 'Tudo bem. Estou desenvolvendo os requisitos do sistema', '2012/04/04 09:00:32', false, true);
+INSERT INTO Mensagens VALUES (DEFAULT, 8, 'Sugestão', 'Eu acho que deveria haver a tabela de depreciações na estimativa de custo', '2012/03/30 15:04:08', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 1, 'Documento de visões', 'O documento de visões ficou ótimo!', '2012/04/02 14:06:54', false, true);
+INSERT INTO Mensagens VALUES (DEFAULT, 4, 'Ajuda', 'Tenho pouca experiência com plano de qualidade, alguém pode me ajudar com algum material?', '2012/03/28 10:10:10', false, false);
+INSERT INTO Mensagens VALUES (DEFAULT, 7, 'Ajuda (RE)', 'Ja ja encaminho!', '2012/03/28 10:20:40', false, true);
+
+-- --------------------------------------------------------
+-- povoamento da tabela Sestinatarios
+-- (idmsg, idremetente, iddestinatario, lida, lixeira, excluida)
+-- --------------------------------------------------------
+INSERT INTO Destinatarios VALUES (1, 1, 2, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (1, 1, 3, TRUE, false, true);
+INSERT INTO Destinatarios VALUES (1, 1, 4, TRUE, true, false);
+INSERT INTO Destinatarios VALUES (1, 1, 5, TRUE, true, false);
+INSERT INTO Destinatarios VALUES (1, 1, 6, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (1, 1, 7, TRUE, false, true);
+INSERT INTO Destinatarios VALUES (1, 1, 8, TRUE, false, true);
+INSERT INTO Destinatarios VALUES (2, 2, 3, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (3, 2, 3, TRUE, true, false);
+INSERT INTO Destinatarios VALUES (4, 3, 2, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (5, 1, 5, TRUE, true, false);
+INSERT INTO Destinatarios VALUES (6, 5, 1, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (7, 8, 6, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (8, 1, 8, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (9, 4, 2, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (9, 4, 3, FALSE, false, false);
+INSERT INTO Destinatarios VALUES (9, 4, 5, FALSE, false, false);
+INSERT INTO Destinatarios VALUES (9, 4, 6, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (9, 4, 7, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (9, 4, 8, TRUE, false, false);
+INSERT INTO Destinatarios VALUES (10, 7, 4, TRUE, false, false);
+
+

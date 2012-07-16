@@ -1,4 +1,3 @@
-
 -- Cria o banco de dados
 --CREATE DATABASE darthscm OWNER sithsolutions TEMPLATE template1 ENCODING 'UTF8';
 
@@ -126,7 +125,7 @@ CREATE  TABLE Mensagens (
   remetente INT NOT NULL ,
   assunto VARCHAR(200) DEFAULT '(sem assunto)' ,
   conteudo VARCHAR(500) NOT NULL ,
-  dataHora TIMESTAMP NOT NULL ,
+  dataHora TIMESTAMP  NOT NULL DEFAULT CURRENT_DATE,
   lixeira BOOLEAN NOT NULL DEFAULT FALSE,
   excluida BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (idMensagem, remetente) ,
