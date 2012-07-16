@@ -68,14 +68,24 @@ class UsuariosController extends Zend_Controller_Action
         }
         else   
         {
+           $dataNasc = explode('/', $this->_request->getPost('dataNasc'));           
+           $dataNasc = array($dataNasc[2], $dataNasc[1], $dataNasc[0]);           
+           $dataNasc = implode('-', $dataNasc);
+           
             $dadosUsuario = array(
                 'nome'     => $this->_request->getPost('nome'),
                 'email'    => $this->_request->getPost('email'),
                 'cpf'      => $this->_request->getPost('cpf'),
-                'datanasc' => $this->_request->getPost('dataNasc'),
+                'datanasc' => $dataNasc,
                 'telefone' => $this->_request->getPost('telefone'),
-                'sexo'     => $this->_request->getPost('sexo') 
+                'sexo'     => $this->_request->getPost('sexo')
             );
+            
+            if ($this->_request->getPost('admin'))
+                $dadosUsuario['admin'] = TRUE;
+            else
+                $dadosUsuario['admin'] = FALSE;
+                
             
             $dadosEndereco = array(
                 'rua'         => $this->_request->getPost('rua'),

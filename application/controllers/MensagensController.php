@@ -35,7 +35,7 @@ class MensagensController extends Zend_Controller_Action
         $this->view->usuarioLogado = $this->usuario->find(
                 $this->usuarioLogado->idusuario
                 )->current();
-//
+
     }
 
     public function indexAction() {

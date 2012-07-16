@@ -104,6 +104,7 @@
                     title="Editar"><img src="/imagens/pencil_edit.png"/>
                     </a></li>
 
+                    <?php if ($this->usuarioLogado->admin): ?>
                     <li><a href="
                     <?php 
                     echo $this->url(array('controller' => 'projetos', 
@@ -113,7 +114,8 @@
                             ); 
                     ?>" 
                     title="Remover"><img src="/imagens/delete_2.png"/>
-                    </a><li>
+                    </a></li>
+                    <?php endif; ?>
 
                     <li><a href="
                         <?php 

@@ -26,39 +26,50 @@
                 <a href="#"><img src="/imagens/font-add-icon.png"/></a>
                 <a href="#"><img src="/imagens/font-delete-icon.png"/></a>
             </div>
-
-
-
+            
         <div id="menu">
                 <ul>
                     <li><a href="/index">Home</a></li>
                     <li><a href="/usuarios/listar">Usu&aacute;rios</a>
-                            <ul>
-                                 <li><a href="/usuarios/listar">Listar</a>
-                                 </li>
-                                 <li><a href="/usuarios/novo">Cadastrar</a>
-                                 </li>
-                            </ul>
+                        <ul>
+                            <li><a href="/usuarios/listar">Listar</a>
+                            </li>
+                            <?php if ($this->usuarioLogado->admin): ?>
+                            <li>
+                                <a href="/usuarios/novo">Cadastrar</a>
+                            </li>
+                            <?php endif ?>
+                        </ul>
                     </li>
                     
                     <li><a href="/projetos/listar">Projetos</a>
-                            <ul>
-                                    <li><a href="/projetos/listar">Listar</a></li>
-                                    <li><a href="/projetos/novo">Cadastrar</a></li>
-                            </ul>
+                        <ul>
+                            <li>
+                                <a href="/projetos/listar">Listar</a>
+                            </li>
+                            <?php if ($this->usuarioLogado->admin): ?>
+                            <li>
+                                <a href="/projetos/novo">Cadastrar</a>
+                            </li>
+                            <?php endif ?>
+                        </ul>
                     </li>
-                    <li><a href="/projetos/grafico-rel-projeto">Relatórios</a>
-                            <ul>
-                                    <li><a href="/projetos/relatorio-projeto">Projeto</a></li>
-                                    <li><a href="/projetos/relatorio-colaborador">Pessoal</a></li>
-                            </ul>
+                    <?php if ($this->usuarioLogado->admin): ?>
+                    <li>
+                        <a href="/projetos/grafico-rel-projeto">Relatórios</a>
+                        <ul>
+                            <li><a href="/projetos/relatorio-projeto">Projeto</a></li>
+                            <li><a href="/projetos/relatorio-colaborador">Pessoal</a></li>
+                        </ul>
                     </li>
-                    <li><a href="/mensagens">Mensagens</a>
-                            <ul>
-                                    <li><a href="/mensagens/novo">Nova</a></li>
-                                    <li><a href="/mensagens/listar">Entrada</a></li>
-                                    <li><a href="/mensagens/listar">Saída</a></li>
-                            </ul>
+                    <?php endif ?>
+                    <li>
+                        <a href="/mensagens">Mensagens</a>
+                        <ul>
+                            <li><a href="/mensagens/novo">Nova</a></li>
+                            <li><a href="/mensagens/listar">Entrada</a></li>
+                            <li><a href="/mensagens/listar">Saída</a></li>
+                        </ul>
                     </li>
                     <li><a href="#">Suporte</a>
                             <ul>
