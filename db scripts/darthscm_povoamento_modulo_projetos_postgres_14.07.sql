@@ -88,7 +88,7 @@ INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Modelo lógico', 'Implementação do mo
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Visões e povoamento', NULL, '2012/05/17', '2012/05/29', '2012/05/29', 'normal', 12, 1);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Gatilhos, funções e permissões', NULL, '2012/05/29', '2012/06/08', NULL, 'normal', 12, 1);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Diagrama de comportamento', NULL, '2012/05/29', '2012/06/03', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Diagrama de sequencia', NULL, '2012/05/29', '2012/08/03', NULL', normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Diagrama de sequencia', NULL, '2012/05/29', '2012/08/03', NULL, 'normal', NULL, NULL);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Protótipo horizontal e vertical', NULL, '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Plano de teste', 'Plano a respeitos dos testes que serão executados para o projeto.', '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Gestão de projetos', 'Plano para gerência do desenvolvimento de projetos.', '2012/04/01', '2012/05/29', NULL, 'normal', NULL, NULL);
@@ -100,8 +100,8 @@ INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Proposta ao cliente', 'Fazer a proposta
 INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Revisao documentação', 'Correção de erros no documento.', '2012/05/08', '2012/05/28', '2012/05/28', 'normal', NULL, NULL);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Correção do bug no documento de requisitos', NULL, '2012/05/08', '2012/05/28', '2012/05/28', 'normal', NULL, NULL);
 INSERT INTO Tarefas VALUES (DEFAULT, 1, 'Correção do bug no documento de visao', NULL, '2012/05/08', '2012/05/28', NULL, 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Correção do bug na proposta ao cliente', 'orçamento errado', '2012/05/30', '2012/06/10', 'NULL', 'normal', NULL, NULL);
-INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Correção do bug no código fonte - função soma', 'retorna na linha 7', '2012/05/30', '2012/08/10', 'NULL', 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Correção do bug na proposta ao cliente', 'orçamento errado', '2012/05/30', '2012/06/10', NULL, 'normal', NULL, NULL);
+INSERT INTO Tarefas VALUES (DEFAULT, 2, 'Correção do bug no código fonte - função soma', 'retorna na linha 7', '2012/05/30', '2012/08/10', NULL, 'normal', NULL, NULL);
 -- --------------------------------------------------------
 -- povoamento da tabela UsuarioRealizaTarefa
 -- (idtarefa, idprojeto, idusuario, tempo, datainicio, datafim)
