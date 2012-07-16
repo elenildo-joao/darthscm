@@ -13,7 +13,7 @@
 class UserControllerTest extends ControllerTestCase{
     //put your code here
     
-    /*function testCanGoToUsuariosPage(){
+    function testCanGoToUsuariosPage(){
         
         $this->dispatch("/usuarios/listar");
         $this->assertController("usuarios");
@@ -33,7 +33,7 @@ class UserControllerTest extends ControllerTestCase{
         
         $this->dispatch("/usuarios/");
         $this->assertController("usuarios");
-        $this->assertAction("listar");
+        $this->assertAction("index");
         
     }
     
@@ -41,11 +41,11 @@ class UserControllerTest extends ControllerTestCase{
         
         $this->dispatch("/usuarios/");
         $this->assertController("usuarios");
-        $this->assertAction("listar");
+        $this->assertAction("index");
         
-    }*/
+    }
     
-    public function testQtForm(){
+    /*public function testQtForm(){
                 
         $data = array(
                 'nome'     => 'Ueslei Lima',
@@ -69,7 +69,7 @@ class UserControllerTest extends ControllerTestCase{
          //$this->assertRedirectTo('/usuarios/listar');
           //$this->assertAction('listar');
          
-    }
+    }*/
 }
 
 ?>

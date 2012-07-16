@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>models</title>
+    <title>views</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--[if IE]><script src="excanvas.compressed.js"></script><![endif]-->
     <script src="RGraph.common.js" ></script>
@@ -12,8 +12,8 @@
 
   <body>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr><td class="title">models</td></tr>
-      <tr><td><div align="center"><p><a href="models.html">Back to Code Coverage report</a></p></div></td></tr>
+      <tr><td class="title">views</td></tr>
+      <tr><td><div align="center"><p><a href="views.html">Back to Code Coverage report</a></p></div></td></tr>
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
     </table>
 
@@ -26,7 +26,7 @@
             <h2>Class Coverage Distribution</h2>
             <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
             <script>
-            var ccd = new RGraph.Bar('classCoverageDistribution', [14,0,0,0,0,0,0,0,0,0,0,1]);
+            var ccd = new RGraph.Bar('classCoverageDistribution', [3,0,0,0,0,0,0,0,0,0,0,0]);
             ccd.Set('chart.background.barcolor1', 'white');
             ccd.Set('chart.background.barcolor2', 'white');
             ccd.Set('chart.colors', ['blue']);
@@ -43,7 +43,7 @@
             <h2>Class Complexity</h2>
             <canvas id="classComplexity" width="475" height="200"></canvas>
             <script>
-            var cc = new RGraph.Scatter('classComplexity', [[0,0,"blue","Enderecos"],[0,0,"blue","Login"],[0,0,"blue","LogsLogin"],[0,0,"blue","Realiza"],[0,0,"blue","Repositorios"],[0,0,"blue","SubTarefas"],[0,0,"blue","Tarefas"],[0,0,"blue","TrabalhaEm"],[100,4,"blue","Usuarios"],[0,0,"blue","VRealiza"],[0,0,"blue","VRelatorioProdCol"],[0,0,"blue","VRelatorioProdProj"],[0,0,"blue","VSubTarefa"],[0,0,"blue","VTarefaUsuario"],[0,0,"blue","VUsuarioProjeto"]]);
+            var cc = new RGraph.Scatter('classComplexity', [[0,1,"blue","Zend_View_Helper_FormataCPF"],[0,4,"blue","Zend_View_Helper_FormataData"],[0,1,"blue","Zend_View_Helper_FormataTelefone"]]);
             cc.Set('chart.xmax', 100);
             cc.Set('chart.background.barcolor1', 'white');
             cc.Set('chart.background.barcolor2', 'white');
@@ -59,6 +59,7 @@
           <td valign="top">
             <h2>Top Project Risks</h2>
             <ul>
+              <li><a href="views_helpers_FormataData.php.html#3">Zend_View_Helper_FormataData</a> (20)</li>
 
             </ul>
           </td>
@@ -66,6 +67,10 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
+              <li><a href="views_helpers_FormataTelefone.php.html#6">Zend_View_Helper_FormataTelefone::formataTelefone</a> (0%)</li>
+              <li><a href="views_helpers_FormataData.php.html#30">Zend_View_Helper_FormataData::getDate</a> (0%)</li>
+              <li><a href="views_helpers_FormataData.php.html#17">Zend_View_Helper_FormataData::formataData</a> (0%)</li>
+              <li><a href="views_helpers_FormataCPF.php.html#10">Zend_View_Helper_FormataCPF::formataCPF</a> (0%)</li>
 
             </ul>
           </td>

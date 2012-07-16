@@ -5,12 +5,13 @@
  *
  * @author acarlos
  */
-class ModelUserTest extends PHPUnit_Framework_TestCase{
+class ModelUserTest extends ControllerTestCase{
     
     private $user;
     
     public function setUp()
     {
+        parent::setUp();
         $this->user = new Usuarios();
        
     }
