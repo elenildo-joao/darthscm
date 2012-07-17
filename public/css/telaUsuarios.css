@@ -1,9 +1,9 @@
 #tabelaUsuarios {
-    position: absolute;
-    border-collapse:collapse;
-    background: #FFE9E8;
-    left: 180px;
-    margin-top: 80px;
+position: relative;
+border-collapse:collapse;
+background: #FFE9E8;
+left: 4%;
+margin-top: 80px;
 }
 
 #tabelaUsuarios, td, th {
