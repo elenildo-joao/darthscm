@@ -29,34 +29,57 @@
     color: gray;
 }
 
+fieldset {
+    margin-top: 60px;
+    margin-left: 25%;
+    padding: 2%;
+    border: 2px solid #D8D8D8;
+    width: 60%;
+}
+
+legend {
+  padding: 1%;
+  background: #D8D8D8;
+  font: bold 12px Arial;
+}
+
 #entrada {
     position: absolute;
     margin: 50px auto 0px 250px;
+    border-right-color: #00F;
 }
 
-#entrada a {
-    text-decoration: none;
-}
-
-#entrada ul {
-    width: 600px;
+#email {
+    width: auto;
     height: 40px;
     background: #ffffff; /* Old browsers */
-background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+background: -moz-linear-gradient(top, #ffffff 0%, #fafafa 47%, #f6f6f6 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#fafafa), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#fafafa 47%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#fafafa 47%,#f6f6f6 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#fafafa 47%,#f6f6f6 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffffff 0%,#fafafa 47%,#f6f6f6 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
     border: 1px solid #ebf0e6;
 }
 
-#entrada li {
-    padding: 2px;
-    margin-right: 10px;
+#email li {
+    padding: 4px;
     list-style: none;
     display: inline;
+    font: 14px Arial;
+}
+
+#email li a{
+    text-decoration: none;
+}
+
+#remover{
+    float: right;
+}
+
+#visualizar{
+    float: right;
 }
 
 .lida {

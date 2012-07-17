@@ -12,28 +12,18 @@
     </ul>
 </div>
 
- <div id="entrada">    
+<fieldset>
+    <legend>Caixa de Entrada</legend> 
     <?php
         foreach ($this->paginator as $destinatario):
         if ($destinatario->lida == 't') $lida='Lida'; else $lida='Nao'; ?>
 
     
-    <ul value="<?php if ($lida=='Lida') echo ("class='lida'") ?>">
+    <ul id="email" value="<?php if ($lida=='Lida') echo ("class='lida'") ?>">
             <li><?= $destinatario->nomeremetente ?> - </li>
             <li><?= $destinatario->assunto ?> - </li>
             <li><?= $destinatario->datahora ?> </li>
-            <li>
-                <a href="
-                    <?php
-                    echo $this->url(array('controller' => 'mensagens',
-                        'action' => 'visualizar',
-                        'id' => $destinatario->idmensagem
-                            )
-                    );
-                    ?>" 
-                   title="Visualizar"><img src="/imagens/search_lense.png"/>
-                </a></li>
-                
+           
             <li id="remover">
                 <a href="
                     <?php
@@ -46,12 +36,24 @@
                    title="Remover"><img src="/imagens/delete_2.png"/>
                 </a>
             </li>
+            <li id="visualizar">
+                <a href="
+                    <?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'visualizar',
+                        'id' => $destinatario->idmensagem
+                            )
+                    );
+                    ?>" 
+                   title="Visualizar"><img src="/imagens/search_lense.png"/>
+                </a></li>
+                
         </ul>
         <?php
         
     endforeach;
     ?>
- </div>        
+ </fieldset>     
 
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>
