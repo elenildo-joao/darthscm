@@ -1,3 +1,6 @@
+<?php $this->headLink()->appendStylesheet('/css/telaVisualizarMsg.css');?>
+<fieldset>
+<legend> Mensagem </legend>
 <?php
 foreach ($this->mensagem as $msg):
     foreach ($this->usuario as $usu):
@@ -18,11 +21,11 @@ foreach ($this->mensagem as $msg):
                  echo ('.');
          ?>
         </p>
-        <p><?= $msg->datahora ?></p>
-        <p><?= $msg->assunto ?></p>
-        <p><?= $msg->conteudo ?></p>
+        <p>Data: <?= $msg->datahora ?></p>
+        <p>Assunto: <?= $msg->assunto ?></p>
+        <p>Mensagem: <br/><br/><?= $msg->conteudo ?></p>
 <?php 
         } 
     endforeach; 
 endforeach; 
-?>
+?></fieldset>
