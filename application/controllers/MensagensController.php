@@ -117,16 +117,67 @@ class MensagensController extends Zend_Controller_Action
     public function removerAction() {
         $idMensagem = (int) $this->_getParam('id');
 
-        $dadosRemove = array('excluida' => 't');
+        $dadosRemove = array('excluida' => 't', 'lixeira' => 'f' );
 
         $whereRemove = $this->destinatario->getAdapter()
                ->quoteInto('idmensagem = ?', (int) $idMensagem);
            
         $this->destinatario->update($dadosRemove, $whereRemove);
-
+        $this->view->mensagemErro='Mensagem Removida com Sucesso!';
 //        $this->_redirect('/usuarios/listar');
     }
 
+    public function removerSaidaAction() {
+        $idMensagem = (int) $this->_getParam('id');
+
+        $dadosRemove = array('excluida' => 't', 'lixeira' => 'f');
+
+        $whereRemove = $this->mensagem->getAdapter()
+               ->quoteInto('idmensagem = ?', (int) $idMensagem);
+        
+        $this->mensagem->update($dadosRemove, $whereRemove);
+        $this->view->mensagemErro='Mensagem Removida com Sucesso!';
+//        $this->_redirect('/usuarios/listar');
+    }
+    
+    public function visualizarAction() {
+        $idMensagem = (int) $this->_getParam('id');
+        $this->view->mensagem=$this->mensagem
+                ->fetchAll(
+                        $this->mensagem->select()->where('idmensagem = ?', $idMensagem)
+                );
+        $this->view->usuario=$this->usuario
+                ->fetchAll(
+                        $this->usuario->select()
+                );
+        $this->view->vDestinatarios = $this->vMsgEnviada
+                 ->fetchAll(
+                     $this->vMsgEnviada->select()->where('idmensagem = ?', $idMensagem)
+                  );
+        $dadosVisualiza = array('msglida' => 't');
+
+        $whereVisualiza = $this->destinatario->getAdapter()
+               ->quoteInto(array('idmensagem = ?' => (int) $idMensagem, 'destinatario' => $this->usuarioLogado->idusuario));
+           
+        $this->destinatario->update($dadosVisualiza, $whereVisualiza);
+    }
+    
+    public function visualizarSaidaAction() {
+        $idMensagem = (int) $this->_getParam('id');
+        $this->view->mensagem=$this->mensagem
+                ->fetchAll(
+                        $this->mensagem->select()->where('idmensagem = ?', $idMensagem)
+                );
+        $this->view->usuario=$this->usuario
+                ->fetchAll(
+                        $this->usuario->select()
+                );
+        $this->view->vDestinatarios = $this->vMsgEnviada
+                 ->fetchAll(
+                     $this->vMsgEnviada->select()->where('idmensagem = ?', $idMensagem)
+                  );
+    }
+       
     public function caixaSaidaAction(){
         $paginator = Zend_Paginator::factory(
                         $this->mensagem
