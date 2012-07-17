@@ -6,13 +6,14 @@ class LoginController extends Zend_Controller_Action
     private $usuario;
     private $login;
     private $db;
+    private $redefinirSenha;
 
     public function init()
     {
         $this->usuario = new Usuarios();
         $this->login = new Login();
         $this->db = Zend_Db_Table::getDefaultAdapter();
-        
+        $this->redefinirSenha = new RedefinirSenha();
         
     }
 
@@ -72,13 +73,28 @@ class LoginController extends Zend_Controller_Action
                     );
     }
     
+    public function solicitarAction(){
+        $this->_helper->layout->setLayout('login-red');        
+    }
+    
     public function redefinirAction(){
         $this->_helper->layout->setLayout('login-red');
         
-    }
-    
-    public function novaSenhaAction(){
-        $this->_helper->layout->setLayout('login-red');
+        if ( $this->_request->isPost() )
+        {
+            $email = $this->_request->getPost('email');
+            
+            $usuario = $this->usuario->fetchRow(
+                    $this->usuario->select()->where('email = ?', $email)
+                    );
+            
+            $hash = sha1(date('dmYHisu'));
+            
+            $dados = array('hash'       => $hash,
+                           'usuario_id' => $usuario->idusuario,
+                           'expirado'   => FALSE
+                    );
+        }
     }
 }
 
