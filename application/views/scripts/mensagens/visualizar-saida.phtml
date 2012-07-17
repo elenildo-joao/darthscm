@@ -1,0 +1,31 @@
+<?php $this->headLink()->appendStylesheet('/css/telaVisualizarMsg.css');?>
+<fieldset>
+<legend> Mensagem </legend>
+<?php
+foreach ($this->mensagem as $msg):
+    foreach ($this->usuario as $usu):
+        if ($msg->remetente==$usu->idusuario){
+?>
+        <p> Rementente: <?= $usu->nome ?></p> 
+<?php
+        $destinatarios="";
+        foreach ($this->vDestinatarios as $dest):
+                $destinatarios=$destinatarios.$dest->nomedestinatario.", ";
+        endforeach; ?>
+        <p> Destinatarios: 
+        <?php
+             for ($x=0; $x<strlen($destinatarios)-2; $x++){
+                 echo ($destinatarios[$x]);
+             }
+             if ($x!=0)
+                 echo ('.');
+         ?>
+        </p>
+        <p>Data: <?= $msg->datahora ?></p>
+        <p>Assunto: <?= $msg->assunto ?></p>
+        <p>Mensagem: <br/><br/><?= $msg->conteudo ?></p>
+<?php 
+        } 
+    endforeach; 
+endforeach; 
+?></fieldset>

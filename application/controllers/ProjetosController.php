@@ -263,7 +263,8 @@ class ProjetosController extends Zend_Controller_Action
             $usuTrabalhaEm = $this->trabalhaEm->find($idUsuario, $idProjeto)->current();
             
             if($usuTrabalhaEm){
-                $whereAtualiza = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
+                $whereAtualiza = $this->trabalhaEm->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario).
+                                 $this->trabalhaEm->getAdapter()->quoteInto('AND idprojeto = ?', (int) $idProjeto);
                 $this->trabalhaEm->update($dadosAtualizar, $whereAtualiza);
             } else{
             $this->trabalhaEm->insert($dados);
@@ -304,11 +305,14 @@ class ProjetosController extends Zend_Controller_Action
             $this->view->vRealiza  = $tarefas;
 
             foreach($this->vRealiza as $tarefa):
-                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => $tarefa->idtarefa, 'idprojeto = ?' => $tarefa->idprojeto, 'idusuario = ?' => (int) $idUsuario));
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', $tarefa->idtarefa).
+                                $this->realiza->getAdapter()->quoteInto('AND idprojeto = ?', $tarefa->idprojeto).
+                                $this->realiza->getAdapter()->quoteInto('AND idusuario = ?', (int) $idUsuario);
                 $this->realiza->update($dadosRealiza, $whereRealiza);
             endforeach;            
 
-            $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idprojeto = ?' => (int) $idProjeto));
+            $whereTrabalha = $this->trabalhaEm->getAdapter()->quoteInto('idusuario = ?', (int) $idUsuario).
+                             $this->trabalhaEm->getAdapter()->quoteInto('AND idprojeto = ?', (int) $idProjeto);
             $this->trabalhaEm->update($dadosTrabalha, $whereTrabalha);
 
             $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
@@ -502,7 +506,8 @@ class ProjetosController extends Zend_Controller_Action
             $usuRealizaTar = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
             
             if($usuRealizaTar){
-                $whereAtualiza = $this->realiza->getAdapter()->quoteInto(array('idtarefa = ?' => (int) $idTarefa, 'idusuario = ?' => (int) $idUsuario));
+                $whereAtualiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa).
+                                 $this->realiza->getAdapter()->quoteInto('AND idusuario = ?', (int) $idUsuario);
                 $this->realiza->update($dadosAtualiza, $whereAtualiza);
             }
             else{
@@ -536,7 +541,9 @@ class ProjetosController extends Zend_Controller_Action
             $usuariosTarefas = $this->vRealiza->fetchAll($this->vRealiza->select()->where('idtarefa = ?', $idTarefa)->where ('idusuario = ?', $idUsuario));
             
             foreach ( $usuariosTarefas as $usuarioTarefa ){
-                $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $usuarioTarefa->idusuario, 'idtarefa = ?' => (int) $usuarioTarefa->idtarefa, 'idprojeto = ?' => (int) $usuarioTarefa->idprojeto));
+                $whereRealiza = $this->realiza->getAdapter()->quoteInto('idusuario = ?', (int) $usuarioTarefa->idusuario).
+                                $this->realiza->getAdapter()->quoteInto('AND idtarefa = ?', (int) $usuarioTarefa->idtarefa).
+                                $this->realiza->getAdapter()->quoteInto('AND idprojeto = ?', (int) $usuarioTarefa->idprojeto);
                 $this->realiza->update($dadosRealiza, $whereRealiza);
             }
 
@@ -610,7 +617,7 @@ class ProjetosController extends Zend_Controller_Action
 //            $int1->h=$this->_request->getPost('horas');
 //            $int1->i=$this->_request->getPost('minutos');
             $tempo=$this->_request->getPost('tempo');
-            $realiza = $this->realiza->find($idTarefa, $idProjeto, $idUsuario)->current();
+            $realiza = $this->realiza->find($idTarefa, $idProjeto, (int) $this->usuarioLogado->idusuario)->current();
             projetos::trataInterval (&$tempo, &$int1);             
             $tempo=$realiza->tempo;
             $int2=new DateInterval('P0D');
@@ -628,7 +635,8 @@ class ProjetosController extends Zend_Controller_Action
                     'tempo'      => $int2->d.' '.$int2->h.':'.$int2->i.':00'
                 );
             }  
-            $whereRealiza = $this->realiza->getAdapter()->quoteInto(array('idusuario = ?' => (int) $idUsuario, 'idtarefa = ?' => (int) $idTarefa));
+            $whereRealiza = $this->realiza->getAdapter()->quoteInto('idusuario = ?', (int) $this->usuarioLogado->idusuario).
+                            $this->realiza->getAdapter()->quoteInto('AND idtarefa = ?', (int) $idTarefa);
             $this->realiza->update($dadosRealiza, $whereRealiza);
             $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
             $this->view->tarefa  = $tarefa;

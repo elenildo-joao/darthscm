@@ -8,7 +8,7 @@
                 foreach ($this->paginator as $usuarioProjeto):
                 ?>
                 <li><p><?=$usuarioProjeto->nomeprojeto ?></p>
-                        <p>Descrição da Projeto: <?=$usuarioProjeto->descricao ?></p>
+                        <p>Descrição da Projeto: <?=$usuarioProjeto->descricao ?></p><br/>
                         <a href="
                             <?php 
                             echo $this->url(array('controller' => 'projetos', 
@@ -30,7 +30,7 @@
         <legend>Mensagens</legend>
             <?php 
             $contMsg=0;
-            foreach($this->destinatario as $dest):
+            foreach($this->vMsgRecebida as $dest):
                $contMsg++;
             endforeach;
             if ($contMsg==0){
@@ -57,7 +57,7 @@
                 foreach ($this->paginator2 as $usuarioTarefa):
                 ?> 
                 <li><p><?= $usuarioTarefa->nometarefa?> </p>
-                        <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p>
+                        <p>Descrição da Tarefa: <?= $usuarioTarefa->descricao?></p><br/>
                         <a href="
                             <?php 
                             echo $this->url(array('controller' => 'projetos', 
