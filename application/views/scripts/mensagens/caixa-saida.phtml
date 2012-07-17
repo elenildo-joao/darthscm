@@ -5,6 +5,7 @@
 
 
 <div id="confMsg">
+<<<<<<< HEAD
     <ul >
         <li><a href="<?php
                     echo $this->url(array('controller' => 'mensagens',
@@ -24,24 +25,41 @@
                             )
                     );
                     ?>">Caixa de saída</a></li>
+=======
+    <ul>
+        <li><a href="#">Caixa de Entrada</a></li>
+        <li><a href="#">Nova Mensagem</a></li>
+        <li><a href="#">Enviadas</a></li>
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
     </ul>
 </div>
 
+<fieldset>
+    <legend>Caixa de Entrada</legend> 
 
 <fieldset>
     <legend>Caixa de Saída</legend> 
     <?php
     foreach ($this->paginator as $saida):
     ?>
+<<<<<<< HEAD
         <ul id="email"> 
            <?php
+=======
+       <ul id="email">
+           <li><?php
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
                 $destinatarios="";
                 foreach ($this->vDestinatarios as $dest):
                     if($dest->idmensagem==$saida->idmensagem){
                         $destinatarios=$destinatarios.$dest->nomedestinatario.", ";
                     }
                 endforeach; ?>
+<<<<<<< HEAD
             <li> Para: 
+=======
+               
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
                 <?php
                      for ($x=0; $x<strlen($destinatarios)-2; $x++){
                          echo ($destinatarios[$x]);
@@ -49,10 +67,36 @@
                      if ($x!=0)
                          echo ('.');
                  ?>
+<<<<<<< HEAD
             </li>
             <li> - <?= $saida->assunto ?></li>
             <li> - <?= $saida->datahora ?></li>
             <li id="visualizar">
+=======
+           </li>
+            <li><?= $saida->datahora ?></li>
+            <li><?= $saida->assunto ?></li>
+
+            <li id="remover">
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
+                <a href="
+                <?php
+                echo $this->url(array('controller' => 'mensagens',
+                    'action' => 'remover',
+                    'id' => $saida->idmensagem
+                        )
+                );
+                ?>" 
+                   title="Remover"><img src="/imagens/email-delete-icon.png"/>
+                </a>
+            </li>
+<<<<<<< HEAD
+
+            <li id="remover">
+=======
+            
+            <li id="visualizar">
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
                 <a href="
                 <?php
                 echo $this->url(array('controller' => 'mensagens',
@@ -65,24 +109,19 @@
                 </a>
             </li>
 
-            <li id="remover">
-                <a href="
-                <?php
-                echo $this->url(array('controller' => 'mensagens',
-                    'action' => 'remover',
-                    'id' => $saida->idmensagem
-                        )
-                );
-                ?>" 
-                   title="Remover"><img src="/imagens/delete_2.png"/>
-                </a>
-            </li>
-
+<<<<<<< HEAD
         </ul>
+=======
+       </ul>
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
         <?php
         
     endforeach;
     ?>
+<<<<<<< HEAD
+=======
+</fieldset>
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
 
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>

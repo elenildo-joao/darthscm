@@ -1,5 +1,4 @@
 #confMsg {
-    margin-top: 50px;
     position: absolute;
 }
 
@@ -31,10 +30,10 @@
 
 fieldset {
     margin-top: 60px;
-    margin-left: 25%;
+    margin-left: 20%;
     padding: 2%;
     border: 2px solid #D8D8D8;
-    width: 60%;
+    width: 70%;
 }
 
 legend {
@@ -49,8 +48,7 @@ legend {
     border-right-color: #00F;
 }
 
-#email {
-    width: auto;
+#email{
     height: 40px;
     background: #ffffff; /* Old browsers */
 background: -moz-linear-gradient(top, #ffffff 0%, #fafafa 47%, #f6f6f6 100%); /* FF3.6+ */
@@ -62,6 +60,8 @@ background: linear-gradient(to bottom, #ffffff 0%,#fafafa 47%,#f6f6f6 100%); /* 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
     border: 1px solid #ebf0e6;
 }
+
+
 
 #email li {
     padding: 4px;
@@ -108,8 +108,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 #paginacao {
+<<<<<<< HEAD
     margin-top: 10px;
     position: relative;
+=======
+    margin-top: 5px;
+    position: absolute;
+>>>>>>> 4c82f2478d09b2660a11e2134b3ae3967abea1f7
     float: left;
     margin-left: 10px;
 }
