@@ -109,7 +109,9 @@
                             ); 
                     ?>" 
                     title="Desalocar"><img src="/imagens/desalocar.png"/>
-                    </a></li>            <li><a href="
+                    </a></li>
+<?php if($estado=='ABERTA'){ ?>
+            <li><a href="
                 <?php 
                 echo $this->url(array('controller' => 'projetos', 
                                     'action'     => 'adicionar-tempo', 
@@ -120,7 +122,7 @@
                 ?>" 
                 title="Adicionar"><img src="/imagens/time_clock.png"/>
             </a></li>
-
+<?php } ?>
             <li><a href="
                 <?php 
                 echo $this->url(array('controller' => 'projetos', 

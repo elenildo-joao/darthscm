@@ -6,9 +6,24 @@
 
 <div id="confMsg">
     <ul>
-        <li><a href="#">Caixa de Entrada</a></li>
-        <li><a href="#">Nova Mensagem</a></li>
-        <li><a href="#">Enviadas</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'listar',
+                            )
+                    );
+                    ?>">Caixa de Entrada</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'novo',
+                            )
+                    );
+                    ?>">Nova Mensagem</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'caixa-saida',
+                            )
+                    );
+                    ?>">Caixa de saída</a></li>
     </ul>
 </div>
 
@@ -19,7 +34,7 @@
         if ($destinatario->lida == 't') $lida='Lida'; else $lida='Nao'; ?>
 
     
-    <ul id="email" value="<?php if ($lida=='Lida') echo ("class='lida'") ?>">
+    <ul <?php if ($lida=='Lida') echo ('id="email"'); else echo('id="nlida"');?>>
             <li><?= $destinatario->nomeremetente ?> - </li>
             <li><?= $destinatario->assunto ?> - </li>
             <li><?= $destinatario->datahora ?> </li>
@@ -53,13 +68,7 @@
         
     endforeach;
     ?>
- </fieldset>     
-
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>
 </div>
-
-<div id="botaoCad">
-    <a href="<?php echo $this->url(array('controller' => 'mensagens', 'action' => 'novo')); ?>" 
-       title="Enviar">Enviar Mensagem</a>
-</div>
+ </fieldset>     

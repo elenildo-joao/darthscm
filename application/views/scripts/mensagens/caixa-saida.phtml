@@ -5,27 +5,43 @@
 
 
 <div id="confMsg">
-    <ul>
-        <li><a href="#">Caixa de Entrada</a></li>
-        <li><a href="#">Nova Mensagem</a></li>
-        <li><a href="#">Enviadas</a></li>
+    <ul >
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'listar',
+                            )
+                    );
+                    ?>">Caixa de Entrada</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'novo',
+                            )
+                    );
+                    ?>">Nova Mensagem</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'caixa-saida',
+                            )
+                    );
+                    ?>">Caixa de saída</a></li>
+
     </ul>
 </div>
 
 <fieldset>
-    <legend>Caixa de Entrada</legend> 
-
+    <legend>Caixa de Saída</legend> 
     <?php
     foreach ($this->paginator as $saida):
     ?>
-       <ul id="email">
-           <li><?php
+        <ul id="email"> 
+           <?php
                 $destinatarios="";
                 foreach ($this->vDestinatarios as $dest):
                     if($dest->idmensagem==$saida->idmensagem){
                         $destinatarios=$destinatarios.$dest->nomedestinatario.", ";
                     }
                 endforeach; ?>
+            <li> Para: 
                
                 <?php
                      for ($x=0; $x<strlen($destinatarios)-2; $x++){
@@ -34,15 +50,15 @@
                      if ($x!=0)
                          echo ('.');
                  ?>
-           </li>
-            <li><?= $saida->datahora ?></li>
-            <li><?= $saida->assunto ?></li>
+            </li>
+            <li> - <?= $saida->assunto ?></li>
+            <li> - <?= $saida->datahora ?></li>
 
             <li id="remover">
                 <a href="
                 <?php
                 echo $this->url(array('controller' => 'mensagens',
-                    'action' => 'remover',
+                    'action' => 'remover-saida',
                     'id' => $saida->idmensagem
                         )
                 );
@@ -69,13 +85,10 @@
         
     endforeach;
     ?>
-</fieldset>
-
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>
 </div>
+</fieldset>
 
-<div id="botaoCad">
-    <a href="<?php echo $this->url(array('controller' => 'mensagens', 'action' => 'novo')); ?>" 
-       title="Enviar">Enviar Mensagem</a>
-</div>
+
+
