@@ -1,0 +1,81 @@
+<?php echo $this->headLink()->appendStylesheet('/css/telaMensagens.css');
+      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
+      echo $this->headScript()->appendFile('/js/layoutTabela.js');
+?>
+
+
+<div id="confMsg">
+    <ul>
+        <li><a href="#">Caixa de Entrada</a></li>
+        <li><a href="#">Nova Mensagem</a></li>
+        <li><a href="#">Enviadas</a></li>
+    </ul>
+</div>
+
+<fieldset>
+    <legend>Caixa de Entrada</legend> 
+
+    <?php
+    foreach ($this->paginator as $saida):
+    ?>
+       <ul id="email">
+           <li><?php
+                $destinatarios="";
+                foreach ($this->vDestinatarios as $dest):
+                    if($dest->idmensagem==$saida->idmensagem){
+                        $destinatarios=$destinatarios.$dest->nomedestinatario.", ";
+                    }
+                endforeach; ?>
+               
+                <?php
+                     for ($x=0; $x<strlen($destinatarios)-2; $x++){
+                         echo ($destinatarios[$x]);
+                     }
+                     if ($x!=0)
+                         echo ('.');
+                 ?>
+           </li>
+            <li><?= $saida->datahora ?></li>
+            <li><?= $saida->assunto ?></li>
+
+            <li id="remover">
+                <a href="
+                <?php
+                echo $this->url(array('controller' => 'mensagens',
+                    'action' => 'remover',
+                    'id' => $saida->idmensagem
+                        )
+                );
+                ?>" 
+                   title="Remover"><img src="/imagens/email-delete-icon.png"/>
+                </a>
+            </li>
+            
+            <li id="visualizar">
+                <a href="
+                <?php
+                echo $this->url(array('controller' => 'mensagens',
+                    'action' => 'visualizar-saida',
+                    'id' => $saida->idmensagem
+                        )
+                );
+                ?>" 
+                   title="Visualizar"><img src="/imagens/search_lense.png"/>
+                </a>
+            </li>
+
+       </ul>
+        <?php
+        
+    endforeach;
+    ?>
+</fieldset>
+
+<div id="paginacao">
+    <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>
+</div>
+
+<div id="botaoCad">
+    <a href="<?php echo $this->url(array('controller' => 'mensagens', 'action' => 'novo')); ?>" 
+       title="Enviar">Enviar Mensagem</a>
+</div>

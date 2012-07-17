@@ -81,3 +81,6 @@ input, select {
 	cursor: pointer;
 }
 
+div.ui-datepicker, .ui-datepicker td{
+    font-size: 12px;
+}

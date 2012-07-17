@@ -1,78 +1,59 @@
-<?php echo $this->headLink()->appendStylesheet('/css/telaUsuarios.css');
+<?php echo $this->headLink()->appendStylesheet('/css/telaMensagens.css');
       echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
       echo $this->headScript()->appendFile('/js/layoutTabela.js');
 ?>
 
 
+<div id="confMsg">
+    <ul>
+        <li><a href="#">Caixa de Entrada</a></li>
+        <li><a href="#">Nova Mensagem</a></li>
+        <li><a href="#">Enviadas</a></li>
+    </ul>
+</div>
 
-<table id="tabelaUsuarios" border="1">
-    <tr>
-        <th id="nome">Remetente</th>
-        <th id="email">Data</th>
-        <th id="login1">Assunto</th>
-
-        <th id="telefone">Lida?</th>
-
-        <th id="visualizar">Visualizar</th>
-
-        <th id="remover">Excluir</th>
-    </tr>
-
-
-
+<fieldset>
+    <legend>Caixa de Entrada</legend> 
     <?php
-    foreach ($this->paginator as $destinatario):
-        foreach ($this->seimon as $mensagem):
-        if($destinatario->idmensagem == $mensagem->idmensagem){
-        
-            
-        
-?>
-        <tr>
-            <td><?= $destinatario->remetente ?></td>
-            <td><?= $mensagem->datahora ?></td>
-            <td><?= $mensagem->assunto ?></td>
+        foreach ($this->paginator as $destinatario):
+        if ($destinatario->lida == 't') $lida='Lida'; else $lida='Nao'; ?>
 
-            <td><? if ($destinatario->msglida == 't') echo ('Lida'); else echo ('Nao lida'); ?></td>
-
-
-
-
-
-            <td>
+    
+    <ul id="email" value="<?php if ($lida=='Lida') echo ("class='lida'") ?>">
+            <li><?= $destinatario->nomeremetente ?> - </li>
+            <li><?= $destinatario->assunto ?> - </li>
+            <li><?= $destinatario->datahora ?> </li>
+           
+            <li id="remover">
                 <a href="
-                <?php
-                echo $this->url(array('controller' => 'mensagens',
-                    'action' => 'visualizar',
-                    'id' => $mensagem->idmensagem
-                        )
-                );
-                ?>" 
+                    <?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'remover',
+                        'id' => $destinatario->idmensagem
+                            )
+                    );
+                    ?>" 
+                   title="Remover"><img src="/imagens/email-delete-icon.png"/>
+                </a>
+            </li>
+            <li id="visualizar">
+                <a href="
+                    <?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'visualizar',
+                        'id' => $destinatario->idmensagem
+                            )
+                    );
+                    ?>" 
                    title="Visualizar"><img src="/imagens/search_lense.png"/>
-                </a>
-            </td>
-
-            <td>
-                <a href="
-                <?php
-                echo $this->url(array('controller' => 'mensagens',
-                    'action' => 'remover',
-                    'id' => $mensagem->idmensagem
-                        )
-                );
-                ?>" 
-                   title="Remover"><img src="/imagens/delete_2.png"/>
-                </a>
-            </td>
-
-        </tr>
+                </a></li>
+                
+        </ul>
         <?php
-        }
-        endforeach;
         
     endforeach;
     ?>
-</table>
+ </fieldset>     
 
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>

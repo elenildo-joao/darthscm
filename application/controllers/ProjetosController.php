@@ -62,12 +62,9 @@ class ProjetosController extends Zend_Controller_Action
            $this->vUsuarioProjeto
                     ->fetchAll(
                             $this->vUsuarioProjeto->select()
-                            ->where('papel= ? ', 'gerente')
-                            ->orWhere('papel = ?', 'GERENTE')
+                            ->where('idusuario= ? ', $this->usuarioLogado->idusuario)
                             ->order('datainicioprojeto DESC')
-                            ));
-
-       
+                            ));       
    
         $paginator->setItemCountPerPage(2);
         $this->view->paginator = $paginator;

@@ -10,6 +10,9 @@ class IndexController extends Zend_Controller_Action
     
     private $vUsuarioProjeto;
     private $vTarefaUsuario;
+//    private $mensagem;
+//    private $destinatario;
+    private $vMsgRecebida;
 
     public function init()
     {
@@ -25,6 +28,9 @@ class IndexController extends Zend_Controller_Action
         $this->usuario = new Usuarios();
         $this->usuarioProjeto = new VUsuarioProjeto();
         $this->usuarioTarefa = new VTarefaUsuario();
+//        $this->mensagem = new Mensagens();
+//        $this->destinatario = new Destinatarios();
+        $this->vMsgRecebida = new VMsgRecebida();
         
         $this->view->usuarioLogado = $this->usuario->find(
                 $this->usuarioLogado->idusuario
@@ -67,6 +73,11 @@ class IndexController extends Zend_Controller_Action
             $paginator2->setItemCountPerPage(4);
             $this->view->paginator2 = $paginator2;
             $paginator2->setCurrentPageNumber($this->_getParam('page2'));
+            
+            $this->view->vMsgRecebida=$this->vMsgRecebida
+               ->fetchAll(
+                    $this->vMsgRecebida->select()->where('destinatario = ?', $this->usuarioLogado->idusuario)->where('lida = ?', 'f')
+                    );
         }
 }
 

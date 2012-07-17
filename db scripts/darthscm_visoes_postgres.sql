@@ -124,9 +124,9 @@ WHERE UPPER(a.estado)='APROVADO' AND UPPER(s.estado)='APROVADO'
 -- ------------------------------------------------------------------------
 -- Visualizar historico de mensagens enviadas
 -- ------------------------------------------------------------------------
-CREATE OR REPLACE VIEW vMensagensEnviadas (idmensagem, idremetente, assunto, conteudo, datahora, lida, destinatario) AS
-SELECT m.idmensagem, m.remetente, m.assunto, m.conteudo, m.datahora, d.msglida, d.destinatario
-FROM mensagens AS m JOIN destinatarios AS d ON m.idmensagem=d.idmensagem AND m.remetente=d.remetente
+CREATE OR REPLACE VIEW vMensagensEnviadas (idmensagem, idremetente, assunto, conteudo, datahora, lida, iddestinatario, nomedestinatario) AS
+SELECT m.idmensagem, m.remetente, m.assunto, m.conteudo, m.datahora, d.msglida, d.destinatario, u.nome
+FROM mensagens AS m JOIN destinatarios AS d ON m.idmensagem=d.idmensagem AND m.remetente=d.remetente JOIN usuarios AS u ON u.idusuario=d.destinatario
 WHERE m.lixeira=false AND m.excluida=false
 ORDER BY m.remetente, m.datahora
 ;
@@ -144,9 +144,9 @@ ORDER BY m.datahora
 -- ------------------------------------------------------------------------
 -- Visualizar historico de mensagens recebidas
 -- ------------------------------------------------------------------------
-CREATE OR REPLACE VIEW vMensagensRecebidas (idmensagem, idremetente, assunto, conteudo, datahora, lida, destinatario) AS
-SELECT m.idmensagem, m.remetente,  m.assunto, m.conteudo, m.datahora, d.msglida, d.destinatario
-FROM mensagens AS m JOIN destinatarios AS d ON m.idmensagem=d.idmensagem AND m.remetente=d.remetente
+CREATE OR REPLACE VIEW vMensagensRecebidas (idmensagem, idremetente, nomeremetente, assunto, conteudo, datahora, lida, destinatario) AS
+SELECT m.idmensagem, m.remetente, u.nome,  m.assunto, m.conteudo, m.datahora, d.msglida, d.destinatario
+FROM mensagens AS m JOIN destinatarios AS d ON m.idmensagem=d.idmensagem AND m.remetente=d.remetente JOIN usuarios as u ON u.idusuario=m.remetente
 WHERE d.lixeira=false AND d.excluida=false
 ORDER BY d.destinatario, m.datahora
 ;
