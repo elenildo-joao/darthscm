@@ -1,5 +1,11 @@
+<?php 
+if ($this->emailEnviado):
+    echo '<p>Foi enviado um e-mail com informações de como realizar a alteração da senha.</p>';
+    echo '<p>Verifique sua caixa de entrada.</p>';
+else:
+?>
 <div id="geral">
-    <form action="redefinir" method="post">
+    <form action="solicitar" method="post">
         <label>Email:
             <br />
             <input type="text" name="email" size="50" placeholder="Digite seu email"/>
@@ -9,3 +15,4 @@
         <br /><br />
     </form>
 </div>
+<?php endif; ?>

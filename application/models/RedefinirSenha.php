@@ -3,8 +3,8 @@
 class RedefinirSenha extends Zend_Db_Table_Abstract
 {
 
-    protected $_name = 'destinatarios';
-    protected $_depedentTables = array('usuarios', 'mensagens');
+    protected $_name = 'redefinirsenha';
+    protected $_primary = 'hash';
     
 }
 
