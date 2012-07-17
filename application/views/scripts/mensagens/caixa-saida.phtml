@@ -1,20 +1,39 @@
-<table border="1">
-    <tr>
-        <th id="nome">Destinatarios</th>
-        <th id="data">Data</th>
-        <th id="assunto">Assunto</th>
-
-        <th id="visualizar">Visualizar</th>
-
-        <th id="remover">Excluir</th>
-    </tr>
+<?php echo $this->headLink()->appendStylesheet('/css/telaMensagens.css');
+      echo $this->headScript()->appendFile('/js/jquery-1.7.2.js');
+      echo $this->headScript()->appendFile('/js/layoutTabela.js');
+?>
 
 
+<div id="confMsg">
+    <ul >
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'listar',
+                            )
+                    );
+                    ?>">Caixa de Entrada</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'novo',
+                            )
+                    );
+                    ?>">Nova Mensagem</a></li>
+        <li><a href="<?php
+                    echo $this->url(array('controller' => 'mensagens',
+                        'action' => 'caixa-saida',
+                            )
+                    );
+                    ?>">Caixa de saída</a></li>
+    </ul>
+</div>
 
+
+<fieldset>
+    <legend>Caixa de Saída</legend> 
     <?php
     foreach ($this->paginator as $saida):
     ?>
-        <tr> 
+        <ul id="email"> 
            <?php
                 $destinatarios="";
                 foreach ($this->vDestinatarios as $dest):
@@ -22,7 +41,7 @@
                         $destinatarios=$destinatarios.$dest->nomedestinatario.", ";
                     }
                 endforeach; ?>
-            <td> 
+            <li> Para: 
                 <?php
                      for ($x=0; $x<strlen($destinatarios)-2; $x++){
                          echo ($destinatarios[$x]);
@@ -30,11 +49,10 @@
                      if ($x!=0)
                          echo ('.');
                  ?>
-            </td>
-            <td><?= $saida->datahora ?></td>
-            <td><?= $saida->assunto ?></td>
-
-            <td>
+            </li>
+            <li> - <?= $saida->assunto ?></li>
+            <li> - <?= $saida->datahora ?></li>
+            <li id="visualizar">
                 <a href="
                 <?php
                 echo $this->url(array('controller' => 'mensagens',
@@ -45,9 +63,9 @@
                 ?>" 
                    title="Visualizar"><img src="/imagens/search_lense.png"/>
                 </a>
-            </td>
+            </li>
 
-            <td>
+            <li id="remover">
                 <a href="
                 <?php
                 echo $this->url(array('controller' => 'mensagens',
@@ -58,20 +76,16 @@
                 ?>" 
                    title="Remover"><img src="/imagens/delete_2.png"/>
                 </a>
-            </td>
+            </li>
 
-        </tr>
+        </ul>
         <?php
         
     endforeach;
     ?>
-</table>
 
 <div id="paginacao">
     <?= $this->paginationControl($this->p, 'Sliding', 'my_pagination_control.phtml'); ?>
 </div>
+</fieldset>     
 
-<div id="botaoCad">
-    <a href="<?php echo $this->url(array('controller' => 'mensagens', 'action' => 'novo')); ?>" 
-       title="Enviar">Enviar Mensagem</a>
-</div>
