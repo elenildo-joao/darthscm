@@ -1,0 +1,13 @@
+legend {
+	background: #e8e8e8;
+	font: bold 12px Arial;
+	padding: 1%;
+}
+
+fieldset {
+        width: 60%;
+        /*height: 160px;*/
+	border: 2px solid #e8e8e8;
+        margin-bottom: 10px;
+        padding: 1%;
+}
