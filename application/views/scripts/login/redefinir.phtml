@@ -1,0 +1,24 @@
+<?php echo $this->headLink()->appendStylesheet('/css/novaSenha.css');
+    if( $this->mensagem){
+        echo $this->mensagem;
+    }
+?>
+
+<div id="geral">
+    <form action="/login/redefinir" method="post">
+        <label>Nova Senha: <br />
+            <input type="password" name="senhaNova" size="50" placeholder="Digite sua nova senha"/>
+        </label>
+        <br /> <br />
+        
+        <label><span>Confirmar Senha: </span><br />
+            <input type="password" name="senhaNova2" size="50" placeholder="Digite sua nova senha"/>
+        </label>
+        
+        <input type="hidden" name="hash" value="<?= $this->hash ?>">
+        <input type="hidden" name="idusuario" value="<?= $this->idUsuario ?>">
+        <br /> <br />
+
+        <input id="botao" type="submit" value="OK"/><br/><br/>
+    </form>
+</div>

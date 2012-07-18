@@ -93,7 +93,7 @@ class LoginController extends Zend_Controller_Action
             $this->redefinirSenha->insert($dados);
             
             $mensagem = "Clique no link a seguir para alterar a sua senha:<br />";
-            $mensagem .= "http://darthscm.local/login/solicitar/hash/" . $hash; 
+            $mensagem .= "http://darthscm.local/login/redefinir/hash/" . $hash; 
             
             $assunto = 'Redefinir a senha no DarthSCM.';
 
@@ -121,9 +121,9 @@ class LoginController extends Zend_Controller_Action
         else
         {
             $hash = $this->getRequest()->getPost('hash');
-
+            
             $data = array(
-                        'idusuario'         => $this->getRequest()->getPost('idusuario'),
+                        'idusuario'  => $this->getRequest()->getPost('idusuario'),
                         'senhaNova'  => stripslashes(trim($this->getRequest()->getPost('senhaNova'))),
                         'senhaNova2' => stripslashes(trim($this->getRequest()->getPost('senhaNova2')))
                     );
