@@ -26,7 +26,7 @@
             <h2>Class Coverage Distribution</h2>
             <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
             <script>
-            var ccd = new RGraph.Bar('classCoverageDistribution', [18,2,1,0,0,0,0,0,0,0,0,1]);
+            var ccd = new RGraph.Bar('classCoverageDistribution', [23,2,0,0,0,0,0,0,0,1,0,4]);
             ccd.Set('chart.background.barcolor1', 'white');
             ccd.Set('chart.background.barcolor2', 'white');
             ccd.Set('chart.colors', ['blue']);
@@ -43,7 +43,7 @@
             <h2>Class Complexity</h2>
             <canvas id="classComplexity" width="475" height="200"></canvas>
             <script>
-            var cc = new RGraph.Scatter('classComplexity', [[18.181818181818,3,"blue","IndexController"],[0,7,"blue","LoginController"],[1.6806722689076,41,"blue","ProjetosController"],[4.375,39,"blue","UsuariosController"],[0,0,"blue","Enderecos"],[0,0,"blue","Login"],[0,0,"blue","LogsLogin"],[0,0,"blue","Realiza"],[0,0,"blue","Repositorios"],[0,0,"blue","SubTarefas"],[0,0,"blue","Tarefas"],[0,0,"blue","TrabalhaEm"],[100,4,"blue","Usuarios"],[0,0,"blue","VRealiza"],[0,0,"blue","VRelatorioProdCol"],[0,0,"blue","VRelatorioProdProj"],[0,0,"blue","VSubTarefa"],[0,0,"blue","VTarefaUsuario"],[0,0,"blue","VUsuarioProjeto"],[0,1,"blue","Zend_View_Helper_FormataCPF"],[0,4,"blue","Zend_View_Helper_FormataData"],[0,1,"blue","Zend_View_Helper_FormataTelefone"]]);
+            var cc = new RGraph.Scatter('classComplexity', [[0,3,"blue","IndexController"],[81.818181818182,14,"blue","LoginController"],[0,15,"blue","MensagensController"],[1.4705882352941,46,"blue","ProjetosController"],[4.0229885057471,40,"blue","UsuariosController"],[0,0,"blue","Destinatarios"],[100,3,"blue","Email"],[0,0,"blue","Enderecos"],[100,0,"blue","Login"],[0,0,"blue","LogsLogin"],[0,0,"blue","Mensagens"],[0,0,"blue","Realiza"],[100,0,"blue","RedefinirSenha"],[0,0,"blue","Repositorios"],[0,0,"blue","SubTarefas"],[0,0,"blue","Tarefas"],[0,0,"blue","TrabalhaEm"],[0,6,"blue","UsuarioAutenticado"],[100,4,"blue","Usuarios"],[0,0,"blue","VMsgEnviada"],[0,0,"blue","VMsgRecebida"],[0,0,"blue","VRealiza"],[0,0,"blue","VRelatorioProdCol"],[0,0,"blue","VRelatorioProdProj"],[0,0,"blue","VSubTarefa"],[0,0,"blue","VTarefaUsuario"],[0,0,"blue","VUsuarioProjeto"],[0,1,"blue","Zend_View_Helper_FormataCPF"],[0,4,"blue","Zend_View_Helper_FormataData"],[0,1,"blue","Zend_View_Helper_FormataTelefone"]]);
             cc.Set('chart.xmax', 100);
             cc.Set('chart.background.barcolor1', 'white');
             cc.Set('chart.background.barcolor2', 'white');
@@ -59,11 +59,12 @@
           <td valign="top">
             <h2>Top Project Risks</h2>
             <ul>
-              <li><a href="controllers_ProjetosController.php.html#3">ProjetosController</a> (1638)</li>
-              <li><a href="controllers_UsuariosController.php.html#3">UsuariosController</a> (1368)</li>
-              <li><a href="controllers_LoginController.php.html#3">LoginController</a> (56)</li>
+              <li><a href="controllers_ProjetosController.php.html#3">ProjetosController</a> (2070)</li>
+              <li><a href="controllers_UsuariosController.php.html#3">UsuariosController</a> (1454)</li>
+              <li><a href="controllers_MensagensController.php.html#3">MensagensController</a> (240)</li>
               <li><a href="views_helpers_FormataData.php.html#3">Zend_View_Helper_FormataData</a> (20)</li>
-              <li><a href="controllers_IndexController.php.html#3">IndexController</a> (7)</li>
+              <li><a href="controllers_LoginController.php.html#3">LoginController</a> (15)</li>
+              <li><a href="controllers_IndexController.php.html#3">IndexController</a> (12)</li>
 
             </ul>
           </td>
@@ -71,16 +72,16 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
-              <li><a href="controllers_ProjetosController.php.html#524">ProjetosController::adicionarTempoAction</a> (0%)</li>
-              <li><a href="controllers_UsuariosController.php.html#40">UsuariosController::indexAction</a> (0%)</li>
-              <li><a href="controllers_UsuariosController.php.html#45">UsuariosController::listarAction</a> (0%)</li>
-              <li><a href="controllers_ProjetosController.php.html#480">ProjetosController::novaSubTarefaAction</a> (0%)</li>
-              <li><a href="controllers_ProjetosController.php.html#449">ProjetosController::desalocarUsuarioTarefaAction</a> (0%)</li>
-              <li><a href="controllers_ProjetosController.php.html#385">ProjetosController::fechaTarefa</a> (0%)</li>
-              <li><a href="controllers_ProjetosController.php.html#406">ProjetosController::alocarUsuarioTarefaAction</a> (0%)</li>
-              <li><a href="controllers_UsuariosController.php.html#56">UsuariosController::novoAction</a> (0%)</li>
-              <li><a href="controllers_UsuariosController.php.html#139">UsuariosController::editarAction</a> (0%)</li>
-              <li><a href="views_helpers_FormataData.php.html#30">Zend_View_Helper_FormataData::getDate</a> (0%)</li>
+              <li><a href="controllers_UsuariosController.php.html#44">UsuariosController::indexAction</a> (0%)</li>
+              <li><a href="controllers_ProjetosController.php.html#598">ProjetosController::adicionarTempoAction</a> (0%)</li>
+              <li><a href="controllers_UsuariosController.php.html#49">UsuariosController::listarAction</a> (0%)</li>
+              <li><a href="controllers_UsuariosController.php.html#60">UsuariosController::novoAction</a> (0%)</li>
+              <li><a href="controllers_UsuariosController.php.html#153">UsuariosController::editarAction</a> (0%)</li>
+              <li><a href="controllers_ProjetosController.php.html#554">ProjetosController::novaSubTarefaAction</a> (0%)</li>
+              <li><a href="controllers_ProjetosController.php.html#521">ProjetosController::desalocarUsuarioTarefaAction</a> (0%)</li>
+              <li><a href="controllers_ProjetosController.php.html#437">ProjetosController::removerTarefaAction</a> (0%)</li>
+              <li><a href="controllers_ProjetosController.php.html#447">ProjetosController::fecharTarefaAction</a> (0%)</li>
+              <li><a href="controllers_ProjetosController.php.html#456">ProjetosController::fechaTarefa</a> (0%)</li>
 
             </ul>
           </td>
@@ -92,7 +93,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6-13ubuntu3.8</a> and PHPUnit 3.5.15 at Sat Jul 14 16:00:47 BRT 2012.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6-13ubuntu3.8</a> and PHPUnit 3.5.15 at Wed Jul 18 21:03:55 BRT 2012.</td></tr>
     </table>
 
     <br/>

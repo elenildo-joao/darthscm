@@ -18,7 +18,7 @@ class ModelUserTest extends ControllerTestCase{
 
 
     function testEmailJaExiste(){
-        $this->assertTrue($this->user->emailJaExiste('andersoncarlos@gmail.com'));
+        $this->assertTrue($this->user->emailJaExiste('silasferreira@gmail.com'));
         $this->assertFalse($this->user->emailJaExiste('naoexiste@gmail.com'));
         $this->assertTrue($this->user->emailJaExiste('rafaelasouza@gmail.com'));
         $this->assertFalse($this->user->emailJaExiste('rafaelasouza@gmail.com.br'));

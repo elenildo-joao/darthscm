@@ -48,7 +48,7 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->assertController("projetos");
         $this->assertAction("listar-tarefas");  
     }
-    
+ /*   
    public function testNovoProjeto(){
         $front = Zend_Controller_Front::getInstance();
         $front->setParam('noErrorHandler', true);
@@ -108,7 +108,7 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->dispatch('projetos/remover-tarefa');
         
     }
-    
+    */
     
     
     
