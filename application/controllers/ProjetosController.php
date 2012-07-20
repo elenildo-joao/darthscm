@@ -58,6 +58,22 @@ class ProjetosController extends Zend_Controller_Action
     
     public function listarAction()
     {
+        $usuario = $this->usuario->find($this->usuarioLogado->idusuario)->current();
+        if ($usuario->admin=='t'){
+
+        $paginator = Zend_Paginator::factory(
+           $this->projeto
+                    ->fetchAll(
+                            $this->projeto->select()->from('projetos', array('idprojeto'=>'idprojeto', 'nomeprojeto'=>'nome', 'descricao'=>'descricao', 'datainicioprojeto'=>'datainicio', 'dataprevfim'=>'dataprevfim', 'datafim'=>'datafim'))
+                            ->order('datainicio DESC')
+                            ));       
+   
+        $paginator->setItemCountPerPage(2);
+        $this->view->paginator = $paginator;
+        $paginator->setCurrentPageNumber($this->_getParam('page'));
+
+        }
+        else {
         $paginator = Zend_Paginator::factory(
            $this->vUsuarioProjeto
                     ->fetchAll(
@@ -70,7 +86,7 @@ class ProjetosController extends Zend_Controller_Action
         $this->view->paginator = $paginator;
         $paginator->setCurrentPageNumber($this->_getParam('page'));
     }
-    
+    }
     public function novoAction()
     {
         if ( !$this->_request->isPost() )
