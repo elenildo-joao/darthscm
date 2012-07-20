@@ -5,19 +5,20 @@
  *
  * @author acarlos
  */
-class ModelUserTest extends PHPUnit_Framework_TestCase{
+class ModelUserTest extends ControllerTestCase{
     
     private $user;
     
     public function setUp()
     {
+        parent::setUp();
         $this->user = new Usuarios();
        
     }
 
 
     function testEmailJaExiste(){
-        $this->assertTrue($this->user->emailJaExiste('andersoncarlos@gmail.com'));
+        $this->assertTrue($this->user->emailJaExiste('silasferreira@gmail.com'));
         $this->assertFalse($this->user->emailJaExiste('naoexiste@gmail.com'));
         $this->assertTrue($this->user->emailJaExiste('rafaelasouza@gmail.com'));
         $this->assertFalse($this->user->emailJaExiste('rafaelasouza@gmail.com.br'));

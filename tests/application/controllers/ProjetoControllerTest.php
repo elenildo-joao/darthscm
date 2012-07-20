@@ -48,7 +48,7 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->assertController("projetos");
         $this->assertAction("listar-tarefas");  
     }
-    
+ /*   
    public function testNovoProjeto(){
         $front = Zend_Controller_Front::getInstance();
         $front->setParam('noErrorHandler', true);
@@ -64,8 +64,8 @@ class ProjetoControllerTest extends ControllerTestCase {
         );
         $this->_request->setMethod('POST')->setPost($data);
         $this->dispatch("/projetos/novo");
-        //$this->assertRedirectTo('/projetos/listar');
-    }
+        $this->assertResponseCode('200');
+   }
     
  function testEditarProjetos(){
      $this->dispatch('/projetos/editar');
@@ -74,7 +74,7 @@ class ProjetoControllerTest extends ControllerTestCase {
  }
 
 
- /*function testNovaTarefa(){
+ function testNovaTarefa(){
         
         //$front = Zend_Controller_Front::getInstance();
         //$front->setParam('noErrorHandler', true);
@@ -84,21 +84,20 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->assertAction("nova-tarefa");
         
         $data = array(
-            'nomeproj' => '2',
             'nome' => 'AA_Teste',
             'dataInicio' => '2012-07-12',
             'dataPrevFim' => '2012-07-17',
-            'prioridade' => 'maxima',
+            'prioridade' => 'Maxima',
             'descricao' => 'tarefa de teste',
             'responsavel' => '1'
         );
         $this->_request->setMethod("POST")->setPost($data);
-        $this->dispatch('projetos/nova-tarefa');
+        $this->dispatch('projetos/nova-tarefa/idprojeto/2/');
         
         
-    }*/
+    }
     
-    /*function testRemoverTarefa(){
+    function testRemoverTarefa(){
         
         $data = array(
             'idtarefa' => '38',
@@ -108,7 +107,8 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->_request->setQuery($data);
         $this->dispatch('projetos/remover-tarefa');
         
-    }*/
+    }
+    */
     
     
     

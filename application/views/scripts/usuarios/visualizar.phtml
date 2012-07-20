@@ -1,28 +1,32 @@
- <input type="hidden" name="idUsuario" value="<?= $this->usuarios->idusuario ?>" />
-<fieldset>
+<?php $this->headLink()->appendStylesheet('/css/detalharUsuario.css')?>
+
+<input type="hidden" name="idUsuario" value="<?= $this->usuarios->idusuario ?>" />
+
+
+<fieldset id="detUsuarios">
     <?php
     foreach ($this->usuarios as $usuario):
     ?>
     <legend><?= $usuario->nome ?></legend>
-        <p> Email: <?= $usuario->email ?></p>
-        <p>Login: <?= $usuario->findParentLogin()->login ?></p>
-        <p>CPF: <?= $this->formataCPF($usuario->cpf) ?></p>
-        <p>Data de Nascimento: <?= $this->formataData($usuario->datanasc) ?></p>
-        <p>Telefone: <?= $this->formataTelefone($usuario->telefone) ?></p>
-        <p>Sexo: <? if ($usuario->sexo=='F') echo ('Feminino'); else echo ('Masculino'); ?></p>
-        <p>Rua: <?= $usuario->findParentEnderecos()->rua ?></p>
-        <p>Número: <?= $usuario->findParentEnderecos()->num ?></p>
-        <p>Bairro: <?= $usuario->findParentEnderecos()->bairro ?></p>
-        <p>Cidade: <?= $usuario->findParentEnderecos()->cidade ?></p>
-        <p>Estado: <?= $usuario->findParentEnderecos()->estado ?></p>
-        <p>Complemento: <?= $usuario->findParentEnderecos()->complemento ?></p>
-        <p>Administrador: <? if ($usuario->admin=='1') echo ('Sim'); else echo('Não'); ?></p> 
+        <span> Email: </span> <b><?= $usuario->email ?></b><br/><br/>
+        <span>Login: </span> <b><?= $usuario->findParentLogin()->login ?></b><br/><br/>
+        <span>CPF: </span> <b><?= $this->formataCPF($usuario->cpf) ?></b><br/><br/>
+        <span>Data de Nascimento: </span> <b><?= $this->formataData($usuario->datanasc) ?></b><br/><br/>
+        <span>Telefone: </span> <b><?= $this->formataTelefone($usuario->telefone) ?></b><br/><br/>
+        <span>Sexo: </span> <b><? if ($usuario->sexo=='F') echo ('Feminino'); else echo ('Masculino'); ?></b><br/><br/>
+        <span>Rua: </span> <b><?= $usuario->findParentEnderecos()->rua ?></b><br/><br/>
+        <span>Número: </span> <b><?= $usuario->findParentEnderecos()->num ?></b><br/><br/>
+        <span>Bairro: </span> <b><?= $usuario->findParentEnderecos()->bairro ?></b><br/><br/>
+        <span>Cidade: </span> <b><?= $usuario->findParentEnderecos()->cidade ?></b><br/><br/>
+        <span>Estado: </span> <b><?= $usuario->findParentEnderecos()->estado ?></b><br/><br/>
+        <span>Complemento: </span> <b><?= $usuario->findParentEnderecos()->complemento ?></b><br/><br/>
+        <span>Administrador: </span> <b><? if ($usuario->admin=='1') echo ('Sim'); else echo('Não'); ?></b><br/> <br/>
     <?php
     endforeach;
     ?>
 </fieldset>
 
-<a href="<?php 
+<a id="botaoCad"href="<?php 
             echo $this->url(array('controller' => 'usuarios', 
                                   'action'     => 'listar'
                     )

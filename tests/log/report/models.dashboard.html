@@ -4,63 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>models</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="jquery.min.js" type="text/javascript"></script>
-    <script src="highcharts.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-          var classCoverageDistribution = new Highcharts.Chart({
-             chart: {
-                renderTo: 'classCoverageDistribution',
-                type: 'column'
-             },
-             title: {text: ''},
-             legend: {enabled: false},
-             credits: {enabled: false},
-             tooltip: {enabled: false},
-             xAxis: {
-                 labels: {style: {fontSize: '8px'}},
-                 categories: [
-                 '0%','0-10%','10-20%','20-30%','30-40%','40-50%','50-60%','60-70%','70-80%','80-90%','90-100%','100%'
-                 ]
-            },
-            yAxis: {
-                title: '',
-                labels: {style: {fontSize: '8px'}},
-            },
-            series: [{
-                data: [13,0,0,0,0,0,0,0,0,1,0,1]
-            }],
-          });
-
-        var classComplexity = new Highcharts.Chart({
-            chart: {
-              renderTo: 'classComplexity',
-              type: 'scatter'
-            },
-            title: {text: ''},
-            legend: {enabled: false},
-            credits: {enabled: false},
-            xAxis: {
-               labels: {enabled: false},
-            },
-            yAxis: {
-              title: '',
-              labels: {enabled: false},
-            },
-            tooltip: {
-                formatter: function() {
-                    return this.point.config[2];
-                }
-            },
-            series: [{
-              data: [[0,0,"<a href=\"models_Enderecos.php.html#3\">Enderecos<\/a>"],[0,0,"<a href=\"models_Login.php.html#3\">Login<\/a>"],[0,0,"<a href=\"models_LogsLogin.php.html#3\">LogsLogin<\/a>"],[86.666666666667,18,"<a href=\"models_Projetos.php.html#3\">Projetos<\/a>"],[0,0,"<a href=\"models_Realiza.php.html#2\">Realiza<\/a>"],[0,0,"<a href=\"models_Repositorios.php.html#3\">Repositorios<\/a>"],[0,0,"<a href=\"models_Tarefas.php.html#2\">Tarefas<\/a>"],[0,0,"<a href=\"models_TrabalhaEm.php.html#3\">TrabalhaEm<\/a>"],[100,4,"<a href=\"models_Usuarios.php.html#3\">Usuarios<\/a>"],[0,0,"<a href=\"models_VRealiza.php.html#2\">VRealiza<\/a>"],[0,0,"<a href=\"models_VRelatorioProdCol.php.html#2\">VRelatorioProdCol<\/a>"],[0,0,"<a href=\"models_VRelatorioProdProj.php.html#2\">VRelatorioProdProj<\/a>"],[0,0,"<a href=\"models_VSubTarefa.php.html#2\">VSubTarefa<\/a>"],[0,0,"<a href=\"models_VTarefaUsuario.php.html#2\">VTarefaUsuario<\/a>"],[0,0,"<a href=\"models_VUsuarioProjeto.php.html#3\">VUsuarioProjeto<\/a>"]],
-              marker: {
-                  symbol: 'diamond'
-              }
-            }],
-        });
-    });
-    </script>
+    <!--[if IE]><script src="excanvas.compressed.js"></script><![endif]-->
+    <script src="RGraph.common.js" ></script>
+    <script src="RGraph.bar.js" ></script>
+    <script src="RGraph.scatter.js" ></script>
   </head>
 
   <body>
@@ -77,19 +24,41 @@
         <tr>
           <td valign="top">
             <h2>Class Coverage Distribution</h2>
-            <div id="classCoverageDistribution"></div>
+            <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
+            <script>
+            var ccd = new RGraph.Bar('classCoverageDistribution', [18,0,0,0,0,0,0,0,0,0,0,4]);
+            ccd.Set('chart.background.barcolor1', 'white');
+            ccd.Set('chart.background.barcolor2', 'white');
+            ccd.Set('chart.colors', ['blue']);
+            ccd.Set('chart.shadow', true);
+            ccd.Set('chart.shadow.offsetx', 3);
+            ccd.Set('chart.shadow.offsety', 3);
+            ccd.Set('chart.labels', ['0%','0-10%','10-20%','20-30%','30-40%','40-50%','50-60%','60-70%','70-80%','80-90%','90-100%','100%']);
+            ccd.Set('chart.text.size', 5);
+            ccd.Draw();
+            </script>
           </td>
 
           <td valign="top">
             <h2>Class Complexity</h2>
-            <div id="classComplexity"></div>
+            <canvas id="classComplexity" width="475" height="200"></canvas>
+            <script>
+            var cc = new RGraph.Scatter('classComplexity', [[0,0,"blue","Destinatarios"],[100,3,"blue","Email"],[0,0,"blue","Enderecos"],[100,0,"blue","Login"],[0,0,"blue","LogsLogin"],[0,0,"blue","Mensagens"],[0,0,"blue","Realiza"],[100,0,"blue","RedefinirSenha"],[0,0,"blue","Repositorios"],[0,0,"blue","SubTarefas"],[0,0,"blue","Tarefas"],[0,0,"blue","TrabalhaEm"],[0,6,"blue","UsuarioAutenticado"],[100,4,"blue","Usuarios"],[0,0,"blue","VMsgEnviada"],[0,0,"blue","VMsgRecebida"],[0,0,"blue","VRealiza"],[0,0,"blue","VRelatorioProdCol"],[0,0,"blue","VRelatorioProdProj"],[0,0,"blue","VSubTarefa"],[0,0,"blue","VTarefaUsuario"],[0,0,"blue","VUsuarioProjeto"]]);
+            cc.Set('chart.xmax', 100);
+            cc.Set('chart.background.barcolor1', 'white');
+            cc.Set('chart.background.barcolor2', 'white');
+            cc.Set('chart.tickmarks', 'plus');
+            cc.Set('chart.ticksize', 5);
+            cc.Set('chart.text.size', 5);
+            cc.Set('chart.ylabels', false);
+            cc.Draw();
+            </script>
           </td>
         </tr>
         <tr>
           <td valign="top">
             <h2>Top Project Risks</h2>
             <ul>
-              <li><a href="models_Projetos.php.html#3">Projetos</a> (18)</li>
 
             </ul>
           </td>
@@ -97,7 +66,12 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
-              <li><a href="models_Projetos.php.html#17">Projetos::trataInterval</a> (82%)</li>
+              <li><a href="models_UsuarioAutenticado.php.html#27">UsuarioAutenticado::getRoleId</a> (0%)</li>
+              <li><a href="models_UsuarioAutenticado.php.html#32">UsuarioAutenticado::setRoleId</a> (0%)</li>
+              <li><a href="models_UsuarioAutenticado.php.html#23">UsuarioAutenticado::setFullName</a> (0%)</li>
+              <li><a href="models_UsuarioAutenticado.php.html#18">UsuarioAutenticado::getFullName</a> (0%)</li>
+              <li><a href="models_UsuarioAutenticado.php.html#13">UsuarioAutenticado::setUserName</a> (0%)</li>
+              <li><a href="models_UsuarioAutenticado.php.html#8">UsuarioAutenticado::getUserName</a> (0%)</li>
 
             </ul>
           </td>
@@ -109,7 +83,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.1.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6-13ubuntu3.8</a> and PHPUnit 3.6.11 at Fri Jul 13 14:44:33 BRT 2012.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6-13ubuntu3.8</a> and PHPUnit 3.5.15 at Wed Jul 18 21:03:55 BRT 2012.</td></tr>
     </table>
 
     <br/>
