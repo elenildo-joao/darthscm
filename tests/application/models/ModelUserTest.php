@@ -30,7 +30,6 @@ class ModelUserTest extends ControllerTestCase{
         $this->assertTrue($this->user->cpfJaExiste('00000000000'));
         $this->assertTrue($this->user->cpfJaExiste('00100100101'));
         $this->assertTrue($this->user->cpfJaExiste('00700700707'));
-        $this->assertTrue($this->user->cpfJaExiste('00600600606'));
         $this->assertFalse($this->user->cpfJaExiste('cpf'));
         $this->assertFalse($this->user->cpfJaExiste('000000000000'));
         

@@ -81,9 +81,9 @@ class UsuariosController extends Zend_Controller_Action
             );
             
             if ($this->_request->getPost('admin'))
-                $dadosUsuario['admin'] = TRUE;
+                $dadosUsuario['admin'] = 'TRUE';
             else
-                $dadosUsuario['admin'] = FALSE;
+                $dadosUsuario['admin'] = 'FALSE';
                 
             
             $dadosEndereco = array(
@@ -155,6 +155,10 @@ class UsuariosController extends Zend_Controller_Action
         if ( !$this->_request->isPost() )
         {           
             $idUsuario = (int) $this->_getParam('id'); 
+            
+            $this->view->estados = array("AC", "AL", "AM", "AP", "BA", "CE", "DF", 
+            "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", 
+            "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO");
             
             $usuario = $this->usuario->find($idUsuario)->current();
  

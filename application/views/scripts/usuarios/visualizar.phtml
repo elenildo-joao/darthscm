@@ -1,12 +1,13 @@
 <?php $this->headLink()->appendStylesheet('/css/detalharUsuario.css')?>
 
-<input type="hidden" name="idUsuario" value="<?= $this->usuarios->idusuario ?>" />
+
 
 
 <fieldset id="detUsuarios">
     <?php
     foreach ($this->usuarios as $usuario):
     ?>
+    <input type="hidden" name="idUsuario" value="<?= $usuario->idusuario ?>" />
     <legend><?= $usuario->nome ?></legend>
         <span> Email: </span> <b><?= $usuario->email ?></b><br/><br/>
         <span>Login: </span> <b><?= $usuario->findParentLogin()->login ?></b><br/><br/>

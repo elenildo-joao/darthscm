@@ -13,21 +13,49 @@
 class ProjetoControllerTest extends ControllerTestCase {
     
     
+    private $projeto;
+    
     function setUp(){
         parent::setUp();
         $front = Zend_Controller_Front::getInstance();
         $front->setParam('noErrorHandler', true);
+        $this->projeto = new Projetos();
+        
+    }
+    
+    function login(){
+        $front = Zend_Controller_Front::getInstance();
+        $front->setParam('noErrorHandler', true);
+        $this->_request
+         ->setMethod('POST')
+         ->setPost(array(
+             'login' => 'elenildo',
+             'senha' => '123'
+         ));
+        $this->dispatch('/login');        
+        $this->assertTrue(Zend_Auth::getInstance()->hasIdentity());
+    }
+    
+    function logout(){
+        Zend_Auth::getInstance()->clearIdentity();
     }
 
 
     function testCanGoToProjetosPage(){
         
-        $this->dispatch("/projetos");
+        $this->login();
+        //$this->resetRequest(); 
+        //$this->resetResponse();
+        
+        $this->dispatch("/projetos/");
         $this->assertController("projetos");
         $this->assertAction("index");
     }
     
     function testCanGoToProjetosNovosPage(){
+        $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
         
         $this->dispatch("/projetos/novo");
         $this->assertController("projetos");
@@ -36,10 +64,17 @@ class ProjetoControllerTest extends ControllerTestCase {
     }
     
     function testDefaultPageProjetosListar(){
-        
+        $this->resetResponse();
         $this->dispatch("/projetos/listar");
         $this->assertController("projetos");
         $this->assertAction("listar");
+        $this->assertRedirectTo('/login/listar');
+        $this->resetResponse();
+        $this->login();
+        $this->resetRequest();
+        $this->resetResponse();
+        $this->dispatch("/projetos/listar");
+        $this->assertNotRedirectTo('/login/listar');
         
     }
     
@@ -48,27 +83,51 @@ class ProjetoControllerTest extends ControllerTestCase {
         $this->assertController("projetos");
         $this->assertAction("listar-tarefas");  
     }
- /*   
+    
    public function testNovoProjeto(){
-        $front = Zend_Controller_Front::getInstance();
-        $front->setParam('noErrorHandler', true);
+        $this->login();
+        $this->resetRequest();
+        $this->resetResponse();
+        
+        $this->dispatch("/projetos/novo");
+       $this->assertQuery('form');
         
         $data = array(
-            'nome' => 'Projeto Teste 3',
-            'dataInicio' => '2012-07-12',
-            'dataPrevFim' => '2012-08-22',
-            'descricao' => 'Teste de novo projeto 3',
-            'repositorio' => 'www.repositorioteste3.com',
-            'gerente' => '4'
+            'nome' => 'testProj'.rand(),
+            'dataInicio' => '12/04/2012',
+            'dataPrevFim' => '15/06/2013',
+            'descricao' => 'Teste de novo projeto 1',
+            'repositorio' => 'www.repositorioteste1.com',
+            'gerente' => '3'
             
         );
         $this->_request->setMethod('POST')->setPost($data);
         $this->dispatch("/projetos/novo");
-        $this->assertResponseCode('200');
+        $this->assertQuery('p');
    }
-    
- function testEditarProjetos(){
-     $this->dispatch('/projetos/editar');
+   
+   function testRemover(){
+       $this->login();
+
+        $this->resetRequest();
+        $this->resetResponse();
+        
+        $projs = $this->projeto->fetchRow(
+                 $this->projeto->select()->where('nome LIKE ? ', 'testProj%')
+                );
+        
+        $this->dispatch('/projetos/detalhar-projeto/idprojeto/'.$projs->idprojeto);
+        $this->dispatch('/projetos/remover/id/'.$projs->idprojeto);
+        $this->assertQuery('a[title="Voltar"]');
+   }
+
+
+   function testEditarProjetos(){
+     $this->login();
+     $this->resetRequest(); 
+     $this->resetResponse();
+     
+     $this->dispatch('/projetos/editar/idprojeto/1');
      $this->assertController("projetos");
      $this->assertAction("editar");
  }
@@ -76,43 +135,155 @@ class ProjetoControllerTest extends ControllerTestCase {
 
  function testNovaTarefa(){
         
-        //$front = Zend_Controller_Front::getInstance();
-        //$front->setParam('noErrorHandler', true);
-       
-        $this->dispatch("/projetos/nova-tarefa");
-        $this->assertController("projetos");
-        $this->assertAction("nova-tarefa");
+       $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
         
+       $this->dispatch("/projetos/nova-tarefa/idprojeto/1");
+       $this->assertQuery('form');
+       
         $data = array(
+            'idprojeto' => '1',
             'nome' => 'AA_Teste',
-            'dataInicio' => '2012-07-12',
-            'dataPrevFim' => '2012-07-17',
+            'dataInicio' => '2012-07-19',
+            'dataPrevFim' => '2012-07-29',
             'prioridade' => 'Maxima',
             'descricao' => 'tarefa de teste',
-            'responsavel' => '1'
+            'responsavel' => '3'
         );
         $this->_request->setMethod("POST")->setPost($data);
-        $this->dispatch('projetos/nova-tarefa/idprojeto/2/');
+        $this->dispatch('projetos/nova-tarefa/idprojeto/1');
+        $this->assertQuery('a[title="Voltar"]');
         
         
     }
     
-    function testRemoverTarefa(){
+    function testNovaSubTarefa(){
+       $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
         
-        $data = array(
-            'idtarefa' => '38',
-            'idProjeto' => '2'
-        );
-        
-        $this->_request->setQuery($data);
-        $this->dispatch('projetos/remover-tarefa');
-        
+       $this->dispatch("/projetos/nova-sub-tarefa/idprojeto/2/idtarefa/44");
+       $this->assertQuery('form');
+       
+       $data = array(
+         'idtarefa'    => '44',
+         'idprojeto'   => '2',
+         'nome'        => 'Tarefa teste 1',
+         'descricao'   => 'testando',
+         'dataInicio'  => '2012-07-04',
+         'dataPrevFim' => '2012-07-06',
+         'prioridade'  => 'Maxima',
+         'responsavel' => '3'    
+       );
+       $this->_request->setMethod('post')->setPost($data);
+       $this->dispatch("/projetos/nova-sub-tarefa/idprojeto/2/idtarefa/44");
+       $this->assertQuery('a[title="Voltar"]');
     }
-    */
     
+    function testAdicionarTempo(){
+        $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
+        
+       $this->dispatch("/projetos/adicionar-tempo/idprojeto/2/idtarefa/44");
+       $this->assertQuery('form');
+       
+       $data = array(
+         'idtarefa'  => '44',
+         'idprojeto' => '2',
+         'tempo'     => '10 dias'
+       );
+       $this->_request->setMethod('POST')->setPost($data);
+       $this->dispatch("/projetos/adicionar-tempo");
+       $this->assertAction('adicionar-tempo');
+       
+    }
     
+    function testAlocarColaborador(){
+       $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
+       
+       $this->dispatch('/projetos/alocar-colaborador/idprojeto/2');
+       $this->assertQuery('form');
+       
+       $data = array(
+           'idprojeto' => '2',
+           'idusuario' => '4',
+           'papel'     => 'colaborador'
+       );
+       $this->_request->setMethod("POST")->setPost($data);
+       $this->dispatch('projetos/alocar-colaborador/idprojeto/2');
+       $this->assertRedirectTo('/projetos/listar/idprojeto/2/');
+    }
+
+    function testDesalocarColaborador(){
+        $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
+       
+       $this->dispatch('/projetos/desalocar-colaborador/idprojeto/2');
+       $this->assertQuery('form');
+       
+       $data = array(
+           'idprojeto' => '2',
+           'usuario' => '4'
+       );
+       $this->_request->setMethod("POST")->setPost($data);
+       $this->dispatch('/projetos/desalocar-colaborador/idprojeto/2');
+       
+       $this->assertRedirectTo('/projetos/listar/idprojeto/2/');
+    }
+
+    public function testAlocarUsuarioTarefa(){
+       $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
+       
+       $this->dispatch('/projetos/alocar-usuario-tarefa/idprojeto/2/idtarefa/30');
+       $this->assertQuery('form');
+       
+       $data = array(
+           'idprojeto' => '2',
+           'idtarefa' => '30',
+           'usuario' => '2'
+       );
+       $this->_request->setMethod("POST")->setPost($data);
+       $this->dispatch('/projetos/alocar-usuario-tarefa/idprojeto/2/idtarefa/30');
+       $this->assertRedirectTo('/projetos/listar-tarefas/idprojeto/2/');
+    }
     
+    public function testDesalocarUsuarioTarefa(){
+        $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
+       
+       $this->dispatch('/projetos/desalocar-usuario-tarefa/idprojeto/2/idtarefa/30');
+       $this->assertQuery('form');
+       
+       $data = array(
+           'idprojeto' => '2',
+           'idtarefa' => '30',
+           'usuario' => '2'
+       );
+       $this->_request->setMethod("POST")->setPost($data);
+       $this->dispatch('/projetos/desalocar-usuario-tarefa/idprojeto/2/idtarefa/30');
+       $this->assertRedirectTo('/projetos/listar-tarefas/idprojeto/2/');
+    }
+
     
+    public function testFecharTarefa(){
+        $this->login();
+       $this->resetRequest(); 
+       $this->resetResponse();
+       
+       $this->dispatch('/projetos/fechar-tarefa/idprojeto/1/idtarefa/20');
+       $this->assertAction('fechar-tarefa');
+       $this->assertQuery('a[title="Voltar"]');
+    }
+
+     
 }
 
 ?>
