@@ -537,7 +537,7 @@
   <file path="application/layouts/scripts/layout.phtml" hash="8a3cfd592ec0e8b152f61a5d8eafa986" package="Default"/>
   <file path="application/layouts/scripts/login-red.phtml" hash="0c6d8a7b4801c4fe65a45e1273bafdb5" package="Default"/>
   <file path="application/layouts/scripts/informacao.phtml" hash="e05d0fcbd08cc1bbea4ed73cc8879268" package="Default"/>
-  <file path="application/models/VRealiza.php" hash="43d3567af6ecf42fd43fa42944a6b94d" package="Default">
+  <file path="application/models/VRealiza.php" hash="f417f89d68f1d12fcc3ba32c70c6ddfa" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VRealiza</name>
@@ -552,21 +552,29 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vrealiza']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VRelatorioProdCol.php" hash="f2bfb1563c642937248e394d1e4f9663" package="Default">
+  <file path="application/models/VRelatorioProdCol.php" hash="51a198679b962ec78cf14c575d009be6" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VRelatorioProdCol</name>
@@ -581,21 +589,29 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vrelatorioprodcol']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idusuario', 'idprojeto')]]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VMsgRecebida.php" hash="7817516f43b51fb17b016789a22c65c2" package="Default">
+  <file path="application/models/VMsgRecebida.php" hash="ddf75d76f8b0f0856461d71b9c536387" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VMsgRecebida</name>
@@ -610,21 +626,29 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vmensagensrecebidas']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA['destinatario']]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Email.php" hash="e2d18932416cb2ab21033bfc4c7e7acb" package="Default">
+  <file path="application/models/Email.php" hash="97599781c50265d7347aba0355cfcc55" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends/>
       <name>Email</name>
@@ -638,98 +662,111 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="private" line="16" namespace="" package="Default">
+      <property final="false" static="false" visibility="private" line="23" namespace="" package="Default">
         <name>$mensagem</name>
         <default><![CDATA[]]></default>
+        <docblock line="23">
+          <description><![CDATA[Mensagem do e-mail.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="access" description="private"/>
+          <tag line="23" name="name" description="$mensagem"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="private" line="17" namespace="" package="Default">
+      <property final="false" static="false" visibility="private" line="31" namespace="" package="Default">
         <name>$assunto</name>
         <default><![CDATA[]]></default>
+        <docblock line="31">
+          <description><![CDATA[Assunto do e-mail.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="access" description="private"/>
+          <tag line="31" name="name" description="$assunto"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="private" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="private" line="39" namespace="" package="Default">
         <name>$destinatario</name>
         <default><![CDATA[]]></default>
+        <docblock line="39">
+          <description><![CDATA[Destinatário do e-mail.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="39" name="access" description="private"/>
+          <tag line="39" name="name" description="$destinatario"/>
+        </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="33" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="54" package="DarthSCM\models">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="33">
+        <docblock line="54">
           <description><![CDATA[Construtor da classe.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="33" name="author" description="Elenildo João"/>
-          <tag line="33" name="access" description="public"/>
-          <tag line="33" name="param" description="" type="String" variable="$mensagem">
+          <tag line="54" name="author" description="Elenildo João"/>
+          <tag line="54" name="access" description="public"/>
+          <tag line="54" name="param" description="" type="String" variable="$mensagem">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="33" name="param" description="" type="String" variable="$assunto">
+          <tag line="54" name="param" description="" type="String" variable="$assunto">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="33" name="param" description="" type="String" variable="$destinatarioEmail">
+          <tag line="54" name="param" description="" type="String" variable="$destinatarioEmail">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="33" name="param" description="" type="String" variable="$destinatarioNome">
+          <tag line="54" name="param" description="" type="String" variable="$destinatarioNome">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="33" name="return" description="" type="void">
+          <tag line="54" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
-        <argument line="33">
+        <argument line="54">
           <name>$mensagem</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="33">
+        <argument line="54">
           <name>$assunto</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="33">
+        <argument line="54">
           <name>$destinatarioEmail</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="33">
+        <argument line="54">
           <name>$destinatarioNome</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="49" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="70" package="DarthSCM\models">
         <name>enviar</name>
         <full_name>enviar</full_name>
-        <docblock line="49">
+        <docblock line="70">
           <description><![CDATA[Envia o e-mail.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="49" name="author" description="Elenildo João"/>
-          <tag line="49" name="access" description="public"/>
-          <tag line="49" name="return" description="" type="void">
+          <tag line="70" name="author" description="Elenildo João"/>
+          <tag line="70" name="access" description="public"/>
+          <tag line="70" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="71" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="92" package="DarthSCM\models">
         <name>getConfiguracao</name>
         <full_name>getConfiguracao</full_name>
-        <docblock line="71">
+        <docblock line="92">
           <description><![CDATA[Função responsável pela configuração da conta pela qual o e-mail vai ser
 enviado.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="71" name="author" description="Elenildo João"/>
-          <tag line="71" name="access" description="public"/>
-          <tag line="71" name="return" description="Informações da conta" type="\$config">
+          <tag line="92" name="author" description="Elenildo João"/>
+          <tag line="92" name="access" description="public"/>
+          <tag line="92" name="return" description="Informações da conta" type="\$config">
             <type by_reference="false">\$config</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <parse_markers>
-      <error line="16" code="50018">No DocBlock was found for property $mensagem</error>
-      <error line="17" code="50018">No DocBlock was found for property $assunto</error>
-      <error line="18" code="50018">No DocBlock was found for property $destinatario</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Repositorios.php" hash="1145eec13bd777f740d0da04b466fb1b" package="Default">
+  <file path="application/models/Repositorios.php" hash="6467f0638b4ab65ecf477d81ca9b19d5" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Repositorios</name>
@@ -743,26 +780,39 @@ enviado.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['repositorios']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['repositorios_idrepositorio_seq']]></default>
+        <docblock line="32">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('projetos', 'vusuarioprojeto')]]></default>
+        <docblock line="40">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VMsgEnviada.php" hash="e50b5a62b7e1f4024da36c772008e7ff" package="Default">
+  <file path="application/models/VMsgEnviada.php" hash="5bc43109b376a614815de29202a08f4b" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VMsgEnviada</name>
@@ -777,21 +827,29 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vmensagensenviadas']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA['idremetente']]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Tarefas.php" hash="6f1e22e7ea8a24eff2636808cab52afa" package="Default">
+  <file path="application/models/Tarefas.php" hash="c474206b683a0f0c42ffd4e8269f5f2a" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Tarefas</name>
@@ -805,31 +863,49 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['tarefas']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['tarefas_idtarefa_seq']]></default>
+        <docblock line="32">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuariorealizatarefa')]]></default>
+        <docblock line="40">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="22" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="48" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('projetos' => array('columns' => 'idprojeto', 'refTableClass' => 'Projetos', 'refColumns' => 'idprojeto'), 'superTaferas' => array('columns' => array('idsupertarefa', 'idsuperprojeto'), 'refTableClass' => 'Tarefas', 'refColumns' => array('idtarefa', 'idprojeto')))]]></default>
+        <docblock line="48">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="access" description="protected"/>
+          <tag line="48" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-      <error line="22" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Projetos.php" hash="9deba05dfb948678ef842a0954d5d5e4" package="Default">
+  <file path="application/models/Projetos.php" hash="61abe44a65c50331778496c8c0375dfe" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Projetos</name>
@@ -843,75 +919,100 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="23" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['projetos']]></default>
+        <docblock line="23">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="access" description="protected"/>
+          <tag line="23" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="31" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['projetos_idprojeto_seq']]></default>
+        <docblock line="31">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="access" description="protected"/>
+          <tag line="31" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="39" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuariotrabalhaemprojeto')]]></default>
+        <docblock line="39">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="39" name="access" description="protected"/>
+          <tag line="39" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="22" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="47" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('repositorios' => array('columns' => 'idrepositorio', 'refTableClass' => 'Repositorios', 'refColumns' => 'idrepositorio'))]]></default>
+        <docblock line="47">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="access" description="protected"/>
+          <tag line="47" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="40" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="66" package="DarthSCM\models">
         <name>trataInterval</name>
         <full_name>trataInterval</full_name>
-        <docblock line="40">
-          <description><![CDATA[]]></description>
+        <docblock line="66">
+          <description><![CDATA[Recebe uma string com a informação do intervalo de tempo no formato do
+postgre e converte para o formato interval do php.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="40" name="author" description="Jacqueline Midlej"/>
-          <tag line="40" name="access" description="public"/>
-          <tag line="40" name="param" description="" type="int" variable="$tempo">
+          <tag line="66" name="author" description="Jacqueline Midlej"/>
+          <tag line="66" name="access" description="public"/>
+          <tag line="66" name="param" description="" type="int" variable="$tempo">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="40" name="param" description="" type="int" variable="$int2">
+          <tag line="66" name="param" description="" type="int" variable="$int2">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="40" name="return" description="" type="void">
+          <tag line="66" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
-        <argument line="40">
+        <argument line="66">
           <name>$tempo</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="40">
+        <argument line="66">
           <name>$int2</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="118" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="144" package="DarthSCM\models">
         <name>SomaInterval</name>
         <full_name>SomaInterval</full_name>
-        <docblock line="118">
-          <description><![CDATA[]]></description>
+        <docblock line="144">
+          <description><![CDATA[Soma dois intervalos de tempo, recebendo duas variaveis interval]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="118" name="author" description="Jacqueline Midlej"/>
-          <tag line="118" name="access" description="public"/>
-          <tag line="118" name="param" description="" type="int" variable="$int1">
+          <tag line="144" name="author" description="Jacqueline Midlej"/>
+          <tag line="144" name="access" description="public"/>
+          <tag line="144" name="param" description="" type="int" variable="$int1">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="118" name="param" description="" type="int" variable="$int2">
+          <tag line="144" name="param" description="dois intervalos de tempo, recebendo duas variaveis interval" type="int" variable="$int2soma">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="118" name="return" description="" type="\$int2">
+          <tag line="144" name="return" description="" type="\$int2">
             <type by_reference="false">\$int2</type>
           </tag>
         </docblock>
-        <argument line="118">
+        <argument line="144">
           <name>$int1</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="118">
+        <argument line="144">
           <name>$int2</name>
           <default><![CDATA[]]></default>
           <type/>
@@ -919,15 +1020,11 @@ dados.]]></description>
       </method>
     </class>
     <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-      <error line="22" code="50018">No DocBlock was found for property $_referenceMap</error>
-      <error line="40" code="50012">No short description for method trataInterval()</error>
-      <error line="118" code="50012">No short description for method SomaInterval()</error>
+      <error line="144" code="50014">Name of argument $int2 does not match with the DocBlock's name $int2soma in SomaInterval()</error>
+      <notice line="144" code="50013">Parameter $int2soma could not be found in SomaInterval()</notice>
     </parse_markers>
   </file>
-  <file path="application/models/Login.php" hash="9c941883db42170650e58ae362f8913b" package="Default">
+  <file path="application/models/Login.php" hash="54979f90598b0c513f977909382b19a5" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Login</name>
@@ -941,26 +1038,39 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['login']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['login_idlogin_seq']]></default>
+        <docblock line="32">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuarios')]]></default>
+        <docblock line="40">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Realiza.php" hash="e406e12caea9d73c2821f91301089fbc" package="Default">
+  <file path="application/models/Realiza.php" hash="c6ce5795ffb2a03eabee2dbd94fe4c06" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Realiza</name>
@@ -975,26 +1085,39 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="25" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['usuariorealizatarefa']]></default>
+        <docblock line="25">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="25" name="access" description="protected"/>
+          <tag line="25" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="33" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idtarefa', 'idprojeto', 'idusuario')]]></default>
+        <docblock line="33">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="access" description="protected"/>
+          <tag line="33" name="name" description="$_primary"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="41" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('usuarios' => array('columns' => 'idusuario', 'refTableClass' => 'Usuarios', 'refColumns' => 'idusuario'), 'tarefas' => array('columns' => array('idtarefa', 'idprojeto'), 'refTableClass' => 'Tarefas', 'refColumns' => array('idtarefa', 'idprojeto')))]]></default>
+        <docblock line="41">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="access" description="protected"/>
+          <tag line="41" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="19" code="50018">No DocBlock was found for property $_name</error>
-      <error line="20" code="50018">No DocBlock was found for property $_primary</error>
-      <error line="21" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/LogsLogin.php" hash="e75826c33002f551a352ad02706a8697" package="Default">
+  <file path="application/models/LogsLogin.php" hash="d30fcf3fe98ec545c849a7b0a3c5ffbf" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>LogsLogin</name>
@@ -1008,21 +1131,29 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="23" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['logslogin']]></default>
+        <docblock line="23">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="access" description="protected"/>
+          <tag line="23" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="31" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['logslogin_idloglogin_seq']]></default>
+        <docblock line="31">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="access" description="protected"/>
+          <tag line="31" name="name" description="$_sequence"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Usuarios.php" hash="f51bb825f5fc257c68fc47d68c208342" package="Default">
+  <file path="application/models/Usuarios.php" hash="bd9350c6805cfec9401f9c06d0a82891" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Usuarios</name>
@@ -1036,73 +1167,91 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="23" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['usuarios']]></default>
+        <docblock line="23">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="access" description="protected"/>
+          <tag line="23" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="31" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['usuarios_idusuario_seq']]></default>
+        <docblock line="31">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="access" description="protected"/>
+          <tag line="31" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="39" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuariotrabalhaemprojeto')]]></default>
+        <docblock line="39">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="39" name="access" description="protected"/>
+          <tag line="39" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="22" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="47" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('enderecos' => array('columns' => 'endereco', 'refTableClass' => 'Enderecos', 'refColumns' => 'idendereco'), 'login' => array('columns' => 'idusuario', 'refTableClass' => 'Login', 'refColumns' => 'idusuario'))]]></default>
+        <docblock line="47">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="access" description="protected"/>
+          <tag line="47" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="45" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="70" package="DarthSCM\models">
         <name>emailJaExiste</name>
         <full_name>emailJaExiste</full_name>
-        <docblock line="45">
+        <docblock line="70">
           <description><![CDATA[Verifica se o e-mail já está cadastrado no banco de dados.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="45" name="author" description="Elenildo João"/>
-          <tag line="45" name="access" description="public"/>
-          <tag line="45" name="param" description="" type="String" variable="$email">
+          <tag line="70" name="author" description="Elenildo João"/>
+          <tag line="70" name="access" description="public"/>
+          <tag line="70" name="param" description="" type="String" variable="$email">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="45" name="return" description="" type="boolean">
+          <tag line="70" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="45">
+        <argument line="70">
           <name>$email</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="DarthSCM\models">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="89" package="DarthSCM\models">
         <name>cpfJaExiste</name>
         <full_name>cpfJaExiste</full_name>
-        <docblock line="64">
+        <docblock line="89">
           <description><![CDATA[Verifica se o cpf já está cadastrado no banco de dados.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="64" name="author" description="Elenildo João"/>
-          <tag line="64" name="access" description="public"/>
-          <tag line="64" name="param" description="" type="String" variable="$cpf">
+          <tag line="89" name="author" description="Elenildo João"/>
+          <tag line="89" name="access" description="public"/>
+          <tag line="89" name="param" description="" type="String" variable="$cpf">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="64" name="return" description="" type="boolean">
+          <tag line="89" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="64">
+        <argument line="89">
           <name>$cpf</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-      <error line="22" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/RedefinirSenha.php" hash="8cba18f85549ee49af97c5a9f96faaa5" package="Default">
+  <file path="application/models/RedefinirSenha.php" hash="fbd6c2cf6046fd39eaeb7898469e06aa" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>RedefinirSenha</name>
@@ -1116,21 +1265,29 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="23" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['redefinirsenha']]></default>
+        <docblock line="23">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="access" description="protected"/>
+          <tag line="23" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="31" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA['hash']]></default>
+        <docblock line="31">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="access" description="protected"/>
+          <tag line="31" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Enderecos.php" hash="6d9cccec09432a4c1541c53c7976b716" package="Default">
+  <file path="application/models/Enderecos.php" hash="fd4d17ba705f38549d75c69fea290b76" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Enderecos</name>
@@ -1144,26 +1301,39 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['enderecos']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['enderecos_idendereco_seq']]></default>
+        <docblock line="32">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuarios')]]></default>
+        <docblock line="40">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Mensagens.php" hash="1ccdf47fd6c72a5bdb6b6dd598590bca" package="Default">
+  <file path="application/models/Mensagens.php" hash="bd4a8392cf6e423ad8ebf33180642dd1" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Mensagens</name>
@@ -1177,31 +1347,49 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['mensagens']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_sequence</name>
         <default><![CDATA['mensagens_idmensagem_seq']]></default>
+        <docblock line="32">
+          <description><![CDATA[Sequência da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_sequence"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuarios', 'destinatarios')]]></default>
+        <docblock line="40">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="25" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="48" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('usuarios' => array('columns' => 'remetente', 'refTableClass' => 'Usuarios', 'refColumns' => 'idusuario'), 'destinatarios' => array('columns' => 'idmensagem', 'refTableClass' => 'Mensagens', 'refColumns' => 'idmensagem'))]]></default>
+        <docblock line="48">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="access" description="protected"/>
+          <tag line="48" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
-      <error line="21" code="50018">No DocBlock was found for property $_depedentTables</error>
-      <error line="25" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/TrabalhaEm.php" hash="794d6034d676aa1e8b04a47d7eb682f0" package="Default">
+  <file path="application/models/TrabalhaEm.php" hash="d21996d94a38239dabbeb24263583aac" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>TrabalhaEm</name>
@@ -1216,26 +1404,39 @@ de dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="25" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['usuariotrabalhaemprojeto']]></default>
+        <docblock line="25">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="25" name="access" description="protected"/>
+          <tag line="25" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="33" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idusuario', 'idprojeto')]]></default>
+        <docblock line="33">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="access" description="protected"/>
+          <tag line="33" name="name" description="$_primary"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="41" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('usuarios' => array('columns' => 'idusuario', 'refTableClass' => 'Usuarios', 'refColumns' => 'idusuario'), 'projetos' => array('columns' => 'idprojeto', 'refTableClass' => 'Projetos', 'refColumns' => 'idprojeto'))]]></default>
+        <docblock line="41">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="access" description="protected"/>
+          <tag line="41" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="19" code="50018">No DocBlock was found for property $_name</error>
-      <error line="20" code="50018">No DocBlock was found for property $_primary</error>
-      <error line="21" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VSubTarefa.php" hash="4c9c747f12661acac84b4a5feea3c3e4" package="Default">
+  <file path="application/models/VSubTarefa.php" hash="e10cb5e2154a22eac82fb10e8a766828" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VSubTarefa</name>
@@ -1250,26 +1451,39 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="25" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vsubtarefas']]></default>
+        <docblock line="25">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="25" name="access" description="protected"/>
+          <tag line="25" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
-        <name>$_depedentTables</name>
-        <default><![CDATA[array('usuariorealizatarefa')]]></default>
-      </property>
-      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="33" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+        <docblock line="33">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="access" description="protected"/>
+          <tag line="33" name="name" description="$_primary"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="41" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuariorealizatarefa')]]></default>
+        <docblock line="41">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="access" description="protected"/>
+          <tag line="41" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="19" code="50018">No DocBlock was found for property $_name</error>
-      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
-      <error line="21" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VUsuarioProjeto.php" hash="08a1c910c509ec727b5cf29f0cbf0a86" package="Default">
+  <file path="application/models/VUsuarioProjeto.php" hash="54fd29575c0ac6f4c2c4385de0367084" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VUsuarioProjeto</name>
@@ -1283,26 +1497,39 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="17" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vusuarioprojeto']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA['idprojeto']]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('repositorios' => array('columns' => 'idrepositorio', 'refTableClass' => 'Repositorios', 'refColumns' => 'idrepositorio'))]]></default>
+        <docblock line="40">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="17" code="50018">No DocBlock was found for property $_name</error>
-      <error line="18" code="50018">No DocBlock was found for property $_primary</error>
-      <error line="20" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/Destinatarios.php" hash="1fab05825b4b99ec332047c287428e49" package="Default">
+  <file path="application/models/Destinatarios.php" hash="b4b0027fd95706c8d4765db057f7018e" package="Default">
     <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>Destinatarios</name>
@@ -1316,26 +1543,39 @@ dados.]]></description>
         <tag line="15" name="version" description="0.1"/>
         <tag line="15" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['destinatarios']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_depedentTables</name>
         <default><![CDATA[array('usuarios', 'mensagens')]]></default>
+        <docblock line="32">
+          <description><![CDATA[Tabelas referenciadas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_depedentTables"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="40" namespace="" package="Default">
         <name>$_referenceMap</name>
         <default><![CDATA[array('mensagens' => array('columns' => 'idmensagem', 'refTableClass' => 'Mensagens', 'refColumns' => 'idmensagem'), 'mensagens' => array('columns' => 'remetente', 'refTableClass' => 'Mensagens', 'refColumns' => 'remetente'), 'usuarios' => array('columns' => 'destinatario', 'refTableClass' => 'Usuarios', 'refColumns' => 'idUsuario'))]]></default>
+        <docblock line="40">
+          <description><![CDATA[Mapeamento das referências.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="access" description="protected"/>
+          <tag line="40" name="name" description="$_referenceMap"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_depedentTables</error>
-      <error line="20" code="50018">No DocBlock was found for property $_referenceMap</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VTarefaUsuario.php" hash="5f460e851c69d864e6e9f9d12b89a9e2" package="Default">
+  <file path="application/models/VTarefaUsuario.php" hash="db10f615812d09ee605488abec27c878" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VTarefaUsuario</name>
@@ -1350,21 +1590,29 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vtarefausuario']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="33" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+        <docblock line="33">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="access" description="protected"/>
+          <tag line="33" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/SubTarefas.php" hash="624b789a1958daffb74a7f926c45fbad" package="Default">
+  <file path="application/models/SubTarefas.php" hash="bcaf8f53b7130c71479ba186daf87990" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>SubTarefas</name>
@@ -1379,21 +1627,29 @@ representando as sub-tarefas.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['tarefas']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="19" code="50018">No DocBlock was found for property $_name</error>
-      <error line="20" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
-  <file path="application/models/VRelatorioProdProj.php" hash="e2a8bc8aaa366fd6c04bb0c5c41cb0be" package="Default">
+  <file path="application/models/VRelatorioProdProj.php" hash="d136264817cd04200ad15257ef2d10ae" package="Default">
     <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
       <extends>Zend_Db_Table_Abstract</extends>
       <name>VRelatorioProdProj</name>
@@ -1408,19 +1664,27 @@ dados.]]></description>
         <tag line="16" name="version" description="0.1"/>
         <tag line="16" name="access" description="public"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="24" namespace="" package="Default">
         <name>$_name</name>
         <default><![CDATA['vrelatorioprodproj']]></default>
+        <docblock line="24">
+          <description><![CDATA[Nome da tabela no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="access" description="protected"/>
+          <tag line="24" name="name" description="$_name"/>
+        </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+      <property final="false" static="false" visibility="protected" line="32" namespace="" package="Default">
         <name>$_primary</name>
         <default><![CDATA[array('idprojeto')]]></default>
+        <docblock line="32">
+          <description><![CDATA[Chave primária da tabela.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="access" description="protected"/>
+          <tag line="32" name="name" description="$_primary"/>
+        </docblock>
       </property>
     </class>
-    <parse_markers>
-      <error line="18" code="50018">No DocBlock was found for property $_name</error>
-      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
-    </parse_markers>
   </file>
   <file path="application/Bootstrap.php" hash="60254219bb168d31047fd3f5f6aa17fb" package="Default">
     <class final="false" abstract="false" namespace="" line="3" package="Default">

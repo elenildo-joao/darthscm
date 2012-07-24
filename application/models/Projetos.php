@@ -14,11 +14,36 @@
 
 class Projetos extends Zend_Db_Table_Abstract
 {
-
+    /** 
+     * Nome da tabela no banco de dados.
+     * 
+     * @access protected 
+     * @name $_name 
+     */
     protected $_name = 'projetos';
+    
+    /** 
+      * Sequência da tabela.
+      * 
+      * @access protected 
+      * @name $_sequence 
+      */ 
     protected $_sequence = 'projetos_idprojeto_seq';
+    
+    /** 
+      * Tabelas referenciadas.
+      * 
+      * @access protected 
+      * @name $_depedentTables
+      */
     protected $_depedentTables = array('usuariotrabalhaemprojeto');
     
+    /** 
+      * Mapeamento das referências.
+      * 
+      * @access protected 
+      * @name $_referenceMap
+      */ 
     protected $_referenceMap = array(
         'repositorios' => array(
             'columns'       => 'idrepositorio',
@@ -28,7 +53,8 @@ class Projetos extends Zend_Db_Table_Abstract
     ); 
 
     /**
-     * 
+     * Recebe uma string com a informação do intervalo de tempo no formato do 
+     * postgre e converte para o formato interval do php.
      *
      * @author Jacqueline Midlej
      * @access public
@@ -105,12 +131,12 @@ class Projetos extends Zend_Db_Table_Abstract
         }
         
     /**
-     * 
+     * Soma dois intervalos de tempo, recebendo duas variaveis interval
      *
      * @author Jacqueline Midlej
      * @access public
      * @param int $int1
-     * @param int $int2
+     * @param int $int2soma dois intervalos de tempo, recebendo duas variaveis interval
      * @return $int2
      *
      */

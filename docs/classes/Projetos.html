@@ -32,7 +32,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">180</span></a></li>
+                <span class="label label-info">119</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -56,17 +56,17 @@
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public "><a href="#SomaInterval" title="SomaInterval :: "><span class="description">SomaInterval()
-        </span><pre>SomaInterval()</pre></a></li>
-<li class="method public "><a href="#trataInterval" title="trataInterval :: "><span class="description">trataInterval()
-        </span><pre>trataInterval()</pre></a></li>
+<li class="method public "><a href="#SomaInterval" title="SomaInterval :: Soma dois intervalos de tempo, recebendo duas variaveis interval"><span class="description">Soma dois intervalos de tempo, recebendo duas variaveis interval</span><pre>SomaInterval()</pre></a></li>
+<li class="method public "><a href="#trataInterval" title="trataInterval :: Recebe uma string com a informação do intervalo de tempo no formato do
+postgre e converte para o formato interval do php."><span class="description">Recebe uma string com a informação do intervalo de tempo no formato do
+postgre e converte para o formato interval do php.</span><pre>trataInterval()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="nav-header protected">» Protected</li>
-<li class="property protected "><a href="#%24_depedentTables" title="$_depedentTables :: "><span class="description">$_depedentTables</span><pre>$_depedentTables</pre></a></li>
-<li class="property protected "><a href="#%24_name" title="$_name :: "><span class="description">$_name</span><pre>$_name</pre></a></li>
-<li class="property protected "><a href="#%24_referenceMap" title="$_referenceMap :: "><span class="description">$_referenceMap</span><pre>$_referenceMap</pre></a></li>
-<li class="property protected "><a href="#%24_sequence" title="$_sequence :: "><span class="description">$_sequence</span><pre>$_sequence</pre></a></li>
+<li class="property protected "><a href="#%24_depedentTables" title="$_depedentTables :: Tabelas referenciadas."><span class="description">Tabelas referenciadas.</span><pre>$_depedentTables</pre></a></li>
+<li class="property protected "><a href="#%24_name" title="$_name :: Nome da tabela no banco de dados."><span class="description">Nome da tabela no banco de dados.</span><pre>$_name</pre></a></li>
+<li class="property protected "><a href="#%24_referenceMap" title="$_referenceMap :: Mapeamento das referências."><span class="description">Mapeamento das referências.</span><pre>$_referenceMap</pre></a></li>
+<li class="property protected "><a href="#%24_sequence" title="$_sequence :: Sequência da tabela."><span class="description">Sequência da tabela.</span><pre>$_sequence</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -108,9 +108,8 @@
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="SomaInterval" id="SomaInterval"></a><div class="element clickable method public SomaInterval" data-toggle="collapse" data-target=".SomaInterval .collapse">
-<h2>SomaInterval()
-        </h2>
-<pre>SomaInterval(int $int1, int $int2) : \$int2</pre>
+<h2>Soma dois intervalos de tempo, recebendo duas variaveis interval</h2>
+<pre>SomaInterval(int $int1, $int2) : \$int2</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -131,15 +130,15 @@
 </div>
 <div class="subelement argument">
 <h4>$int2</h4>
-<code>int</code>
+<code></code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\$int2</code></div>
 </div></div>
 </div>
 <a name="trataInterval" id="trataInterval"></a><div class="element clickable method public trataInterval" data-toggle="collapse" data-target=".trataInterval .collapse">
-<h2>trataInterval()
-        </h2>
+<h2>Recebe uma string com a informação do intervalo de tempo no formato do
+postgre e converte para o formato interval do php.</h2>
 <pre>trataInterval(int $tempo, int $int2) : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -168,28 +167,76 @@
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
 <a name="%24_depedentTables" id="$_depedentTables"> </a><div class="element clickable property protected $_depedentTables" data-toggle="collapse" data-target=".$_depedentTables .collapse">
-<h2>$_depedentTables</h2>
+<h2>Tabelas referenciadas.</h2>
 <pre>$_depedentTables </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>protected</td>
+</tr>
+<tr>
+<th>name</th>
+<td>$_depedentTables</td>
+</tr>
+</table>
+</div></div>
 </div>
 <a name="%24_name" id="$_name"> </a><div class="element clickable property protected $_name" data-toggle="collapse" data-target=".$_name .collapse">
-<h2>$_name</h2>
+<h2>Nome da tabela no banco de dados.</h2>
 <pre>$_name </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>protected</td>
+</tr>
+<tr>
+<th>name</th>
+<td>$_name</td>
+</tr>
+</table>
+</div></div>
 </div>
 <a name="%24_referenceMap" id="$_referenceMap"> </a><div class="element clickable property protected $_referenceMap" data-toggle="collapse" data-target=".$_referenceMap .collapse">
-<h2>$_referenceMap</h2>
+<h2>Mapeamento das referências.</h2>
 <pre>$_referenceMap </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>protected</td>
+</tr>
+<tr>
+<th>name</th>
+<td>$_referenceMap</td>
+</tr>
+</table>
+</div></div>
 </div>
 <a name="%24_sequence" id="$_sequence"> </a><div class="element clickable property protected $_sequence" data-toggle="collapse" data-target=".$_sequence .collapse">
-<h2>$_sequence</h2>
+<h2>Sequência da tabela.</h2>
 <pre>$_sequence </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>protected</td>
+</tr>
+<tr>
+<th>name</th>
+<td>$_sequence</td>
+</tr>
+</table>
+</div></div>
 </div>
 </div>
 </div>
@@ -198,7 +245,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
-            generated on 2012-07-24T05:22:25-03:00.<br></footer></div>
+            generated on 2012-07-24T11:26:06-03:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -14,11 +14,36 @@
 
 class Usuarios extends Zend_Db_Table_Abstract
 {
-
+    /** 
+     * Nome da tabela no banco de dados.
+     * 
+     * @access protected 
+     * @name $_name 
+     */ 
     protected $_name = 'usuarios';
+          
+     /** 
+      * Sequência da tabela.
+      * 
+      * @access protected 
+      * @name $_sequence 
+      */    
     protected $_sequence = 'usuarios_idusuario_seq';
+    
+    /** 
+      * Tabelas referenciadas.
+      * 
+      * @access protected 
+      * @name $_depedentTables
+      */
     protected $_depedentTables = array('usuariotrabalhaemprojeto');
     
+    /** 
+      * Mapeamento das referências.
+      * 
+      * @access protected 
+      * @name $_referenceMap
+      */ 
     protected $_referenceMap = array(
         'enderecos' => array(
             'columns'       => 'endereco',

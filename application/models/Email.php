@@ -13,8 +13,29 @@
  */
 
 class Email{
+    
+    /** 
+     * Mensagem do e-mail.
+     * 
+     * @access private 
+     * @name $mensagem 
+     */ 
     private $mensagem;
+    
+    /** 
+     * Assunto do e-mail.
+     * 
+     * @access private 
+     * @name $assunto 
+     */ 
     private $assunto;
+    
+    /** 
+     * Destinatário do e-mail.
+     * 
+     * @access private 
+     * @name $destinatario
+     */ 
     private $destinatario;
 
     /**
