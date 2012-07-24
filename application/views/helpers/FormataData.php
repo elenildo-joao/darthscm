@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * 
+ * Classe helper responsável pela formatação do valor de data para exibição.
+ *
+ * @package DarthSCM
+ * @subpackage helpers
+ * @author Elenildo João
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class Zend_View_Helper_FormataData extends Zend_View_Helper_Abstract
 {
     /**
@@ -9,7 +21,7 @@ class Zend_View_Helper_FormataData extends Zend_View_Helper_Abstract
     protected static $_date = null;
 
     /**
-     * Método Principal
+     * Função que formata o valor de data para exibição.
      * @param string $value Valor para Formatação
      * @param string $format Formato de Saída
      * @return string Valor Formatado

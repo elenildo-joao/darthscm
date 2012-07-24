@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * 
+ * Classe responsável pela abstração da tabela mensagens do banco de dados.
+ *
+ * @package DarthSCM
+ * @subpackage models
+ * @author Caique pires
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class Mensagens extends Zend_Db_Table_Abstract
 {
 

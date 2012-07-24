@@ -1,0 +1,2728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a6" title="DarthSCM">
+  <file path="public/index.php" hash="f34b8318334222bbc531d4d19e29ef6d" package="Default">
+    <include line="18" type="Require Once" package="Default">
+      <name>Zend/Application.php</name>
+      <docblock line="18">
+        <description><![CDATA[Zend_Application]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+    </include>
+    <constant namespace="" line="5" package="Default">
+      <name>APPLICATION_PATH</name>
+      <full_name>\APPLICATION_PATH</full_name>
+      <value><![CDATA[realpath(dirname(__FILE__) . '/../application')]]></value>
+    </constant>
+    <constant namespace="" line="9" package="Default">
+      <name>APPLICATION_ENV</name>
+      <full_name>\APPLICATION_ENV</full_name>
+      <value><![CDATA[getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production']]></value>
+    </constant>
+  </file>
+  <file path="public/jquery-ui/development-bundle/demos/autocomplete/search.php" hash="2f3f2da4cffd96ded82a8501987a324d" package="Default">
+    <function namespace="" line="572" package="Default">
+      <name>array_to_json</name>
+      <full_name>\array_to_json</full_name>
+      <argument line="572">
+        <name>$array</name>
+        <default><![CDATA[]]></default>
+        <type/>
+      </argument>
+    </function>
+    <parse_markers>
+      <error line="572" code="50009">No DocBlock was found for function \array_to_json()</error>
+    </parse_markers>
+  </file>
+  <file path="public/jquery-ui/development-bundle/demos/tabs/ajax/content3-slow.php" hash="1184ec5ad3b1bf81eb5f19cb6a233daa" package="Default"/>
+  <file path="public/jquery-ui/development-bundle/demos/tabs/ajax/content4-broken.php" hash="feb9562749e8ae1d0408c257ca44b6e5" package="Default"/>
+  <file path="tests/application/models/ModelUserTest.php" hash="8fe6e7adfbb76f68734a0b172224c7a7" package="Default">
+    <class final="false" abstract="false" namespace="" line="8" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>ModelUserTest</name>
+      <full_name>\ModelUserTest</full_name>
+      <docblock line="8">
+        <description><![CDATA[Description of ModelUserTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="8" name="author" description="acarlos"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="10" namespace="" package="Default">
+        <name>$user</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="12" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="20" package="Default">
+        <name>testEmailJaExiste</name>
+        <full_name>testEmailJaExiste</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="29" package="Default">
+        <name>testCpfJaExiste</name>
+        <full_name>testCpfJaExiste</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="10" code="50018">No DocBlock was found for property $user</error>
+      <error line="12" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="20" code="50010">No DocBlock was found for method testEmailJaExiste()</error>
+      <error line="29" code="50010">No DocBlock was found for method testCpfJaExiste()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/models/ModelProjetosTest.php" hash="db1d18142b1dde55bfa11b1761a2d739" package="Default">
+    <include line="3" type="Include" package="Default">
+      <name>../../../application/models/Projetos.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="15" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>ModelProjetosTest</name>
+      <full_name>\ModelProjetosTest</full_name>
+      <docblock line="15">
+        <description><![CDATA[Description of ModelProjetosTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="author" description="acarlos"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="17" namespace="" package="Default">
+        <name>$projetos</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="19" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="24" package="Default">
+        <name>testSomaInterval</name>
+        <full_name>testSomaInterval</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="54" package="Default">
+        <name>testTrataInterval</name>
+        <full_name>testTrataInterval</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="17" code="50018">No DocBlock was found for property $projetos</error>
+      <error line="19" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="24" code="50010">No DocBlock was found for method testSomaInterval()</error>
+      <error line="54" code="50010">No DocBlock was found for method testTrataInterval()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/ControllerTestCase.php" hash="5ddcd4767c25e549f206af780b0787eb" package="Default">
+    <include line="4" type="Require Once" package="Default">
+      <name>Zend/Test/PHPUnit/ControllerTestCase.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="15" package="Default">
+      <extends>Zend_Test_PHPUnit_ControllerTestCase</extends>
+      <name>ControllerTestCase</name>
+      <full_name>\ControllerTestCase</full_name>
+      <docblock line="15">
+        <description><![CDATA[Description of ControllerTestCase]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="author" description="silas"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$application</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="23" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="29" package="Default">
+        <name>appBootstrap</name>
+        <full_name>appBootstrap</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="20" code="50018">No DocBlock was found for property $application</error>
+      <error line="23" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="29" code="50010">No DocBlock was found for method appBootstrap()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/controllers/LoginControllerTest.php" hash="0e1d46ba7e0323fe961287294a45b36f" package="Default">
+    <class final="false" abstract="false" namespace="" line="13" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>LoginControllerTest</name>
+      <full_name>\LoginControllerTest</full_name>
+      <docblock line="13">
+        <description><![CDATA[Description of ControllerLoginTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="author" description="acarlos"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="15" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="23" package="Default">
+        <name>testLogin</name>
+        <full_name>testLogin</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="61" package="Default">
+        <name>testLogout</name>
+        <full_name>testLogout</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="78" package="Default">
+        <name>testSolicitar</name>
+        <full_name>testSolicitar</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="98" package="Default">
+        <name>testRedefinir</name>
+        <full_name>testRedefinir</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="120" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="15" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="23" code="50010">No DocBlock was found for method testLogin()</error>
+      <error line="61" code="50010">No DocBlock was found for method testLogout()</error>
+      <error line="78" code="50010">No DocBlock was found for method testSolicitar()</error>
+      <error line="98" code="50010">No DocBlock was found for method testRedefinir()</error>
+      <error line="120" code="50010">No DocBlock was found for method tearDown()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/controllers/IndexControllerTest.php" hash="7993c37a77bef04b7e8b66bcdc10880a" package="Default">
+    <class final="false" abstract="false" namespace="" line="13" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>IndexControllerTest</name>
+      <full_name>\IndexControllerTest</full_name>
+      <docblock line="13">
+        <description><![CDATA[Description of IndexControllerTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="author" description="acarlos"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="15" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="22" package="Default">
+        <name>testIndex</name>
+        <full_name>testIndex</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="15" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="22" code="50010">No DocBlock was found for method testIndex()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/controllers/MensagensControllerTest.php" hash="af65705953de73f5fe50a52f0e0b7690" package="Default">
+    <class final="false" abstract="false" namespace="" line="9" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>MensagensControllerTest</name>
+      <full_name>\MensagensControllerTest</full_name>
+      <docblock line="9">
+        <description><![CDATA[Description of MensagensControllerTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="9" name="author" description="acarlos"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="11" namespace="" package="Default">
+        <name>$mensagem</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="12" namespace="" package="Default">
+        <name>$vMsg</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="14" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="24" package="Default">
+        <name>login</name>
+        <full_name>login</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="37" package="Default">
+        <name>logout</name>
+        <full_name>logout</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="41" package="Default">
+        <name>testListar</name>
+        <full_name>testListar</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="53" package="Default">
+        <name>testNovo</name>
+        <full_name>testNovo</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="79" package="Default">
+        <name>testRemoverSaida</name>
+        <full_name>testRemoverSaida</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="92" package="Default">
+        <name>testRemover</name>
+        <full_name>testRemover</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="113" package="Default">
+        <name>testVisualisar</name>
+        <full_name>testVisualisar</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="123" package="Default">
+        <name>testVisualisarSaida</name>
+        <full_name>testVisualisarSaida</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="133" package="Default">
+        <name>testCaixaSaida</name>
+        <full_name>testCaixaSaida</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="11" code="50018">No DocBlock was found for property $mensagem</error>
+      <error line="12" code="50018">No DocBlock was found for property $vMsg</error>
+      <error line="14" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="24" code="50010">No DocBlock was found for method login()</error>
+      <error line="37" code="50010">No DocBlock was found for method logout()</error>
+      <error line="41" code="50010">No DocBlock was found for method testListar()</error>
+      <error line="53" code="50010">No DocBlock was found for method testNovo()</error>
+      <error line="79" code="50010">No DocBlock was found for method testRemoverSaida()</error>
+      <error line="92" code="50010">No DocBlock was found for method testRemover()</error>
+      <error line="113" code="50010">No DocBlock was found for method testVisualisar()</error>
+      <error line="123" code="50010">No DocBlock was found for method testVisualisarSaida()</error>
+      <error line="133" code="50010">No DocBlock was found for method testCaixaSaida()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/controllers/UserControllerTest.php" hash="e162a9e01dcdc3e0b4fba6a35c235112" package="Default">
+    <class final="false" abstract="false" namespace="" line="13" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>UserControllerTest</name>
+      <full_name>\UserControllerTest</full_name>
+      <docblock line="13">
+        <description><![CDATA[Description of UserControllerTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="author" description="silas"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="16" namespace="" package="Default">
+        <name>$user</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="18" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="31" package="Default">
+        <name>mod</name>
+        <full_name>mod</full_name>
+        <argument line="31">
+          <name>$dividendo</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="31">
+          <name>$divisor</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="36" package="Default">
+        <name>cpf</name>
+        <full_name>cpf</full_name>
+        <argument line="36">
+          <name>$compontos</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="62" package="Default">
+        <name>login</name>
+        <full_name>login</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="Default">
+        <name>logout</name>
+        <full_name>logout</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="79" package="Default">
+        <name>testCanGoToUsuariosPage</name>
+        <full_name>testCanGoToUsuariosPage</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="99" package="Default">
+        <name>testCanGoToUsuariosNovosPage</name>
+        <full_name>testCanGoToUsuariosNovosPage</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="107" package="Default">
+        <name>testDefaultPageUsuariosListar</name>
+        <full_name>testDefaultPageUsuariosListar</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="116" package="Default">
+        <name>testNovo</name>
+        <full_name>testNovo</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="167" package="Default">
+        <name>testEditar</name>
+        <full_name>testEditar</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="203" package="Default">
+        <name>testRemover</name>
+        <full_name>testRemover</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="215" package="Default">
+        <name>testVisualisar</name>
+        <full_name>testVisualisar</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="16" code="50018">No DocBlock was found for property $user</error>
+      <error line="18" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="31" code="50010">No DocBlock was found for method mod()</error>
+      <error line="36" code="50010">No DocBlock was found for method cpf()</error>
+      <error line="62" code="50010">No DocBlock was found for method login()</error>
+      <error line="75" code="50010">No DocBlock was found for method logout()</error>
+      <error line="79" code="50010">No DocBlock was found for method testCanGoToUsuariosPage()</error>
+      <error line="99" code="50010">No DocBlock was found for method testCanGoToUsuariosNovosPage()</error>
+      <error line="107" code="50010">No DocBlock was found for method testDefaultPageUsuariosListar()</error>
+      <error line="116" code="50010">No DocBlock was found for method testNovo()</error>
+      <error line="167" code="50010">No DocBlock was found for method testEditar()</error>
+      <error line="203" code="50010">No DocBlock was found for method testRemover()</error>
+      <error line="215" code="50010">No DocBlock was found for method testVisualisar()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/controllers/ProjetoControllerTest.php" hash="96bdf5ff7e1ad921cd21bae88ca7055a" package="Default">
+    <class final="false" abstract="false" namespace="" line="13" package="Default">
+      <extends>ControllerTestCase</extends>
+      <name>ProjetoControllerTest</name>
+      <full_name>\ProjetoControllerTest</full_name>
+      <docblock line="13">
+        <description><![CDATA[Description of ProjetoControllerTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="author" description="acarlos"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="16" namespace="" package="Default">
+        <name>$projeto</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="18" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="26" package="Default">
+        <name>login</name>
+        <full_name>login</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="39" package="Default">
+        <name>logout</name>
+        <full_name>logout</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="44" package="Default">
+        <name>testCanGoToProjetosPage</name>
+        <full_name>testCanGoToProjetosPage</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="55" package="Default">
+        <name>testCanGoToProjetosNovosPage</name>
+        <full_name>testCanGoToProjetosNovosPage</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="66" package="Default">
+        <name>testDefaultPageProjetosListar</name>
+        <full_name>testDefaultPageProjetosListar</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="81" package="Default">
+        <name>testCanGoToListarTarefas</name>
+        <full_name>testCanGoToListarTarefas</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="87" package="Default">
+        <name>testNovoProjeto</name>
+        <full_name>testNovoProjeto</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="109" package="Default">
+        <name>testRemover</name>
+        <full_name>testRemover</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="125" package="Default">
+        <name>testEditarProjetos</name>
+        <full_name>testEditarProjetos</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="136" package="Default">
+        <name>testNovaTarefa</name>
+        <full_name>testNovaTarefa</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="161" package="Default">
+        <name>testNovaSubTarefa</name>
+        <full_name>testNovaSubTarefa</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="Default">
+        <name>testAdicionarTempo</name>
+        <full_name>testAdicionarTempo</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="203" package="Default">
+        <name>testAlocarColaborador</name>
+        <full_name>testAlocarColaborador</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="221" package="Default">
+        <name>testDesalocarColaborador</name>
+        <full_name>testDesalocarColaborador</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="239" package="Default">
+        <name>testAlocarUsuarioTarefa</name>
+        <full_name>testAlocarUsuarioTarefa</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="257" package="Default">
+        <name>testDesalocarUsuarioTarefa</name>
+        <full_name>testDesalocarUsuarioTarefa</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="276" package="Default">
+        <name>testFecharTarefa</name>
+        <full_name>testFecharTarefa</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="16" code="50018">No DocBlock was found for property $projeto</error>
+      <error line="18" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="26" code="50010">No DocBlock was found for method login()</error>
+      <error line="39" code="50010">No DocBlock was found for method logout()</error>
+      <error line="44" code="50010">No DocBlock was found for method testCanGoToProjetosPage()</error>
+      <error line="55" code="50010">No DocBlock was found for method testCanGoToProjetosNovosPage()</error>
+      <error line="66" code="50010">No DocBlock was found for method testDefaultPageProjetosListar()</error>
+      <error line="81" code="50010">No DocBlock was found for method testCanGoToListarTarefas()</error>
+      <error line="87" code="50010">No DocBlock was found for method testNovoProjeto()</error>
+      <error line="109" code="50010">No DocBlock was found for method testRemover()</error>
+      <error line="125" code="50010">No DocBlock was found for method testEditarProjetos()</error>
+      <error line="136" code="50010">No DocBlock was found for method testNovaTarefa()</error>
+      <error line="161" code="50010">No DocBlock was found for method testNovaSubTarefa()</error>
+      <error line="184" code="50010">No DocBlock was found for method testAdicionarTempo()</error>
+      <error line="203" code="50010">No DocBlock was found for method testAlocarColaborador()</error>
+      <error line="221" code="50010">No DocBlock was found for method testDesalocarColaborador()</error>
+      <error line="239" code="50010">No DocBlock was found for method testAlocarUsuarioTarefa()</error>
+      <error line="257" code="50010">No DocBlock was found for method testDesalocarUsuarioTarefa()</error>
+      <error line="276" code="50010">No DocBlock was found for method testFecharTarefa()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/views/helpers/Zend_View_Helper_FormataCPFTest.php" hash="ee6b2f0fc8671dc1b0ca6c99578db184" package="Default">
+    <class final="false" abstract="false" namespace="" line="13" package="Default">
+      <extends>PHPUnit_Framework_TestCase</extends>
+      <name>Zend_View_Helper_FormataCPFTest</name>
+      <full_name>\Zend_View_Helper_FormataCPFTest</full_name>
+      <docblock line="13">
+        <description><![CDATA[Description of FormataCPFTest]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="author" description="acarlos"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="15" namespace="" package="Default">
+        <name>$helper</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="17" package="Default">
+        <name>setUp</name>
+        <full_name>setUp</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="21" package="Default">
+        <name>testFormataCPF</name>
+        <full_name>testFormataCPF</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="15" code="50018">No DocBlock was found for property $helper</error>
+      <error line="17" code="50010">No DocBlock was found for method setUp()</error>
+      <error line="21" code="50010">No DocBlock was found for method testFormataCPF()</error>
+    </parse_markers>
+  </file>
+  <file path="tests/application/bootstrap.php" hash="344425243eae363f021419d1b8befc6e" package="Default">
+    <include line="20" type="Require Once" package="Default">
+      <name>Zend/Application.php</name>
+    </include>
+    <include line="21" type="Require Once" package="Default">
+      <name>Zend/Loader/Autoloader.php</name>
+    </include>
+    <include line="23" type="Require Once" package="Default">
+      <name>ControllerTestCase.php</name>
+    </include>
+    <constant namespace="" line="7" package="Default">
+      <name>APPLICATION_PATH</name>
+      <full_name>\APPLICATION_PATH</full_name>
+      <value><![CDATA[realpath(dirname(__FILE__) . '/../../application')]]></value>
+    </constant>
+    <constant namespace="" line="11" package="Default">
+      <name>APPLICATION_ENV</name>
+      <full_name>\APPLICATION_ENV</full_name>
+      <value><![CDATA[getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'testing']]></value>
+    </constant>
+  </file>
+  <file path="application/layouts/scripts/login.phtml" hash="c4bd0fed2e9b9e654a039c472b00d533" package="Default"/>
+  <file path="application/layouts/scripts/layout.phtml" hash="8a3cfd592ec0e8b152f61a5d8eafa986" package="Default"/>
+  <file path="application/layouts/scripts/login-red.phtml" hash="0c6d8a7b4801c4fe65a45e1273bafdb5" package="Default"/>
+  <file path="application/layouts/scripts/informacao.phtml" hash="e05d0fcbd08cc1bbea4ed73cc8879268" package="Default"/>
+  <file path="application/models/VRealiza.php" hash="43d3567af6ecf42fd43fa42944a6b94d" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VRealiza</name>
+      <full_name>\VRealiza</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vrealiza do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vrealiza']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VRelatorioProdCol.php" hash="f2bfb1563c642937248e394d1e4f9663" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VRelatorioProdCol</name>
+      <full_name>\VRelatorioProdCol</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vrelatorioprodcol do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vrelatorioprodcol']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idusuario', 'idprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VMsgRecebida.php" hash="7817516f43b51fb17b016789a22c65c2" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VMsgRecebida</name>
+      <full_name>\VMsgRecebida</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vmensagensrecebidas do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vmensagensrecebidas']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA['destinatario']]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Email.php" hash="e2d18932416cb2ab21033bfc4c7e7acb" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends/>
+      <name>Email</name>
+      <full_name>\Email</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pelo envio de e-mail.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="16" namespace="" package="Default">
+        <name>$mensagem</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="17" namespace="" package="Default">
+        <name>$assunto</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="18" namespace="" package="Default">
+        <name>$destinatario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="33" package="DarthSCM\models">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="33">
+          <description><![CDATA[Construtor da classe.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="author" description="Elenildo João"/>
+          <tag line="33" name="access" description="public"/>
+          <tag line="33" name="param" description="" type="String" variable="$mensagem">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="33" name="param" description="" type="String" variable="$assunto">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="33" name="param" description="" type="String" variable="$destinatarioEmail">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="33" name="param" description="" type="String" variable="$destinatarioNome">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="33" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="33">
+          <name>$mensagem</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$assunto</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$destinatarioEmail</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$destinatarioNome</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="49" package="DarthSCM\models">
+        <name>enviar</name>
+        <full_name>enviar</full_name>
+        <docblock line="49">
+          <description><![CDATA[Envia o e-mail.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="author" description="Elenildo João"/>
+          <tag line="49" name="access" description="public"/>
+          <tag line="49" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="71" package="DarthSCM\models">
+        <name>getConfiguracao</name>
+        <full_name>getConfiguracao</full_name>
+        <docblock line="71">
+          <description><![CDATA[Função responsável pela configuração da conta pela qual o e-mail vai ser
+enviado.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="71" name="author" description="Elenildo João"/>
+          <tag line="71" name="access" description="public"/>
+          <tag line="71" name="return" description="Informações da conta" type="\$config">
+            <type by_reference="false">\$config</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="16" code="50018">No DocBlock was found for property $mensagem</error>
+      <error line="17" code="50018">No DocBlock was found for property $assunto</error>
+      <error line="18" code="50018">No DocBlock was found for property $destinatario</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Repositorios.php" hash="1145eec13bd777f740d0da04b466fb1b" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Repositorios</name>
+      <full_name>\Repositorios</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela repositorios do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['repositorios']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['repositorios_idrepositorio_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('projetos', 'vusuarioprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VMsgEnviada.php" hash="e50b5a62b7e1f4024da36c772008e7ff" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VMsgEnviada</name>
+      <full_name>\VMsgEnviada</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vmensagensenviadas do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vmensagensenviadas']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA['idremetente']]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Tarefas.php" hash="6f1e22e7ea8a24eff2636808cab52afa" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Tarefas</name>
+      <full_name>\Tarefas</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela tarefas do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Jacqueline Midlej"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['tarefas']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['tarefas_idtarefa_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuariorealizatarefa')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="22" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('projetos' => array('columns' => 'idprojeto', 'refTableClass' => 'Projetos', 'refColumns' => 'idprojeto'), 'superTaferas' => array('columns' => array('idsupertarefa', 'idsuperprojeto'), 'refTableClass' => 'Tarefas', 'refColumns' => array('idtarefa', 'idprojeto')))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+      <error line="22" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Projetos.php" hash="9deba05dfb948678ef842a0954d5d5e4" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Projetos</name>
+      <full_name>\Projetos</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela projetos do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['projetos']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['projetos_idprojeto_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuariotrabalhaemprojeto')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="22" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('repositorios' => array('columns' => 'idrepositorio', 'refTableClass' => 'Repositorios', 'refColumns' => 'idrepositorio'))]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="40" package="DarthSCM\models">
+        <name>trataInterval</name>
+        <full_name>trataInterval</full_name>
+        <docblock line="40">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="author" description="Jacqueline Midlej"/>
+          <tag line="40" name="access" description="public"/>
+          <tag line="40" name="param" description="" type="int" variable="$tempo">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="40" name="param" description="" type="int" variable="$int2">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="40" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="40">
+          <name>$tempo</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="40">
+          <name>$int2</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="118" package="DarthSCM\models">
+        <name>SomaInterval</name>
+        <full_name>SomaInterval</full_name>
+        <docblock line="118">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="118" name="author" description="Jacqueline Midlej"/>
+          <tag line="118" name="access" description="public"/>
+          <tag line="118" name="param" description="" type="int" variable="$int1">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="118" name="param" description="" type="int" variable="$int2">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="118" name="return" description="" type="\$int2">
+            <type by_reference="false">\$int2</type>
+          </tag>
+        </docblock>
+        <argument line="118">
+          <name>$int1</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="118">
+          <name>$int2</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+      <error line="22" code="50018">No DocBlock was found for property $_referenceMap</error>
+      <error line="40" code="50012">No short description for method trataInterval()</error>
+      <error line="118" code="50012">No short description for method SomaInterval()</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Login.php" hash="9c941883db42170650e58ae362f8913b" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Login</name>
+      <full_name>\Login</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela login do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['login']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['login_idlogin_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuarios')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Realiza.php" hash="e406e12caea9d73c2821f91301089fbc" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Realiza</name>
+      <full_name>\Realiza</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da tabela usuariorealizatarefa do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['usuariorealizatarefa']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idtarefa', 'idprojeto', 'idusuario')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('usuarios' => array('columns' => 'idusuario', 'refTableClass' => 'Usuarios', 'refColumns' => 'idusuario'), 'tarefas' => array('columns' => array('idtarefa', 'idprojeto'), 'refTableClass' => 'Tarefas', 'refColumns' => array('idtarefa', 'idprojeto')))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="19" code="50018">No DocBlock was found for property $_name</error>
+      <error line="20" code="50018">No DocBlock was found for property $_primary</error>
+      <error line="21" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/LogsLogin.php" hash="e75826c33002f551a352ad02706a8697" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>LogsLogin</name>
+      <full_name>\LogsLogin</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela logslogin do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['logslogin']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['logslogin_idloglogin_seq']]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Usuarios.php" hash="f51bb825f5fc257c68fc47d68c208342" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Usuarios</name>
+      <full_name>\Usuarios</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela usuarios do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['usuarios']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['usuarios_idusuario_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuariotrabalhaemprojeto')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="22" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('enderecos' => array('columns' => 'endereco', 'refTableClass' => 'Enderecos', 'refColumns' => 'idendereco'), 'login' => array('columns' => 'idusuario', 'refTableClass' => 'Login', 'refColumns' => 'idusuario'))]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="45" package="DarthSCM\models">
+        <name>emailJaExiste</name>
+        <full_name>emailJaExiste</full_name>
+        <docblock line="45">
+          <description><![CDATA[Verifica se o e-mail já está cadastrado no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="45" name="author" description="Elenildo João"/>
+          <tag line="45" name="access" description="public"/>
+          <tag line="45" name="param" description="" type="String" variable="$email">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="45" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="45">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="DarthSCM\models">
+        <name>cpfJaExiste</name>
+        <full_name>cpfJaExiste</full_name>
+        <docblock line="64">
+          <description><![CDATA[Verifica se o cpf já está cadastrado no banco de dados.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="64" name="author" description="Elenildo João"/>
+          <tag line="64" name="access" description="public"/>
+          <tag line="64" name="param" description="" type="String" variable="$cpf">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="64" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="64">
+          <name>$cpf</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+      <error line="22" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/RedefinirSenha.php" hash="8cba18f85549ee49af97c5a9f96faaa5" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>RedefinirSenha</name>
+      <full_name>\RedefinirSenha</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela redefinirsenha do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['redefinirsenha']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA['hash']]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Enderecos.php" hash="6d9cccec09432a4c1541c53c7976b716" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Enderecos</name>
+      <full_name>\Enderecos</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela enderecos do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['enderecos']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['enderecos_idendereco_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuarios')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Mensagens.php" hash="1ccdf47fd6c72a5bdb6b6dd598590bca" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Mensagens</name>
+      <full_name>\Mensagens</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela mensagens do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Caique pires"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['mensagens']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_sequence</name>
+        <default><![CDATA['mensagens_idmensagem_seq']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuarios', 'destinatarios')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="25" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('usuarios' => array('columns' => 'remetente', 'refTableClass' => 'Usuarios', 'refColumns' => 'idusuario'), 'destinatarios' => array('columns' => 'idmensagem', 'refTableClass' => 'Mensagens', 'refColumns' => 'idmensagem'))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_sequence</error>
+      <error line="21" code="50018">No DocBlock was found for property $_depedentTables</error>
+      <error line="25" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/TrabalhaEm.php" hash="794d6034d676aa1e8b04a47d7eb682f0" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>TrabalhaEm</name>
+      <full_name>\TrabalhaEm</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da tabela usuariotrabalhaemprojeto do banco
+de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Elenildo João"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['usuariotrabalhaemprojeto']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idusuario', 'idprojeto')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('usuarios' => array('columns' => 'idusuario', 'refTableClass' => 'Usuarios', 'refColumns' => 'idusuario'), 'projetos' => array('columns' => 'idprojeto', 'refTableClass' => 'Projetos', 'refColumns' => 'idprojeto'))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="19" code="50018">No DocBlock was found for property $_name</error>
+      <error line="20" code="50018">No DocBlock was found for property $_primary</error>
+      <error line="21" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VSubTarefa.php" hash="4c9c747f12661acac84b4a5feea3c3e4" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VSubTarefa</name>
+      <full_name>\VSubTarefa</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vsubtarefas do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vsubtarefas']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuariorealizatarefa')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="21" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="19" code="50018">No DocBlock was found for property $_name</error>
+      <error line="20" code="50018">No DocBlock was found for property $_depedentTables</error>
+      <error line="21" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VUsuarioProjeto.php" hash="08a1c910c509ec727b5cf29f0cbf0a86" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VUsuarioProjeto</name>
+      <full_name>\VUsuarioProjeto</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da visão vusuarioprojeto do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="17" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vusuarioprojeto']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA['idprojeto']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('repositorios' => array('columns' => 'idrepositorio', 'refTableClass' => 'Repositorios', 'refColumns' => 'idrepositorio'))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="17" code="50018">No DocBlock was found for property $_name</error>
+      <error line="18" code="50018">No DocBlock was found for property $_primary</error>
+      <error line="20" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/Destinatarios.php" hash="1fab05825b4b99ec332047c287428e49" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>Destinatarios</name>
+      <full_name>\Destinatarios</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela abstração da tabela destinatários do banco de dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="models"/>
+        <tag line="15" name="author" description="Caique Pires"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['destinatarios']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_depedentTables</name>
+        <default><![CDATA[array('usuarios', 'mensagens')]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_referenceMap</name>
+        <default><![CDATA[array('mensagens' => array('columns' => 'idmensagem', 'refTableClass' => 'Mensagens', 'refColumns' => 'idmensagem'), 'mensagens' => array('columns' => 'remetente', 'refTableClass' => 'Mensagens', 'refColumns' => 'remetente'), 'usuarios' => array('columns' => 'destinatario', 'refTableClass' => 'Usuarios', 'refColumns' => 'idUsuario'))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_depedentTables</error>
+      <error line="20" code="50018">No DocBlock was found for property $_referenceMap</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VTarefaUsuario.php" hash="5f460e851c69d864e6e9f9d12b89a9e2" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VTarefaUsuario</name>
+      <full_name>\VTarefaUsuario</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vtarefausuario do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vtarefausuario']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/SubTarefas.php" hash="624b789a1958daffb74a7f926c45fbad" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>SubTarefas</name>
+      <full_name>\SubTarefas</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da tabela tarefas do banco de dados,
+representando as sub-tarefas.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['tarefas']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idtarefa', 'idprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="19" code="50018">No DocBlock was found for property $_name</error>
+      <error line="20" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/models/VRelatorioProdProj.php" hash="e2a8bc8aaa366fd6c04bb0c5c41cb0be" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\models">
+      <extends>Zend_Db_Table_Abstract</extends>
+      <name>VRelatorioProdProj</name>
+      <full_name>\VRelatorioProdProj</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela abstração da visão vrelatorioprodproj do banco de
+dados.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="models"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="" package="Default">
+        <name>$_name</name>
+        <default><![CDATA['vrelatorioprodproj']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="" package="Default">
+        <name>$_primary</name>
+        <default><![CDATA[array('idprojeto')]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $_name</error>
+      <error line="19" code="50018">No DocBlock was found for property $_primary</error>
+    </parse_markers>
+  </file>
+  <file path="application/Bootstrap.php" hash="60254219bb168d31047fd3f5f6aa17fb" package="Default">
+    <class final="false" abstract="false" namespace="" line="3" package="Default">
+      <extends>Zend_Application_Bootstrap_Bootstrap</extends>
+      <name>Bootstrap</name>
+      <full_name>\Bootstrap</full_name>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="13" package="Default">
+        <name>_initAutoload</name>
+        <full_name>_initAutoload</full_name>
+        <docblock line="13">
+          <description><![CDATA[Initialize autoloader]]></description>
+          <long-description><![CDATA[<p>Use the setFallbackAutoloader() method to have the autoloader act
+as a catch-all</p>]]></long-description>
+          <tag line="13" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="3" code="50000">No DocBlock was found for \Bootstrap</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/IndexController.php" hash="4cf9b709280e6ad5a2f6bfd24ffc9f5c" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\controllers">
+      <extends>Zend_Controller_Action</extends>
+      <name>IndexController</name>
+      <full_name>\IndexController</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pela página inicial do DarthSCM.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="controllers"/>
+        <tag line="15" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+        <tag line="15" name="author" description="Jacqueline Midlej"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="18" namespace="" package="Default">
+        <name>$usuarioLogado</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="19" namespace="" package="Default">
+        <name>$usuario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="21" namespace="" package="Default">
+        <name>$usuarioProjeto</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="23" namespace="" package="Default">
+        <name>$vUsuarioProjeto</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="24" namespace="" package="Default">
+        <name>$vTarefaUsuario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="27" namespace="" package="Default">
+        <name>$vMsgRecebida</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="41" package="DarthSCM\controllers">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="41">
+          <description><![CDATA[Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+          <tag line="41" name="access" description="public"/>
+          <tag line="41" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="78" package="DarthSCM\controllers">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="78">
+          <description><![CDATA[Action responsável pela página inicial do DarthSCM. Exibe informação dos
+últimos projetos, tarefas e um contador com o número de mensagens não
+lidas.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="78" name="author" description="Jacqueline Midlej"/>
+          <tag line="78" name="access" description="public"/>
+          <tag line="78" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $usuarioLogado</error>
+      <error line="19" code="50018">No DocBlock was found for property $usuario</error>
+      <error line="21" code="50018">No DocBlock was found for property $usuarioProjeto</error>
+      <error line="23" code="50018">No DocBlock was found for property $vUsuarioProjeto</error>
+      <error line="24" code="50018">No DocBlock was found for property $vTarefaUsuario</error>
+      <error line="27" code="50018">No DocBlock was found for property $vMsgRecebida</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/ProjetosController.php" hash="e2473cfe32817f8614c6a5dcb307518a" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\controllers">
+      <extends>Zend_Controller_Action</extends>
+      <name>ProjetosController</name>
+      <full_name>\ProjetosController</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe responsável pelo gerenciamento de projetos no DarthSCM.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="controllers"/>
+        <tag line="15" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+        <tag line="15" name="author" description="Jacqueline Midlej"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="18" namespace="" package="Default">
+        <name>$projeto</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="19" namespace="" package="Default">
+        <name>$repositorio</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="20" namespace="" package="Default">
+        <name>$trabalhaEm</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="21" namespace="" package="Default">
+        <name>$usuario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="22" namespace="" package="Default">
+        <name>$tarefa</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="23" namespace="" package="Default">
+        <name>$realiza</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="24" namespace="" package="Default">
+        <name>$subtarefa</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="25" namespace="" package="Default">
+        <name>$vUsuarioProjeto</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="26" namespace="" package="Default">
+        <name>$vTarefaUsuario</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="27" namespace="" package="Default">
+        <name>$vRealiza</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="28" namespace="" package="Default">
+        <name>$vSubTarefa</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="29" namespace="" package="Default">
+        <name>$vRelatorioCol</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="30" namespace="" package="Default">
+        <name>$vRelatorioProj</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="31" namespace="" package="Default">
+        <name>$db</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="32" namespace="" package="Default">
+        <name>$usuarioLogado</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="46" package="DarthSCM\controllers">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="46">
+          <description><![CDATA[Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="46" name="author" description="Elenildo João"/>
+          <tag line="46" name="access" description="public"/>
+          <tag line="46" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="87" package="DarthSCM\controllers">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="87">
+          <description><![CDATA[Redireciona para a action listar.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="87" name="author" description="Elenildo João"/>
+          <tag line="87" name="access" description="public"/>
+          <tag line="87" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="101" package="DarthSCM\controllers">
+        <name>listarAction</name>
+        <full_name>listarAction</full_name>
+        <docblock line="101">
+          <description><![CDATA[Action responsável pela lista de projetos.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="101" name="author" description="Elenildo João"/>
+          <tag line="101" name="access" description="public"/>
+          <tag line="101" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="144" package="DarthSCM\controllers">
+        <name>novoAction</name>
+        <full_name>novoAction</full_name>
+        <docblock line="144">
+          <description><![CDATA[Action responsável pela criação de um novo projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="144" name="author" description="Elenildo João"/>
+          <tag line="144" name="access" description="public"/>
+          <tag line="144" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="203" package="DarthSCM\controllers">
+        <name>editarAction</name>
+        <full_name>editarAction</full_name>
+        <docblock line="203">
+          <description><![CDATA[Action responsável pela atualização das informações de um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="203" name="author" description="Elenildo João"/>
+          <tag line="203" name="access" description="public"/>
+          <tag line="203" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="259" package="DarthSCM\controllers">
+        <name>removerAction</name>
+        <full_name>removerAction</full_name>
+        <docblock line="259">
+          <description><![CDATA[Action responsável pela remoção de um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="259" name="author" description="Elenildo João"/>
+          <tag line="259" name="access" description="public"/>
+          <tag line="259" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="293" package="DarthSCM\controllers">
+        <name>fecharAction</name>
+        <full_name>fecharAction</full_name>
+        <docblock line="293">
+          <description><![CDATA[Action responsável pelo fechamento de um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="293" name="author" description="Elenildo João"/>
+          <tag line="293" name="access" description="public"/>
+          <tag line="293" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="324" package="DarthSCM\controllers">
+        <name>alocarColaboradorAction</name>
+        <full_name>alocarColaboradorAction</full_name>
+        <docblock line="324">
+          <description><![CDATA[Action responsável pela alocação de um colaborador a um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="324" name="author" description="Elenildo João"/>
+          <tag line="324" name="access" description="public"/>
+          <tag line="324" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="393" package="DarthSCM\controllers">
+        <name>desalocarColaboradorAction</name>
+        <full_name>desalocarColaboradorAction</full_name>
+        <docblock line="393">
+          <description><![CDATA[Action responsável por desalocar um colaborador de um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="393" name="author" description="Jacqueline Midlej"/>
+          <tag line="393" name="access" description="public"/>
+          <tag line="393" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="446" package="DarthSCM\controllers">
+        <name>listarTarefasAction</name>
+        <full_name>listarTarefasAction</full_name>
+        <docblock line="446">
+          <description><![CDATA[Action responsável pela lista de tarefas de um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="446" name="author" description="Jacqueline Midlej"/>
+          <tag line="446" name="access" description="public"/>
+          <tag line="446" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="483" package="DarthSCM\controllers">
+        <name>novaTarefaAction</name>
+        <full_name>novaTarefaAction</full_name>
+        <docblock line="483">
+          <description><![CDATA[Action responsável pela criação de uma nova tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="483" name="author" description="Jacqueline Midlej"/>
+          <tag line="483" name="access" description="public"/>
+          <tag line="483" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="532" package="DarthSCM\controllers">
+        <name>editarTarefaAction</name>
+        <full_name>editarTarefaAction</full_name>
+        <docblock line="532">
+          <description><![CDATA[Action responsável pela atualização de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="532" name="author" description="Jacqueline Midlej"/>
+          <tag line="532" name="access" description="public"/>
+          <tag line="532" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="575" package="DarthSCM\controllers">
+        <name>removeTarefa</name>
+        <full_name>removeTarefa</full_name>
+        <docblock line="575">
+          <description><![CDATA[Função responsável pela remoção de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="575" name="author" description="Jacqueline Midlej"/>
+          <tag line="575" name="access" description="private"/>
+          <tag line="575" name="param" description="" type="int" variable="$idTarefa">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="575" name="param" description="" type="int" variable="$idProjeto">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="575" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="575">
+          <name>$idTarefa</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="575">
+          <name>$idProjeto</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="599" package="DarthSCM\controllers">
+        <name>removerTarefaAction</name>
+        <full_name>removerTarefaAction</full_name>
+        <docblock line="599">
+          <description><![CDATA[Action responsável pela remoção de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="599" name="author" description="Jacqueline Midlej"/>
+          <tag line="599" name="access" description="public"/>
+          <tag line="599" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="618" package="DarthSCM\controllers">
+        <name>fecharTarefaAction</name>
+        <full_name>fecharTarefaAction</full_name>
+        <docblock line="618">
+          <description><![CDATA[Action responsável pelo fechamento de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="618" name="author" description="Jacqueline Midlej"/>
+          <tag line="618" name="access" description="public"/>
+          <tag line="618" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="637" package="DarthSCM\controllers">
+        <name>fechaTarefa</name>
+        <full_name>fechaTarefa</full_name>
+        <docblock line="637">
+          <description><![CDATA[Função responsável pelo fechamento de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="637" name="author" description="Jacqueline Midlej"/>
+          <tag line="637" name="access" description="private"/>
+          <tag line="637" name="param" description="" type="int" variable="$idTarefa">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="637" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="637">
+          <name>$idTarefa</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="667" package="DarthSCM\controllers">
+        <name>alocarUsuarioTarefaAction</name>
+        <full_name>alocarUsuarioTarefaAction</full_name>
+        <docblock line="667">
+          <description><![CDATA[Action responsável pela alocação de um usuário a uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="667" name="author" description="Jacqueline Midlej"/>
+          <tag line="667" name="access" description="public"/>
+          <tag line="667" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="720" package="DarthSCM\controllers">
+        <name>desalocarUsuarioTarefaAction</name>
+        <full_name>desalocarUsuarioTarefaAction</full_name>
+        <docblock line="720">
+          <description><![CDATA[Action responsável por desalocar um usuário de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="720" name="author" description="Jacqueline Midlej"/>
+          <tag line="720" name="access" description="public"/>
+          <tag line="720" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="762" package="DarthSCM\controllers">
+        <name>novaSubTarefaAction</name>
+        <full_name>novaSubTarefaAction</full_name>
+        <docblock line="762">
+          <description><![CDATA[Action responsável pela criação de uma nova sub-tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="762" name="author" description="Jacqueline Midlej"/>
+          <tag line="762" name="access" description="public"/>
+          <tag line="762" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="815" package="DarthSCM\controllers">
+        <name>adicionarTempoAction</name>
+        <full_name>adicionarTempoAction</full_name>
+        <docblock line="815">
+          <description><![CDATA[Action responsável pela adição de tempo de trabalho em uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="815" name="author" description="Jacqueline Midlej"/>
+          <tag line="815" name="access" description="public"/>
+          <tag line="815" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="876" package="DarthSCM\controllers">
+        <name>relatorioColaboradorAction</name>
+        <full_name>relatorioColaboradorAction</full_name>
+        <docblock line="876">
+          <description><![CDATA[Action responsável pela geração do relatório de produtividade dos
+colaboradores.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="876" name="author" description="Jacqueline Midlej"/>
+          <tag line="876" name="access" description="public"/>
+          <tag line="876" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="894" package="DarthSCM\controllers">
+        <name>relatorioProjetoAction</name>
+        <full_name>relatorioProjetoAction</full_name>
+        <docblock line="894">
+          <description><![CDATA[Action responsável pela geração do relatório de produtividade nos
+projetos.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="894" name="author" description="Jacqueline Midlej"/>
+          <tag line="894" name="access" description="public"/>
+          <tag line="894" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="911" package="DarthSCM\controllers">
+        <name>graficoRelProjetoAction</name>
+        <full_name>graficoRelProjetoAction</full_name>
+        <docblock line="911">
+          <description><![CDATA[Action responsável pela geração do gráfico de dedicação aos projetos.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="911" name="author" description="Jacqueline Midlej"/>
+          <tag line="911" name="access" description="public"/>
+          <tag line="911" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="935" package="DarthSCM\controllers">
+        <name>detalharProjetoAction</name>
+        <full_name>detalharProjetoAction</full_name>
+        <docblock line="935">
+          <description><![CDATA[Action responsável pela exibição detalhada de um projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="935" name="author" description="Jacqueline Midlej"/>
+          <tag line="935" name="access" description="public"/>
+          <tag line="935" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="970" package="DarthSCM\controllers">
+        <name>relatorioParticipacaoAction</name>
+        <full_name>relatorioParticipacaoAction</full_name>
+        <docblock line="970">
+          <description><![CDATA[Action responsável pela geração do relatório geral de cada projeto.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="970" name="author" description="Jacqueline Midlej"/>
+          <tag line="970" name="access" description="public"/>
+          <tag line="970" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="999" package="DarthSCM\controllers">
+        <name>detalharTarefaAction</name>
+        <full_name>detalharTarefaAction</full_name>
+        <docblock line="999">
+          <description><![CDATA[Action responsável pela exibição detalhada de uma tarefa.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="999" name="author" description="Jacqueline Midlej"/>
+          <tag line="999" name="access" description="public"/>
+          <tag line="999" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="18" code="50018">No DocBlock was found for property $projeto</error>
+      <error line="19" code="50018">No DocBlock was found for property $repositorio</error>
+      <error line="20" code="50018">No DocBlock was found for property $trabalhaEm</error>
+      <error line="21" code="50018">No DocBlock was found for property $usuario</error>
+      <error line="22" code="50018">No DocBlock was found for property $tarefa</error>
+      <error line="23" code="50018">No DocBlock was found for property $realiza</error>
+      <error line="24" code="50018">No DocBlock was found for property $subtarefa</error>
+      <error line="25" code="50018">No DocBlock was found for property $vUsuarioProjeto</error>
+      <error line="26" code="50018">No DocBlock was found for property $vTarefaUsuario</error>
+      <error line="27" code="50018">No DocBlock was found for property $vRealiza</error>
+      <error line="28" code="50018">No DocBlock was found for property $vSubTarefa</error>
+      <error line="29" code="50018">No DocBlock was found for property $vRelatorioCol</error>
+      <error line="30" code="50018">No DocBlock was found for property $vRelatorioProj</error>
+      <error line="31" code="50018">No DocBlock was found for property $db</error>
+      <error line="32" code="50018">No DocBlock was found for property $usuarioLogado</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/ErrorController.php" hash="6ea6c2590b57d6052ae8ec38365291a3" package="Default">
+    <class final="false" abstract="false" namespace="" line="3" package="Default">
+      <extends>Zend_Controller_Action</extends>
+      <name>ErrorController</name>
+      <full_name>\ErrorController</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="6" package="Default">
+        <name>errorAction</name>
+        <full_name>errorAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="46" package="Default">
+        <name>getLog</name>
+        <full_name>getLog</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="3" code="50000">No DocBlock was found for \ErrorController</error>
+      <error line="6" code="50010">No DocBlock was found for method errorAction()</error>
+      <error line="46" code="50010">No DocBlock was found for method getLog()</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/LoginController.php" hash="01843efa31ef4af3d912c4b86292d57c" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\controllers">
+      <extends>Zend_Controller_Action</extends>
+      <name>LoginController</name>
+      <full_name>\LoginController</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pela autenticação no DarthSCM, pela gerência  da sessão de
+usuário, e por fornecer um meio de alteração de senha, caso o usuário tenha
+esquecido.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="controllers"/>
+        <tag line="16" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="19" namespace="" package="Default">
+        <name>$usuario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="20" namespace="" package="Default">
+        <name>$login</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="21" namespace="" package="Default">
+        <name>$db</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="22" namespace="" package="Default">
+        <name>$redefinirSenha</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="34" package="DarthSCM\controllers">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="34">
+          <description><![CDATA[Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="34" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+          <tag line="34" name="access" description="public"/>
+          <tag line="34" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="54" package="DarthSCM\controllers">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="54">
+          <description><![CDATA[Action responsável por efetuar a autenticação do usuário no DarthSCM.]]></description>
+          <long-description><![CDATA[<p>Recebe os dados do usurio inseridos no formulrio de login via POST,
+realiza a validao, cria a sesso e redireciona para a pgina inicial do
+sistema.</p>]]></long-description>
+          <tag line="54" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+          <tag line="54" name="access" description="public"/>
+          <tag line="54" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="110" package="DarthSCM\controllers">
+        <name>logoutAction</name>
+        <full_name>logoutAction</full_name>
+        <docblock line="110">
+          <description><![CDATA[Action responsável por finalizar a sessão de usuário. Redireciona para a
+página de login.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="110" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+          <tag line="110" name="access" description="public"/>
+          <tag line="110" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="128" package="DarthSCM\controllers">
+        <name>solicitarAction</name>
+        <full_name>solicitarAction</full_name>
+        <docblock line="128">
+          <description><![CDATA[Action resnponsável pela solicitação de mudança de senha. Envia um e-mail
+para o usuário com informações de como realizar a alteração.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="128" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+          <tag line="128" name="access" description="public"/>
+          <tag line="128" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="169" package="DarthSCM\controllers">
+        <name>redefinirAction</name>
+        <full_name>redefinirAction</full_name>
+        <docblock line="169">
+          <description><![CDATA[Action resnponsável pela mudança de senha. Recebe pela url um hash para a
+identificação da solicitação, e permite ao usuário realizar a mudança de
+senha.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="169" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+          <tag line="169" name="access" description="public"/>
+          <tag line="169" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="19" code="50018">No DocBlock was found for property $usuario</error>
+      <error line="20" code="50018">No DocBlock was found for property $login</error>
+      <error line="21" code="50018">No DocBlock was found for property $db</error>
+      <error line="22" code="50018">No DocBlock was found for property $redefinirSenha</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/UsuariosController.php" hash="0cb6f52639447bfd8cf38855b29e7006" package="Default">
+    <class final="false" abstract="false" namespace="" line="14" package="DarthSCM\controllers">
+      <extends>Zend_Controller_Action</extends>
+      <name>UsuariosController</name>
+      <full_name>\UsuariosController</full_name>
+      <docblock line="14">
+        <description><![CDATA[Classe responsável pelo gerenciamento de usuários do DarthSCM.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="14" name="package" description="DarthSCM"/>
+        <tag line="14" name="subpackage" description="controllers"/>
+        <tag line="14" name="author" description="Elenildo João &lt;elenildo.joao@gmail.com&gt;"/>
+        <tag line="14" name="version" description="0.1"/>
+        <tag line="14" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="16" namespace="" package="Default">
+        <name>$usuario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="17" namespace="" package="Default">
+        <name>$endereco</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="18" namespace="" package="Default">
+        <name>$login</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="19" namespace="" package="Default">
+        <name>$db</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="20" namespace="" package="Default">
+        <name>$validator</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="21" namespace="" package="Default">
+        <name>$usuarioLogado</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="22" namespace="" package="Default">
+        <name>$realiza</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="23" namespace="" package="Default">
+        <name>$trabalhaEm</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="24" namespace="" package="Default">
+        <name>$logLogin</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="25" namespace="" package="Default">
+        <name>$mensagem</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="26" namespace="" package="Default">
+        <name>$destinatario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="40" package="DarthSCM\controllers">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="40">
+          <description><![CDATA[Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="author" description="Elenildo João"/>
+          <tag line="40" name="access" description="public"/>
+          <tag line="40" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="76" package="DarthSCM\controllers">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="76">
+          <description><![CDATA[Redireciona para a action listar.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="author" description="Elenildo João"/>
+          <tag line="76" name="access" description="public"/>
+          <tag line="76" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="90" package="DarthSCM\controllers">
+        <name>listarAction</name>
+        <full_name>listarAction</full_name>
+        <docblock line="90">
+          <description><![CDATA[Action responsável pela lista de usuários.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="90" name="author" description="Elenildo João"/>
+          <tag line="90" name="access" description="public"/>
+          <tag line="90" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="110" package="DarthSCM\controllers">
+        <name>novoAction</name>
+        <full_name>novoAction</full_name>
+        <docblock line="110">
+          <description><![CDATA[Action responsável pela criação de um novo usuário.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="110" name="author" description="Elenildo João"/>
+          <tag line="110" name="access" description="public"/>
+          <tag line="110" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="212" package="DarthSCM\controllers">
+        <name>editarAction</name>
+        <full_name>editarAction</full_name>
+        <docblock line="212">
+          <description><![CDATA[Action responsável pela atualização das informações de um usuário.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="212" name="author" description="Elenildo João"/>
+          <tag line="212" name="access" description="public"/>
+          <tag line="212" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="295" package="DarthSCM\controllers">
+        <name>removerAction</name>
+        <full_name>removerAction</full_name>
+        <docblock line="295">
+          <description><![CDATA[Action responsável pela remoção de um usuário.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="295" name="author" description="Elenildo João"/>
+          <tag line="295" name="access" description="public"/>
+          <tag line="295" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="334" package="DarthSCM\controllers">
+        <name>visualizarAction</name>
+        <full_name>visualizarAction</full_name>
+        <docblock line="334">
+          <description><![CDATA[Action responsável pela visualização detalhada de um usuário.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="334" name="author" description="Elenildo João"/>
+          <tag line="334" name="access" description="public"/>
+          <tag line="334" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="16" code="50018">No DocBlock was found for property $usuario</error>
+      <error line="17" code="50018">No DocBlock was found for property $endereco</error>
+      <error line="18" code="50018">No DocBlock was found for property $login</error>
+      <error line="19" code="50018">No DocBlock was found for property $db</error>
+      <error line="20" code="50018">No DocBlock was found for property $validator</error>
+      <error line="21" code="50018">No DocBlock was found for property $usuarioLogado</error>
+      <error line="22" code="50018">No DocBlock was found for property $realiza</error>
+      <error line="23" code="50018">No DocBlock was found for property $trabalhaEm</error>
+      <error line="24" code="50018">No DocBlock was found for property $logLogin</error>
+      <error line="25" code="50018">No DocBlock was found for property $mensagem</error>
+      <error line="26" code="50018">No DocBlock was found for property $destinatario</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/MensagensController.php" hash="02a191e03e7875cd97d13fa232f7453e" package="Default">
+    <class final="false" abstract="false" namespace="" line="16" package="DarthSCM\controllers">
+      <extends>Zend_Controller_Action</extends>
+      <name>MensagensController</name>
+      <full_name>\MensagensController</full_name>
+      <docblock line="16">
+        <description><![CDATA[Classe responsável pelo gerenciamento de mensagens enviadas entre os usuários
+do DarthSCM.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="package" description="DarthSCM"/>
+        <tag line="16" name="subpackage" description="controllers"/>
+        <tag line="16" name="author" description="Caique Pires"/>
+        <tag line="16" name="author" description="Jacqueline Midlej"/>
+        <tag line="16" name="version" description="0.1"/>
+        <tag line="16" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="19" namespace="" package="Default">
+        <name>$mensagem</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="20" namespace="" package="Default">
+        <name>$usuario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="21" namespace="" package="Default">
+        <name>$usuarioLogado</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="22" namespace="" package="Default">
+        <name>$destinatario</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="23" namespace="" package="Default">
+        <name>$db</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="24" namespace="" package="Default">
+        <name>$msg</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="25" namespace="" package="Default">
+        <name>$vMsgRecebida</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="26" namespace="" package="Default">
+        <name>$vMsgEnviada</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="27" namespace="" package="Default">
+        <name>$vDestinatarios</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="41" package="DarthSCM\controllers">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="41">
+          <description><![CDATA[Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="author" description="Caique Pires"/>
+          <tag line="41" name="access" description="public"/>
+          <tag line="41" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="81" package="DarthSCM\controllers">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="81">
+          <description><![CDATA[Redireciona para a action listar.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="81" name="author" description="Caique Pires"/>
+          <tag line="81" name="access" description="public"/>
+          <tag line="81" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="DarthSCM\controllers">
+        <name>listarAction</name>
+        <full_name>listarAction</full_name>
+        <docblock line="95">
+          <description><![CDATA[Action responsável pela caixa de entrada.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="95" name="author" description="Caique Pires"/>
+          <tag line="95" name="access" description="public"/>
+          <tag line="95" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="124" package="DarthSCM\controllers">
+        <name>novoAction</name>
+        <full_name>novoAction</full_name>
+        <docblock line="124">
+          <description><![CDATA[Action responsável pelo envio de uma nova mensagem.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="author" description="Caique Pires"/>
+          <tag line="124" name="access" description="public"/>
+          <tag line="124" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="DarthSCM\controllers">
+        <name>removerAction</name>
+        <full_name>removerAction</full_name>
+        <docblock line="177">
+          <description><![CDATA[Action responsável por enviar uma mensagem para a lixeira.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="177" name="author" description="Jacqueline Midlej"/>
+          <tag line="177" name="access" description="public"/>
+          <tag line="177" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="199" package="DarthSCM\controllers">
+        <name>removerSaidaAction</name>
+        <full_name>removerSaidaAction</full_name>
+        <docblock line="199">
+          <description><![CDATA[Action responsável por remover a mensagem da caixa de saída.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="199" name="author" description="Jacqueline Midlej"/>
+          <tag line="199" name="access" description="public"/>
+          <tag line="199" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="220" package="DarthSCM\controllers">
+        <name>visualizarAction</name>
+        <full_name>visualizarAction</full_name>
+        <docblock line="220">
+          <description><![CDATA[Action responsável pela vizualização de uma mensagem.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="220" name="author" description="Jacqueline Midlej"/>
+          <tag line="220" name="access" description="public"/>
+          <tag line="220" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="253" package="DarthSCM\controllers">
+        <name>visualizarSaidaAction</name>
+        <full_name>visualizarSaidaAction</full_name>
+        <docblock line="253">
+          <description><![CDATA[Action responsável pela visualização de uma mensagem da caixa de saída.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="253" name="author" description="Jacqueline Midlej"/>
+          <tag line="253" name="access" description="public"/>
+          <tag line="253" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="278" package="DarthSCM\controllers">
+        <name>caixaSaidaAction</name>
+        <full_name>caixaSaidaAction</full_name>
+        <docblock line="278">
+          <description><![CDATA[Action responsável pela caixa de saída.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="278" name="author" description="Jacqueline Midlej"/>
+          <tag line="278" name="access" description="public"/>
+          <tag line="278" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="19" code="50018">No DocBlock was found for property $mensagem</error>
+      <error line="20" code="50018">No DocBlock was found for property $usuario</error>
+      <error line="21" code="50018">No DocBlock was found for property $usuarioLogado</error>
+      <error line="22" code="50018">No DocBlock was found for property $destinatario</error>
+      <error line="23" code="50018">No DocBlock was found for property $db</error>
+      <error line="24" code="50018">No DocBlock was found for property $msg</error>
+      <error line="25" code="50018">No DocBlock was found for property $vMsgRecebida</error>
+      <error line="26" code="50018">No DocBlock was found for property $vMsgEnviada</error>
+      <error line="27" code="50018">No DocBlock was found for property $vDestinatarios</error>
+    </parse_markers>
+  </file>
+  <file path="application/controllers/SuporteController.php" hash="e53182ec06bbbb105cffc61a16e38e32" package="Default">
+    <class final="false" abstract="false" namespace="" line="14" package="DarthSCM\controllers">
+      <extends>Zend_Controller_Action</extends>
+      <name>SuporteController</name>
+      <full_name>\SuporteController</full_name>
+      <docblock line="14">
+        <description><![CDATA[Classe responsável pelas informações de suporte do DarthSCM.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="14" name="package" description="DarthSCM"/>
+        <tag line="14" name="subpackage" description="controllers"/>
+        <tag line="14" name="author" description="Jacqueline Midlej"/>
+        <tag line="14" name="version" description="0.1"/>
+        <tag line="14" name="access" description="public"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="29" package="DarthSCM\controllers">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="29">
+          <description><![CDATA[Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="29" name="author" description="Jacqueline Midlej"/>
+          <tag line="29" name="access" description="public"/>
+          <tag line="29" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="55" package="DarthSCM\controllers">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="55">
+          <description><![CDATA[Redireciona para a action contato.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="55" name="author" description="Jacqueline Midlej"/>
+          <tag line="55" name="access" description="public"/>
+          <tag line="55" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="68" package="DarthSCM\controllers">
+        <name>contatosAction</name>
+        <full_name>contatosAction</full_name>
+        <docblock line="68">
+          <description><![CDATA[Action que exibe informações de contato.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="68" name="author" description="Jacqueline Midlej"/>
+          <tag line="68" name="access" description="public"/>
+          <tag line="68" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="application/views/scripts/mensagens/editar.phtml" hash="ba6b44465e65343c6b86f051da27a1c5" package="Default"/>
+  <file path="application/views/scripts/mensagens/listar.phtml" hash="1bf83e1d5e2f0f2826a59d8dcc2d5453" package="Default"/>
+  <file path="application/views/scripts/mensagens/novo.phtml" hash="dc16d19389e01f6fb6f8e08499b91792" package="Default"/>
+  <file path="application/views/scripts/mensagens/remover.phtml" hash="8d2a72680a383613cff59903b9aa4d89" package="Default"/>
+  <file path="application/views/scripts/mensagens/remover-saida.phtml" hash="3b6f77388ff230e96bc8d13f08e03fe7" package="Default"/>
+  <file path="application/views/scripts/mensagens/visualizar.phtml" hash="de2c31ad75208cd57a0a4ca7bb6c4502" package="Default"/>
+  <file path="application/views/scripts/mensagens/visualizar-saida.phtml" hash="3585307d02f04013b97348bd417353bd" package="Default"/>
+  <file path="application/views/scripts/mensagens/index.phtml" hash="799323ea90f374e6a375f775c692aa65" package="Default"/>
+  <file path="application/views/scripts/mensagens/caixa-saida.phtml" hash="b35f31ca319a4d7a1817ad29bdf0f083" package="Default"/>
+  <file path="application/views/scripts/index/index.phtml" hash="97c5291fd20064b388e5d9c79d3151b7" package="Default"/>
+  <file path="application/views/scripts/suporte/contatos.phtml" hash="d41d8cd98f00b204e9800998ecf8427e" package="Default"/>
+  <file path="application/views/scripts/suporte/index.phtml" hash="5d7b424cb7fc9b13dafdb1f410ae75f7" package="Default"/>
+  <file path="application/views/scripts/projetos/relatorio-participacao.phtml" hash="6c2b4e858c2ccd175d53bfa4096cc1a2" package="Default"/>
+  <file path="application/views/scripts/projetos/editar.phtml" hash="c278a8889b9eed4e7b7e6da8c55430c8" package="Default"/>
+  <file path="application/views/scripts/projetos/alocar-colaborador.phtml" hash="996cb37562f7c5f42005bb499844bd23" package="Default"/>
+  <file path="application/views/scripts/projetos/remover-tarefa.phtml" hash="29b3732aebb2609efe56b2afadca78f2" package="Default"/>
+  <file path="application/views/scripts/projetos/listar.phtml" hash="9f564e9f77e3fd23df7163132a2c64bc" package="Default"/>
+  <file path="application/views/scripts/projetos/relatorio-projeto.phtml" hash="81ac90881a81ac21d3b3f0514f0ece3f" package="Default"/>
+  <file path="application/views/scripts/projetos/novo.phtml" hash="751151d09a9ed4da23c1ec9effe4154e" package="Default"/>
+  <file path="application/views/scripts/projetos/remover.phtml" hash="60904436b77f690e7d418e9939ec3e9a" package="Default"/>
+  <file path="application/views/scripts/projetos/nova-sub-tarefa.phtml" hash="ac1c68f64f22e95d1ffad1c2be4f3479" package="Default"/>
+  <file path="application/views/scripts/projetos/relatorio-colaborador.phtml" hash="6b705a370888690c629c7ad86395829b" package="Default"/>
+  <file path="application/views/scripts/projetos/fechar-tarefa.phtml" hash="29b3732aebb2609efe56b2afadca78f2" package="Default"/>
+  <file path="application/views/scripts/projetos/editar-tarefa.phtml" hash="2550c098f83e735a23e02b3c44f80638" package="Default"/>
+  <file path="application/views/scripts/projetos/detalhar-tarefa.phtml" hash="b2e3affe98c762ba8e5013b294b071b2" package="Default"/>
+  <file path="application/views/scripts/projetos/listar-tarefas.phtml" hash="9e88f8474a2af2c5e089058474d347dd" package="Default"/>
+  <file path="application/views/scripts/projetos/grafico-rel-projeto.phtml" hash="1cfcf7210d3a76c9ec44e88f22e7342a" package="Default"/>
+  <file path="application/views/scripts/projetos/detalhar-projeto.phtml" hash="918a479ead48dafffc22e18b3ee252f6" package="Default"/>
+  <file path="application/views/scripts/projetos/adicionar-tempo.phtml" hash="7dce7743aa0376e7c30397fd35319d95" package="Default"/>
+  <file path="application/views/scripts/projetos/fechar.phtml" hash="60904436b77f690e7d418e9939ec3e9a" package="Default"/>
+  <file path="application/views/scripts/projetos/alocar-usuario-tarefa.phtml" hash="fd29382ff84a1a9e1f01a2f0e2a01d90" package="Default"/>
+  <file path="application/views/scripts/projetos/nova-tarefa.phtml" hash="9dfa29aba91c9bcad3da6e3d63fb99c4" package="Default"/>
+  <file path="application/views/scripts/projetos/desalocar-colaborador.phtml" hash="abea95fc4a805e95592a10373590cb5c" package="Default"/>
+  <file path="application/views/scripts/projetos/desalocar-usuario-tarefa.phtml" hash="2a729fadecc4e52fefd440b825d33eaf" package="Default"/>
+  <file path="application/views/scripts/projetos/index.phtml" hash="d41d8cd98f00b204e9800998ecf8427e" package="Default"/>
+  <file path="application/views/scripts/my_pagination_control.phtml" hash="f267bb0e61465f17b68ec5f1a5ac4e90" package="Default"/>
+  <file path="application/views/scripts/error/error.phtml" hash="5820290df34d593d8d221ae9dda7ff4b" package="Default"/>
+  <file path="application/views/scripts/login/solicitar.phtml" hash="39f16ad40492fd0f604c86f573ceb195" package="Default"/>
+  <file path="application/views/scripts/login/redefinir.phtml" hash="fbfd345025a4fa7af332294bdeb5c830" package="Default"/>
+  <file path="application/views/scripts/login/index.phtml" hash="4f571964504d4e582889a28699573402" package="Default"/>
+  <file path="application/views/scripts/usuarios/editar.phtml" hash="1a00de90a6acd4b1fc8e14592e44a501" package="Default"/>
+  <file path="application/views/scripts/usuarios/listar.phtml" hash="dbc8d11101843f8fd56190039d525eae" package="Default"/>
+  <file path="application/views/scripts/usuarios/novo.phtml" hash="508eb3333111f98ba9b255536a128190" package="Default"/>
+  <file path="application/views/scripts/usuarios/remover.phtml" hash="291412fe5d0b43f219e63c54b7c13001" package="Default"/>
+  <file path="application/views/scripts/usuarios/visualizar.phtml" hash="3efae18b830252c23e3e482bca7971d6" package="Default"/>
+  <file path="application/views/scripts/usuarios/index.phtml" hash="799323ea90f374e6a375f775c692aa65" package="Default"/>
+  <file path="application/views/helpers/FormataTelefone.php" hash="fa295ac11db791af78d07084f0bae685" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\helpers">
+      <extends>Zend_View_Helper_Abstract</extends>
+      <name>Zend_View_Helper_FormataTelefone</name>
+      <full_name>\Zend_View_Helper_FormataTelefone</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe helper responsável pela formatação do valor do telefone para exibição.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="helpers"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="17" namespace="" package="Default">
+        <name>$telefone</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="25" package="DarthSCM\helpers">
+        <name>formataTelefone</name>
+        <full_name>formataTelefone</full_name>
+        <docblock line="25">
+          <description><![CDATA[Função que formata o valor de telefone para exibição.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="25" name="param" description="Valor para Formatação" type="string" variable="$telefone">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="25" name="return" description="Valor Formatado" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="25">
+          <name>$telefone</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="17" code="50018">No DocBlock was found for property $telefone</error>
+    </parse_markers>
+  </file>
+  <file path="application/views/helpers/FormataCPF.php" hash="41b7d485d7001a3d200be29b3b4e652c" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\helpers">
+      <extends>Zend_View_Helper_Abstract</extends>
+      <name>Zend_View_Helper_FormataCPF</name>
+      <full_name>\Zend_View_Helper_FormataCPF</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe helper responsável pela formatação do valor do CPF para exibição.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="helpers"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="22" package="DarthSCM\helpers">
+        <name>formataCPF</name>
+        <full_name>formataCPF</full_name>
+        <docblock line="22">
+          <description><![CDATA[Função que formata o cpf para exibição]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="22" name="param" description="Valor para Formatação" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="22" name="return" description="Valor Formatado" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="22">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="application/views/helpers/FormataData.php" hash="7bf300d6f670c491715c614df53928b3" package="Default">
+    <class final="false" abstract="false" namespace="" line="15" package="DarthSCM\helpers">
+      <extends>Zend_View_Helper_Abstract</extends>
+      <name>Zend_View_Helper_FormataData</name>
+      <full_name>\Zend_View_Helper_FormataData</full_name>
+      <docblock line="15">
+        <description><![CDATA[Classe helper responsável pela formatação do valor de data para exibição.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="package" description="DarthSCM"/>
+        <tag line="15" name="subpackage" description="helpers"/>
+        <tag line="15" name="author" description="Elenildo João"/>
+        <tag line="15" name="version" description="0.1"/>
+        <tag line="15" name="access" description="public"/>
+      </docblock>
+      <property final="false" static="true" visibility="protected" line="21" namespace="" package="Default">
+        <name>$_date</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="21">
+          <description><![CDATA[Manipulador de Datas]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="21" name="var" description="" type="\Zend_Date">
+            <type by_reference="false">\Zend_Date</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="29" package="DarthSCM\helpers">
+        <name>formataData</name>
+        <full_name>formataData</full_name>
+        <docblock line="29">
+          <description><![CDATA[Função que formata o valor de data para exibição.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="29" name="param" description="Valor para Formatação" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="29" name="param" description="Formato de Saída" type="string" variable="$format">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="29" name="return" description="Valor Formatado" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="29">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="29">
+          <name>$format</name>
+          <default><![CDATA[\Zend_Date::DATE_SHORT]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="42" package="DarthSCM\helpers">
+        <name>getDate</name>
+        <full_name>getDate</full_name>
+        <docblock line="42">
+          <description><![CDATA[Acesso ao Manipulador de Datas]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="42" name="return" description="" type="\Zend_Date">
+            <type by_reference="false">\Zend_Date</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <package name="DarthSCM" full_name="DarthSCM">
+    <package name="controllers" full_name="DarthSCM\controllers"/>
+    <package name="helpers" full_name="DarthSCM\helpers"/>
+    <package name="models" full_name="DarthSCM\models"/>
+  </package>
+  <package name="Default" full_name="Default"/>
+  <namespace name="" full_name=""/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

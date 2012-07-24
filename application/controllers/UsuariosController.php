@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * Classe responsável pelo gerenciamento de usuários do DarthSCM.
+ *
+ * @package DarthSCM
+ * @subpackage controllers
+ * @author Elenildo João <elenildo.joao@gmail.com>
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class UsuariosController extends Zend_Controller_Action
 {
     private $usuario;
@@ -14,6 +25,18 @@ class UsuariosController extends Zend_Controller_Action
     private $mensagem;
     private $destinatario;
 
+    /**
+     * Função responsável pela inicialização das propriedades da classe, a serem
+     * usuadas por todas as outras funções e actions. Realiza a verificação de 
+     * autentiicação de usuário. Caso não exista, redireciona para a página de 
+     * login.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function init()
     {
         if ( !Zend_Auth::getInstance()->hasIdentity() ) 
@@ -40,11 +63,29 @@ class UsuariosController extends Zend_Controller_Action
                 $this->usuarioLogado->idusuario
                 )->current();
     }
+    
+    /**
+     * Redireciona para a action listar.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
 
     public function indexAction()
     {
         $this->_forward('listar');
     }
+    
+    /**
+     * Action responsável pela lista de usuários.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
     
     public function listarAction()
     {
@@ -56,6 +97,15 @@ class UsuariosController extends Zend_Controller_Action
         $this->view->paginator = $paginator;
         $paginator->setCurrentPageNumber($this->_getParam('page'));
     }
+    
+    /**
+     * Action responsável pela criação de um novo usuário.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
     
     public function novoAction()
     {   
@@ -150,6 +200,15 @@ class UsuariosController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * Action responsável pela atualização das informações de um usuário.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function editarAction()
     {     
         if ( !$this->_request->isPost() )
@@ -224,6 +283,15 @@ class UsuariosController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * Action responsável pela remoção de um usuário.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function removerAction()
     {
         $idUsuario = (int) $this->_getParam('id'); 
@@ -254,6 +322,15 @@ class UsuariosController extends Zend_Controller_Action
 //        $this->_redirect('/usuarios/listar');
     }
 
+    /**
+     * Action responsável pela visualização detalhada de um usuário.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function visualizarAction()
     {
     $idUsuario = (int) $this->_getParam('id');

@@ -1,0 +1,265 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>DarthSCM » \ProjetoControllerTest</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">DarthSCM</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/DarthSCM.html"><i class="icon-folder-open"></i> DarthSCM</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">180</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#login" title="login :: "><span class="description">login()
+        </span><pre>login()</pre></a></li>
+<li class="method public "><a href="#logout" title="logout :: "><span class="description">logout()
+        </span><pre>logout()</pre></a></li>
+<li class="method public "><a href="#setUp" title="setUp :: "><span class="description">setUp()
+        </span><pre>setUp()</pre></a></li>
+<li class="method public "><a href="#testAdicionarTempo" title="testAdicionarTempo :: "><span class="description">testAdicionarTempo()
+        </span><pre>testAdicionarTempo()</pre></a></li>
+<li class="method public "><a href="#testAlocarColaborador" title="testAlocarColaborador :: "><span class="description">testAlocarColaborador()
+        </span><pre>testAlocarColaborador()</pre></a></li>
+<li class="method public "><a href="#testAlocarUsuarioTarefa" title="testAlocarUsuarioTarefa :: "><span class="description">testAlocarUsuarioTarefa()
+        </span><pre>testAlocarUsuarioTarefa()</pre></a></li>
+<li class="method public "><a href="#testCanGoToListarTarefas" title="testCanGoToListarTarefas :: "><span class="description">testCanGoToListarTarefas()
+        </span><pre>testCanGoToListarTarefas()</pre></a></li>
+<li class="method public "><a href="#testCanGoToProjetosNovosPage" title="testCanGoToProjetosNovosPage :: "><span class="description">testCanGoToProjetosNovosPage()
+        </span><pre>testCanGoToProjetosNovosPage()</pre></a></li>
+<li class="method public "><a href="#testCanGoToProjetosPage" title="testCanGoToProjetosPage :: "><span class="description">testCanGoToProjetosPage()
+        </span><pre>testCanGoToProjetosPage()</pre></a></li>
+<li class="method public "><a href="#testDefaultPageProjetosListar" title="testDefaultPageProjetosListar :: "><span class="description">testDefaultPageProjetosListar()
+        </span><pre>testDefaultPageProjetosListar()</pre></a></li>
+<li class="method public "><a href="#testDesalocarColaborador" title="testDesalocarColaborador :: "><span class="description">testDesalocarColaborador()
+        </span><pre>testDesalocarColaborador()</pre></a></li>
+<li class="method public "><a href="#testDesalocarUsuarioTarefa" title="testDesalocarUsuarioTarefa :: "><span class="description">testDesalocarUsuarioTarefa()
+        </span><pre>testDesalocarUsuarioTarefa()</pre></a></li>
+<li class="method public "><a href="#testEditarProjetos" title="testEditarProjetos :: "><span class="description">testEditarProjetos()
+        </span><pre>testEditarProjetos()</pre></a></li>
+<li class="method public "><a href="#testFecharTarefa" title="testFecharTarefa :: "><span class="description">testFecharTarefa()
+        </span><pre>testFecharTarefa()</pre></a></li>
+<li class="method public "><a href="#testNovaSubTarefa" title="testNovaSubTarefa :: "><span class="description">testNovaSubTarefa()
+        </span><pre>testNovaSubTarefa()</pre></a></li>
+<li class="method public "><a href="#testNovaTarefa" title="testNovaTarefa :: "><span class="description">testNovaTarefa()
+        </span><pre>testNovaTarefa()</pre></a></li>
+<li class="method public "><a href="#testNovoProjeto" title="testNovoProjeto :: "><span class="description">testNovoProjeto()
+        </span><pre>testNovoProjeto()</pre></a></li>
+<li class="method public "><a href="#testRemover" title="testRemover :: "><span class="description">testRemover()
+        </span><pre>testRemover()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24projeto" title="$projeto :: "><span class="description">$projeto</span><pre>$projeto</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CProjetoControllerTest" id="\ProjetoControllerTest"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/.html"></a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ProjetoControllerTest.html">ProjetoControllerTest</a>
+</li>
+</ul>
+<div href="../classes/ProjetoControllerTest.html" class="element class">
+<p class="short_description">Description of ProjetoControllerTest</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">acarlos</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="login" id="login"></a><div class="element clickable method public login" data-toggle="collapse" data-target=".login .collapse">
+<h2>login()
+        </h2>
+<pre>login() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="logout" id="logout"></a><div class="element clickable method public logout" data-toggle="collapse" data-target=".logout .collapse">
+<h2>logout()
+        </h2>
+<pre>logout() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="setUp" id="setUp"></a><div class="element clickable method public setUp" data-toggle="collapse" data-target=".setUp .collapse">
+<h2>setUp()
+        </h2>
+<pre>setUp() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testAdicionarTempo" id="testAdicionarTempo"></a><div class="element clickable method public testAdicionarTempo" data-toggle="collapse" data-target=".testAdicionarTempo .collapse">
+<h2>testAdicionarTempo()
+        </h2>
+<pre>testAdicionarTempo() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testAlocarColaborador" id="testAlocarColaborador"></a><div class="element clickable method public testAlocarColaborador" data-toggle="collapse" data-target=".testAlocarColaborador .collapse">
+<h2>testAlocarColaborador()
+        </h2>
+<pre>testAlocarColaborador() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testAlocarUsuarioTarefa" id="testAlocarUsuarioTarefa"></a><div class="element clickable method public testAlocarUsuarioTarefa" data-toggle="collapse" data-target=".testAlocarUsuarioTarefa .collapse">
+<h2>testAlocarUsuarioTarefa()
+        </h2>
+<pre>testAlocarUsuarioTarefa() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testCanGoToListarTarefas" id="testCanGoToListarTarefas"></a><div class="element clickable method public testCanGoToListarTarefas" data-toggle="collapse" data-target=".testCanGoToListarTarefas .collapse">
+<h2>testCanGoToListarTarefas()
+        </h2>
+<pre>testCanGoToListarTarefas() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testCanGoToProjetosNovosPage" id="testCanGoToProjetosNovosPage"></a><div class="element clickable method public testCanGoToProjetosNovosPage" data-toggle="collapse" data-target=".testCanGoToProjetosNovosPage .collapse">
+<h2>testCanGoToProjetosNovosPage()
+        </h2>
+<pre>testCanGoToProjetosNovosPage() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testCanGoToProjetosPage" id="testCanGoToProjetosPage"></a><div class="element clickable method public testCanGoToProjetosPage" data-toggle="collapse" data-target=".testCanGoToProjetosPage .collapse">
+<h2>testCanGoToProjetosPage()
+        </h2>
+<pre>testCanGoToProjetosPage() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testDefaultPageProjetosListar" id="testDefaultPageProjetosListar"></a><div class="element clickable method public testDefaultPageProjetosListar" data-toggle="collapse" data-target=".testDefaultPageProjetosListar .collapse">
+<h2>testDefaultPageProjetosListar()
+        </h2>
+<pre>testDefaultPageProjetosListar() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testDesalocarColaborador" id="testDesalocarColaborador"></a><div class="element clickable method public testDesalocarColaborador" data-toggle="collapse" data-target=".testDesalocarColaborador .collapse">
+<h2>testDesalocarColaborador()
+        </h2>
+<pre>testDesalocarColaborador() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testDesalocarUsuarioTarefa" id="testDesalocarUsuarioTarefa"></a><div class="element clickable method public testDesalocarUsuarioTarefa" data-toggle="collapse" data-target=".testDesalocarUsuarioTarefa .collapse">
+<h2>testDesalocarUsuarioTarefa()
+        </h2>
+<pre>testDesalocarUsuarioTarefa() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testEditarProjetos" id="testEditarProjetos"></a><div class="element clickable method public testEditarProjetos" data-toggle="collapse" data-target=".testEditarProjetos .collapse">
+<h2>testEditarProjetos()
+        </h2>
+<pre>testEditarProjetos() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testFecharTarefa" id="testFecharTarefa"></a><div class="element clickable method public testFecharTarefa" data-toggle="collapse" data-target=".testFecharTarefa .collapse">
+<h2>testFecharTarefa()
+        </h2>
+<pre>testFecharTarefa() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testNovaSubTarefa" id="testNovaSubTarefa"></a><div class="element clickable method public testNovaSubTarefa" data-toggle="collapse" data-target=".testNovaSubTarefa .collapse">
+<h2>testNovaSubTarefa()
+        </h2>
+<pre>testNovaSubTarefa() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testNovaTarefa" id="testNovaTarefa"></a><div class="element clickable method public testNovaTarefa" data-toggle="collapse" data-target=".testNovaTarefa .collapse">
+<h2>testNovaTarefa()
+        </h2>
+<pre>testNovaTarefa() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testNovoProjeto" id="testNovoProjeto"></a><div class="element clickable method public testNovoProjeto" data-toggle="collapse" data-target=".testNovoProjeto .collapse">
+<h2>testNovoProjeto()
+        </h2>
+<pre>testNovoProjeto() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testRemover" id="testRemover"></a><div class="element clickable method public testRemover" data-toggle="collapse" data-target=".testRemover .collapse">
+<h2>testRemover()
+        </h2>
+<pre>testRemover() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24projeto" id="$projeto"> </a><div class="element clickable property private $projeto" data-toggle="collapse" data-target=".$projeto .collapse">
+<h2>$projeto</h2>
+<pre>$projeto </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
+            generated on 2012-07-24T05:22:25-03:00.<br></footer></div>
+</div>
+</body>
+</html>

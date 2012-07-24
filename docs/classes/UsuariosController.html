@@ -1,0 +1,333 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>DarthSCM » \UsuariosController</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">DarthSCM</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/DarthSCM.html"><i class="icon-folder-open"></i> DarthSCM</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">180</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#editarAction" title="editarAction :: Action responsável pela atualização das informações de um usuário."><span class="description">Action responsável pela atualização das informações de um usuário.</span><pre>editarAction()</pre></a></li>
+<li class="method public "><a href="#indexAction" title="indexAction :: Redireciona para a action listar."><span class="description">Redireciona para a action listar.</span><pre>indexAction()</pre></a></li>
+<li class="method public "><a href="#init" title="init :: Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login."><span class="description">Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.</span><pre>init()</pre></a></li>
+<li class="method public "><a href="#listarAction" title="listarAction :: Action responsável pela lista de usuários."><span class="description">Action responsável pela lista de usuários.</span><pre>listarAction()</pre></a></li>
+<li class="method public "><a href="#novoAction" title="novoAction :: Action responsável pela criação de um novo usuário."><span class="description">Action responsável pela criação de um novo usuário.</span><pre>novoAction()</pre></a></li>
+<li class="method public "><a href="#removerAction" title="removerAction :: Action responsável pela remoção de um usuário."><span class="description">Action responsável pela remoção de um usuário.</span><pre>removerAction()</pre></a></li>
+<li class="method public "><a href="#visualizarAction" title="visualizarAction :: Action responsável pela visualização detalhada de um usuário."><span class="description">Action responsável pela visualização detalhada de um usuário.</span><pre>visualizarAction()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24db" title="$db :: "><span class="description">$db</span><pre>$db</pre></a></li>
+<li class="property private "><a href="#%24destinatario" title="$destinatario :: "><span class="description">$destinatario</span><pre>$destinatario</pre></a></li>
+<li class="property private "><a href="#%24endereco" title="$endereco :: "><span class="description">$endereco</span><pre>$endereco</pre></a></li>
+<li class="property private "><a href="#%24logLogin" title="$logLogin :: "><span class="description">$logLogin</span><pre>$logLogin</pre></a></li>
+<li class="property private "><a href="#%24login" title="$login :: "><span class="description">$login</span><pre>$login</pre></a></li>
+<li class="property private "><a href="#%24mensagem" title="$mensagem :: "><span class="description">$mensagem</span><pre>$mensagem</pre></a></li>
+<li class="property private "><a href="#%24realiza" title="$realiza :: "><span class="description">$realiza</span><pre>$realiza</pre></a></li>
+<li class="property private "><a href="#%24trabalhaEm" title="$trabalhaEm :: "><span class="description">$trabalhaEm</span><pre>$trabalhaEm</pre></a></li>
+<li class="property private "><a href="#%24usuario" title="$usuario :: "><span class="description">$usuario</span><pre>$usuario</pre></a></li>
+<li class="property private "><a href="#%24usuarioLogado" title="$usuarioLogado :: "><span class="description">$usuarioLogado</span><pre>$usuarioLogado</pre></a></li>
+<li class="property private "><a href="#%24validator" title="$validator :: "><span class="description">$validator</span><pre>$validator</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CUsuariosController" id="\UsuariosController"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/.html"></a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/UsuariosController.html">UsuariosController</a>
+</li>
+</ul>
+<div href="../classes/UsuariosController.html" class="element class">
+<p class="short_description">Classe responsável pelo gerenciamento de usuários do DarthSCM.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/DarthSCM.controllers.html">DarthSCM</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>controllers</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:elenildo.joao@gmail.com">Elenildo João</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>0.1</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="editarAction" id="editarAction"></a><div class="element clickable method public editarAction" data-toggle="collapse" data-target=".editarAction .collapse">
+<h2>Action responsável pela atualização das informações de um usuário.</h2>
+<pre>editarAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="indexAction" id="indexAction"></a><div class="element clickable method public indexAction" data-toggle="collapse" data-target=".indexAction .collapse">
+<h2>Redireciona para a action listar.</h2>
+<pre>indexAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="init" id="init"></a><div class="element clickable method public init" data-toggle="collapse" data-target=".init .collapse">
+<h2>Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.</h2>
+<pre>init() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="listarAction" id="listarAction"></a><div class="element clickable method public listarAction" data-toggle="collapse" data-target=".listarAction .collapse">
+<h2>Action responsável pela lista de usuários.</h2>
+<pre>listarAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="novoAction" id="novoAction"></a><div class="element clickable method public novoAction" data-toggle="collapse" data-target=".novoAction .collapse">
+<h2>Action responsável pela criação de um novo usuário.</h2>
+<pre>novoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="removerAction" id="removerAction"></a><div class="element clickable method public removerAction" data-toggle="collapse" data-target=".removerAction .collapse">
+<h2>Action responsável pela remoção de um usuário.</h2>
+<pre>removerAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="visualizarAction" id="visualizarAction"></a><div class="element clickable method public visualizarAction" data-toggle="collapse" data-target=".visualizarAction .collapse">
+<h2>Action responsável pela visualização detalhada de um usuário.</h2>
+<pre>visualizarAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24db" id="$db"> </a><div class="element clickable property private $db" data-toggle="collapse" data-target=".$db .collapse">
+<h2>$db</h2>
+<pre>$db </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24destinatario" id="$destinatario"> </a><div class="element clickable property private $destinatario" data-toggle="collapse" data-target=".$destinatario .collapse">
+<h2>$destinatario</h2>
+<pre>$destinatario </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24endereco" id="$endereco"> </a><div class="element clickable property private $endereco" data-toggle="collapse" data-target=".$endereco .collapse">
+<h2>$endereco</h2>
+<pre>$endereco </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24logLogin" id="$logLogin"> </a><div class="element clickable property private $logLogin" data-toggle="collapse" data-target=".$logLogin .collapse">
+<h2>$logLogin</h2>
+<pre>$logLogin </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24login" id="$login"> </a><div class="element clickable property private $login" data-toggle="collapse" data-target=".$login .collapse">
+<h2>$login</h2>
+<pre>$login </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24mensagem" id="$mensagem"> </a><div class="element clickable property private $mensagem" data-toggle="collapse" data-target=".$mensagem .collapse">
+<h2>$mensagem</h2>
+<pre>$mensagem </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24realiza" id="$realiza"> </a><div class="element clickable property private $realiza" data-toggle="collapse" data-target=".$realiza .collapse">
+<h2>$realiza</h2>
+<pre>$realiza </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24trabalhaEm" id="$trabalhaEm"> </a><div class="element clickable property private $trabalhaEm" data-toggle="collapse" data-target=".$trabalhaEm .collapse">
+<h2>$trabalhaEm</h2>
+<pre>$trabalhaEm </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24usuario" id="$usuario"> </a><div class="element clickable property private $usuario" data-toggle="collapse" data-target=".$usuario .collapse">
+<h2>$usuario</h2>
+<pre>$usuario </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24usuarioLogado" id="$usuarioLogado"> </a><div class="element clickable property private $usuarioLogado" data-toggle="collapse" data-target=".$usuarioLogado .collapse">
+<h2>$usuarioLogado</h2>
+<pre>$usuarioLogado </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24validator" id="$validator"> </a><div class="element clickable property private $validator" data-toggle="collapse" data-target=".$validator .collapse">
+<h2>$validator</h2>
+<pre>$validator </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
+            generated on 2012-07-24T05:22:25-03:00.<br></footer></div>
+</div>
+</body>
+</html>

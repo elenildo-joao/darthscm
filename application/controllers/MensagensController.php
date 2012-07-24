@@ -1,5 +1,18 @@
 <?php
 
+/** 
+ * Classe responsável pelo gerenciamento de mensagens enviadas entre os usuários 
+ * do DarthSCM.
+ * 
+ * @package DarthSCM
+ * @subpackage controllers
+ * @author Caique Pires
+ * @author Jacqueline Midlej
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class MensagensController extends Zend_Controller_Action 
 {
 
@@ -12,6 +25,18 @@ class MensagensController extends Zend_Controller_Action
     private $vMsgRecebida;
     private $vMsgEnviada;
     private $vDestinatarios;
+    
+    /**
+     * Função responsável pela inicialização das propriedades da classe, a serem
+     * usuadas por todas as outras funções e actions. Realiza a verificação de 
+     * autentiicação de usuário. Caso não exista, redireciona para a página de 
+     * login.
+     *
+     * @author Caique Pires
+     * @access public
+     * @return void
+     *
+     */
     
     public function init() {
         
@@ -43,13 +68,30 @@ class MensagensController extends Zend_Controller_Action
                 )->current();
 
     }
-
-    public function indexAction() {
-
+    
+    /**
+     * Redireciona para a action listar.
+     *
+     * @author Caique Pires
+     * @access public
+     * @return void
+     *
+     */
+    
+    public function indexAction() 
+    {
         $this->_forward('listar');
     }
 
-    //Caixa de Entrada
+    /**
+     * Action responsável pela caixa de entrada.
+     *
+     * @author Caique Pires
+     * @access public
+     * @return void
+     *
+     */
+    
     public function listarAction() {
         
         $paginator = Zend_Paginator::factory(
@@ -69,6 +111,15 @@ class MensagensController extends Zend_Controller_Action
                         );*/
         
     }
+    
+    /**
+     * Action responsável pelo envio de uma nova mensagem.
+     *
+     * @author Caique Pires
+     * @access public
+     * @return void
+     *
+     */
     
     public function novoAction() {
         if (!$this->_request->isPost()){
@@ -114,6 +165,15 @@ class MensagensController extends Zend_Controller_Action
     
     }
     
+    /**
+     * Action responsável por enviar uma mensagem para a lixeira.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+    
     public function removerAction() {
         $idMensagem = (int) $this->_getParam('id');
 
@@ -126,6 +186,15 @@ class MensagensController extends Zend_Controller_Action
         $this->view->mensagemErro='Mensagem Removida com Sucesso!';
 //        $this->_redirect('/usuarios/listar');
     }
+    
+    /**
+     * Action responsável por remover a mensagem da caixa de saída.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
 
     public function removerSaidaAction() {
         $idMensagem = (int) $this->_getParam('id');
@@ -138,6 +207,15 @@ class MensagensController extends Zend_Controller_Action
         $this->view->mensagemErro='Mensagem Removida com Sucesso!';
 //        $this->_redirect('/usuarios/listar');
     }
+    
+    /**
+     * Action responsável pela vizualização de uma mensagem.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
     
     public function visualizarAction() {
         $idMensagem = (int) $this->_getParam('id');
@@ -163,6 +241,15 @@ class MensagensController extends Zend_Controller_Action
 
     }
     
+    /**
+     * Action responsável pela visualização de uma mensagem da caixa de saída.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+    
     public function visualizarSaidaAction() {
         $idMensagem = (int) $this->_getParam('id');
         $this->view->mensagem=$this->mensagem
@@ -178,6 +265,15 @@ class MensagensController extends Zend_Controller_Action
                      $this->vMsgEnviada->select()->where('idmensagem = ?', $idMensagem)
                   );
     }
+    
+    /**
+     * Action responsável pela caixa de saída.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
        
     public function caixaSaidaAction(){
         $paginator = Zend_Paginator::factory(
@@ -196,5 +292,3 @@ class MensagensController extends Zend_Controller_Action
                   );
     }
 }
-
-?>

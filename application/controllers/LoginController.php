@@ -1,5 +1,18 @@
 <?php
 
+/** 
+ * Classe responsável pela autenticação no DarthSCM, pela gerência  da sessão de 
+ * usuário, e por fornecer um meio de alteração de senha, caso o usuário tenha 
+ * esquecido.
+ * 
+ * @package DarthSCM
+ * @subpackage controllers
+ * @author Elenildo João <elenildo.joao@gmail.com>
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class LoginController extends Zend_Controller_Action
 {
     
@@ -8,6 +21,16 @@ class LoginController extends Zend_Controller_Action
     private $db;
     private $redefinirSenha;
 
+    
+    /**
+     * Função responsável pela inicialização das propriedades da classe, a serem
+     * usuadas por todas as outras funções e actions.
+     *
+     * @author Elenildo João <elenildo.joao@gmail.com>
+     * @access public
+     * @return void
+     *
+     */
     public function init()
     {
         $this->usuario = new Usuarios();
@@ -16,7 +39,18 @@ class LoginController extends Zend_Controller_Action
         $this->redefinirSenha = new RedefinirSenha();
         
     }
-
+    
+    /**
+     * Action responsável por efetuar a autenticação do usuário no DarthSCM.
+     * Recebe os dados do usuário inseridos no formulário de login via POST, 
+     * realiza a validação, cria a sessão e redireciona para a página inicial do 
+     * sistema.
+     *
+     * @author Elenildo João <elenildo.joao@gmail.com>
+     * @access public
+     * @return void
+     *
+     */
     public function indexAction()
     {
         $this->_helper->layout->setLayout('login');
@@ -64,6 +98,15 @@ class LoginController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * Action responsável por finalizar a sessão de usuário. Redireciona para a
+     * página de login.
+     *
+     * @author Elenildo João <elenildo.joao@gmail.com>
+     * @access public
+     * @return void
+     *
+     */
     public function logoutAction()
     {
         $this->_helper->layout->setLayout('login');
@@ -73,6 +116,15 @@ class LoginController extends Zend_Controller_Action
                     );
     }   
     
+    /**
+     * Action resnponsável pela solicitação de mudança de senha. Envia um e-mail
+     * para o usuário com informações de como realizar a alteração.
+     *
+     * @author Elenildo João <elenildo.joao@gmail.com>
+     * @access public
+     * @return void
+     *
+     */
     public function solicitarAction(){
         $this->_helper->layout->setLayout('login-red');
         
@@ -104,6 +156,16 @@ class LoginController extends Zend_Controller_Action
         }
     }
 
+    /**
+     * Action resnponsável pela mudança de senha. Recebe pela url um hash para a
+     * identificação da solicitação, e permite ao usuário realizar a mudança de 
+     * senha.
+     *
+     * @author Elenildo João <elenildo.joao@gmail.com>
+     * @access public
+     * @return void
+     *
+     */
     public function redefinirAction(){
         $this->_helper->layout->setLayout('login-red'); 
         

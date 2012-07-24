@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * 
+ * Classe helper responsável pela formatação do valor do CPF para exibição.
+ *
+ * @package DarthSCM
+ * @subpackage helpers
+ * @author Elenildo João
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class Zend_View_Helper_FormataCPF extends Zend_View_Helper_Abstract
 {
     /**
-     * Método Principal
+     * Função que formata o cpf para exibição
      * @param string $value Valor para Formatação
      * @return string Valor Formatado
      */

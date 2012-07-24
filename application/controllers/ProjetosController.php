@@ -1,5 +1,17 @@
 <?php
 
+/** 
+ * Classe responsável pelo gerenciamento de projetos no DarthSCM.
+ *
+ * @package DarthSCM
+ * @subpackage controllers
+ * @author Elenildo João <elenildo.joao@gmail.com>
+ * @author Jacqueline Midlej
+ * @version 0.1
+ * @access public
+ *
+ */
+
 class ProjetosController extends Zend_Controller_Action
 {
 
@@ -19,6 +31,18 @@ class ProjetosController extends Zend_Controller_Action
     private $db;
     private $usuarioLogado;
 
+    /**
+     * Função responsável pela inicialização das propriedades da classe, a serem
+     * usuadas por todas as outras funções e actions. Realiza a verificação de 
+     * autentiicação de usuário. Caso não exista, redireciona para a página de 
+     * login.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function init()
     {
         if ( !Zend_Auth::getInstance()->hasIdentity() ) 
@@ -51,15 +75,34 @@ class ProjetosController extends Zend_Controller_Action
                 )->current();
     }
 
+    /**
+     * Redireciona para a action listar.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function indexAction()
     {
         $this->_forward('listar');
     }
     
+    /**
+     * Action responsável pela lista de projetos.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function listarAction()
     {
         $usuario = $this->usuario->find($this->usuarioLogado->idusuario)->current();
-        if ($usuario->admin=='t'){
+        if ($usuario->admin=='t')
+        {
 
         $paginator = Zend_Paginator::factory(
            $this->projeto
@@ -73,7 +116,8 @@ class ProjetosController extends Zend_Controller_Action
         $paginator->setCurrentPageNumber($this->_getParam('page'));
 
         }
-        else {
+        else 
+        {
         $paginator = Zend_Paginator::factory(
            $this->vUsuarioProjeto
                     ->fetchAll(
@@ -85,8 +129,18 @@ class ProjetosController extends Zend_Controller_Action
         $paginator->setItemCountPerPage(2);
         $this->view->paginator = $paginator;
         $paginator->setCurrentPageNumber($this->_getParam('page'));
+        }
     }
-    }
+    
+    /**
+     * Action responsável pela criação de um novo projeto.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function novoAction()
     {
         if ( !$this->_request->isPost() )
@@ -137,6 +191,15 @@ class ProjetosController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * Action responsável pela atualização das informações de um projeto.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function editarAction()
     {     
         if ( !$this->_request->isPost() )
@@ -184,6 +247,15 @@ class ProjetosController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * Action responsável pela remoção de um projeto.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function removerAction()
     {
         $idProjeto = (int) $this->_getParam('idprojeto'); 
@@ -209,6 +281,15 @@ class ProjetosController extends Zend_Controller_Action
 //        $this->_redirect('/projetos/listar');
     }
     
+    /**
+     * Action responsável pelo fechamento de um projeto.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
+    
     public function fecharAction()
     {
         $idProjeto = (int) $this->_getParam('idprojeto'); 
@@ -230,6 +311,15 @@ class ProjetosController extends Zend_Controller_Action
         $this->view->mensagemErro='Projeto Fechado com Sucesso!';               
  //       $this->_redirect('/projetos/listar');
     }
+    
+    /**
+     * Action responsável pela alocação de um colaborador a um projeto.
+     *
+     * @author Elenildo João
+     * @access public
+     * @return void
+     *
+     */
     
     public function alocarColaboradorAction()
     {        
@@ -291,6 +381,15 @@ class ProjetosController extends Zend_Controller_Action
         }
     }
     
+    /**
+     * Action responsável por desalocar um colaborador de um projeto.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+    
     public function desalocarColaboradorAction(){
         if ( !$this->_request->isPost() )
         {
@@ -334,7 +433,16 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar/idprojeto/'.$idProjeto.'/');
         }
     }    
-
+    
+    /**
+     * Action responsável pela lista de tarefas de um projeto.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+    
     public function listarTarefasAction()
     {
         $paginator = Zend_Paginator::factory(
@@ -362,6 +470,15 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vTarefaUsuario->select()->where('idprojeto = ?', $this->_getParam('idprojeto'))->order('nomeusuario')
                         );
     }      
+    
+    /**
+     * Action responsável pela criação de uma nova tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
     
     public function novaTarefaAction()
     {
@@ -402,6 +519,15 @@ class ProjetosController extends Zend_Controller_Action
 //            $this->_redirect('/projetos/listar-tarefas');
             }
     }
+    
+    /**
+     * Action responsável pela atualização de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
 
     public function editarTarefaAction(){
         if ( !$this->_request->isPost() )
@@ -434,8 +560,19 @@ class ProjetosController extends Zend_Controller_Action
 //            $this->_redirect('/projetos/editar-tarefa/idprojeto/'.$idProjeto.'/idtarefa'.$idTarefa);
         }
     }
-
-    public function removeTarefa($idTarefa, $idProjeto) {
+    
+    /**
+     * Função responsável pela remoção de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access private
+     * @param int $idTarefa
+     * @param int $idProjeto
+     * @return void
+     *
+     */
+    
+    private function removeTarefa($idTarefa, $idProjeto) {
         $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
 
         $whereRealiza = $this->realiza->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
@@ -449,6 +586,15 @@ class ProjetosController extends Zend_Controller_Action
         }
         $this->tarefa->delete($whereTarefa);     
     }
+    
+    /**
+     * Action responsável pela remoção de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
 
     public function removerTarefaAction(){
         $idTarefa = (int) $this->_getParam('idtarefa');
@@ -460,6 +606,15 @@ class ProjetosController extends Zend_Controller_Action
 //        $this->_redirect('/projetos/listar-tarefas/');
     }
 
+    /**
+     * Action responsável pelo fechamento de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+    
     public function fecharTarefaAction(){
         $idTarefa = $this->_request->getParam('idtarefa');
         $idProjeto = $this->_request->getParam('idprojeto');        $tarefa = $this->tarefa->find($idTarefa, $idProjeto)->current();
@@ -469,7 +624,17 @@ class ProjetosController extends Zend_Controller_Action
 //        $this->_redirect('/projetos/listar-tarefas');
     }
     
-    public function fechaTarefa($idTarefa){
+    /**
+     * Função responsável pelo fechamento de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access private
+     * @param int $idTarefa
+     * @return void
+     *
+     */
+    
+    private function fechaTarefa($idTarefa){
         $dados = array(
             'datafim' => date("Y-m-d")
         );
@@ -489,6 +654,15 @@ class ProjetosController extends Zend_Controller_Action
         $whereTarefa = $this->tarefa->getAdapter()->quoteInto('idtarefa = ?', (int) $idTarefa);
         $this->tarefa->update($dados, $whereTarefa);
     }
+    
+    /**
+     * Action responsável pela alocação de um usuário a uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
     
     public function alocarUsuarioTarefaAction(){
         if ( !$this->_request->isPost() )
@@ -533,7 +707,16 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         }
     }
-
+    
+    /**
+     * Action responsável por desalocar um usuário de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+    
     public function desalocarUsuarioTarefaAction(){
         if ( !$this->_request->isPost() )
         {
@@ -566,6 +749,15 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         }
     }
+    
+    /**
+     * Action responsável pela criação de uma nova sub-tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
     
     public function novaSubTarefaAction()
     {
@@ -610,6 +802,15 @@ class ProjetosController extends Zend_Controller_Action
  //           $this->_redirect('/projetos/listar-tarefas');
         }
     }
+    
+    /**
+     * Action responsável pela adição de tempo de trabalho em uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
             
     public function adicionarTempoAction(){        
         if ( !$this->_request->isPost() )
@@ -661,6 +862,16 @@ class ProjetosController extends Zend_Controller_Action
             $this->_redirect('/projetos/listar-tarefas/idprojeto/'.$idProjeto.'/');
         } 
     }
+    
+    /**
+     * Action responsável pela geração do relatório de produtividade dos 
+     * colaboradores.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
 
      public function relatorioColaboradorAction (){
      
@@ -670,6 +881,16 @@ class ProjetosController extends Zend_Controller_Action
                         );
      }
      
+     /**
+     * Action responsável pela geração do relatório de produtividade nos 
+     * projetos.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+     
      public function relatorioProjetoAction (){
      
      $this->view->vRelatorioProj = $this->vRelatorioProj
@@ -677,6 +898,15 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vRelatorioProj->select()->order('nomeprojeto')
                         );
      }
+     
+     /**
+     * Action responsável pela geração do gráfico de dedicação aos projetos.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
      
      public function graficoRelProjetoAction (){
           $this->view->vRelatorioProj = $this->vRelatorioProj
@@ -692,6 +922,15 @@ class ProjetosController extends Zend_Controller_Action
                         $this->vRelatorioCol->select()->order('nomeprojeto')->order('nomeusuario')
                         );
      }
+     
+     /**
+     * Action responsável pela exibição detalhada de um projeto.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
      
      public function detalharProjetoAction () {
          
@@ -719,6 +958,15 @@ class ProjetosController extends Zend_Controller_Action
          
      }
      
+     /**
+     * Action responsável pela geração do relatório geral de cada projeto.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
+     
      public function relatorioParticipacaoAction () {
          
          $idProjeto = (int) $this->_getParam('idprojeto');
@@ -738,6 +986,15 @@ class ProjetosController extends Zend_Controller_Action
                         $this->tarefa->select()->where('idprojeto = ?', $idProjeto)
                         );
      }
+     
+     /**
+     * Action responsável pela exibição detalhada de uma tarefa.
+     *
+     * @author Jacqueline Midlej
+     * @access public
+     * @return void
+     *
+     */
      
      public function detalharTarefaAction () {
          

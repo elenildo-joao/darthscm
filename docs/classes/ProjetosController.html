@@ -1,0 +1,747 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>DarthSCM » \ProjetosController</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">DarthSCM</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/DarthSCM.html"><i class="icon-folder-open"></i> DarthSCM</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">180</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#adicionarTempoAction" title="adicionarTempoAction :: Action responsável pela adição de tempo de trabalho em uma tarefa."><span class="description">Action responsável pela adição de tempo de trabalho em uma tarefa.</span><pre>adicionarTempoAction()</pre></a></li>
+<li class="method public "><a href="#alocarColaboradorAction" title="alocarColaboradorAction :: Action responsável pela alocação de um colaborador a um projeto."><span class="description">Action responsável pela alocação de um colaborador a um projeto.</span><pre>alocarColaboradorAction()</pre></a></li>
+<li class="method public "><a href="#alocarUsuarioTarefaAction" title="alocarUsuarioTarefaAction :: Action responsável pela alocação de um usuário a uma tarefa."><span class="description">Action responsável pela alocação de um usuário a uma tarefa.</span><pre>alocarUsuarioTarefaAction()</pre></a></li>
+<li class="method public "><a href="#desalocarColaboradorAction" title="desalocarColaboradorAction :: Action responsável por desalocar um colaborador de um projeto."><span class="description">Action responsável por desalocar um colaborador de um projeto.</span><pre>desalocarColaboradorAction()</pre></a></li>
+<li class="method public "><a href="#desalocarUsuarioTarefaAction" title="desalocarUsuarioTarefaAction :: Action responsável por desalocar um usuário de uma tarefa."><span class="description">Action responsável por desalocar um usuário de uma tarefa.</span><pre>desalocarUsuarioTarefaAction()</pre></a></li>
+<li class="method public "><a href="#detalharProjetoAction" title="detalharProjetoAction :: Action responsável pela exibição detalhada de um projeto."><span class="description">Action responsável pela exibição detalhada de um projeto.</span><pre>detalharProjetoAction()</pre></a></li>
+<li class="method public "><a href="#detalharTarefaAction" title="detalharTarefaAction :: Action responsável pela exibição detalhada de uma tarefa."><span class="description">Action responsável pela exibição detalhada de uma tarefa.</span><pre>detalharTarefaAction()</pre></a></li>
+<li class="method public "><a href="#editarAction" title="editarAction :: Action responsável pela atualização das informações de um projeto."><span class="description">Action responsável pela atualização das informações de um projeto.</span><pre>editarAction()</pre></a></li>
+<li class="method public "><a href="#editarTarefaAction" title="editarTarefaAction :: Action responsável pela atualização de uma tarefa."><span class="description">Action responsável pela atualização de uma tarefa.</span><pre>editarTarefaAction()</pre></a></li>
+<li class="method public "><a href="#fecharAction" title="fecharAction :: Action responsável pelo fechamento de um projeto."><span class="description">Action responsável pelo fechamento de um projeto.</span><pre>fecharAction()</pre></a></li>
+<li class="method public "><a href="#fecharTarefaAction" title="fecharTarefaAction :: Action responsável pelo fechamento de uma tarefa."><span class="description">Action responsável pelo fechamento de uma tarefa.</span><pre>fecharTarefaAction()</pre></a></li>
+<li class="method public "><a href="#graficoRelProjetoAction" title="graficoRelProjetoAction :: Action responsável pela geração do gráfico de dedicação aos projetos."><span class="description">Action responsável pela geração do gráfico de dedicação aos projetos.</span><pre>graficoRelProjetoAction()</pre></a></li>
+<li class="method public "><a href="#indexAction" title="indexAction :: Redireciona para a action listar."><span class="description">Redireciona para a action listar.</span><pre>indexAction()</pre></a></li>
+<li class="method public "><a href="#init" title="init :: Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login."><span class="description">Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.</span><pre>init()</pre></a></li>
+<li class="method public "><a href="#listarAction" title="listarAction :: Action responsável pela lista de projetos."><span class="description">Action responsável pela lista de projetos.</span><pre>listarAction()</pre></a></li>
+<li class="method public "><a href="#listarTarefasAction" title="listarTarefasAction :: Action responsável pela lista de tarefas de um projeto."><span class="description">Action responsável pela lista de tarefas de um projeto.</span><pre>listarTarefasAction()</pre></a></li>
+<li class="method public "><a href="#novaSubTarefaAction" title="novaSubTarefaAction :: Action responsável pela criação de uma nova sub-tarefa."><span class="description">Action responsável pela criação de uma nova sub-tarefa.</span><pre>novaSubTarefaAction()</pre></a></li>
+<li class="method public "><a href="#novaTarefaAction" title="novaTarefaAction :: Action responsável pela criação de uma nova tarefa."><span class="description">Action responsável pela criação de uma nova tarefa.</span><pre>novaTarefaAction()</pre></a></li>
+<li class="method public "><a href="#novoAction" title="novoAction :: Action responsável pela criação de um novo projeto."><span class="description">Action responsável pela criação de um novo projeto.</span><pre>novoAction()</pre></a></li>
+<li class="method public "><a href="#relatorioColaboradorAction" title="relatorioColaboradorAction :: Action responsável pela geração do relatório de produtividade dos
+colaboradores."><span class="description">Action responsável pela geração do relatório de produtividade dos
+colaboradores.</span><pre>relatorioColaboradorAction()</pre></a></li>
+<li class="method public "><a href="#relatorioParticipacaoAction" title="relatorioParticipacaoAction :: Action responsável pela geração do relatório geral de cada projeto."><span class="description">Action responsável pela geração do relatório geral de cada projeto.</span><pre>relatorioParticipacaoAction()</pre></a></li>
+<li class="method public "><a href="#relatorioProjetoAction" title="relatorioProjetoAction :: Action responsável pela geração do relatório de produtividade nos
+projetos."><span class="description">Action responsável pela geração do relatório de produtividade nos
+projetos.</span><pre>relatorioProjetoAction()</pre></a></li>
+<li class="method public "><a href="#removerAction" title="removerAction :: Action responsável pela remoção de um projeto."><span class="description">Action responsável pela remoção de um projeto.</span><pre>removerAction()</pre></a></li>
+<li class="method public "><a href="#removerTarefaAction" title="removerTarefaAction :: Action responsável pela remoção de uma tarefa."><span class="description">Action responsável pela remoção de uma tarefa.</span><pre>removerTarefaAction()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private "><a href="#fechaTarefa" title="fechaTarefa :: Função responsável pelo fechamento de uma tarefa."><span class="description">Função responsável pelo fechamento de uma tarefa.</span><pre>fechaTarefa()</pre></a></li>
+<li class="method private "><a href="#removeTarefa" title="removeTarefa :: Função responsável pela remoção de uma tarefa."><span class="description">Função responsável pela remoção de uma tarefa.</span><pre>removeTarefa()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24db" title="$db :: "><span class="description">$db</span><pre>$db</pre></a></li>
+<li class="property private "><a href="#%24projeto" title="$projeto :: "><span class="description">$projeto</span><pre>$projeto</pre></a></li>
+<li class="property private "><a href="#%24realiza" title="$realiza :: "><span class="description">$realiza</span><pre>$realiza</pre></a></li>
+<li class="property private "><a href="#%24repositorio" title="$repositorio :: "><span class="description">$repositorio</span><pre>$repositorio</pre></a></li>
+<li class="property private "><a href="#%24subtarefa" title="$subtarefa :: "><span class="description">$subtarefa</span><pre>$subtarefa</pre></a></li>
+<li class="property private "><a href="#%24tarefa" title="$tarefa :: "><span class="description">$tarefa</span><pre>$tarefa</pre></a></li>
+<li class="property private "><a href="#%24trabalhaEm" title="$trabalhaEm :: "><span class="description">$trabalhaEm</span><pre>$trabalhaEm</pre></a></li>
+<li class="property private "><a href="#%24usuario" title="$usuario :: "><span class="description">$usuario</span><pre>$usuario</pre></a></li>
+<li class="property private "><a href="#%24usuarioLogado" title="$usuarioLogado :: "><span class="description">$usuarioLogado</span><pre>$usuarioLogado</pre></a></li>
+<li class="property private "><a href="#%24vRealiza" title="$vRealiza :: "><span class="description">$vRealiza</span><pre>$vRealiza</pre></a></li>
+<li class="property private "><a href="#%24vRelatorioCol" title="$vRelatorioCol :: "><span class="description">$vRelatorioCol</span><pre>$vRelatorioCol</pre></a></li>
+<li class="property private "><a href="#%24vRelatorioProj" title="$vRelatorioProj :: "><span class="description">$vRelatorioProj</span><pre>$vRelatorioProj</pre></a></li>
+<li class="property private "><a href="#%24vSubTarefa" title="$vSubTarefa :: "><span class="description">$vSubTarefa</span><pre>$vSubTarefa</pre></a></li>
+<li class="property private "><a href="#%24vTarefaUsuario" title="$vTarefaUsuario :: "><span class="description">$vTarefaUsuario</span><pre>$vTarefaUsuario</pre></a></li>
+<li class="property private "><a href="#%24vUsuarioProjeto" title="$vUsuarioProjeto :: "><span class="description">$vUsuarioProjeto</span><pre>$vUsuarioProjeto</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CProjetosController" id="\ProjetosController"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/.html"></a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ProjetosController.html">ProjetosController</a>
+</li>
+</ul>
+<div href="../classes/ProjetosController.html" class="element class">
+<p class="short_description">Classe responsável pelo gerenciamento de projetos no DarthSCM.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/DarthSCM.controllers.html">DarthSCM</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>controllers</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:elenildo.joao@gmail.com">Elenildo João</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>0.1</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="adicionarTempoAction" id="adicionarTempoAction"></a><div class="element clickable method public adicionarTempoAction" data-toggle="collapse" data-target=".adicionarTempoAction .collapse">
+<h2>Action responsável pela adição de tempo de trabalho em uma tarefa.</h2>
+<pre>adicionarTempoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="alocarColaboradorAction" id="alocarColaboradorAction"></a><div class="element clickable method public alocarColaboradorAction" data-toggle="collapse" data-target=".alocarColaboradorAction .collapse">
+<h2>Action responsável pela alocação de um colaborador a um projeto.</h2>
+<pre>alocarColaboradorAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="alocarUsuarioTarefaAction" id="alocarUsuarioTarefaAction"></a><div class="element clickable method public alocarUsuarioTarefaAction" data-toggle="collapse" data-target=".alocarUsuarioTarefaAction .collapse">
+<h2>Action responsável pela alocação de um usuário a uma tarefa.</h2>
+<pre>alocarUsuarioTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="desalocarColaboradorAction" id="desalocarColaboradorAction"></a><div class="element clickable method public desalocarColaboradorAction" data-toggle="collapse" data-target=".desalocarColaboradorAction .collapse">
+<h2>Action responsável por desalocar um colaborador de um projeto.</h2>
+<pre>desalocarColaboradorAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="desalocarUsuarioTarefaAction" id="desalocarUsuarioTarefaAction"></a><div class="element clickable method public desalocarUsuarioTarefaAction" data-toggle="collapse" data-target=".desalocarUsuarioTarefaAction .collapse">
+<h2>Action responsável por desalocar um usuário de uma tarefa.</h2>
+<pre>desalocarUsuarioTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="detalharProjetoAction" id="detalharProjetoAction"></a><div class="element clickable method public detalharProjetoAction" data-toggle="collapse" data-target=".detalharProjetoAction .collapse">
+<h2>Action responsável pela exibição detalhada de um projeto.</h2>
+<pre>detalharProjetoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="detalharTarefaAction" id="detalharTarefaAction"></a><div class="element clickable method public detalharTarefaAction" data-toggle="collapse" data-target=".detalharTarefaAction .collapse">
+<h2>Action responsável pela exibição detalhada de uma tarefa.</h2>
+<pre>detalharTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="editarAction" id="editarAction"></a><div class="element clickable method public editarAction" data-toggle="collapse" data-target=".editarAction .collapse">
+<h2>Action responsável pela atualização das informações de um projeto.</h2>
+<pre>editarAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="editarTarefaAction" id="editarTarefaAction"></a><div class="element clickable method public editarTarefaAction" data-toggle="collapse" data-target=".editarTarefaAction .collapse">
+<h2>Action responsável pela atualização de uma tarefa.</h2>
+<pre>editarTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="fecharAction" id="fecharAction"></a><div class="element clickable method public fecharAction" data-toggle="collapse" data-target=".fecharAction .collapse">
+<h2>Action responsável pelo fechamento de um projeto.</h2>
+<pre>fecharAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="fecharTarefaAction" id="fecharTarefaAction"></a><div class="element clickable method public fecharTarefaAction" data-toggle="collapse" data-target=".fecharTarefaAction .collapse">
+<h2>Action responsável pelo fechamento de uma tarefa.</h2>
+<pre>fecharTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="graficoRelProjetoAction" id="graficoRelProjetoAction"></a><div class="element clickable method public graficoRelProjetoAction" data-toggle="collapse" data-target=".graficoRelProjetoAction .collapse">
+<h2>Action responsável pela geração do gráfico de dedicação aos projetos.</h2>
+<pre>graficoRelProjetoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="indexAction" id="indexAction"></a><div class="element clickable method public indexAction" data-toggle="collapse" data-target=".indexAction .collapse">
+<h2>Redireciona para a action listar.</h2>
+<pre>indexAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="init" id="init"></a><div class="element clickable method public init" data-toggle="collapse" data-target=".init .collapse">
+<h2>Função responsável pela inicialização das propriedades da classe, a serem
+usuadas por todas as outras funções e actions. Realiza a verificação de
+autentiicação de usuário. Caso não exista, redireciona para a página de
+login.</h2>
+<pre>init() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="listarAction" id="listarAction"></a><div class="element clickable method public listarAction" data-toggle="collapse" data-target=".listarAction .collapse">
+<h2>Action responsável pela lista de projetos.</h2>
+<pre>listarAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="listarTarefasAction" id="listarTarefasAction"></a><div class="element clickable method public listarTarefasAction" data-toggle="collapse" data-target=".listarTarefasAction .collapse">
+<h2>Action responsável pela lista de tarefas de um projeto.</h2>
+<pre>listarTarefasAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="novaSubTarefaAction" id="novaSubTarefaAction"></a><div class="element clickable method public novaSubTarefaAction" data-toggle="collapse" data-target=".novaSubTarefaAction .collapse">
+<h2>Action responsável pela criação de uma nova sub-tarefa.</h2>
+<pre>novaSubTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="novaTarefaAction" id="novaTarefaAction"></a><div class="element clickable method public novaTarefaAction" data-toggle="collapse" data-target=".novaTarefaAction .collapse">
+<h2>Action responsável pela criação de uma nova tarefa.</h2>
+<pre>novaTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="novoAction" id="novoAction"></a><div class="element clickable method public novoAction" data-toggle="collapse" data-target=".novoAction .collapse">
+<h2>Action responsável pela criação de um novo projeto.</h2>
+<pre>novoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="relatorioColaboradorAction" id="relatorioColaboradorAction"></a><div class="element clickable method public relatorioColaboradorAction" data-toggle="collapse" data-target=".relatorioColaboradorAction .collapse">
+<h2>Action responsável pela geração do relatório de produtividade dos
+colaboradores.</h2>
+<pre>relatorioColaboradorAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="relatorioParticipacaoAction" id="relatorioParticipacaoAction"></a><div class="element clickable method public relatorioParticipacaoAction" data-toggle="collapse" data-target=".relatorioParticipacaoAction .collapse">
+<h2>Action responsável pela geração do relatório geral de cada projeto.</h2>
+<pre>relatorioParticipacaoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="relatorioProjetoAction" id="relatorioProjetoAction"></a><div class="element clickable method public relatorioProjetoAction" data-toggle="collapse" data-target=".relatorioProjetoAction .collapse">
+<h2>Action responsável pela geração do relatório de produtividade nos
+projetos.</h2>
+<pre>relatorioProjetoAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="removerAction" id="removerAction"></a><div class="element clickable method public removerAction" data-toggle="collapse" data-target=".removerAction .collapse">
+<h2>Action responsável pela remoção de um projeto.</h2>
+<pre>removerAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Elenildo João</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="removerTarefaAction" id="removerTarefaAction"></a><div class="element clickable method public removerTarefaAction" data-toggle="collapse" data-target=".removerTarefaAction .collapse">
+<h2>Action responsável pela remoção de uma tarefa.</h2>
+<pre>removerTarefaAction() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="fechaTarefa" id="fechaTarefa"></a><div class="element clickable method private fechaTarefa" data-toggle="collapse" data-target=".fechaTarefa .collapse">
+<h2>Função responsável pelo fechamento de uma tarefa.</h2>
+<pre>fechaTarefa(int $idTarefa) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$idTarefa</h4>
+<code>int</code>
+</div>
+</div></div>
+</div>
+<a name="removeTarefa" id="removeTarefa"></a><div class="element clickable method private removeTarefa" data-toggle="collapse" data-target=".removeTarefa .collapse">
+<h2>Função responsável pela remoção de uma tarefa.</h2>
+<pre>removeTarefa(int $idTarefa, int $idProjeto) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Jacqueline Midlej</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$idTarefa</h4>
+<code>int</code>
+</div>
+<div class="subelement argument">
+<h4>$idProjeto</h4>
+<code>int</code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24db" id="$db"> </a><div class="element clickable property private $db" data-toggle="collapse" data-target=".$db .collapse">
+<h2>$db</h2>
+<pre>$db </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24projeto" id="$projeto"> </a><div class="element clickable property private $projeto" data-toggle="collapse" data-target=".$projeto .collapse">
+<h2>$projeto</h2>
+<pre>$projeto </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24realiza" id="$realiza"> </a><div class="element clickable property private $realiza" data-toggle="collapse" data-target=".$realiza .collapse">
+<h2>$realiza</h2>
+<pre>$realiza </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24repositorio" id="$repositorio"> </a><div class="element clickable property private $repositorio" data-toggle="collapse" data-target=".$repositorio .collapse">
+<h2>$repositorio</h2>
+<pre>$repositorio </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24subtarefa" id="$subtarefa"> </a><div class="element clickable property private $subtarefa" data-toggle="collapse" data-target=".$subtarefa .collapse">
+<h2>$subtarefa</h2>
+<pre>$subtarefa </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24tarefa" id="$tarefa"> </a><div class="element clickable property private $tarefa" data-toggle="collapse" data-target=".$tarefa .collapse">
+<h2>$tarefa</h2>
+<pre>$tarefa </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24trabalhaEm" id="$trabalhaEm"> </a><div class="element clickable property private $trabalhaEm" data-toggle="collapse" data-target=".$trabalhaEm .collapse">
+<h2>$trabalhaEm</h2>
+<pre>$trabalhaEm </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24usuario" id="$usuario"> </a><div class="element clickable property private $usuario" data-toggle="collapse" data-target=".$usuario .collapse">
+<h2>$usuario</h2>
+<pre>$usuario </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24usuarioLogado" id="$usuarioLogado"> </a><div class="element clickable property private $usuarioLogado" data-toggle="collapse" data-target=".$usuarioLogado .collapse">
+<h2>$usuarioLogado</h2>
+<pre>$usuarioLogado </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24vRealiza" id="$vRealiza"> </a><div class="element clickable property private $vRealiza" data-toggle="collapse" data-target=".$vRealiza .collapse">
+<h2>$vRealiza</h2>
+<pre>$vRealiza </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24vRelatorioCol" id="$vRelatorioCol"> </a><div class="element clickable property private $vRelatorioCol" data-toggle="collapse" data-target=".$vRelatorioCol .collapse">
+<h2>$vRelatorioCol</h2>
+<pre>$vRelatorioCol </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24vRelatorioProj" id="$vRelatorioProj"> </a><div class="element clickable property private $vRelatorioProj" data-toggle="collapse" data-target=".$vRelatorioProj .collapse">
+<h2>$vRelatorioProj</h2>
+<pre>$vRelatorioProj </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24vSubTarefa" id="$vSubTarefa"> </a><div class="element clickable property private $vSubTarefa" data-toggle="collapse" data-target=".$vSubTarefa .collapse">
+<h2>$vSubTarefa</h2>
+<pre>$vSubTarefa </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24vTarefaUsuario" id="$vTarefaUsuario"> </a><div class="element clickable property private $vTarefaUsuario" data-toggle="collapse" data-target=".$vTarefaUsuario .collapse">
+<h2>$vTarefaUsuario</h2>
+<pre>$vTarefaUsuario </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24vUsuarioProjeto" id="$vUsuarioProjeto"> </a><div class="element clickable property private $vUsuarioProjeto" data-toggle="collapse" data-target=".$vUsuarioProjeto .collapse">
+<h2>$vUsuarioProjeto</h2>
+<pre>$vUsuarioProjeto </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
+            generated on 2012-07-24T05:22:25-03:00.<br></footer></div>
+</div>
+</body>
+</html>
